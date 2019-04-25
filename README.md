@@ -3,6 +3,9 @@ The hello world component is a simple web component that displays "hello" in
 a language determined by which language it is currently in, followed by
 "Shaya".
 
+To initialize this repo for development, please run the setup.sh script once
+after cloning.
+
 The following files are included in this web component:
 * helloworld.html
 * hw.js
