@@ -47,3 +47,6 @@ cat <<\EOF
   Code foramatting had no reccomended changes!
 EOF
  exit 0
+
+# If there are whitespace errors, print the offending file names and fail.
+git diff-index --check --cached $against --

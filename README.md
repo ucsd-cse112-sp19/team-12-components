@@ -37,9 +37,11 @@ See below for more information on Git Hooks:
 * https://medium.com/the-andela-way/git-hooks-beautifully-automate-tasks-stages-bfb29f42fea1
 * https://www.viget.com/articles/two-ways-to-share-git-hooks-with-your-team/
 
-Hooks:
-* commit-msg, pre-commit, etc.
-<<<<<<< HEAD
+Hooks included:
+* pre-commit
+* commit-msg
+
+How to create a hook:
 1. Navigate to the git hooks 
     $ cd /path-to-your-git-repo/.git/hooks
 2. Create a custom hook
