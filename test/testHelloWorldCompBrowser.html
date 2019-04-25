@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Mocha Tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
+   
+  </head>
+  <body>
+    <div id="mocha">
+      <hello-world id="hw-comp" language="french">Shaya!</hello-world>
+    </div>
+    
+
+    <script src="https://unpkg.com/chai/chai.js"></script>
+    <script src="https://unpkg.com/mocha/mocha.js"></script>
+
+    <script class="mocha-init">
+      var assert = chai.assert;
+      mocha.setup('bdd');
+      mocha.checkLeaks();
+    </script> 
+
+    <script src="../hw.js"></script>
+   
+    <!--Unit Tests-->
+    <script>
+      describe('Component Unit Tests', () => {
+        it('Spanish text update', async () => {
+          let hwComponent = document.getElementById('hw-comp');
+          hwComponent.setAttribute("language", "spanish");
+          let hwText = hwComponent.innerText;
+          assert.equal(hwText, 'Hola Shaya!');
+        });
+
+        it('French text update', async () => {
+          let hwComponent = document.getElementById('hw-comp');
+          hwComponent.setAttribute("language", "french");
+          let hwText = hwComponent.innerText;
+          assert.equal(hwText, 'Salut Shaya!');
+        });
+
+        it('English text update', async () => {
+          let hwComponent = document.getElementById('hw-comp');
+          hwComponent.setAttribute("language", "english");
+          let hwText = hwComponent.innerText;
+          assert.equal(hwText, 'Hello Shaya!');
+        });
+    });
+    </script>
+    <script class="mocha-exec">
+      mocha.run();
+    </script>
+  </body>
+</html>
