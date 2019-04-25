@@ -39,4 +39,12 @@ See below for more information on Git Hooks:
 
 Hooks:
 * commit-msg, pre-commit, etc.
-* open -e hookName
+1. Navigate to the git hooks 
+    $ cd /path-to-your-git-repo/.git/hooks
+2. Create a custom hook
+    $ touch hookName
+3. Make the custom hook executable
+    $ chmod +x hookName
+4. Open the pre-commit script with text editor
+    $ open -e hookName # mac OS
+    $ gedit pre-commit # linux
