@@ -39,6 +39,7 @@ See below for more information on Git Hooks:
 
 Hooks:
 * commit-msg, pre-commit, etc.
+<<<<<<< HEAD
 1. Navigate to the git hooks 
     $ cd /path-to-your-git-repo/.git/hooks
 2. Create a custom hook
