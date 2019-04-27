@@ -42,7 +42,7 @@ EOF
 fi
 
 # If there are whitespace errors, print the offending file names and fail.
-git diff-index --check --cached $against --
+#git diff-index --check --cached $against --
 
 # Checks the format and updates the file
 clang-format -i -style=llvm ../../hw.js
