@@ -34,7 +34,7 @@ class HelloWorld extends HTMLElement {
 
   disconnectedCallback() {}
 
-  // set the correct language with name 
+  // set the correct language with name
   updateText(lang, componentText) {
     //(word1,word2,word3)
     let sT = componentText.split(" ");
@@ -43,7 +43,8 @@ class HelloWorld extends HTMLElement {
     // set new string in component
     if (lang == "french") {
       this.innerText = "Salut " + name;
-    } else if (lang == "spanish") {this.innerText = "Hola " + name;
+    } else if (lang == "spanish") {
+      this.innerText = "Hola " + name;
     } else {this.innerText = "Hello " + name;
     }
   }
