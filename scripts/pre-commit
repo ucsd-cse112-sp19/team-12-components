@@ -46,7 +46,7 @@ fi
 
 # Checks the format and updates the file
 echo "hello"
-clang-format -i -style=llvm ../../../hw.js
+clang-format -i -style=llvm ../../hw.js
 
 # For the demonstration if hook_enabled is false reccomend no changes to the
 # code. (And actually commit, not exit 1) 
