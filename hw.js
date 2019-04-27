@@ -34,7 +34,7 @@ class HelloWorld extends HTMLElement {
 
   disconnectedCallback() {}
 
-  // set the correct language with name
+  // set the correct language with name 
   updateText(lang, componentText) {
     //(word1,word2,word3)
     let sT = componentText.split(" ");
