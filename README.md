@@ -5,6 +5,7 @@ a language determined by which language it is currently in, followed by
 
 To initialize this repo for development, please run the setup.sh script once
 after cloning.
+    $ . ./setup.sh
 
 The following files are included in this web component:
 * helloworld.html
@@ -32,11 +33,6 @@ if the message has not been formatted correctly. The git hooks exist as simple
 text files in the .git/hooks directory. The result of the git hook can be
 viewed in the Hook Log in order to see what caused the problem.
 
-See below for more information on Git Hooks:
-* https://www.youtube.com/watch?v=ZZgyILr-TjA
-* https://medium.com/the-andela-way/git-hooks-beautifully-automate-tasks-stages-bfb29f42fea1
-* https://www.viget.com/articles/two-ways-to-share-git-hooks-with-your-team/
-
 Hooks included:
 * pre-commit
 * commit-msg
@@ -51,3 +47,11 @@ How to create a hook:
 4. Open the pre-commit script with text editor
     $ open -e hookName # mac OS
     $ gedit pre-commit # linux
+
+
+## Clang Formatting 
+
+node.js module which wraps the native clang-format executable. Ensuring that
+the code is properly formatted is an important part of the development
+workflow. Note that the check-clang-format and git-clang-format commands 
+require Python to be globally available.
