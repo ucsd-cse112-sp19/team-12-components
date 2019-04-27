@@ -43,7 +43,8 @@ class HelloWorld extends HTMLElement {
 		//set new string in component
 		if (lang == "french") {
 			this.innerText = "Salut " + name;
-		} else if (lang == "spanish") {this.innerText = "Hola " + name;
+		} else if (lang == "spanish") {
+            this.innerText = "Hola " + name;
 		} else {this.innerText = "Hello " + name; 
 		} 
 	}

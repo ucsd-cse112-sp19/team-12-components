@@ -51,6 +51,9 @@ EOF
 # If there are whitespace errors, print the offending file names and fail.
 git diff-index --check --cached $against --
 
+# Checks the format and updates the file
+clang-format -i -style=llvm hw.js
+
 # Githook Clang Format
 STYLE=$(git config --get hooks.clangformat.style)
 if [ -n "${STYLE}" ] ; then
