@@ -45,6 +45,7 @@ fi
 #git diff-index --check --cached $against --
 
 # Checks the format and updates the file
+echo "njdsndkjs"
 clang-format -i -style=llvm ../../hw.js
 
 # For the demonstration if hook_enabled is false reccomend no changes to the
