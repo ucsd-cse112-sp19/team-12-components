@@ -1,3 +1,4 @@
+//global.HTMLElement = function() {};
 class HelloWorld extends HTMLElement {
 	
 	constructor() {

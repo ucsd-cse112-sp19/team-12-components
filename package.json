@@ -4,7 +4,9 @@
   "description": "Hello World Component - CSE 112 - Team JJ",
   "main": "hw.js",
   "scripts": {
-    "test": "mocha"
+    "build": "./node_modules/.bin/babel ./test/ --out-dir ./testCompiled/",
+    "test": "karma start", 
+    "test:watch": "karma start --auto-watch=true --single-run=false"
   },
   "repository": {
     "type": "git",
@@ -18,10 +20,20 @@
   },
   "homepage": "https://github.com/ucsd-cse112/hello-world-component#readme",
   "devDependencies": {
+    "@babel/core": "^7.4.4",
+    "@babel/plugin-transform-runtime": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@babel/register": "^7.4.4",
+    "@open-wc/testing-karma": "^1.1.1",
+    "ajv": "^6.10.0",
     "chai": "^4.2.0",
+    "lit-html": "^1.0.0",
     "mocha": "^6.1.4"
   },
   "dependencies": {
-    "@open-wc/testing": "^0.11.4"
+    "@babel/runtime": "^7.4.4",
+    "@open-wc/testing": "^0.11.4",
+    "@webcomponents/custom-elements": "^1.2.4",
+    "@webcomponents/webcomponentsjs": "^2.2.10"
   }
 }
