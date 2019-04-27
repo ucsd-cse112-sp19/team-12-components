@@ -33,7 +33,7 @@ if the message has not been formatted correctly. The git hooks exist as simple
 text files in the .git/hooks directory. The result of the git hook can be
 viewed in the Hook Log in order to see what caused the problem.
 
-Hooks included:
+Hooks included:    
 * pre-commit
 * commit-msg
 
