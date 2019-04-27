@@ -5,7 +5,7 @@
   "main": "hw.js",
   "scripts": {
     "build": "./node_modules/.bin/babel ./test/ --out-dir ./testCompiled/",
-    "test": "./node_modules/.bin/karma start --single-run --browsers PhantomJS",
+    "test": "karma start", 
     "test:watch": "karma start --auto-watch=true --single-run=false"
   },
   "repository": {
