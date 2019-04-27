@@ -3,7 +3,7 @@ set -e
 
 # Setup script that moves commit hook for code formatting to proper directory
 
-cp scripts/pre-commit .git/hooks
+ln -s scripts/pre-commit .git/hooks/pre-commit
 
 # Clang installation 
 npm install -g clang-format
