@@ -5,7 +5,7 @@ a language determined by which language it is currently in, followed by
 
 To initialize this repo for development, please run the setup.sh script once
 after cloning.
-    $ . ./setup.sh
+    $ sh setup.sh 
 
 The following files are included in this web component:
 * helloworld.html
