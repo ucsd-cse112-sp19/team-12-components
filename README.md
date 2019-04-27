@@ -5,5 +5,7 @@ after cloning.
 
 
 #------- Unit Testing ---------
+<br />
 npm install
+<br />
 npm run test
