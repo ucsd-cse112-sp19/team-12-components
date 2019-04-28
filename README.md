@@ -9,6 +9,6 @@ after cloning.
 
 #------- Unit Testing ---------
 <br />
-npm install
+To run all tests:
 <br />
 npm run test
