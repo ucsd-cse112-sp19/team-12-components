@@ -1,4 +1,4 @@
-# Hello World
+#Hello World
 The hello world component is a simple web component that displays "hello" in
 a language determined by which language it is currently in, followed by
 "Shaya".

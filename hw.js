@@ -44,8 +44,8 @@ class HelloWorld extends HTMLElement {
     if (lang == "french") {
       this.innerText = "Salut " + name;
     } else if (lang == "spanish") {
-  this.innerText = "Hola " + name;
-    } else {this.innerText = "Hello " + name;
+      this.innerText = "Hola " + name;
+    } else { this.innerText = "Hello " + name;
     }
   }
 }
