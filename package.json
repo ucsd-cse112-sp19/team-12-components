@@ -5,7 +5,7 @@
   "main": "hw.js",
   "scripts": {
     "precommit": "check-clang-format \"yarn format\"",
-    "format": "git-clang-format"
+    "format": "git-clang-format",
     "build": "./node_modules/.bin/babel ./test/ --out-dir ./testCompiled/",
     "test": "karma start", 
     "test:watch": "karma start --auto-watch=true --single-run=false"
