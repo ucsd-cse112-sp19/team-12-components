@@ -3,8 +3,12 @@ The hello world component is a simple web component that displays "hello" in
 a language determined by which language it is currently in, followed by
 "Shaya".
 
+[![Build Status](https://travis-ci.com/ucsd-cse112/hello-world-component.svg?token=X6tJshpf7AyWKnGHNntd&branch=master)](https://travis-ci.com/ucsd-cse112/hello-world-component)
+
+
 To initialize this repo for development, please run the setup.sh script once
 after cloning.
+
     $ sh setup.sh 
 
 The following files are included in this web component:
@@ -55,3 +59,10 @@ node.js module which wraps the native clang-format executable. Ensuring that
 the code is properly formatted is an important part of the development
 workflow. Note that the check-clang-format and git-clang-format commands 
 require Python to be globally available.
+
+
+#------- Unit Testing ---------
+<br />
+To run all tests:
+<br />
+npm run test
