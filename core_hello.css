@@ -1,0 +1,22 @@
+/*Define CSS Variables*/
+:root {
+  --font-size: 30px;
+  --font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  --font-weight: bolder;
+}
+
+/*Rainbow Text Start*/
+.rainbow-text {
+  /*add the rainbow feature*/
+  background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);   
+  -webkit-background-clip: text;
+  color: transparent;
+}
+/*Rainbow Text end*/
+
+core-hello {
+  /* Add style to the fonts */
+  font-size: var(--font-size);
+  font-weight: var(--font-weight);
+  font-family: var(--font-family);
+}
