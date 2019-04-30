@@ -11,9 +11,14 @@ class CoreHello extends HTMLElement {
 	 */
 	constructor() {
 		super();
+<<<<<<< Updated upstream
 		this.root = this.attachShadow({mode: 'open'})
 		this.root.appendChild(document.createElement('slot'));
 		this.slotElement = this.root.querySelector('slot');
+=======
+		this.myShadow = this.attachShadow({mode: 'open'})
+			.appendChild(document.createElement('slot'));
+>>>>>>> Stashed changes
 	}
 
 	/**  

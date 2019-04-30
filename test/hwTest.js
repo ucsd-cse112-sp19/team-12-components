@@ -1,5 +1,5 @@
 import {expect, assert} from 'chai';
-import '../hw.js';
+import '../core_hello.js';
 
 
 //----------Unit Tests ------------------
