@@ -6,7 +6,8 @@
   "scripts": {
     "build": "./node_modules/.bin/babel ./test/ --out-dir ./testCompiled/",
     "test": "karma start",
-    "test:watch": "karma start --auto-watch=true --single-run=false"
+    "test:watch": "karma start --auto-watch=true --single-run=false",
+    "doc": "./node_modules/.bin/jsdoc -c jsdoc.json"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,7 @@
     "@open-wc/testing-karma": "^1.1.1",
     "ajv": "^6.10.0",
     "chai": "^4.2.0",
+    "jsdoc": "^3.5.5",
     "lit-html": "^1.0.0",
     "mocha": "^6.1.4"
   },

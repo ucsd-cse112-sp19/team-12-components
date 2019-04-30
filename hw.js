@@ -1,3 +1,7 @@
+/**
+ *
+ * this is a test doc
+ */
 class HelloWorld extends HTMLElement {
 	
 	constructor() {
