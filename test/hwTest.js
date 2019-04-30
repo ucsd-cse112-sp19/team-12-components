@@ -9,7 +9,7 @@ describe('Component Unit Tests', () => {
     let hwHTML = `<core-hello id='hw1' lang='en'>Shaya!</core-hello>`;
     document.body.insertAdjacentHTML('afterbegin',hwHTML);
     let hwEl = document.getElementById('hw1');
-    let hwText = hwEl.innerText;
+    let hwText = hwEl.innerHTML;
     console.log("Component text: ", hwText);
     assert.equal(hwText, 'Hello World Shaya!');
   });
@@ -47,7 +47,7 @@ describe('Component Unit Tests', () => {
     console.log("classList: ", hwClassList);
     assert.equal(hwText, 'Salut Monde Shaya!');
     assert.equal(hwEl.getAttribute('lang'),'fr');
-    assert.equal(hwClassList.contains("rainbow-text"), true);
+    assert.equal(hwClassList.contains("color-text-flow"), true);
     
   });
 
@@ -62,7 +62,7 @@ describe('Component Unit Tests', () => {
     console.log("classList: ", hwClassList);
     assert.equal(hwText, 'Salut Monde Shaya!');
     assert.equal(hwEl.getAttribute('lang'),'fr');
-    assert.equal(hwClassList.contains("rainbow-text"), false);
+    assert.equal(hwClassList.contains("color-text-flow"), false);
   });
 
 });
