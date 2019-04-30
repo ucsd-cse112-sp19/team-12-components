@@ -6,22 +6,15 @@ class CoreHello extends HTMLElement {
 
 	/**  
 	 * Constructor for core-hello, has an empty slot child for text
-	 * @param
-	 * @return
 	 */
 	constructor() {
 		super();
-<<<<<<< Updated upstream
 		this.root = this.attachShadow({mode: 'open'})
 		this.root.appendChild(document.createElement('slot'));
 		this.slotElement = this.root.querySelector('slot');
-=======
-		this.myShadow = this.attachShadow({mode: 'open'})
-			.appendChild(document.createElement('slot'));
->>>>>>> Stashed changes
 	}
 
-	/**  
+	/*
 	 * Since "language" is not a default attribute that is tracked in observedAttributes, 
 	 * we need to add it to the array to be tracked to be able to call attributeChangedCallback() 
 	 * @param
@@ -40,10 +33,9 @@ class CoreHello extends HTMLElement {
 	/**  
 	 * Gets call automatically when an attribute in observedAttributes() is set/changed
 	 * allows our tests to change the language and make the component update 
-	 * @param attrName: attribute name from observedAttributes returned list
+	 * @param {string} attrName - attribute name from observedAttributes returned list
 	 *		  oldVal: ignored in this case
 	 *        newVal: used for value initialization and update
-	 * @return 
 	 */
 	
 	attributeChangedCallback(attrName, oldVal, newVal) {
@@ -65,11 +57,11 @@ class CoreHello extends HTMLElement {
 		//Empty for now
 	}
 
-	/* Called from attributeChangedCallback when lang attribute is changed.
+	/**
+	 * Called from attributeChangedCallback when lang attribute is changed.
 	 * set the correct language with name
-	 * @param lang: new language value
-     *		  componentText: referenced to this.innerText
-     * @return
+	 * @param {string} lang - new language value
+     * @param {string} componentText - referenced to this.innerText
      */
 	updateText(lang,componentText){
 		//(word1,word2,word3)
