@@ -11,9 +11,7 @@ class CoreHello extends HTMLElement {
 	 */
 	constructor() {
 		super();
-		this.root = this.attachShadow({mode: 'open'})
-		this.root.appendChild(document.createElement('slot'));
-		this.slotElement = this.root.querySelector('slot');
+		this.attachShadow({mode: 'open'}).appendChild(document.createElement('slot'));
 	}
 
 	/**  
@@ -70,19 +68,18 @@ class CoreHello extends HTMLElement {
 		//(word1,word2,word3)
 		//set new string in component
 		let toSplit = this.innerText.split(" ");
-		let name = toSplit[2];
-		if (componentText == ''){
-			name = '';
-		}
+		let name = toSplit[toSplit.length - 1];
+		console.log(name);
+
 		if (lang == "fr") {
 			let nameString = "Salut Monde " + name;
-			this.innerHTML = nameString; //French
+			this.innerText = nameString; //French
 		} else if (lang == "sp") {
 			let nameString = "Hola Mundo " + name;
-			this.innerHTML = nameString; //Spainsh
+			this.innerText = nameString; //Spainsh
 		} else if (lang == "en") {
 			let nameString = "Hello World " + name
-			this.innerHTML = nameString; //English
+			this.innerText = nameString; //English
 		}
 	}
 
