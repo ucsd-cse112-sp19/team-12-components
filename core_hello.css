@@ -51,6 +51,15 @@ core-hello {
   }
 }
 
+body {
+  background: #d2d2d2;
+}
+
+.title {
+  color: red;
+  text-align: center;
+}
+
 /*
 
 @import url(https://fonts.googleapis.com/css?family=Oxygen);
