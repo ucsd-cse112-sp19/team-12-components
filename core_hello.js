@@ -26,6 +26,12 @@ class CoreHello extends HTMLElement {
 	connectedCallback() {
 		//Empty for now because the attributeChangedCallback
 		//fires first and this is not needed
+		if (this.hasAttribute('rainbow')) {
+        	this.toggleRainbow('true');
+      	}
+      	else{
+      		this.toggleRainbow('false');
+      	}
 	}
 
 	/**  
@@ -45,7 +51,12 @@ class CoreHello extends HTMLElement {
 		if (attrName == 'lang') {
 			this.updateText(attr, this.innerText);
 		} else if (attrName == 'rainbow') {
-			this.toggleRainbow(attr);
+			if (this.hasAttribute('rainbow')) {
+        		this.toggleRainbow('true');
+      		}
+      		else{
+      			this.toggleRainbow('false');
+      		}
 		}
 	}
 	/* Invoked each time the custom element is disconnected from the document's DOM.
