@@ -24,8 +24,10 @@ class CoreHello extends HTMLElement {
 	 * Web component initialization, empty for now.
 	 */
 	connectedCallback() {
-		//Empty for now because the attributeChangedCallback
-		//fires first and this is not needed
+		if (this.hasAttribute('rainbow')) 
+			this.toggleRainbow('true');
+		else
+			this.toggleRainbow('false');
 	}
 
 	/**  
@@ -45,7 +47,10 @@ class CoreHello extends HTMLElement {
 		if (attrName == 'lang') {
 			this.updateText(attr, this.innerText);
 		} else if (attrName == 'rainbow') {
-			this.toggleRainbow(attr);
+			if (this.hasAttribute('rainbow'))
+				this.toggleRainbow('true');
+			else
+				this.toggleRainbow('false');
 		}
 	}
 	/* Invoked each time the custom element is disconnected from the document's DOM.
@@ -95,8 +100,8 @@ class CoreHello extends HTMLElement {
 	 * For now the values are set to True or False,
 	 * The class that is added to the element is rainbow-text and can be found in the CSS file.
 	 * @param isToggled: ture or false for rainbow effects
-     * @return
-     */
+	 * @return
+	 */
 	toggleRainbow(isToggled) {
 		if (isToggled == "true") {
 			//add the rainbow css class to the component

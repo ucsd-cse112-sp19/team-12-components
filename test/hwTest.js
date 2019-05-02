@@ -38,7 +38,7 @@ describe('Component Unit Tests', () => {
 
   it('Rainbow ON', async () => {
     // tests the rainbow attribute ON
-    let hwHTML = `<core-hello id='hw4' lang='fr' rainbow='true'>Shaya!</core-hello>`;
+    let hwHTML = `<core-hello id='hw4' lang='fr' rainbow>Shaya!</core-hello>`;
     document.body.insertAdjacentHTML('afterbegin',hwHTML);
     let hwEl = document.getElementById('hw4');
     let hwText = hwEl.innerText;
@@ -53,7 +53,7 @@ describe('Component Unit Tests', () => {
 
   it('Rainbow OFF', async () => {
     // tests the rainbow attribute OFF
-    let hwHTML = `<core-hello id='hw5' lang='fr' rainbow="false">Shaya!</core-hello>`;
+    let hwHTML = `<core-hello id='hw5' lang='fr'>Shaya!</core-hello>`;
     document.body.insertAdjacentHTML('afterbegin',hwHTML);
     let hwEl = document.getElementById('hw5');
     let hwText = hwEl.innerText;
