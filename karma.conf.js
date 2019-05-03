@@ -11,7 +11,8 @@ module.exports = config => {
         //
         // npm run test -- --grep test/foo/bar.test.js
         // npm run test -- --grep test/bar/*
-        config.grep ? config.grep : 'test/*.js',
+        //config.grep ? config.grep : 'test/*.js',
+        config.grep ? config.grep : 'test/*/*.js',
       ],
       preprocessors: {
         'test/**/*.js': ['webpack', 'sourcemap']
