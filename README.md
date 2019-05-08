@@ -4,8 +4,8 @@
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
 [Unit Testing](#unit_test)  
-[Doc generation](#unit_test)  
-[Support Testing](#unit_test)  
+[Doc generation](#doc)  
+[Support Testing](#ack)  
 
 
 To initialize this repo for development, please run the setup.sh script once
@@ -17,11 +17,11 @@ after cloning.
 **To run all tests:**  
 npm run test
 
-## Doc Generation
+## Doc Generation <a name="doc"></a>
 ----------------
 **To generate docs:**  
 npm run doc
 
-## Aknowledgement
+## Acknowledgement <a name="ack"></a>
 ----------------
 We would like to thank [SauceLabs](https://saucelabs.com) for their support of open source projects like ours.
