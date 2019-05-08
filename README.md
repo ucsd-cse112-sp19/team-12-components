@@ -24,4 +24,4 @@ npm run doc
 
 ## Aknowledgement
 ----------------
-We would like to thank [SauceLabs](https://https://saucelabs.com) for their support of open source projects like ours.
+We would like to thank [SauceLabs](https://saucelabs.com) for their support of open source projects like ours.
