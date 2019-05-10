@@ -9,7 +9,14 @@
 
 
 To initialize this repo for development, please run the setup.sh script once
-after cloning.
+after cloning, by typing the following command:
+
+    $ ./setup.sh
+
+Then install clang-format by running the following command: 
+
+MacOS (install Homebrew): 
+    $ brew clang-format
 
 
 ## Unit Testing <a name="unit_test"></a>

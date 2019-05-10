@@ -4,10 +4,21 @@
   "description": "Hello World Component - CSE 112 - Team JJ",
   "main": "hw.js",
   "scripts": {
+    "precommit": "check-clang-format \"yarn format\"",
+    "format": "git-clang-format",
     "build": "./node_modules/.bin/babel ./test/ --out-dir ./testCompiled/",
     "test": "karma start",
     "test:watch": "karma start --auto-watch=true --single-run=false",
     "doc": "./node_modules/.bin/jsdoc -c jsdoc.json"
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "clang-format -i -style=llvm packages/*/*.js"
+    }
   },
   "repository": {
     "type": "git",
@@ -36,6 +47,8 @@
     "@babel/runtime": "^7.4.4",
     "@open-wc/testing": "^0.11.4",
     "@webcomponents/custom-elements": "^1.2.4",
-    "@webcomponents/webcomponentsjs": "^2.2.10"
+    "@webcomponents/webcomponentsjs": "^2.2.10",
+    "clang-format": "^1.2.4",
+    "husky": "^2.2.0"
   }
 }
