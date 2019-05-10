@@ -25,7 +25,8 @@
     "url": "git+https://github.com/ucsd-cse112/hello-world-component.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Team JJ",
+  "url": "https://github.com/ucsd-cse112/hello-world-component#readme",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ucsd-cse112/hello-world-component/issues"
@@ -39,7 +40,7 @@
     "@open-wc/testing-karma": "^1.1.1",
     "ajv": "^6.10.0",
     "chai": "^4.2.0",
-    "jsdoc": "^3.5.5",
+    "husky": "^2.1.0",
     "lit-html": "^1.0.0",
     "mocha": "^6.1.4"
   },

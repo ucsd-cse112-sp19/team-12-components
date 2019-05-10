@@ -1,0 +1,9 @@
+#!/usr/bin/env ruby
+message_file = ARGV[0]
+message = File.read(message_file)
+$regex = /\((\w+)\):/
+if !$regex.match(message)
+  puts "[POLICY] Your message is not formatted correctly"
+  puts "[STANDARD] Your message should be in the format: ‘feat(module): commit message’ "
+  exit 1
+end
