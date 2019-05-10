@@ -85,7 +85,7 @@ class CoreHello extends HTMLElement {
       this.innerText = nameString; // Spainsh
     } else if (lang == "en") {let nameString = "Hello World " + name;
     
-    this.innerText = nameString; // English
+this.innerText = nameString; // English
     }
   }
 

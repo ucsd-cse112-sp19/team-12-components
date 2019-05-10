@@ -17,7 +17,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "echo XXXXXXXXXXX Clang"
+      "pre-commit": "clang-format -i -style=llvm packages/*/*.js"
     }
   },
   "repository": {
