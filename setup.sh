@@ -1,7 +1,7 @@
 #!/bin/sh
 # setup script that moves commit hook for code formatting to proper directory
 # and sets up unit testing
-cp scripts/pre-commit .git/hooks
+# cp scripts/pre-commit .git/hooks
 
 # update npm
 sudo npm i -g npm

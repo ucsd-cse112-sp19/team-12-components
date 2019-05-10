@@ -44,6 +44,6 @@ fi
 # For the demonstration if hook_enabled is false reccomend no changes to the
 # code. (And actually commit, not exit 1) 
 cat <<\EOF
-  Code foramatting had no reccomended changes!
+  Code formatting had no recommended changes!
 EOF
  exit 0
