@@ -42,14 +42,13 @@
     "chai": "^4.2.0",
     "husky": "^2.1.0",
     "lit-html": "^1.0.0",
+    "clang-format": "^1.2.4",
     "mocha": "^6.1.4"
   },
   "dependencies": {
     "@babel/runtime": "^7.4.4",
     "@open-wc/testing": "^0.11.4",
     "@webcomponents/custom-elements": "^1.2.4",
-    "@webcomponents/webcomponentsjs": "^2.2.10",
-    "clang-format": "^1.2.4",
-    "husky": "^2.2.0"
+    "@webcomponents/webcomponentsjs": "^2.2.10"
   }
 }
