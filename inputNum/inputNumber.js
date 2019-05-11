@@ -1,9 +1,11 @@
 const template = document.createElement('template');
 template.innerHTML = `
   <link rel="stylesheet" href="inputNumber.css">
-  <button aria-label="decrement">-</button>
-    <input type="number" value = 0></input>
-  <button aria-label="increment">+</button>
+  <div class="input-number">
+    <button aria-label="decrement" class="decrement-btn">-</button>
+    <input type="number" value = 0 class="input-field"></input>
+    <button aria-label="increment" class="increment-btn">+</button>
+  </div>
 `;
 
 class InputNum extends HTMLElement {
