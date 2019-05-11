@@ -1,19 +1,6 @@
 const template = document.createElement('template');
 template.innerHTML = `
-  <style>
-    button, p {
-      display: inline-block;
-    }
-    input[type="number"] {
-      -webkit-appearance: textfield;
-         -moz-appearance: textfield;
-              appearance: textfield;
-    }
-    input[type=number]::-webkit-inner-spin-button, 
-    input[type=number]::-webkit-outer-spin-button { 
-      -webkit-appearance: none;
-    }
-  </style>
+  <link rel="stylesheet" href="inputNumber.css">
   <button aria-label="decrement">-</button>
     <input type="number" value = 0></input>
   <button aria-label="increment">+</button>
