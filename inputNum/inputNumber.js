@@ -25,7 +25,6 @@ class InputNum extends HTMLElement {
     this.root = this.attachShadow({ mode: 'open' });
     this.root.appendChild(template.content.cloneNode(true));
 
-    this.inputDiv = this.root.querySelector('div');
     this.valueElement = this.root.querySelector('input');
     this.incrementButton = this.root.querySelectorAll('button')[1];
     this.decrementButton = this.root.querySelectorAll('button')[0];
