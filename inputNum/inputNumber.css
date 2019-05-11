@@ -10,3 +10,50 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button { 
 -webkit-appearance: none;
 }
+
+.input-number {
+    display: inline-block;
+    border: 1px solid #c2c2c2;
+    border-radius: 5px;
+}
+
+.decrement-btn {
+    width: 20%;
+    height: 100%;
+    font-size: 14px;
+    border: none;
+    border-right: 1px solid #c2c2c2;
+    border-radius: 5px;
+}
+
+.increment-btn {
+    width: 20%;
+    height: 100%;
+    font-size: 14px;
+    border: none;
+    border-left: 1px solid #c2c2c2;
+    border-radius: 5px;
+}
+ 
+.input-field {
+    width: 59%;
+    height: 95%;
+    font-size: 14px;
+    text-align: center;
+    border: none;
+}
+
+.disabled {
+    pointer-events:none;
+    opacity: 0.4;
+}
+
+.small {
+    width: 200px;
+    height: 40px;
+}
+
+.large {
+    width: 250px;
+    height: 55px;
+}

@@ -1,22 +1,11 @@
 const template = document.createElement('template');
 template.innerHTML = `
-  <style>
-    button, p {
-      display: inline-block;
-    }
-    input[type="number"] {
-      -webkit-appearance: textfield;
-         -moz-appearance: textfield;
-              appearance: textfield;
-    }
-    input[type=number]::-webkit-inner-spin-button, 
-    input[type=number]::-webkit-outer-spin-button { 
-      -webkit-appearance: none;
-    }
-  </style>
-  <button aria-label="decrement">-</button>
-    <input type="number"></input>
-  <button aria-label="increment">+</button>
+  <link rel="stylesheet" href="inputNumber.css">
+  <div class="input-number">
+    <button aria-label="decrement" class="decrement-btn">-</button><!--
+    --><input type="number" value = 0 class="input-field"></input><!--
+    --><button aria-label="increment" class="increment-btn">+</button>
+  </div>
 `;
 
 class InputNum extends HTMLElement {
@@ -59,20 +48,10 @@ class InputNum extends HTMLElement {
       this.step = 1;
     
     if(!this.hasAttribute('size'))
-      //TODO
-      this.valueElement.setAttribute('size','small');
-  
-    if(!this.hasAttribute('disabled'))
-      //TODO
+      this.inputDiv.className+=' small';
     
-    /*
-    if(!this.hasAttribute('placeholder'))
-      this.valueElement.setAttribute('placeholder', '');
-    */
     if (!this.hasAttribute('value'))
       this.value = 0;
-    
-    
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {
@@ -88,10 +67,14 @@ class InputNum extends HTMLElement {
         this.step = parseInt(newValue, 10);
         break;
       case 'size':
-        //TODO
+        this.inputDiv.classList.remove(oldValue);
+        this.inputDiv.classList.add(newValue);
         break;
       case 'disabled':
-        //TODO
+        if (newValue)
+          this.inputDiv.classList.add('disabled');
+        else
+          this.inputDiv.classList.remove('disabled');
         break;
       case 'placeholder':
         this.valueElement.setAttribute('placeholder',newValue);
@@ -100,18 +83,22 @@ class InputNum extends HTMLElement {
         this.value = parseInt(newValue, 10);
         break;
       case 'controls':
-        if (newValue === 'true'){
+        if (newValue === 'false'){
           this.incrementButton.style.display = 'none';
           this.decrementButton.style.display = 'none';
+          this.valueElement.style.width = '99%';
         }
       }
   }
 
   constructor() {
     super();
+    this._value = 0;
+
     this.root = this.attachShadow({ mode: 'open' });
     this.root.appendChild(template.content.cloneNode(true));
 
+    this.inputDiv = this.root.querySelector('div');
     this.valueElement = this.root.querySelector('input');
     this.incrementButton = this.root.querySelectorAll('button')[1];
     this.decrementButton = this.root.querySelectorAll('button')[0];
@@ -135,7 +122,31 @@ class InputNum extends HTMLElement {
 
     this.valueElement
       .addEventListener('keyup', (e) => this.value = this.valueElement.value);
+
+    this.decrementButton
+      .addEventListener('mouseover', (e) => {
+        this.inputDiv.style.borderColor = "#75baff";
+        this.decrementButton.style.color = "#75baff";
+      });
+    this.decrementButton
+      .addEventListener('mouseout', (e) => {
+        this.inputDiv.style.borderColor = "#c2c2c2";
+        this.decrementButton.style.color = "black";
+      });
+
+    this.incrementButton
+      .addEventListener('mouseover', (e) => {
+        this.inputDiv.style.borderColor = "#75baff";
+        this.incrementButton.style.color = "#75baff";
+      });
+    this.incrementButton
+      .addEventListener('mouseout', (e) => {
+        this.inputDiv.style.borderColor = "#c2c2c2";
+        this.incrementButton.style.color = "black";
+      });
+
+    this.valueElement
+      .addEventListener('click', (e) => this.inputDiv.style.borderColor = "#75baff");
   }
 }
-
 customElements.define('input-number', InputNum);
