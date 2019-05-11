@@ -4,17 +4,29 @@
   "description": "Hello World Component - CSE 112 - Team JJ",
   "main": "hw.js",
   "scripts": {
+    "precommit": "./node_modules/.bin/check-clang-format \"yarn format\"",
+    "format": "./node_modules/.bin/git-clang-format",
     "build": "./node_modules/.bin/babel ./test/ --out-dir ./testCompiled/",
     "test": "karma start",
     "test:watch": "karma start --auto-watch=true --single-run=false",
     "doc": "./node_modules/.bin/jsdoc -c jsdoc.json"
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "npm": ">=6.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "clang-format -i -style=llvm packages/*/*.js"
+    }
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ucsd-cse112/hello-world-component.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Team JJ",
+  "url": "https://github.com/ucsd-cse112/hello-world-component#readme",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/ucsd-cse112/hello-world-component/issues"
@@ -28,8 +40,9 @@
     "@open-wc/testing-karma": "^1.1.1",
     "ajv": "^6.10.0",
     "chai": "^4.2.0",
-    "jsdoc": "^3.5.5",
+    "husky": "^2.1.0",
     "lit-html": "^1.0.0",
+    "clang-format": "^1.2.4",
     "mocha": "^6.1.4"
   },
   "dependencies": {

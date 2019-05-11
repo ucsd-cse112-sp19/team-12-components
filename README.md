@@ -7,10 +7,17 @@
 [Doc generation](#doc)  
 [Support Testing](#ack)  
 
+## Setup
+To initialize this repo for development, please run
+``` npm install ```
 
-To initialize this repo for development, please run the setup.sh script once
-after cloning.
+## Contribute
+We use clang-format for linting. If you are going to contribute please install clang-format. Below are some steps you can follow to install.
 
+MacOS (install Homebrew):  
+    ```$ brew install clang-format```
+
+Windows please follow this [guide](https://github.com/google/closure-library/wiki/Formatting-.js-with-clang-format)
 
 ## Unit Testing <a name="unit_test"></a>
 ----------------
