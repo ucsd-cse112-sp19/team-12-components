@@ -4,6 +4,15 @@ template.innerHTML = `
     button, p {
       display: inline-block;
     }
+    input[type="number"] {
+      -webkit-appearance: textfield;
+         -moz-appearance: textfield;
+              appearance: textfield;
+    }
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none;
+    }
   </style>
   <button aria-label="decrement">-</button>
     <input type="number" value = 0></input>
@@ -36,6 +45,9 @@ class InputNum extends HTMLElement {
 
     this.decrementButton
       .addEventListener('click', (e) => this.value--);
+
+    this.valueElement
+      .addEventListener('keyup', (e) => this.value = this.valueElement.value)
   }
 }
 
