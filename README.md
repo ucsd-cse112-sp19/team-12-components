@@ -1,11 +1,4 @@
-<<<<<<< HEAD
 # UCSD-Team12 Web Component Library
-=======
-#Hello World
-The hello world component is a simple web component that displays "hello" in
-a language determined by which language it is currently in, followed by
-"Shaya".
->>>>>>> c4ab85ef5745fe91eae37d0cf128cc529942f7c3
 
 [![Build Status](https://travis-ci.com/ucsd-cse112/hello-world-component.svg?token=X6tJshpf7AyWKnGHNntd&branch=master)](https://travis-ci.com/ucsd-cse112/hello-world-component)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
@@ -14,17 +7,17 @@ a language determined by which language it is currently in, followed by
 [Doc generation](#doc)  
 [Support Testing](#ack)  
 
+## Setup
+To initialize this repo for development, please run
+``` npm install ```
 
-To initialize this repo for development, please run the setup.sh script once
-after cloning, by typing the following command:
+## Contribute
+We use clang-format for linting. If you are going to contribute please install clang-format. Below are some steps you can follow to install.
 
-    $ ./setup.sh
+MacOS (install Homebrew):  
+    ```$ brew install clang-format```
 
-Then install clang-format by running the following command: 
-
-MacOS (install Homebrew): 
-    $ brew clang-format
-
+Windows please follow this [guide](https://github.com/google/closure-library/wiki/Formatting-.js-with-clang-format)
 
 ## Unit Testing <a name="unit_test"></a>
 ----------------
