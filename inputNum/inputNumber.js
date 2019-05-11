@@ -7,7 +7,7 @@ template.innerHTML = `
 `;
 
 class InputNum extends HTMLElement {
-  set value(value) {
+set value(value) {
     this._value = value;
     this.valueElement.value = this._value;
   }
