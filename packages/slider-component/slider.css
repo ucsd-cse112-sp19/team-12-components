@@ -1,0 +1,27 @@
+body, html {
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: 400;
+}
+
+p {
+    color: #8492a6;
+    font-weight: 200;
+}
+
+.demo-block {
+   border: 1px solid #ebebeb;
+   border-radius: 3px;
+   transition: .2s;
+}
+
+.demo-block .block {
+   padding: 30px 24px;
+   overflow: hidden;
+   border-bottom: 1px solid #eff2f6;
+}
+
+el-slider {
+    float: right;
+    width: 70%;
+    margin-right: 20px;
+}
