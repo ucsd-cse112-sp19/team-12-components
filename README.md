@@ -5,7 +5,8 @@
 
 [Unit Testing](#unit_test)  
 [Doc generation](#doc)  
-[Support Testing](#ack)  
+[Support Testing](#ack)
+[Team](#team)  
 
 ## Setup
 To initialize this repo for development, please run
@@ -29,6 +30,11 @@ npm run test
 **To generate docs:**  
 npm run doc
 
+## Team <a name="team"></a>
+----------------
+- 
+
 ## Acknowledgement <a name="ack"></a>
 ----------------
+
 We would like to thank [SauceLabs](https://saucelabs.com) for their support of open source projects like ours.
