@@ -35,7 +35,7 @@ class InputNum extends HTMLElement {
     this.setAttribute
   }
 
-  static get observedAttributes() { return [ 'min', 'max', 'step', 'size', 'disabled', 'placeholder', 'value']; }
+  static get observedAttributes() { return [ 'controls', 'min', 'max', 'step', 'size', 'disabled', 'placeholder', 'value']; }
   
   connectedCallback() {
     if (!this.hasAttribute('min'))
@@ -57,8 +57,7 @@ class InputNum extends HTMLElement {
   attributeChangedCallback(attrName, oldValue, newValue) {
     switch (attrName) {
       case 'min':
-        this.valueElement.setAttribute(min,parseInt(newValue, 10));
-        //this.valueElement.min = parseInt(newValue, 10);
+        this.valueElement.min = parseInt(newValue, 10);
         break;
       case 'max':
         this.valueElement.max = parseInt(newValue, 10);
@@ -80,13 +79,22 @@ class InputNum extends HTMLElement {
         this.valueElement.setAttribute('placeholder',newValue);
         break;
       case 'value':
-        this.value = parseInt(newValue, 10);
+        if (newValue > this.valueElement.max || newValue < this.valueElement.min){
+          window.alert("Out of Range!");
+        }
+        else
+          this.value = parseInt(newValue, 10);
         break;
       case 'controls':
         if (newValue === 'false'){
           this.incrementButton.style.display = 'none';
           this.decrementButton.style.display = 'none';
           this.valueElement.style.width = '99%';
+        }
+        else{
+          this.incrementButton.style.display = 'inline-block';
+          this.decrementButton.style.display = 'inline-block';
+          this.valueElement.style.width = '59%';
         }
       }
   }
