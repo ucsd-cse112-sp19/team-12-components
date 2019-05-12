@@ -1,56 +1,103 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  <meta charset="UTF-8">
-  <!-- import CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-  <link rel="stylesheet" href="./slider.css">
-  <!-- import Vue before Element -->
-  <script src="https://unpkg.com/vue/dist/vue.js"></script>
-  <!-- import JavaScript -->
-  <script src="https://unpkg.com/element-ui/lib/index.js"></script>
+	<meta charset="UTF-8">
+	<!-- import CSS -->
+	<link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+	<link rel="stylesheet" href="./slider.css">
+	<!-- import Vue before Element -->
+	<script src="https://unpkg.com/vue/dist/vue.js"></script>
+	<!-- import JavaScript -->
+	<script src="https://unpkg.com/element-ui/lib/index.js"></script>
 </head>
+
 <body>
-  <div id="app">
-      <template>
-          <h2>Slider</h2>
-          <p>Drag the slider within a fixed range.</p>
-          <!-- Basic usage -->
-          <h3>Basic usage</h3>
-          <p>The current value is displayed when the slider is being dragged.</p>
-          <div class="demo-block">
-            <div class="block">
-              <span class="demonstration">Default value</span>
-              <el-slider v-model="value1"></el-slider>
-            </div>
-            <div class="block">
-                <span class="demonstration">Customized initial value</span>
-                <el-slider v-model="value2"></el-slider>
-            </div>
-            <div class="block">
-                <span class="demonstration">Hide Tooltip</span>
-                <el-slider v-model="value3" :show-tooltip="false"></el-slider>
-            </div>
-            <div class="block">
-                <span class="demonstration">Format Tooltip</span>
-                <el-slider v-model="value4" :format-tooltip="formatTooltip"></el-slider>
-            </div>
-            <div class="block">
-                <span class="demonstration">Disabled</span>
-                <el-slider v-model="value5" disabled></el-slider>
-            </div>
-        </div>
-        <!-- Discrete values -->
-            <div class="block">
-                <span class="demonstration">Breakpoints not displayed</span>
-                <el-slider v-model="value6" :step="10"></el-slider>
-            </div>
-            <div class="block">
-                <span class="demonstration">Breakpoints displayed</span>
-                <el-slider v-model="value2" :step="10" show-stops></el-slider>
-            </div>
-        </template>
-    </div>
-  </body>
-    <script src="./slider.js"></script>
+	<div id="app" class="container">
+		<template>
+			<h2>Slider</h2>
+			<p>Drag the slider within a fixed range.</p>
+
+			<!-- Basic usage -->
+			<h3>Basic usage</h3>
+			<p>The current value is displayed when the slider is being dragged.</p>
+			<div class="demo-block">
+				<div class="block">
+					<span class="demonstration">Default value</span>
+					<el-slider v-model="value1"></el-slider>
+				</div>
+				<div class="block">
+					<span class="demonstration">Customized initial value</span>
+					<el-slider v-model="value2"></el-slider>
+				</div>
+				<div class="block">
+					<span class="demonstration">Hide Tooltip</span>
+					<el-slider v-model="value3" :show-tooltip="false"></el-slider>
+				</div>
+				<div class="block">
+					<span class="demonstration">Format Tooltip</span>
+					<el-slider v-model="value4" :format-tooltip="formatTooltip"></el-slider>
+				</div>
+				<div class="block">
+					<span class="demonstration">Disabled</span>
+					<el-slider v-model="value5" disabled></el-slider>
+				</div>
+			</div>
+
+			<!-- Discrete values -->
+			<h3>Discrete values</h3>
+			<p>The options can be discrete.</p>
+			<div class="demo-block">
+				<div class="block">
+					<span class="demonstration">Breakpoints not displayed</span>
+					<el-slider v-model="value6" :step="10"></el-slider>
+				</div>
+				<div class="block">
+					<span class="demonstration">Breakpoints displayed</span>
+					<el-slider v-model="value2" :step="10" show-stops></el-slider>
+				</div>
+			</div>
+
+			<!-- Slider with input box -->
+			<h3>Slider with input box</h3>
+			<p>Set value via a input box.</p>
+			<div class="demo-block">
+				<div class="block">
+					<el-slider v-model="value8" show-input></el-slider>
+				</div>
+			</div>
+
+			<!-- Range Selection -->
+			<h3>Range selection</h3>
+			<p>Selecting a range of values is supported.</p>
+			<div class="demo-block">
+				<div class="block">
+					<el-slider v-model="value9" range show-stops :max="10">
+					</el-slider>
+				</div>
+			</div>
+
+			<!-- Vertical -->
+			<h3>Vertical</h3>
+			<div class="demo-block">
+				<div class="block">
+					<el-slider v-model="value10" vertical height="200px">
+					</el-slider>
+				</div>
+			</div>
+
+			<!-- Show Marks -->
+			<h3>Show Marks</h3>
+			<div class="demo-block">
+				<div class="block">
+					<el-slider v-model="value11" range :marks="marks">
+					</el-slider>
+				</div>
+			</div>
+
+		</template>
+	</div>
+</body>
+<script src="./slider.js"></script>
+
 </html>
