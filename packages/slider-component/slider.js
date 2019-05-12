@@ -6,6 +6,6 @@ var Main = {
     }
   },
   methods : {formatTooltip(val) { return val / 100; }}
-} 
-var Ctor = Vue.extend(Main) 
-new Ctor().$mount('#app')
+};
+var Ctor = Vue.extend(Main);
+new Ctor().$mount('#app');
