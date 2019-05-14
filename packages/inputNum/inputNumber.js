@@ -62,9 +62,6 @@ class InputNum extends HTMLElement {
     if (!this.hasAttribute('value'))
       this.value = 0;
 
-    if (!this.hasAttribute('value'))
-      this.position = 'done';
-
     if (!this.hasAttribute('precision'))
       this.precision = 0;
   }
