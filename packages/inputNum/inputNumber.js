@@ -8,6 +8,18 @@ template.innerHTML = `
   </div>
 `;
 
+const template2 = document.createElement('template');
+template2.innerHTML = `
+<link rel="stylesheet" href="inputNumber.css">
+<div class="input-number">
+<input type="number" value = 0 class="input-field"></input>
+<div class = "button-container">
+<button aria-label="increment" class="increment-btn-2">+</button>
+<button aria-label="decrement" class="decrement-btn-2">-</button>
+</div>
+</div>
+`;
+
 class InputNum extends HTMLElement {
   set value(value) {
     this._value = value;
@@ -21,12 +33,13 @@ class InputNum extends HTMLElement {
   set step(stepValue) { this._step = stepValue; }
   get step() { return this._step; }
 
-  set disabled(isdisabled) { this.setAttribute }
+  set position(new_p){ this._position = new_p; }
+  get position(){ return this._position; }
 
   static get observedAttributes() {
     return [
       'controls', 'min', 'max', 'step', 'size', 'disabled', 'placeholder',
-      'value'
+      'value', 'controls-position'
     ];
   }
 
@@ -84,20 +97,33 @@ class InputNum extends HTMLElement {
         this.decrementButton.style.display = 'inline-block';
         this.valueElement.style.width = '59%';
       }
+      break;
+    case 'controls-position':
+      /*
+      while (this.root.firstChild) {
+        this.root.removeChild(this.root.firstChild);
+      }
+      this.reload(newValue);
+      break;
+      */
     }
   }
-
-  constructor() {
-    super();
-    this._value = 0;
-
-    this.root = this.attachShadow({mode : 'open'});
-    this.root.appendChild(template.content.cloneNode(true));
-
-    this.inputDiv = this.root.querySelector('div');
-    this.valueElement = this.root.querySelector('input');
-    this.incrementButton = this.root.querySelectorAll('button')[1];
-    this.decrementButton = this.root.querySelectorAll('button')[0];
+  /*
+  reload(position){
+    if (position==='right'){
+      this.root.appendChild(template2.content.cloneNode(true));
+      this.inputDiv = this.root.querySelector('input');
+      this.valueElement = this.root.querySelector('input');
+      this.incrementButton = this.root.querySelectorAll('button')[0];
+      this.decrementButton = this.root.querySelectorAll('button')[1];
+    }
+    else{
+      this.root.appendChild(template.content.cloneNode(true));
+      this.inputDiv = this.root.querySelector('div');
+      this.valueElement = this.root.querySelector('input');
+      this.incrementButton = this.root.querySelectorAll('button')[1];
+      this.decrementButton = this.root.querySelectorAll('button')[0];
+    }
 
     this.incrementButton.addEventListener('click', (e) => {
       if (this.valueElement.max > this.value + this.step)
@@ -133,6 +159,74 @@ class InputNum extends HTMLElement {
       this.inputDiv.style.borderColor = "#c2c2c2";
       this.incrementButton.style.color = "black";
     });
+
+    this.valueElement.addEventListener(
+        'click', (e) => this.inputDiv.style.borderColor = "#75baff");
+  }
+*/
+
+  constructor() {
+    super();
+    this._value = 0;
+
+    if (this.getAttribute('controls-position')==='right'){
+      this.root = this.attachShadow({mode : 'open'});
+      this.root.appendChild(template2.content.cloneNode(true));
+      this.inputDiv = this.root.querySelector('div');
+      this.valueElement = this.root.querySelector('input');
+      this.incrementButton = this.root.querySelectorAll('button')[0];
+      this.decrementButton = this.root.querySelectorAll('button')[1];
+    }
+    else{
+      this.root = this.attachShadow({mode : 'open'});
+      this.root.appendChild(template.content.cloneNode(true));
+
+      this.inputDiv = this.root.querySelector('div');
+      this.valueElement = this.root.querySelector('input');
+      this.incrementButton = this.root.querySelectorAll('button')[1];
+      this.decrementButton = this.root.querySelectorAll('button')[0];
+    }
+  
+    this.incrementButton.addEventListener('click', (e) => {
+      if (this.valueElement.max > this.value + this.step){
+        this.value = parseInt(this.step) +parseInt(this.value);
+      }
+      else
+        window.alert("Number too big");
+    });
+
+    this.decrementButton.addEventListener('click', (e) => {
+      if (this.valueElement.min < this.value - this.step)
+        this.value -= this.step;
+      else
+        window.alert("Number too small")
+    });
+
+    this.valueElement.addEventListener('keyup', (e) => this.value =
+                                                    this.valueElement.value);
+
+    this.decrementButton.addEventListener('mouseover', (e) => {
+      this.inputDiv.style.borderColor = "#75baff";
+      this.decrementButton.style.color = "#75baff";
+    });
+    this.decrementButton.addEventListener('mouseout', (e) => {
+      this.inputDiv.style.borderColor = "#c2c2c2";
+      this.decrementButton.style.color = "black";
+    });
+
+    this.incrementButton.addEventListener('mouseover', (e) => {
+      this.inputDiv.style.borderColor = "#75baff";
+      this.incrementButton.style.color = "#75baff";
+    });
+    this.incrementButton.addEventListener('mouseout', (e) => {
+      this.inputDiv.style.borderColor = "#c2c2c2";
+      this.incrementButton.style.color = "black";
+    });
+
+    this.valueElement.addEventListener('input', (e) => {
+      this.value = parseInt(e.srcElement.value, 10);
+    });
+
 
     this.valueElement.addEventListener(
         'click', (e) => this.inputDiv.style.borderColor = "#75baff");
