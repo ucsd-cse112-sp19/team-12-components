@@ -8,6 +8,7 @@
     "format": "./node_modules/.bin/git-clang-format",
     "build": "./node_modules/.bin/babel ./test/ --out-dir ./testCompiled/",
     "test": "karma start",
+    "test:testcafe": "testcafe \"saucelabs:Chrome@beta:Windows 10\" test/core-hello/core-hello-endtoend-test.js",
     "test:watch": "karma start --auto-watch=true --single-run=false",
     "doc": "./node_modules/.bin/jsdoc -c jsdoc.json"
   },
@@ -40,10 +41,12 @@
     "@open-wc/testing-karma": "^1.1.1",
     "ajv": "^6.10.0",
     "chai": "^4.2.0",
+    "clang-format": "^1.2.4",
     "husky": "^2.1.0",
     "lit-html": "^1.0.0",
-    "clang-format": "^1.2.4",
-    "mocha": "^6.1.4"
+    "mocha": "^6.1.4",
+    "testcafe": "^1.1.4",
+    "testcafe-browser-provider-saucelabs": "^1.7.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.4.4",
