@@ -3,45 +3,47 @@ template.innerHTML = `
   <link rel="stylesheet" href="inputNumber.css">
   <div class="input-number">
     <button aria-label="decrement" class="decrement-btn">-</button><!--
-    --><input type="number" value = 0 class="input-field"></input><!--
+    --><input type="number" class="input-field"></input><!--
     --><button aria-label="increment" class="increment-btn">+</button>
   </div>
 `;
 
 const template2 = document.createElement('template');
 template2.innerHTML = `
-<link rel="stylesheet" href="inputNumber.css">
-<div class="input-number">
-<input type="number" value = 0 class="input-field"></input>
-<div class = "button-container">
-<button aria-label="increment" class="increment-btn-2">+</button>
-<button aria-label="decrement" class="decrement-btn-2">-</button>
-</div>
-</div>
+  <link rel="stylesheet" href="inputNumber.css">
+  <div class="input-number">
+    <input type="number" value = 0 class="input-field"></input>
+    <div class = "button-container">
+      <button aria-label="increment" class="increment-btn-2">+</button>
+      <button aria-label="decrement" class="decrement-btn-2">-</button>
+    </div>
+  </div>
 `;
 
 class InputNum extends HTMLElement {
   set value(value) {
-    this._value = value;
-    this.valueElement.value = this.value;
+    this._value = this.trans(value);
+    let c = parseFloat(this.value).toFixed(this.precision);
+    this.valueElement.value = c;
   }
-  get value() { return this._value; }
+  get value() { return this.trans(this._value); }
 
-  set size(sizeValue) { this._size = sizeValue; }
-  get size() { return this._size; }
+  set size(sizeValue) { this._size = this.trans(sizeValue); }
+  get size() { return this.trans(this._size); }
 
-  set step(stepValue) { this._step = stepValue; }
-  get step() { return this._step; }
+  set step(stepValue) { this._step = this.trans(stepValue); }
+  get step() { return this.trans(this._step); }
 
   set position(new_p) { this._position = new_p; }
   get position() { return this._position; }
 
-  get controlPos() { return this.hasAttribute('controls-position');}
+  set precision(prec){ this._precision = prec ; }
+  get precision(){ return this._precision; }
 
   static get observedAttributes() {
     return [
       'controls', 'min', 'max', 'step', 'size', 'disabled', 'placeholder',
-      'value', 'controls-position'
+      'value', 'controls-position', 'precision'
     ];
   }
 
@@ -60,25 +62,32 @@ class InputNum extends HTMLElement {
 
     if (!this.hasAttribute('value'))
       this.value = 0;
-    
-    if(!this.hasAttribute('value'))
+
+    if (!this.hasAttribute('value'))
       this.position = 'done';
+
+    if(!this.hasAttribute('precision'))
+      this.precision = 0;
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {
-    if(this.position !== 'done'){
+    if (this.position !== 'done') 
       this.load();
+    
+    let curPre = 0;
+    if (this.precision !== 'undefined'){
+      curPre = this.precision;
     }
 
     switch (attrName) {
     case 'min':
-      this.valueElement.min = parseInt(newValue, 10);
+      this.valueElement.min = this.trans(newValue);
       break;
     case 'max':
-      this.valueElement.max = parseInt(newValue, 10);
+      this.valueElement.max = this.trans(newValue);
       break;
     case 'step':
-      this.step = parseInt(newValue, 10);
+      this.step = this.trans(newValue);
       break;
     case 'size':
       this.inputDiv.classList.remove(oldValue);
@@ -94,9 +103,9 @@ class InputNum extends HTMLElement {
       this.valueElement.setAttribute('placeholder', newValue);
       break;
     case 'value':
-      this.value = parseInt(newValue, 10);
+      this.value = this.trans(newValue);
       break;
-    
+
     case 'controls':
       if (newValue === 'false') {
         this.incrementButton.style.display = 'none';
@@ -108,6 +117,12 @@ class InputNum extends HTMLElement {
         this.valueElement.style.width = '59%';
       }
       break;
+    
+    case 'precision':
+      if(parseInt(newValue) >=0){
+        this.precision = parseInt(newValue);
+      }
+    break;
     }
     this.position = 'done';
   }
@@ -117,9 +132,12 @@ class InputNum extends HTMLElement {
     this.root = this.attachShadow({mode : 'open'});
   }
 
-  load(){
+  trans(value){
+    return parseFloat(parseFloat(value).toFixed(this.precision));
+  }
+
+  load() {
     this._value = 0;
-    console.log(this.hasAttribute('controls-position'));
     if (this.getAttribute('controls-position') === 'right') {
       this.root.appendChild(template2.content.cloneNode(true));
       this.inputDiv = this.root.querySelector('div');
@@ -136,15 +154,19 @@ class InputNum extends HTMLElement {
     }
 
     this.incrementButton.addEventListener('click', (e) => {
-      if (this.valueElement.max > this.value + this.step) {
-        this.value = parseInt(this.step) + parseInt(this.value);
-      } else
+      console.log("step is: " + this.step);
+      console.log("value is: " + this.value);
+      console.log("precision is: " + this.precision);
+
+      if ((this.valueElement.max) > (this.value) + (this.step))
+        this.value = (this.step) + (this.value);
+      else
         window.alert("Number too big");
     });
 
     this.decrementButton.addEventListener('click', (e) => {
-      if (this.valueElement.min < this.value - this.step)
-        this.value -= this.step;
+      if ((this.valueElement.min) < (this.value) - (this.step))
+        this.value = (this.value)- (this.step);
       else
         window.alert("Number too small")
     });
@@ -171,7 +193,7 @@ class InputNum extends HTMLElement {
     });
 
     this.valueElement.addEventListener(
-        'input', (e) => { this.value = parseInt(e.srcElement.value, 10); });
+        'input', (e) => { this.value = parseFloat(e.srcElement.value).toFixed(this.precision); });
 
     this.valueElement.addEventListener(
         'click', (e) => this.inputDiv.style.borderColor = "#75baff");
