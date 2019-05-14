@@ -12,9 +12,9 @@ module.exports = config => {
           // npm run test -- --grep test/foo/bar.test.js
           // npm run test -- --grep test/bar/*
           // config.grep ? config.grep : 'test/*.js',
-          config.grep ? config.grep : 'test/*/*.js',
+          config.grep ? config.grep : 'test/*/*.unit_test.js',
         ],
-        preprocessors : {'test/**/*.js' : [ 'webpack', 'sourcemap' ]},
+        preprocessors : {'test/**/*.unit_test.js' : [ 'webpack', 'sourcemap' ]},
         failOnEmptyTestSuite : false,
 
         // you can overwrite/extend the config further
