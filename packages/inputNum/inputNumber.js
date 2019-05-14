@@ -23,8 +23,7 @@ template2.innerHTML = `
 class InputNum extends HTMLElement {
   set value(value) {
     this._value = this.trans(value);
-    let c = parseFloat(this.value).toFixed(this.precision);
-    this.valueElement.value = c;
+    this.valueElement.value = parseFloat(this.value).toFixed(this.precision);
   }
   get value() { return this.trans(this._value); }
 
@@ -37,8 +36,8 @@ class InputNum extends HTMLElement {
   set position(new_p) { this._position = new_p; }
   get position() { return this._position; }
 
-  set precision(prec){ this._precision = prec ; }
-  get precision(){ return this._precision; }
+  set precision(prec) { this._precision = prec; }
+  get precision() { return this._precision; }
 
   static get observedAttributes() {
     return [
@@ -66,16 +65,16 @@ class InputNum extends HTMLElement {
     if (!this.hasAttribute('value'))
       this.position = 'done';
 
-    if(!this.hasAttribute('precision'))
+    if (!this.hasAttribute('precision'))
       this.precision = 0;
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {
-    if (this.position !== 'done') 
+    if (this.position !== 'done')
       this.load();
-    
+
     let curPre = 0;
-    if (this.precision !== 'undefined'){
+    if (this.precision !== 'undefined') {
       curPre = this.precision;
     }
 
@@ -117,12 +116,12 @@ class InputNum extends HTMLElement {
         this.valueElement.style.width = '59%';
       }
       break;
-    
+
     case 'precision':
-      if(parseInt(newValue) >=0){
+      if (parseInt(newValue) >= 0) {
         this.precision = parseInt(newValue);
       }
-    break;
+      break;
     }
     this.position = 'done';
   }
@@ -132,9 +131,7 @@ class InputNum extends HTMLElement {
     this.root = this.attachShadow({mode : 'open'});
   }
 
-  trans(value){
-    return parseFloat(parseFloat(value).toFixed(this.precision));
-  }
+  trans(value) { return parseFloat(parseFloat(value).toFixed(this.precision)); }
 
   load() {
     this._value = 0;
@@ -166,7 +163,7 @@ class InputNum extends HTMLElement {
 
     this.decrementButton.addEventListener('click', (e) => {
       if ((this.valueElement.min) < (this.value) - (this.step))
-        this.value = (this.value)- (this.step);
+        this.value = (this.value) - (this.step);
       else
         window.alert("Number too small")
     });
@@ -192,8 +189,9 @@ class InputNum extends HTMLElement {
       this.incrementButton.style.color = "black";
     });
 
-    this.valueElement.addEventListener(
-        'input', (e) => { this.value = parseFloat(e.srcElement.value).toFixed(this.precision); });
+    this.valueElement.addEventListener('input', (e) => {
+      this.value = parseFloat(e.srcElement.value).toFixed(this.precision);
+    });
 
     this.valueElement.addEventListener(
         'click', (e) => this.inputDiv.style.borderColor = "#75baff");
