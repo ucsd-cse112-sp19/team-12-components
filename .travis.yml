@@ -11,6 +11,7 @@ cache:
     - "node_modules"
 
 script:
+  - npm run test:testCafe
   - npm run test
 
 notifications:
