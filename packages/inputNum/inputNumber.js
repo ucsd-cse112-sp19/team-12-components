@@ -33,8 +33,8 @@ class InputNum extends HTMLElement {
   set step(stepValue) { this._step = stepValue; }
   get step() { return this._step; }
 
-  set position(new_p){ this._position = new_p; }
-  get position(){ return this._position; }
+  set position(new_p) { this._position = new_p; }
+  get position() { return this._position; }
 
   static get observedAttributes() {
     return [
@@ -169,15 +169,14 @@ class InputNum extends HTMLElement {
     super();
     this._value = 0;
 
-    if (this.getAttribute('controls-position')==='right'){
+    if (this.getAttribute('controls-position') === 'right') {
       this.root = this.attachShadow({mode : 'open'});
       this.root.appendChild(template2.content.cloneNode(true));
       this.inputDiv = this.root.querySelector('div');
       this.valueElement = this.root.querySelector('input');
       this.incrementButton = this.root.querySelectorAll('button')[0];
       this.decrementButton = this.root.querySelectorAll('button')[1];
-    }
-    else{
+    } else {
       this.root = this.attachShadow({mode : 'open'});
       this.root.appendChild(template.content.cloneNode(true));
 
@@ -186,12 +185,11 @@ class InputNum extends HTMLElement {
       this.incrementButton = this.root.querySelectorAll('button')[1];
       this.decrementButton = this.root.querySelectorAll('button')[0];
     }
-  
+
     this.incrementButton.addEventListener('click', (e) => {
-      if (this.valueElement.max > this.value + this.step){
-        this.value = parseInt(this.step) +parseInt(this.value);
-      }
-      else
+      if (this.valueElement.max > this.value + this.step) {
+        this.value = parseInt(this.step) + parseInt(this.value);
+      } else
         window.alert("Number too big");
     });
 
@@ -223,10 +221,8 @@ class InputNum extends HTMLElement {
       this.incrementButton.style.color = "black";
     });
 
-    this.valueElement.addEventListener('input', (e) => {
-      this.value = parseInt(e.srcElement.value, 10);
-    });
-
+    this.valueElement.addEventListener(
+        'input', (e) => { this.value = parseInt(e.srcElement.value, 10); });
 
     this.valueElement.addEventListener(
         'click', (e) => this.inputDiv.style.borderColor = "#75baff");
