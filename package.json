@@ -8,7 +8,7 @@
     "format": "./node_modules/.bin/git-clang-format",
     "build": "./node_modules/.bin/babel ./test/ --out-dir ./testCompiled/",
     "test": "karma start",
-    "test:testCafe": "testcafe \"saucelabs:Chrome@beta:Windows 10\" test/core-hello/core-hello-endtoend-test.js",
+    "test:testCafe": "testcafe \"saucelabs:Chrome@beta:Windows 10\" test/**/*.ui_test.js",
     "test:watch": "karma start --auto-watch=true --single-run=false",
     "doc": "./node_modules/.bin/jsdoc -c jsdoc.json"
   },
