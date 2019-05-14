@@ -3,7 +3,7 @@ template.innerHTML = `
   <link rel="stylesheet" href="inputNumber.css">
   <div class="input-number">
     <button aria-label="decrement" class="decrement-btn">-</button><!--
-    --><input type="number" class="input-field"></input><!--
+    --><input type = "text" class="input-field"></input><!--
     --><button aria-label="increment" class="increment-btn">+</button>
   </div>
 `;
@@ -12,7 +12,7 @@ const template2 = document.createElement('template');
 template2.innerHTML = `
   <link rel="stylesheet" href="inputNumber.css">
   <div class="input-number">
-    <input type="number" value = 0 class="input-field"></input>
+    <input type = "text" class="input-field"></input>
     <div class = "button-container">
       <button aria-label="increment" class="increment-btn-2">+</button>
       <button aria-label="decrement" class="decrement-btn-2">-</button>
@@ -23,15 +23,17 @@ template2.innerHTML = `
 class InputNum extends HTMLElement {
   set value(value) {
     this._value = this.trans(value);
+    //this.valueElement.value = this.trans(this.value);
+
     this.valueElement.value = parseFloat(this.value).toFixed(this.precision);
   }
-  get value() { return this.trans(this._value); }
+  get value() { return this._value; }
 
   set size(sizeValue) { this._size = this.trans(sizeValue); }
-  get size() { return this.trans(this._size); }
+  get size() { return this._size; }
 
   set step(stepValue) { this._step = this.trans(stepValue); }
-  get step() { return this.trans(this._step); }
+  get step() { return this._step; }
 
   set position(new_p) { this._position = new_p; }
   get position() { return this._position; }
@@ -150,18 +152,14 @@ class InputNum extends HTMLElement {
       this.decrementButton = this.root.querySelectorAll('button')[0];
     }
 
-    this.incrementButton.addEventListener('click', (e) => {
-      console.log("step is: " + this.step);
-      console.log("value is: " + this.value);
-      console.log("precision is: " + this.precision);
-
+    this.incrementButton.addEventListener('mousedown', (e) => {
       if ((this.valueElement.max) > (this.value) + (this.step))
         this.value = (this.step) + (this.value);
       else
         window.alert("Number too big");
     });
 
-    this.decrementButton.addEventListener('click', (e) => {
+    this.decrementButton.addEventListener('mousedown', (e) => {
       if ((this.valueElement.min) < (this.value) - (this.step))
         this.value = (this.value) - (this.step);
       else
@@ -190,7 +188,12 @@ class InputNum extends HTMLElement {
     });
 
     this.valueElement.addEventListener('input', (e) => {
-      this.value = parseFloat(e.srcElement.value).toFixed(this.precision);
+      if (e.srcElement.value === ''){
+        console.log("here");
+        this.value = 0;
+      }
+      else
+        this.value = e.srcElement.value;
     });
 
     this.valueElement.addEventListener(
