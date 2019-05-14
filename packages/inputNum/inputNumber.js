@@ -1,3 +1,4 @@
+// This is the template for the Position default.
 const template = document.createElement('template');
 template.innerHTML = `
   <link rel="stylesheet" href="inputNumber.css">
@@ -8,14 +9,15 @@ template.innerHTML = `
   </div>
 `;
 
+// This is the template for Position right
 const template2 = document.createElement('template');
 template2.innerHTML = `
   <link rel="stylesheet" href="inputNumber.css">
   <div class="input-number">
     <input type = "text" class="input-field"></input>
     <div class = "button-container">
-      <button aria-label="increment" class="increment-btn-2">+</button>
-      <button aria-label="decrement" class="decrement-btn-2">-</button>
+      <button aria-label="increment" class="increment-btn-2">&#708;</button>
+      <button aria-label="decrement" class="decrement-btn-2">&#709;</button>
     </div>
   </div>
 `;
@@ -60,7 +62,7 @@ class InputNum extends HTMLElement {
       this.inputDiv.className += ' small';
 
     if (!this.hasAttribute('value'))
-      this.value = 0;
+      this.value = this.valueElement.min;
 
     if (!this.hasAttribute('precision'))
       this.precision = 0;
@@ -99,7 +101,12 @@ class InputNum extends HTMLElement {
       this.valueElement.setAttribute('placeholder', newValue);
       break;
     case 'value':
-      this.value = this.trans(newValue);
+      // check if the new value is less than min
+      if (this.valueElement.min <= newValue) {
+        this.value = this.trans(newValue);
+      } else {
+        // this.value = this.trans(this.valueElement.min);
+      }
       break;
 
     case 'controls':
@@ -148,17 +155,53 @@ class InputNum extends HTMLElement {
     }
 
     this.incrementButton.addEventListener('mousedown', (e) => {
-      if ((this.valueElement.max) > (this.value) + (this.step))
+      if ((this.valueElement.max) >= (this.value) + (this.step)){
         this.value = (this.step) + (this.value);
-      else
-        window.alert("Number too big");
+        if (this.value == this.valueElement.max) {
+          // add disabled class to the button.
+          if (this.getAttribute('controls-position') === 'right') {
+            this.root.querySelectorAll('button')[0].classList.add('disabled');
+          } else {
+            this.root.querySelectorAll('button')[1].classList.add('disabled');
+          }
+        } else {
+          if (this.getAttribute('controls-position') === 'right') {
+            if (this.root.querySelectorAll('button')[1].classList.contains('disabled')) {
+              this.root.querySelectorAll('button')[1].classList.remove('disabled');
+            }
+          } else {
+            if (this.root.querySelectorAll('button')[0].classList.contains('disabled')) {
+              this.root.querySelectorAll('button')[0].classList.remove('disabled');
+            }
+          }
+        }
+      }
     });
 
     this.decrementButton.addEventListener('mousedown', (e) => {
-      if ((this.valueElement.min) < (this.value) - (this.step))
+      if ((this.valueElement.min) <= (this.value) - (this.step)) {
         this.value = (this.value) - (this.step);
-      else
-        window.alert("Number too small")
+        if (this.value == this.valueElement.min) {
+          // add disabled class to the button.
+          if (this.getAttribute('controls-position') === 'right') {
+            this.root.querySelectorAll('button')[1].classList.add('disabled');
+          } else {
+            this.root.querySelectorAll('button')[0].classList.add('disabled');
+          }
+        } else {
+          if (this.getAttribute('controls-position') === 'right') {
+            if (this.root.querySelectorAll('button')[0].classList.contains('disabled')) {
+              this.root.querySelectorAll('button')[0].classList.remove('disabled');
+            }
+          } else {
+            if (this.root.querySelectorAll('button')[1].classList.contains('disabled')) {
+              this.root.querySelectorAll('button')[1].classList.remove('disabled');
+            }
+          }
+        }
+      }
+      // else
+      //   window.alert("Number too small")
     });
 
     this.valueElement.addEventListener('keyup', (e) => this.value =
