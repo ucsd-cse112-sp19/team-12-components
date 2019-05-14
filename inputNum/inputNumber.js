@@ -35,7 +35,7 @@ class InputNum extends HTMLElement {
     this.setAttribute
   }
 
-  static get observedAttributes() { return [ 'controls', 'min', 'max', 'step', 'size', 'disabled', 'placeholder', 'value']; }
+  static get observedAttributes() { return [ 'precision','controls', 'min', 'max', 'step', 'size', 'disabled', 'placeholder', 'value']; }
   
   connectedCallback() {
     if (!this.hasAttribute('min'))
@@ -52,6 +52,8 @@ class InputNum extends HTMLElement {
     
     if (!this.hasAttribute('value'))
       this.value = 0;
+    if(!this.hasAttribute('precision'))
+      this.precision = 0;
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {
@@ -96,6 +98,9 @@ class InputNum extends HTMLElement {
           this.decrementButton.style.display = 'inline-block';
           this.valueElement.style.width = '59%';
         }
+        break;
+      case 'precision':
+      
       }
   }
 
