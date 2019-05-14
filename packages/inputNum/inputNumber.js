@@ -23,8 +23,6 @@ template2.innerHTML = `
 class InputNum extends HTMLElement {
   set value(value) {
     this._value = this.trans(value);
-    //this.valueElement.value = this.trans(this.value);
-
     this.valueElement.value = parseFloat(this.value).toFixed(this.precision);
   }
   get value() { return this._value; }
@@ -188,11 +186,10 @@ class InputNum extends HTMLElement {
     });
 
     this.valueElement.addEventListener('input', (e) => {
-      if (e.srcElement.value === ''){
+      if (e.srcElement.value === '') {
         console.log("here");
         this.value = 0;
-      }
-      else
+      } else
         this.value = e.srcElement.value;
     });
 
