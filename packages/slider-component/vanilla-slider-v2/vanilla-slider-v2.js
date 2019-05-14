@@ -1,0 +1,139 @@
+const template = document.createElement('template');
+template.innerHTML = `
+    <!-- import CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+    <link rel="stylesheet" href="../slider.css">
+    <div role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" class="el-slider" aria-valuetext="0" aria-label="slider between 0 and 100">
+        <div class="el-slider__runway">
+            <div class="el-slider__bar" style="width: 25%; left: 0%;"></div>
+            <div tabindex="0" class="el-slider__button-wrapper" style="left: 25%;">
+                <div class="el-tooltip el-slider__button" aria-describedby="el-tooltip-9861" tabindex="0"></div>
+            </div>
+        </div>
+    </div>
+  `;
+
+class VanillaSliderV2 extends HTMLElement {
+    constructor() {
+        super();
+        this.root = this.attachShadow({ mode: 'open' });
+        this.root.appendChild(template.content.cloneNode(true));
+
+        this.sliderContainer = this.root.querySelector('.el-slider');
+        this.sliderBar = this.root.querySelector('.el-slider__bar');
+        this.sliderBtnWrapper = this.root.querySelector('.el-slider__button-wrapper');
+        this.tootip = this.root.querySelector('.el-tooltip.el-slider__button');
+
+        console.log(this.sliderBar.style.width);
+    }
+
+    connectedCallback() {
+        // this.sliderBar.addEventListener('')
+    }
+
+    // TODO: implement event handlers
+
+    // onButtonDown(event) {
+    //     if (this.disabled) return;
+    //     event.preventDefault();
+    //     this.onDragStart(event);
+    //     window.addEventListener('mousemove', this.onDragging);
+    //     window.addEventListener('touchmove', this.onDragging);
+    //     window.addEventListener('mouseup', this.onDragEnd);
+    //     window.addEventListener('touchend', this.onDragEnd);
+    //     window.addEventListener('contextmenu', this.onDragEnd);
+    // }
+
+    // onDragStart(event) {
+    //     this.dragging = true;
+    //     this.isClick = true;
+    //     if (event.type === 'touchstart') {
+    //         event.clientY = event.touches[0].clientY;
+    //         event.clientX = event.touches[0].clientX;
+    //     }
+    //     if (this.vertical) {
+    //         this.startY = event.clientY;
+    //     } else {
+    //         this.startX = event.clientX;
+    //     }
+    //     this.startPosition = parseFloat(this.currentPosition);
+    //     this.newPosition = this.startPosition;
+    // }
+
+    // onDragging(event) {
+    //     if (this.dragging) {
+    //         this.isClick = false;
+    //         this.displayTooltip();
+    //         this.$parent.resetSize();
+    //         let diff = 0;
+    //         if (event.type === 'touchmove') {
+    //             event.clientY = event.touches[0].clientY;
+    //             event.clientX = event.touches[0].clientX;
+    //         }
+    //         if (this.vertical) {
+    //             this.currentY = event.clientY;
+    //             diff = (this.startY - this.currentY) / this.$parent.sliderSize * 100;
+    //         } else {
+    //             this.currentX = event.clientX;
+    //             diff = (this.currentX - this.startX) / this.$parent.sliderSize * 100;
+    //         }
+    //         this.newPosition = this.startPosition + diff;
+    //         this.setPosition(this.newPosition);
+    //     }
+    // }
+
+    // onDragEnd() {
+    //     if (this.dragging) {
+    //         setTimeout(() => {
+    //             this.dragging = false;
+    //             this.hideTooltip();
+    //             if (!this.isClick) {
+    //                 this.setPosition(this.newPosition);
+    //                 this.$parent.emitChange();
+    //             }
+    //         }, 0);
+    //         window.removeEventListener('mousemove', this.onDragging);
+    //         window.removeEventListener('touchmove', this.onDragging);
+    //         window.removeEventListener('mouseup', this.onDragEnd);
+    //         window.removeEventListener('touchend', this.onDragEnd);
+    //         window.removeEventListener('contextmenu', this.onDragEnd);
+    //     }
+    // }
+
+    // setPosition(newPosition) {
+    //     if (newPosition === null || isNaN(newPosition)) return;
+    //     if (newPosition < 0) {
+    //         newPosition = 0;
+    //     } else if (newPosition > 100) {
+    //         newPosition = 100;
+    //     }
+    //     const lengthPerStep = 100 / ((this.max - this.min) / this.step);
+    //     const steps = Math.round(newPosition / lengthPerStep);
+    //     let value = steps * lengthPerStep * (this.max - this.min) * 0.01 + this.min;
+    //     value = parseFloat(value.toFixed(this.precision));
+    //     this.$emit('input', value);
+    //     this.$nextTick(() => {
+    //         this.$refs.tooltip && this.$refs.tooltip.updatePopper();
+    //     });
+    //     if (!this.dragging && this.value !== this.oldValue) {
+    //         this.oldValue = this.value;
+    //     }
+    // }
+
+    static get observedAttributes() {
+        return ['value', 'min', 'max'];
+    }
+
+    attributeChangedCallback(name, oldValue, newValue) {
+        switch (name) {
+            case 'value':
+                console.log(`Value changed from ${oldValue} to ${newValue}`);
+                break;
+            case 'max':
+                console.log(`You won't max-out any time soon, with ${newValue}!`);
+                break;
+        }
+    }
+}
+
+customElements.define('vanilla-slider-v2', VanillaSliderV2);
