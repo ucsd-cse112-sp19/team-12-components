@@ -94,11 +94,11 @@ class VanillaSliderV2 extends HTMLElement {
         if (this.disabled) return;
         event.preventDefault();
         this.onDragStart(event);
-        this.addEventListener('mousemove', this.onDragging);
-        this.addEventListener('touchmove', this.onDragging);
-        this.addEventListener('mouseup', this.onDragEnd);
-        this.addEventListener('touchend', this.onDragEnd);
-        this.addEventListener('contextmenu', this.onDragEnd);
+        window.addEventListener('mousemove', this.onDragging);
+        window.addEventListener('touchmove', this.onDragging);
+        window.addEventListener('mouseup', this.onDragEnd);
+        window.addEventListener('touchend', this.onDragEnd);
+        window.addEventListener('contextmenu', this.onDragEnd);
     };
 
     onDragStart(event) {
@@ -136,11 +136,11 @@ class VanillaSliderV2 extends HTMLElement {
                     this.setPosition(this.newPosition);
                 }
             }, 0);
-            this.removeEventListener('mousemove', this.onDragging);
-            this.removeEventListener('touchmove', this.onDragging);
-            this.removeEventListener('mouseup', this.onDragEnd);
-            this.removeEventListener('touchend', this.onDragEnd);
-            this.removeEventListener('contextmenu', this.onDragEnd);
+            window.removeEventListener('mousemove', this.onDragging);
+            window.removeEventListener('touchmove', this.onDragging);
+            window.removeEventListener('mouseup', this.onDragEnd);
+            window.removeEventListener('touchend', this.onDragEnd);
+            window.removeEventListener('contextmenu', this.onDragEnd);
         }
     }
 
