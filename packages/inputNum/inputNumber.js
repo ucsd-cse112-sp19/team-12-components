@@ -24,8 +24,40 @@ template2.innerHTML = `
 
 class InputNum extends HTMLElement {
   set value(value) {
-    this._value = this.trans(value);
-    this.valueElement.value = parseFloat(this.value).toFixed(this.precision);
+    console.log(value);
+    if (value === ''){
+      this.valueElement.value = '0';
+    }
+    else{
+      if (this.trans(value) >= this.valueElement.max){
+        this._value = this.valueElement.max;
+
+        //Disable Plus
+        if (this.getAttribute('controls-position') === 'right'){
+          this.root.querySelectorAll('button')[1].classList.remove('disabled');
+          this.root.querySelectorAll('button')[0].classList.add('disabled');
+        }
+        else{ 
+          this.root.querySelectorAll('button')[0].classList.remove('disabled');
+          this.root.querySelectorAll('button')[1].classList.add('disabled');
+        }
+      }
+      if (this.trans(value) <= this.valueElement.min){
+        this._value = this.valueElement.min;
+        //Disable subtract
+        if (this.getAttribute('controls-position') === 'right'){
+          this.root.querySelectorAll('button')[0].classList.remove('disabled');
+          this.root.querySelectorAll('button')[1].classList.add('disabled');
+        }
+        else{
+          this.root.querySelectorAll('button')[1].classList.remove('disabled');
+          this.root.querySelectorAll('button')[0].classList.add('disabled');
+        }
+      }
+
+      this._value = this.trans(value);
+      this.valueElement.value = parseFloat(this.value).toFixed(this.precision);
+    }
   }
   get value() { return this._value; }
 
@@ -102,11 +134,14 @@ class InputNum extends HTMLElement {
       break;
     case 'value':
       // check if the new value is less than min
+      /*
       if (this.valueElement.min <= newValue) {
         this.value = this.trans(newValue);
       } else {
         // this.value = this.trans(this.valueElement.min);
       }
+      */
+      this.value = this.trans(newValue);
       break;
 
     case 'controls':
@@ -138,7 +173,6 @@ class InputNum extends HTMLElement {
   trans(value) { return parseFloat(parseFloat(value).toFixed(this.precision)); }
 
   load() {
-    this._value = 0;
     if (this.getAttribute('controls-position') === 'right') {
       this.root.appendChild(template2.content.cloneNode(true));
       this.inputDiv = this.root.querySelector('div');
@@ -155,53 +189,63 @@ class InputNum extends HTMLElement {
     }
 
     this.incrementButton.addEventListener('mousedown', (e) => {
+      console.log("hitting plus");
+      console.log("value is: " + this.value);
+      console.log("max is: " + this.valueElement.max);
+      console.log("step is: " + this.step);
+
       if ((this.valueElement.max) >= (this.value) + (this.step)){
+        console.log("we can plus");
         this.value = (this.step) + (this.value);
-        if (this.value == this.valueElement.max) {
-          // add disabled class to the button.
-          if (this.getAttribute('controls-position') === 'right') {
+
+        if (this.getAttribute('controls-position') === 'right'){
+          //Enable the minus button
+          this.root.querySelectorAll('button')[1].classList.remove('disabled');
+          //check again
+          if ((this.valueElement.max) <= (this.value))
             this.root.querySelectorAll('button')[0].classList.add('disabled');
-          } else {
-            this.root.querySelectorAll('button')[1].classList.add('disabled');
-          }
-        } else {
-          if (this.getAttribute('controls-position') === 'right') {
-            if (this.root.querySelectorAll('button')[1].classList.contains('disabled')) {
-              this.root.querySelectorAll('button')[1].classList.remove('disabled');
-            }
-          } else {
-            if (this.root.querySelectorAll('button')[0].classList.contains('disabled')) {
-              this.root.querySelectorAll('button')[0].classList.remove('disabled');
-            }
-          }
         }
+        else{ 
+          //enable the minus button
+          this.root.querySelectorAll('button')[0].classList.remove('disabled');
+          //check again
+          if ((this.valueElement.max) <= (this.value))
+            this.root.querySelectorAll('button')[1].classList.add('disabled');
+        }
+      }
+      else {
+        if (this.getAttribute('controls-position') === 'right') 
+          this.root.querySelectorAll('button')[0].classList.add('disabled');
+        else 
+          this.root.querySelectorAll('button')[1].classList.add('disabled');
       }
     });
 
     this.decrementButton.addEventListener('mousedown', (e) => {
       if ((this.valueElement.min) <= (this.value) - (this.step)) {
         this.value = (this.value) - (this.step);
-        if (this.value == this.valueElement.min) {
-          // add disabled class to the button.
-          if (this.getAttribute('controls-position') === 'right') {
+        if (this.getAttribute('controls-position') === 'right'){
+          //Enable the plus button
+          this.root.querySelectorAll('button')[0].classList.remove('disabled');
+          //check again
+          if ((this.valueElement.min) >= (this.value))
             this.root.querySelectorAll('button')[1].classList.add('disabled');
-          } else {
+        }
+        else{
+          //enable the plus button
+          this.root.querySelectorAll('button')[1].classList.remove('disabled');
+          //check again
+          if ((this.valueElement.min) >= (this.value))
             this.root.querySelectorAll('button')[0].classList.add('disabled');
-          }
-        } else {
-          if (this.getAttribute('controls-position') === 'right') {
-            if (this.root.querySelectorAll('button')[0].classList.contains('disabled')) {
-              this.root.querySelectorAll('button')[0].classList.remove('disabled');
-            }
-          } else {
-            if (this.root.querySelectorAll('button')[1].classList.contains('disabled')) {
-              this.root.querySelectorAll('button')[1].classList.remove('disabled');
-            }
-          }
         }
       }
-      // else
-      //   window.alert("Number too small")
+      else{
+        if (this.getAttribute('controls-position') === 'right') {
+          this.root.querySelectorAll('button')[1].classList.add('disabled');
+        } else {
+          this.root.querySelectorAll('button')[0].classList.add('disabled');
+        }
+      }
     });
 
     this.valueElement.addEventListener('keyup', (e) => this.value =
@@ -226,11 +270,7 @@ class InputNum extends HTMLElement {
     });
 
     this.valueElement.addEventListener('input', (e) => {
-      if (e.srcElement.value === '') {
-        console.log("here");
-        this.value = 0;
-      } else
-        this.value = e.srcElement.value;
+      this.value = e.srcElement.value;
     });
 
     this.valueElement.addEventListener(
