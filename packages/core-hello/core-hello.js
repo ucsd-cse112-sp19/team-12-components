@@ -2,7 +2,8 @@
  * JS web component class used in core_hello.html.
  * //EXAMPLE USAGE OF AUTO-DOCUMENTATION:
  * @component_name Core Hello
- * @component_desc This component simply outputs "Hello World" followed by the input text inside the tag.
+ * @component_desc This component simply outputs "Hello World" followed by the
+ * input text inside the tag.
  */
 class CoreHello extends HTMLElement {
 
@@ -15,17 +16,20 @@ class CoreHello extends HTMLElement {
         .appendChild(document.createElement('slot'));
   }
 
-  /** 
+  /**
    * Since "language" is not a default attribute that is tracked in
    * observedAttributes, we need to add it to the array to be tracked to be able
    * to call attributeChangedCallback()
    * @return list of attribute strings
-   * 
+   *
    * //attributeName, attributeDescription, type, accepted values, default
-   * @attribute Rainbow, Flashes components text in various colors, boolean, ---,false
-   * @attribute Fake Attribute1, Fake attribute1 description, string, small/medium/large,medium
-   * @attribute Fake Attribute2, Fake attribute2 description, string, primary/success/warning,----
-   * 
+   * @attribute Rainbow, Flashes components text in various colors, boolean,
+   *---,false
+   * @attribute Fake Attribute1, Fake attribute1 description, string,
+   *small/medium/large,medium
+   * @attribute Fake Attribute2, Fake attribute2 description, string,
+   *primary/success/warning,----
+   *
    **/
   static get observedAttributes() { return [ 'lang', 'rainbow' ]; }
 
