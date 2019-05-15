@@ -7,7 +7,7 @@ template.innerHTML = `
         <div class="el-slider__runway">
             <div class="el-slider__bar" style="left: 0%;"></div>
             
-            <div tabindex="0" class="el-slider__button-wrapper" style="left: 25%;">
+            <div tabindex="0" class="el-slider__button-wrapper">
                 <div class="el-tooltip el-slider__button" aria-describedby="el-tooltip-9861" tabindex="0"></div>
             
             </div>
@@ -64,7 +64,7 @@ class VanillaSliderV2 extends HTMLElement {
 
     setInitPosition() {
         const percent = (this._value - this.min) / (this.max - this.min) * 100;
-        console.log("Initial percentage: " + Math.round(percent) + "%");
+        // console.log("Initial percentage: " + Math.round(percent) + "%");
         // set sliderBar width
         this.sliderBar.style.width = percent + "%";
         // set sliderBtn offset
@@ -73,8 +73,9 @@ class VanillaSliderV2 extends HTMLElement {
 
     setPosition(percent) {
         const targetValue = parseInt(this.min) + percent * (this.max - this.min) / 100;
-        console.log("New value: " + Math.round(targetValue));
-        console.log("New percentage: " + Math.round(percent) + "%");
+        this._value = targetValue;
+        // console.log("New value: " + Math.round(targetValue));
+        // console.log("New percentage: " + Math.round(percent) + "%");
         // set sliderBar width
         this.sliderBar.style.width = percent + "%";
         // set sliderBtn offset
@@ -98,13 +99,11 @@ class VanillaSliderV2 extends HTMLElement {
         this.addEventListener('mouseup', this.onDragEnd);
         this.addEventListener('touchend', this.onDragEnd);
         this.addEventListener('contextmenu', this.onDragEnd);
-        console.log(event);
     };
 
     onDragStart(event) {
         this.dragging = true;
         this.isClick = true;
-        console.log("onDragStart - clientX: " + event.clientX);
         if (event.type === 'touchstart') {
             event.clientX = event.touches[0].clientX;
         }
@@ -117,7 +116,6 @@ class VanillaSliderV2 extends HTMLElement {
         if (this.dragging) {
             this.isClick = false;
             // this.displayTooltip();
-            // this.$parent.resetSize();
             let diff = 0;
             if (event.type === 'touchmove') {
                 event.clientX = event.touches[0].clientX;
@@ -136,7 +134,6 @@ class VanillaSliderV2 extends HTMLElement {
                 // this.hideTooltip();
                 if (!this.isClick) {
                     this.setPosition(this.newPosition);
-                    // this.$parent.emitChange();
                 }
             }, 0);
             this.removeEventListener('mousemove', this.onDragging);
@@ -154,13 +151,13 @@ class VanillaSliderV2 extends HTMLElement {
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case 'value':
-                console.log(`Initial value: ${newValue}`);
+                // console.log(`Initial value: ${newValue}`);
                 break;
             case 'min':
-                console.log(`Minimum value: ${newValue}`);
+                // console.log(`Minimum value: ${newValue}`);
                 break;
             case 'max':
-                console.log(`Maximum value: ${newValue}`);
+                // console.log(`Maximum value: ${newValue}`);
                 break;
         }
     }
