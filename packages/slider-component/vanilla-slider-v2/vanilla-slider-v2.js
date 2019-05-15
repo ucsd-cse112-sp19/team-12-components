@@ -2,10 +2,10 @@ const template = document.createElement('template');
 template.innerHTML = `
     <!-- import CSS -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <link rel="stylesheet" href="../slider.css">
+    <!-- <link rel="stylesheet" href="../slider.css"> -->
     <div role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" class="el-slider" aria-valuetext="0" aria-label="slider between 0 and 100">
         <div class="el-slider__runway">
-            <div class="el-slider__bar" style="width: 25%; left: 0%;"></div>
+            <div class="el-slider__bar" style="left: 0%;"></div>
             <!--
             <div tabindex="0" class="el-slider__button-wrapper" style="left: 25%;">
                 <div class="el-tooltip el-slider__button" aria-describedby="el-tooltip-9861" tabindex="0"></div>
@@ -27,17 +27,57 @@ class VanillaSliderV2 extends HTMLElement {
         this.sliderBtnWrapper = this.root.querySelector('.el-slider__button-wrapper');
         this.tootip = this.root.querySelector('.el-tooltip.el-slider__button');
 
-        console.log(this.sliderBar.style.width);
-
         // Bind the "this" to the functions
+        this.setInitPosition = this.setInitPosition.bind(this);
+        this.setPosition = this.setPosition.bind(this);
+        this.onSliderClick = this.onSliderClick.bind(this);
+
         this.onButtonDown = this.onButtonDown.bind(this);
         this.onDragStart = this.onDragStart.bind(this);
     }
 
     connectedCallback() {
-        //this.sliderBar.addEventListener('', this.setPosition(value));
         // Bind event listener to sliderbar whenever it is clicked
-        this.sliderRunway.addEventListener('click', this.onButtonDown);
+        // this.sliderRunway.addEventListener('click', this.onButtonDown);
+
+        this.sliderRunway.addEventListener('click', this.onSliderClick);
+
+        if (this.hasAttribute('value')) {
+            this._value = this.getAttribute('value');
+        }
+        if (this.hasAttribute('min')) {
+            this.min = this.getAttribute('min');
+        }
+        if (this.hasAttribute('max')) {
+            this.max = this.getAttribute('max');
+        }
+
+        this.setInitPosition();
+    }
+
+    setInitPosition() {
+        const percent = (this._value - this.min) / (this.max - this.min) * 100;
+        console.log("Initial percentage: " + percent + "%");
+        this.sliderBar.style.width = percent + "%";
+
+        // TODO: set button position
+    }
+
+    setPosition(percent) {
+        const targetValue = parseInt(this.min) + percent * (this.max - this.min) / 100;
+        console.log("New value: " + targetValue);
+        console.log("New percentage: " + percent);
+        this.sliderBar.style.width = percent + "%";
+
+        // TODO: set button position
+        // this.$refs[button].setPosition(percent);
+    }
+
+    onSliderClick(event) {
+        // if (this.sliderDisabled || this.dragging) return;
+        this.sliderSize = this.sliderContainer.clientWidth;
+        const sliderOffsetLeft = this.sliderContainer.getBoundingClientRect().left;
+        this.setPosition((event.clientX - sliderOffsetLeft) / this.sliderSize * 100);
     }
 
     // TODO: implement event handlers
@@ -67,7 +107,7 @@ class VanillaSliderV2 extends HTMLElement {
         } else {
             this.startX = event.clientX;
         }
-        this.currentPosition = this.sliderBar.style.width;
+        // this.currentPosition = this.sliderBar.style.width;
         this.startPosition = parseFloat(this.currentPosition);
         this.newPosition = this.startPosition;
         console.log(this.startPosition);
@@ -158,10 +198,13 @@ class VanillaSliderV2 extends HTMLElement {
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case 'value':
-                console.log(`Value changed from ${oldValue} to ${newValue}`);
+                console.log(`Initial value: ${newValue}`);
+                break;
+            case 'min':
+                console.log(`Minimum value: ${newValue}`);
                 break;
             case 'max':
-                console.log(`You won't max-out any time soon, with ${newValue}!`);
+                console.log(`Maximum value: ${newValue}`);
                 break;
         }
     }
