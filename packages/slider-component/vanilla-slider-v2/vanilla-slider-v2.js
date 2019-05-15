@@ -6,10 +6,8 @@ template.innerHTML = `
     <div role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" class="el-slider" aria-valuetext="0" aria-label="slider between 0 and 100">
         <div class="el-slider__runway">
             <div class="el-slider__bar" style="left: 0%;"></div>
-            
             <div tabindex="0" class="el-slider__button-wrapper">
                 <div class="el-tooltip el-slider__button" aria-describedby="el-tooltip-9861" tabindex="0"></div>
-            
             </div>
         </div>
     </div>
@@ -32,7 +30,6 @@ class VanillaSliderV2 extends HTMLElement {
         this.setInitPosition = this.setInitPosition.bind(this);
         this.setPosition = this.setPosition.bind(this);
         this.onSliderClick = this.onSliderClick.bind(this);
-
         this.onButtonDown = this.onButtonDown.bind(this);
         this.onDragStart = this.onDragStart.bind(this);
         this.onDragging = this.onDragging.bind(this);
@@ -47,12 +44,18 @@ class VanillaSliderV2 extends HTMLElement {
 
         if (this.hasAttribute('value')) {
             this._value = this.getAttribute('value');
+        } else {
+            this._value = 0;
         }
         if (this.hasAttribute('min')) {
             this.min = this.getAttribute('min');
+        } else {
+            this.min = 0;
         }
         if (this.hasAttribute('max')) {
             this.max = this.getAttribute('max');
+        } else {
+            this.max = 100;
         }
 
         this.setInitPosition();
@@ -72,14 +75,27 @@ class VanillaSliderV2 extends HTMLElement {
     }
 
     setPosition(percent) {
-        const targetValue = parseInt(this.min) + percent * (this.max - this.min) / 100;
+        let targetValue = parseInt(this.min) + percent * (this.max - this.min) / 100;
+        if (targetValue > this.max) {
+            targetValue = this.max;
+        } else if (targetValue < this.min) {
+            targetValue = this.min;
+        }
         this._value = targetValue;
-        // console.log("New value: " + Math.round(targetValue));
-        // console.log("New percentage: " + Math.round(percent) + "%");
+
+        let newPercent = percent;
+        if (newPercent > 100) {
+            newPercent = 100;
+        } else if (newPercent < 0) {
+            newPercent = 0;
+        }
         // set sliderBar width
-        this.sliderBar.style.width = percent + "%";
+        this.sliderBar.style.width = newPercent + "%";
         // set sliderBtn offset
-        this.sliderBtnWrapper.style.left = percent + "%";
+        this.sliderBtnWrapper.style.left = newPercent + "%";
+
+        // console.log("New value: " + Math.round(targetValue));
+        // console.log("New percentage: " + Math.round(newPercent) + "%");
     }
 
     onSliderClick(event) {
