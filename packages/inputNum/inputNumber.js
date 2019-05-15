@@ -24,41 +24,21 @@ template2.innerHTML = `
 
 class InputNum extends HTMLElement {
   set value(value) {
-    console.log(value);
-    if (value === ''){
-      this.valueElement.value = '0';
+    if( this.trans(value) >= this.valueElement.max) {
+      value = this.valueElement.max;
+      this.incrementButton.classList.add('disabled')
     }
-    else{
-      if (this.trans(value) >= this.valueElement.max){
-        this._value = this.valueElement.max;
-
-        //Disable Plus
-        if (this.getAttribute('controls-position') === 'right'){
-          this.root.querySelectorAll('button')[1].classList.remove('disabled');
-          this.root.querySelectorAll('button')[0].classList.add('disabled');
-        }
-        else{ 
-          this.root.querySelectorAll('button')[0].classList.remove('disabled');
-          this.root.querySelectorAll('button')[1].classList.add('disabled');
-        }
-      }
-      if (this.trans(value) <= this.valueElement.min){
-        this._value = this.valueElement.min;
-        //Disable subtract
-        if (this.getAttribute('controls-position') === 'right'){
-          this.root.querySelectorAll('button')[0].classList.remove('disabled');
-          this.root.querySelectorAll('button')[1].classList.add('disabled');
-        }
-        else{
-          this.root.querySelectorAll('button')[1].classList.remove('disabled');
-          this.root.querySelectorAll('button')[0].classList.add('disabled');
-        }
-      }
-
-      this._value = this.trans(value);
-      this.valueElement.value = parseFloat(this.value).toFixed(this.precision);
+    
+    if (this.trans(value) <= this.valueElement.min) {
+      value = this.valueElement.min;
+      this.decrementButton.classList.add('disabled')
     }
+      
+    this._value = this.trans(value);
+    this.valueElement.value = parseFloat(this.value).toFixed(this.precision);
   }
+  
+  
   get value() { return this._value; }
 
   set size(sizeValue) { this._size = this.trans(sizeValue); }
@@ -133,14 +113,6 @@ class InputNum extends HTMLElement {
       this.valueElement.setAttribute('placeholder', newValue);
       break;
     case 'value':
-      // check if the new value is less than min
-      /*
-      if (this.valueElement.min <= newValue) {
-        this.value = this.trans(newValue);
-      } else {
-        // this.value = this.trans(this.valueElement.min);
-      }
-      */
       this.value = this.trans(newValue);
       break;
 
@@ -189,62 +161,21 @@ class InputNum extends HTMLElement {
     }
 
     this.incrementButton.addEventListener('mousedown', (e) => {
-      console.log("hitting plus");
-      console.log("value is: " + this.value);
-      console.log("max is: " + this.valueElement.max);
-      console.log("step is: " + this.step);
-
-      if ((this.valueElement.max) >= (this.value) + (this.step)){
-        console.log("we can plus");
+      if ((this.valueElement.max) >= (this.value) + (this.step)) {
         this.value = (this.step) + (this.value);
 
-        if (this.getAttribute('controls-position') === 'right'){
-          //Enable the minus button
-          this.root.querySelectorAll('button')[1].classList.remove('disabled');
-          //check again
-          if ((this.valueElement.max) <= (this.value))
-            this.root.querySelectorAll('button')[0].classList.add('disabled');
-        }
-        else{ 
-          //enable the minus button
-          this.root.querySelectorAll('button')[0].classList.remove('disabled');
-          //check again
-          if ((this.valueElement.max) <= (this.value))
-            this.root.querySelectorAll('button')[1].classList.add('disabled');
-        }
-      }
-      else {
-        if (this.getAttribute('controls-position') === 'right') 
-          this.root.querySelectorAll('button')[0].classList.add('disabled');
-        else 
-          this.root.querySelectorAll('button')[1].classList.add('disabled');
+        this.decrementButton.classList.remove('disabled');
+        if ((this.valueElement.max) <= (this.value))
+          this.incrementButton.classList.add('disabled');
       }
     });
 
     this.decrementButton.addEventListener('mousedown', (e) => {
       if ((this.valueElement.min) <= (this.value) - (this.step)) {
         this.value = (this.value) - (this.step);
-        if (this.getAttribute('controls-position') === 'right'){
-          //Enable the plus button
-          this.root.querySelectorAll('button')[0].classList.remove('disabled');
-          //check again
-          if ((this.valueElement.min) >= (this.value))
-            this.root.querySelectorAll('button')[1].classList.add('disabled');
-        }
-        else{
-          //enable the plus button
-          this.root.querySelectorAll('button')[1].classList.remove('disabled');
-          //check again
-          if ((this.valueElement.min) >= (this.value))
-            this.root.querySelectorAll('button')[0].classList.add('disabled');
-        }
-      }
-      else{
-        if (this.getAttribute('controls-position') === 'right') {
-          this.root.querySelectorAll('button')[1].classList.add('disabled');
-        } else {
-          this.root.querySelectorAll('button')[0].classList.add('disabled');
-        }
+        this.incrementButton.classList.remove('disabled');
+        if ((this.valueElement.min) >= (this.value))
+          this.decrementButton.classList.add('disabled');
       }
     });
 
@@ -269,9 +200,13 @@ class InputNum extends HTMLElement {
       this.incrementButton.style.color = "black";
     });
 
-    this.valueElement.addEventListener('input', (e) => {
-      this.value = e.srcElement.value;
-    });
+    this.valueElement.addEventListener(
+        'keypress', (e) => {
+          if (e.keyCode == 13){
+            console.log("Enter hitted!");
+            this.value = e.srcElement.value;
+          }
+          });
 
     this.valueElement.addEventListener(
         'click', (e) => this.inputDiv.style.borderColor = "#75baff");
