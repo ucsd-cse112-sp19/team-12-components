@@ -21,15 +21,12 @@ MacOS (install Homebrew):
 Windows please follow this [guide](https://github.com/google/closure-library/wiki/Formatting-.js-with-clang-format)
 
 ## Unit Testing <a name="unit_test"></a>
-----------------
 **To run all tests:**  
 npm run test
 
 ## Doc Generation <a name="doc"></a>
-----------------
 **To generate docs:**  
 npm run doc
 
 ## Acknowledgement <a name="ack"></a>
-----------------
 We would like to thank [SauceLabs](https://saucelabs.com) for their support of open source projects like ours.
