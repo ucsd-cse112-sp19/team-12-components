@@ -24,46 +24,13 @@ const gulp = require('gulp');
         }
         done();
     }
-    //create custom helper funtion 'list', to repeat attributes
-    //---used {{#list attributes}}{{/list}}
-    Handlebars.registerHelper('list', function(items, options) {
-        console.log(items);
-        var out = '';
-        /*
-        var out = "<table>";
-        for(var i=0, l=items.length; i<l; i++) {
-            out = out + "<tr>";
-            out = out + "<th>" + items[i]['AttributeName'] + "</th>";
-            out = out + "<th>" + items[i]['AttributeDescription'] + "</th>";
-            out = out + "<th>" + items[i]['AttributeAcceptedValues'] + "</th>";
-            out = out + "<th>" + items[i]['AttributeDefault'] + "</th>";
-            out = out + "</tr>";
-        }
-        return out + "</table>";
-        */
-       return out;
-      });
 
-/*
-      Handlebars.registerHelper('listSidebarComponents', function(array) {
-        var out = "";
-        console.log(array);
-        //for(var i=0, l=names.length; i<l; i++) {
-            out = out + `<li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              ${array}
-            </a>
-          </li>`
-        //}
-        return out;
-      });
-*/
+      /* ifEquals check */
+    Handlebars.registerHelper('ifEquals', function(arg1, arg2, options) {
+        return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
+    });
 
+      //register all partitals:
+    Handlebars.registerPartial('sidebar', sidebar);
 
-      //register partitals:
-      Handlebars.registerPartial('sidebar', sidebar);
-
-
-    
     exports.compileComponents = compileComponents;
