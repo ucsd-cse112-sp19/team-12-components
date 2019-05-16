@@ -7,7 +7,7 @@
     <meta name="description" content="">
 
     <!-- TODO: Need to add a custom function to use variables in header with handlebars-->
-    <title>{{ComponentName}} - Component</title>
+    <title>Docs</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/main.css">
@@ -22,42 +22,15 @@
       <div class="row">
 
         <!-- Use sidebar template (handlebars partial)-->
-        {{> sidebar name='{{ComponentName}}' }}
+        {{> sidebar }}
 
         <!-- Main body -->
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">{{ComponentName}}</h1>
-            <div class="btn-toolbar mb-2 mb-md-0">
-              <div class="btn-group mr-2">
-                <button class="btn btn-sm btn-outline-secondary">Source</button>
-              </div>
-            </div>
+            <h1 class="h2">Docs</h1>
           </div>
           <section>
-            <p>{{Description}}</p>
-
-            <!-- Attribute Table--> 
-            <table class="table">
-                <thead>
-                    <tr>
-                        <th scope="col">Attribute Name</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Type</th>
-                        <th scope="col">Accepted Values</th>
-                        <th scope="col">Default Value</th>
-                    </tr>
-                </thead>
-            {{#each Attributes}}
-            <tr>
-            <th >{{this.AttributeName}}</th>
-            <th>{{this.AttributeDescription}}</th>
-            <th>{{this.AttributeType}}</th>
-            <th>{{this.AttributeAcceptedValues}}</th>
-            <th>{{this.AttributeDefault}}</th>
-            </tr>
-            {{/each}}
-            </table>
+            <p>The Docs Page.</p>
           </section>
 
 

@@ -2,7 +2,6 @@
 html, body {
     /* prevent horizonal scrolling */
     max-width: 100%;
-    overflow-x: hidden;
     /* prevent overscroll bounce */
     overscroll-behavior:none;
 }
@@ -59,9 +58,7 @@ h6.sidebar-heading {
     top: 113px;
     position: relative;
 }
-main.docs-main {
-    height: 650px;
-}
+
 
 .attributeTable{
     padding:10px;
@@ -69,6 +66,17 @@ main.docs-main {
 
 .attributeRow{
     padding:10px;
+}
+
+.table thead th {
+    border-bottom: 2px solid #636465;
+    color: #212528;
+    font-weight: 500;
+}
+
+.table td, .table th {
+    color: #5d5d5d;
+    font-weight: 200;
 }
 
 
