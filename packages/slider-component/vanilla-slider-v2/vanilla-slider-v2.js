@@ -24,6 +24,7 @@ class VanillaSliderV2 extends HTMLElement {
         this.sliderBar = this.root.querySelector('.el-slider__bar');
         this.sliderBtnWrapper = this.root.querySelector('.el-slider__button-wrapper');
         this.tootip = this.root.querySelector('.el-tooltip.el-slider__button');
+        
 
         // Bind the "this" to the functions
         this.getCurrentPosition = this.getCurrentPosition.bind(this);
@@ -57,7 +58,11 @@ class VanillaSliderV2 extends HTMLElement {
         } else {
             this.max = 100;
         }
-
+        if (this.hasAttribute('color')){
+            //this.sliderRunway.style.backgroundColor = 'red';
+            this.sliderBar.style.backgroundColor = this.getAttribute('color');
+            this.tootip.style.borderColor = this.getAttribute('color');
+        }
         this.setInitPosition();
     }
 
