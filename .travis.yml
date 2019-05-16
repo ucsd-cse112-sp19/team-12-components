@@ -12,7 +12,9 @@ cache:
 
 script:
   - npm run test
-  - npm run test:testCafe
+  - npm run test:testcafe-chrome
+  - npm run test:testcafe-firefox
+
 
 notifications:
   email: false
