@@ -71,7 +71,7 @@ template.innerHTML = `
 class JJSlider extends HTMLElement {
   constructor() {
     super();
-    this.root = this.attachShadow({ mode: 'open' });
+    this.root = this.attachShadow({mode : 'open'});
     this.root.appendChild(template.content.cloneNode(true));
 
     // Target elements with querySelector
@@ -79,7 +79,7 @@ class JJSlider extends HTMLElement {
     this.sliderRunway = this.root.querySelector('.el-slider__runway');
     this.sliderBar = this.root.querySelector('.el-slider__bar');
     this.sliderBtnWrapper =
-      this.root.querySelector('.el-slider__button-wrapper');
+        this.root.querySelector('.el-slider__button-wrapper');
     this.sliderBtn = this.root.querySelector('.el-tooltip.el-slider__button');
     this.tooltip = this.root.querySelector('.el-tooltip__popper');
     this.tooltipSpan = this.root.querySelector('.el-tooltip__popper span');
@@ -133,7 +133,7 @@ class JJSlider extends HTMLElement {
     this.tooltipSpan.innerHTML = Math.round(this._value);
     // Hide tooltip at initialization
     this.tooltip.style =
-      "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;";
+        "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;";
   }
 
   // Get the percentage value of button's position on slider runway.
@@ -154,7 +154,7 @@ class JJSlider extends HTMLElement {
   setPosition(percent) {
     // Calculate target value based on percentage
     let targetValue =
-      parseInt(this.min) + percent * (this.max - this.min) / 100;
+        parseInt(this.min) + percent * (this.max - this.min) / 100;
     if (targetValue > this.max) {
       targetValue = this.max;
     } else if (targetValue < this.min) {
@@ -177,8 +177,8 @@ class JJSlider extends HTMLElement {
     // Set tooltip position
     let rect = this.sliderBtnWrapper.getBoundingClientRect();
     this.tooltip.style =
-      "transform-origin: center bottom; z-index: 2282; position: absolute; top: " +
-      (rect.top - rect.height) + "px; left: " + rect.left + "px;";
+        "transform-origin: center bottom; z-index: 2282; position: absolute; top: " +
+        (rect.top - rect.height) + "px; left: " + rect.left + "px;";
   }
 
   // This event handler will be called when the slider runway receives a
@@ -188,7 +188,7 @@ class JJSlider extends HTMLElement {
     this.sliderSize = this.sliderContainer.clientWidth;
     const sliderOffsetLeft = this.sliderContainer.getBoundingClientRect().left;
     this.setPosition((event.clientX - sliderOffsetLeft) / this.sliderSize *
-      100);
+                     100);
     this.onButtonDown(event);
   }
 
@@ -197,15 +197,15 @@ class JJSlider extends HTMLElement {
   onButtonHover(event) {
     let rect = this.sliderBtnWrapper.getBoundingClientRect();
     this.tooltip.style =
-      "transform-origin: center bottom; z-index: 2282; position: absolute; top: " +
-      (rect.top - rect.height) + "px; left: " + rect.left + "px;";
+        "transform-origin: center bottom; z-index: 2282; position: absolute; top: " +
+        (rect.top - rect.height) + "px; left: " + rect.left + "px;";
   }
 
   // This event handler will be called when the slider button receives a
   // 'mouseout' signal. Hide tooltip on mouseout.
   onButtonHoverEnd(event) {
     this.tooltip.style =
-      "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;";
+        "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;";
   }
 
   // This event handler will be called when the slider button receives a
@@ -262,7 +262,7 @@ class JJSlider extends HTMLElement {
         if (!this.isClick) {
           this.setPosition(this.newPosition);
           this.tooltip.style =
-            "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;";
+              "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;";
         }
       }, 0);
       window.removeEventListener('mousemove', this.onDragging);
@@ -274,20 +274,20 @@ class JJSlider extends HTMLElement {
   }
 
   // Observe only the array of attribute names
-  static get observedAttributes() { return ['value', 'min', 'max']; }
+  static get observedAttributes() { return [ 'value', 'min', 'max' ]; }
 
   // Listen for changed attributes
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
-      case 'value':
-        // console.log(`Initial value: ${newValue}`);
-        break;
-      case 'min':
-        // console.log(`Minimum value: ${newValue}`);
-        break;
-      case 'max':
-        // console.log(`Maximum value: ${newValue}`);
-        break;
+    case 'value':
+      // console.log(`Initial value: ${newValue}`);
+      break;
+    case 'min':
+      // console.log(`Minimum value: ${newValue}`);
+      break;
+    case 'max':
+      // console.log(`Maximum value: ${newValue}`);
+      break;
     }
   }
 
