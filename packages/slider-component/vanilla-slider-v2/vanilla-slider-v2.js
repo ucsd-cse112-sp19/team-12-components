@@ -24,6 +24,7 @@ class VanillaSliderV2 extends HTMLElement {
         this.root = this.attachShadow({ mode: 'open' });
         this.root.appendChild(template.content.cloneNode(true));
 
+        // Target elements with querySelector
         this.sliderContainer = this.root.querySelector('.el-slider');
         this.sliderRunway = this.root.querySelector('.el-slider__runway');
         this.sliderBar = this.root.querySelector('.el-slider__bar');
@@ -32,7 +33,7 @@ class VanillaSliderV2 extends HTMLElement {
         this.tooltip = this.root.querySelector('.el-tooltip__popper');
         this.tooltipSpan = this.root.querySelector('.el-tooltip__popper span');
 
-        // Bind the "this" to the functions
+        // Bind "this" to functions to reserve context
         this.getCurrentPosition = this.getCurrentPosition.bind(this);
         this.setInitPosition = this.setInitPosition.bind(this);
         this.setPosition = this.setPosition.bind(this);
@@ -46,12 +47,13 @@ class VanillaSliderV2 extends HTMLElement {
     }
 
     connectedCallback() {
-        // Bind event listener to sliderbar whenever it is clicked
+        // Bind event listener to slider elements
         this.sliderRunway.addEventListener('mousedown', this.onSliderClick);
-        this.sliderBtnWrapper.addEventListener('mousedown', this.onButtonDown);
         this.sliderBtnWrapper.addEventListener('mouseover', this.onButtonHover);
         this.sliderBtnWrapper.addEventListener('mouseout', this.onButtonHoverEnd);
+        this.sliderBtnWrapper.addEventListener('mousedown', this.onButtonDown);
 
+        // Get attribute values and set default values if not provided
         if (this.hasAttribute('value')) {
             this._value = this.getAttribute('value');
         } else {
@@ -67,31 +69,36 @@ class VanillaSliderV2 extends HTMLElement {
         } else {
             this.max = 100;
         }
-
         // If 'color' attribute is specified, the colour of the button and the runway before the button will be set
         // to that colour
-        if (this.hasAttribute('color')){
+        if (this.hasAttribute('color')) {
             this.sliderBar.style.backgroundColor = this.getAttribute('color');
             this.sliderBtn.style.borderColor = this.getAttribute('color');
         }
+
+        // Initialize positions
         this.setInitPosition();
+        // Set tooltip display value
         this.tooltipSpan.innerHTML = Math.round(this._value);
-        this.tooltip.style = "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;"; 
+        // Hide tooltip at initialization
+        this.tooltip.style = "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;";
     }
 
+    // Get the percentage value of button's position on slider runway.
     getCurrentPosition() {
         return (this._value - this.min) / (this.max - this.min) * 100 + "%";
     }
 
+    // Initialization: Set width of slider bar and offset of slider button based on position of current value
     setInitPosition() {
         const percent = (this._value - this.min) / (this.max - this.min) * 100;
-        // set sliderBar width
         this.sliderBar.style.width = percent + "%";
-        // set sliderBtn offset
         this.sliderBtnWrapper.style.left = percent + "%";
     }
 
+    // Calculate target value based on percentage and set width of slider bar and offset of slider button 
     setPosition(percent) {
+        // Calculate target value based on percentage
         let targetValue = parseInt(this.min) + percent * (this.max - this.min) / 100;
         if (targetValue > this.max) {
             targetValue = this.max;
@@ -99,23 +106,26 @@ class VanillaSliderV2 extends HTMLElement {
             targetValue = this.min;
         }
         this._value = targetValue;
-        this.tooltipSpan.innerHTML = Math.round(this._value);
 
+        // Percentage boundary check
         let newPercent = percent;
         if (newPercent > 100) {
             newPercent = 100;
         } else if (newPercent < 0) {
             newPercent = 0;
         }
-        // set sliderBar width
         this.sliderBar.style.width = newPercent + "%";
-        // set sliderBtn offset
         this.sliderBtnWrapper.style.left = newPercent + "%";
-        // set tooltip position
+
+        // Set tooltip display value
+        this.tooltipSpan.innerHTML = Math.round(this._value);
+        // Set tooltip position
         let rect = this.sliderBtnWrapper.getBoundingClientRect();
-        this.tooltip.style = "transform-origin: center bottom; z-index: 2282; position: absolute; top: " + (rect.top - rect.height) + "px; left: " + rect.left + "px;"; 
+        this.tooltip.style = "transform-origin: center bottom; z-index: 2282; position: absolute; top: " + (rect.top - rect.height) + "px; left: " + rect.left + "px;";
     }
 
+    // This event handler will be called when the slider runway receives a 'mousedown' signal.
+    // Set width of slider bar and offset of slider button based on position of cursor on mousedown.
     onSliderClick(event) {
         this.sliderSize = this.sliderContainer.clientWidth;
         const sliderOffsetLeft = this.sliderContainer.getBoundingClientRect().left;
@@ -123,15 +133,21 @@ class VanillaSliderV2 extends HTMLElement {
         this.onButtonDown(event);
     }
 
+    // This event handler will be called when the slider button receives a 'mouseover' signal.
+    // Set tooltip position on mouseover.
     onButtonHover(event) {
         let rect = this.sliderBtnWrapper.getBoundingClientRect();
-        this.tooltip.style = "transform-origin: center bottom; z-index: 2282; position: absolute; top: " + (rect.top - rect.height) + "px; left: " + rect.left + "px;"; 
+        this.tooltip.style = "transform-origin: center bottom; z-index: 2282; position: absolute; top: " + (rect.top - rect.height) + "px; left: " + rect.left + "px;";
     }
 
+    // This event handler will be called when the slider button receives a 'mouseout' signal.
+    // Hide tooltip on mouseout.
     onButtonHoverEnd(event) {
-        this.tooltip.style = "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;"; 
+        this.tooltip.style = "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;";
     }
 
+    // This event handler will be called when the slider button receives a 'mousedown' signal.
+    // Trigger onDragStart() and add event listeners to onDragging() and onDragEnd().
     onButtonDown(event) {
         if (this.disabled) return;
         event.preventDefault();
@@ -143,6 +159,7 @@ class VanillaSliderV2 extends HTMLElement {
         window.addEventListener('contextmenu', this.onDragEnd);
     };
 
+    // Mark original value's position when dragging starts
     onDragStart(event) {
         this.dragging = true;
         this.isClick = true;
@@ -154,6 +171,8 @@ class VanillaSliderV2 extends HTMLElement {
         this.newPosition = this.startPosition;
     };
 
+    // This event handler will be called when the window (global scope) receives a 'mousemove' or 'touchmove' signal.
+    // Call setPosition() with new position on mousemove.
     onDragging(event) {
         if (this.dragging) {
             this.isClick = false;
@@ -168,13 +187,15 @@ class VanillaSliderV2 extends HTMLElement {
         }
     }
 
+    // This event handler will be called when the window (global scope) receives a 'mouseup', 'touchend', or 'contextmenu' signal.
+    // Call setPosition(), hide tooltip, and remove event listeners on mouseup.
     onDragEnd() {
         if (this.dragging) {
             setTimeout(() => {
                 this.dragging = false;
                 if (!this.isClick) {
                     this.setPosition(this.newPosition);
-                    this.tooltip.style = "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;"; 
+                    this.tooltip.style = "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;";
                 }
             }, 0);
             window.removeEventListener('mousemove', this.onDragging);
@@ -185,10 +206,12 @@ class VanillaSliderV2 extends HTMLElement {
         }
     }
 
+    // Observe only the array of attribute names
     static get observedAttributes() {
         return ['value', 'min', 'max'];
     }
 
+    // Listen for changed attributes
     attributeChangedCallback(name, oldValue, newValue) {
         switch (name) {
             case 'value':
@@ -201,6 +224,34 @@ class VanillaSliderV2 extends HTMLElement {
                 // console.log(`Maximum value: ${newValue}`);
                 break;
         }
+    }
+
+    // Getters
+    get value() {
+        return this.getAttribute('value');
+    }
+    get min() {
+        return this.getAttribute('min');
+    }
+    get max() {
+        return this.getAttribute('max');
+    }
+    get color() {
+        return this.getAttribute('color');
+    }
+
+    // Setters
+    set value(newValue) {
+        this.setAttribute('value', newValue);
+    }
+    set min(newValue) {
+        this.setAttribute('min', newValue);
+    }
+    set max(newValue) {
+        this.setAttribute('max', newValue);
+    }
+    set color(newValue) {
+        this.setAttribute('color', newValue);
     }
 }
 
