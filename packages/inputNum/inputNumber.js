@@ -3,9 +3,9 @@ const template = document.createElement('template');
 template.innerHTML = `
   <link rel="stylesheet" href="inputNumber.css">
   <div class="input-number">
-    <button aria-label="decrement" class="decrement-btn">-</button><!--
+    <button aria-label="decrement" class="decrement-btn" id="decrementBtn">-</button><!--
     --><input type = "text" class="input-field"></input><!--
-    --><button aria-label="increment" class="increment-btn">+</button>
+    --><button aria-label="increment" class="increment-btn" id="incrementBtn">+</button>
   </div>
 `;
 
@@ -16,16 +16,16 @@ template2.innerHTML = `
   <div class="input-number">
     <input type = "text" class="input-field"></input>
     <div class = "button-container">
-      <button aria-label="increment" class="increment-btn-2">&#708;</button>
-      <button aria-label="decrement" class="decrement-btn-2">&#709;</button>
+      <button aria-label="increment" class="increment-btn-2" id="incrementBtn">&#708;</button>
+      <button aria-label="decrement" class="decrement-btn-2" id="decrementBtn">&#709;</button>
     </div>
   </div>
 `;
 
 class InputNum extends HTMLElement {
   set value(value) {
-    console.log("in set value: " + value);
-    console.log("after concersion: " + this.trans(value));
+    // console.log("in set value: " + value);
+    // console.log("after concersion: " + this.trans(value));
     if (value===''){
       this._value = this.trans('');
       this.valueElement.value = '';
@@ -162,6 +162,7 @@ class InputNum extends HTMLElement {
   trans(value) { return parseFloat(parseFloat(value).toFixed(this.precision)); }
 
   load() {
+    var timer;
     if (this.getAttribute('controls-position') === 'right') {
       this.root.appendChild(template2.content.cloneNode(true));
       this.inputDiv = this.root.querySelector('div');
@@ -177,10 +178,22 @@ class InputNum extends HTMLElement {
       this.decrementButton = this.root.querySelectorAll('button')[0];
     }
 
-
     this.incrementButton.addEventListener('mousedown', (e) => {
       if ((this.valueElement.max) >= (this.value) + (this.step)) {
-        this.value = (this.step) + (this.value);
+        this.value = (this.value) + (this.step);
+
+        // Click and hold functionality.
+        var dom = this.root;
+        var step = this.step;
+        var precision = this.precision;
+        var value = this.value;
+        timer = setInterval(function () {
+          dom.querySelector('input').value = (parseFloat(dom.querySelector('input').value) +  step).toFixed(precision);
+          value = (parseFloat(dom.querySelector('input').value) +  step).toFixed(precision);
+          console.log('inside the fun' + value);
+        }, 500);
+        console.log(value);
+        this.value = value;
 
         this.decrementButton.classList.remove('disabled');
         if ((this.valueElement.max) <= (this.value))
@@ -188,13 +201,38 @@ class InputNum extends HTMLElement {
       }
     });
 
+    this.incrementButton.addEventListener('mouseleave', function() {
+      clearInterval(timer);
+    });
+
+    this.incrementButton.addEventListener('mouseup', function () {
+      clearInterval(timer);
+    });
+
     this.decrementButton.addEventListener('mousedown', (e) => {
       if ((this.valueElement.min) <= (this.value) - (this.step)) {
         this.value = (this.value) - (this.step);
+        var dom = this.root;
+        var step = this.step;
+        var precision = this.precision;
+        var value = this.value;
+        timer = setInterval(function () {
+          dom.querySelector('input').value = (parseFloat(dom.querySelector('input').value) -  step).toFixed(precision);
+          value = (parseFloat(dom.querySelector('input').value) -  step).toFixed(precision);
+        }, 500);
+        this.value = value;
         this.incrementButton.classList.remove('disabled');
         if ((this.valueElement.min) >= (this.value))
           this.decrementButton.classList.add('disabled');
       }
+    });
+
+    this.decrementButton.addEventListener('mouseleave', function() {
+      clearInterval(timer);
+    });
+
+    this.decrementButton.addEventListener('mouseup', function () {
+      clearInterval(timer);
     });
 
     /* This two lines give us too much pain!!!!!
@@ -240,10 +278,8 @@ class InputNum extends HTMLElement {
     this.valueElement.addEventListener(
       'click', (e) => {
         this.value = e.srcElement.value;
+        this.inputDiv.style.borderColor = "#75baff";
       });
-
-    this.valueElement.addEventListener(
-        'click', (e) => this.inputDiv.style.borderColor = "#75baff");
   }
 }
 customElements.define('input-number', InputNum);
