@@ -24,6 +24,15 @@ template2.innerHTML = `
 
 class InputNum extends HTMLElement {
   set value(value) {
+    if (value===''){
+      this._value = this.trans('');
+      this.valueElement.value = '';
+      return;
+    }
+    if (!this.hasAttribute('max'))
+      this.valueElement.max = Number.POSITIVE_INFINITY;
+    if (!this.hasAttribute('min'))
+      this.valueElement.min = Number.NEGATIVE_INFINITY;
     if( this.trans(value) >= this.valueElement.max) {
       value = this.valueElement.max;
       this.incrementButton.classList.add('disabled')
@@ -199,10 +208,18 @@ class InputNum extends HTMLElement {
       this.inputDiv.style.borderColor = "#c2c2c2";
       this.incrementButton.style.color = "black";
     });
-
+    
     this.valueElement.addEventListener(
-        'keypress', (e) => {
-          if (e.keyCode == 13){
+        'keydown', (e) => {
+          console.log("In keypress handler");
+          const key = e.key;
+          if (key === "Backspace" || key === "Delete"){
+            let string = this.valueElement.value;
+            if(string.length==1){
+              this.value = '';
+            }
+          }
+          if(key === "Enter"){
             console.log("Enter hitted!");
             this.value = e.srcElement.value;
           }
