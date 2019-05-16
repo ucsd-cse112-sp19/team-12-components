@@ -9,7 +9,10 @@
     "build": "./node_modules/.bin/babel ./test/ --out-dir ./testCompiled/",
     "test": "karma start",
     "test:watch": "karma start --auto-watch=true --single-run=false",
-    "doc": "./node_modules/.bin/jsdoc -c jsdoc.json"
+    "doc": "./node_modules/.bin/jsdoc -c jsdoc.json",
+    "storybook": "start-storybook -p 6006",
+    "snapshot": "build-storybook && percy-storybook --widths=320,1280",
+    "build-storybook": "build-storybook"
   },
   "engines": {
     "node": ">=10.0.0",
@@ -24,7 +27,11 @@
     "type": "git",
     "url": "git+https://github.com/ucsd-cse112/hello-world-component.git"
   },
-  "keywords": [],
+  "keywords": [
+    "storybook",
+    "test",
+    "snapshot"
+  ],
   "author": "Team JJ",
   "url": "https://github.com/ucsd-cse112/hello-world-component#readme",
   "license": "ISC",
@@ -38,12 +45,16 @@
     "@babel/preset-env": "^7.4.4",
     "@babel/register": "^7.4.4",
     "@open-wc/testing-karma": "^1.1.1",
+    "@percy/storybook": "^3.0.2",
+    "@storybook/html": "^5.0.11",
     "ajv": "^6.10.0",
+    "babel-loader": "^8.0.6",
     "chai": "^4.2.0",
+    "clang-format": "^1.2.4",
     "husky": "^2.1.0",
     "lit-html": "^1.0.0",
-    "clang-format": "^1.2.4",
-    "mocha": "^6.1.4"
+    "mocha": "^6.1.4",
+    "polymer-webpack-loader": "^2.0.3"
   },
   "dependencies": {
     "@babel/runtime": "^7.4.4",
