@@ -17,7 +17,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "clang-format -i -style=llvm packages/*/*.js"
+      "pre-commit": "clang-format -i -style=llvm packages/*/*.js && node createDocs.js ./packages .js && gulp compileComponents"
     }
   },
   "repository": {
