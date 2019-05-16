@@ -11,7 +11,7 @@ template.innerHTML = `
             </div>
         </div>
         
-        <div role="tooltip" id="el-tooltip-9861" aria-hidden="false" class="el-tooltip__popper is-dark" x-placement="top" style="transform-origin: center bottom; z-index: 2282; position: absolute; top: 200px; left: 200px;">
+        <div role="tooltip" id="el-tooltip-9861" aria-hidden="false" class="el-tooltip__popper is-dark" x-placement="top">
             <span></span>
             <div x-arrow="" class="popper__arrow" style="left: 10.5px;"></div>
         </div>
@@ -37,6 +37,7 @@ class VanillaSliderV2 extends HTMLElement {
         this.setPosition = this.setPosition.bind(this);
         this.onSliderClick = this.onSliderClick.bind(this);
         this.onButtonHover = this.onButtonHover.bind(this);
+        this.onButtonHoverEnd = this.onButtonHoverEnd.bind(this);
         this.onButtonDown = this.onButtonDown.bind(this);
         this.onDragStart = this.onDragStart.bind(this);
         this.onDragging = this.onDragging.bind(this);
@@ -45,10 +46,10 @@ class VanillaSliderV2 extends HTMLElement {
 
     connectedCallback() {
         // Bind event listener to sliderbar whenever it is clicked
-
         this.sliderRunway.addEventListener('mousedown', this.onSliderClick);
         this.sliderBtnWrapper.addEventListener('mousedown', this.onButtonDown);
         this.sliderBtnWrapper.addEventListener('mouseover', this.onButtonHover);
+        this.sliderBtnWrapper.addEventListener('mouseout', this.onButtonHoverEnd);
 
         if (this.hasAttribute('value')) {
             this._value = this.getAttribute('value');
@@ -68,6 +69,7 @@ class VanillaSliderV2 extends HTMLElement {
 
         this.setInitPosition();
         this.tooltipSpan.innerHTML = Math.round(this._value);
+        this.tooltip.style = "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;"; 
     }
 
     getCurrentPosition() {
@@ -76,7 +78,6 @@ class VanillaSliderV2 extends HTMLElement {
 
     setInitPosition() {
         const percent = (this._value - this.min) / (this.max - this.min) * 100;
-        // console.log("Initial percentage: " + Math.round(percent) + "%");
         // set sliderBar width
         this.sliderBar.style.width = percent + "%";
         // set sliderBtn offset
@@ -103,13 +104,12 @@ class VanillaSliderV2 extends HTMLElement {
         this.sliderBar.style.width = newPercent + "%";
         // set sliderBtn offset
         this.sliderBtnWrapper.style.left = newPercent + "%";
-
-        // console.log("New value: " + Math.round(targetValue));
-        // console.log("New percentage: " + Math.round(newPercent) + "%");
+        // set tooltip position
+        let rect = this.sliderBtnWrapper.getBoundingClientRect();
+        this.tooltip.style = "transform-origin: center bottom; z-index: 2282; position: absolute; top: " + (rect.top - rect.height) + "px; left: " + rect.left + "px;"; 
     }
 
     onSliderClick(event) {
-        // if (this.sliderDisabled || this.dragging) return;
         this.sliderSize = this.sliderContainer.clientWidth;
         const sliderOffsetLeft = this.sliderContainer.getBoundingClientRect().left;
         this.setPosition((event.clientX - sliderOffsetLeft) / this.sliderSize * 100);
@@ -117,8 +117,12 @@ class VanillaSliderV2 extends HTMLElement {
     }
 
     onButtonHover(event) {
-        console.log(event.screenX);
-        console.log(event.screenY);
+        let rect = this.sliderBtnWrapper.getBoundingClientRect();
+        this.tooltip.style = "transform-origin: center bottom; z-index: 2282; position: absolute; top: " + (rect.top - rect.height) + "px; left: " + rect.left + "px;"; 
+    }
+
+    onButtonHoverEnd(event) {
+        this.tooltip.style = "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;"; 
     }
 
     onButtonDown(event) {
@@ -146,7 +150,6 @@ class VanillaSliderV2 extends HTMLElement {
     onDragging(event) {
         if (this.dragging) {
             this.isClick = false;
-            // this.displayTooltip();
             let diff = 0;
             if (event.type === 'touchmove') {
                 event.clientX = event.touches[0].clientX;
@@ -162,9 +165,9 @@ class VanillaSliderV2 extends HTMLElement {
         if (this.dragging) {
             setTimeout(() => {
                 this.dragging = false;
-                // this.hideTooltip();
                 if (!this.isClick) {
                     this.setPosition(this.newPosition);
+                    this.tooltip.style = "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;"; 
                 }
             }, 0);
             window.removeEventListener('mousemove', this.onDragging);

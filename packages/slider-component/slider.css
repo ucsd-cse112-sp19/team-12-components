@@ -20,6 +20,7 @@ p {
    border-bottom: 1px solid #eff2f6;
 }
 .el-slider {
+    font-family: Helvetica, Arial, sans-serif;
     float: right;
     width: 70%;
     margin-right: 20px;
