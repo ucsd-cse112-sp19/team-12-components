@@ -4,6 +4,7 @@ node_js:
 
 script:
   - npm run test
+  - npm run snapshot # Visual regression tests
 
 notifications:
   email: false
