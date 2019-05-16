@@ -53,8 +53,7 @@
     "clang-format": "^1.2.4",
     "husky": "^2.1.0",
     "lit-html": "^1.0.0",
-    "mocha": "^6.1.4",
-    "polymer-webpack-loader": "^2.0.3"
+    "mocha": "^6.1.4"
   },
   "dependencies": {
     "@babel/runtime": "^7.4.4",
