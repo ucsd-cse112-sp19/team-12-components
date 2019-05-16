@@ -24,23 +24,28 @@ template2.innerHTML = `
 
 class InputNum extends HTMLElement {
   set value(value) {
+    console.log("in set value: " + value);
+    console.log("after concersion: " + this.trans(value));
     if (value===''){
       this._value = this.trans('');
       this.valueElement.value = '';
       return;
     }
-    if (!this.hasAttribute('max'))
-      this.valueElement.max = Number.POSITIVE_INFINITY;
-    if (!this.hasAttribute('min'))
-      this.valueElement.min = Number.NEGATIVE_INFINITY;
+
     if( this.trans(value) >= this.valueElement.max) {
       value = this.valueElement.max;
-      this.incrementButton.classList.add('disabled')
+      this.incrementButton.classList.add('disabled');
+    }
+    else{
+      this.incrementButton.classList.remove('disabled');
     }
     
     if (this.trans(value) <= this.valueElement.min) {
       value = this.valueElement.min;
-      this.decrementButton.classList.add('disabled')
+      this.decrementButton.classList.add('disabled');
+    }
+    else{
+      this.decrementButton.classList.remove('disabled');
     }
       
     this._value = this.trans(value);
@@ -101,9 +106,11 @@ class InputNum extends HTMLElement {
     switch (attrName) {
     case 'min':
       this.valueElement.min = this.trans(newValue);
+      this.value = this.value;
       break;
     case 'max':
       this.valueElement.max = this.trans(newValue);
+      this.value = this.value;
       break;
     case 'step':
       this.step = this.trans(newValue);
@@ -140,6 +147,7 @@ class InputNum extends HTMLElement {
     case 'precision':
       if (parseInt(newValue) >= 0) {
         this.precision = parseInt(newValue);
+        this.value = this.trans(this.value);
       }
       break;
     }
@@ -169,6 +177,7 @@ class InputNum extends HTMLElement {
       this.decrementButton = this.root.querySelectorAll('button')[0];
     }
 
+
     this.incrementButton.addEventListener('mousedown', (e) => {
       if ((this.valueElement.max) >= (this.value) + (this.step)) {
         this.value = (this.step) + (this.value);
@@ -188,8 +197,10 @@ class InputNum extends HTMLElement {
       }
     });
 
+    /* This two lines give us too much pain!!!!!
     this.valueElement.addEventListener('keyup', (e) => this.value =
                                                     this.valueElement.value);
+    */
 
     this.decrementButton.addEventListener('mouseover', (e) => {
       this.inputDiv.style.borderColor = "#75baff";
@@ -211,19 +222,25 @@ class InputNum extends HTMLElement {
     
     this.valueElement.addEventListener(
         'keydown', (e) => {
-          console.log("In keypress handler");
           const key = e.key;
+          let string = this.valueElement.value;
           if (key === "Backspace" || key === "Delete"){
-            let string = this.valueElement.value;
-            if(string.length==1){
+            if(string.length==1 || string.length == 0){
               this.value = '';
+            }
+            else{
+              this.valueElement.value = string.substring(0,string.length);
+              return;
             }
           }
           if(key === "Enter"){
-            console.log("Enter hitted!");
             this.value = e.srcElement.value;
           }
-          });
+        });
+    this.valueElement.addEventListener(
+      'click', (e) => {
+        this.value = e.srcElement.value;
+      });
 
     this.valueElement.addEventListener(
         'click', (e) => this.inputDiv.style.borderColor = "#75baff");
