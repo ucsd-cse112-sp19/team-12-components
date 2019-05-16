@@ -28,6 +28,7 @@ class VanillaSliderV2 extends HTMLElement {
         this.sliderRunway = this.root.querySelector('.el-slider__runway');
         this.sliderBar = this.root.querySelector('.el-slider__bar');
         this.sliderBtnWrapper = this.root.querySelector('.el-slider__button-wrapper');
+        this.sliderBtn = this.root.querySelector('.el-tooltip.el-slider__button');
         this.tooltip = this.root.querySelector('.el-tooltip__popper');
         this.tooltipSpan = this.root.querySelector('.el-tooltip__popper span');
 
@@ -67,6 +68,12 @@ class VanillaSliderV2 extends HTMLElement {
             this.max = 100;
         }
 
+        // If 'color' attribute is specified, the colour of the button and the runway before the button will be set
+        // to that colour
+        if (this.hasAttribute('color')){
+            this.sliderBar.style.backgroundColor = this.getAttribute('color');
+            this.sliderBtn.style.borderColor = this.getAttribute('color');
+        }
         this.setInitPosition();
         this.tooltipSpan.innerHTML = Math.round(this._value);
         this.tooltip.style = "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;"; 
