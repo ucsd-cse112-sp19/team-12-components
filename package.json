@@ -2,10 +2,8 @@
   "name": "hello-world",
   "version": "1.0.0",
   "description": "Hello World Component - CSE 112 - Team JJ",
-  "main": "hw.js",
+  "main": "",
   "scripts": {
-    "precommit": "./node_modules/.bin/check-clang-format \"yarn format\"",
-    "format": "./node_modules/.bin/git-clang-format",
     "build": "./node_modules/.bin/babel ./test/ --out-dir ./testCompiled/",
     "test": "karma start",
     "test:watch": "karma start --auto-watch=true --single-run=false",
