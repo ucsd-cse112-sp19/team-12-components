@@ -2,13 +2,18 @@ const template = document.createElement('template');
 template.innerHTML = `
     <!-- import CSS -->
     <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
-    <!-- <link rel="stylesheet" href="../slider.css"> -->
+    <link rel="stylesheet" href="../slider.css">
     <div role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" class="el-slider" aria-valuetext="0" aria-label="slider between 0 and 100">
         <div class="el-slider__runway">
             <div class="el-slider__bar" style="left: 0%;"></div>
             <div tabindex="0" class="el-slider__button-wrapper">
                 <div class="el-tooltip el-slider__button" aria-describedby="el-tooltip-9861" tabindex="0"></div>
             </div>
+        </div>
+        
+        <div role="tooltip" id="el-tooltip-9861" aria-hidden="false" class="el-tooltip__popper is-dark" x-placement="top" style="transform-origin: center bottom; z-index: 2282; position: absolute; top: 200px; left: 200px;">
+            <span></span>
+            <div x-arrow="" class="popper__arrow" style="left: 10.5px;"></div>
         </div>
     </div>
   `;
@@ -25,12 +30,15 @@ class VanillaSliderV2 extends HTMLElement {
         this.sliderBtnWrapper = this.root.querySelector('.el-slider__button-wrapper');
         this.tootip = this.root.querySelector('.el-tooltip.el-slider__button');
         
+        this.tooltip = this.root.querySelector('.el-tooltip__popper');
+        this.tooltipSpan = this.root.querySelector('.el-tooltip__popper span');
 
         // Bind the "this" to the functions
         this.getCurrentPosition = this.getCurrentPosition.bind(this);
         this.setInitPosition = this.setInitPosition.bind(this);
         this.setPosition = this.setPosition.bind(this);
         this.onSliderClick = this.onSliderClick.bind(this);
+        this.onButtonHover = this.onButtonHover.bind(this);
         this.onButtonDown = this.onButtonDown.bind(this);
         this.onDragStart = this.onDragStart.bind(this);
         this.onDragging = this.onDragging.bind(this);
@@ -42,6 +50,7 @@ class VanillaSliderV2 extends HTMLElement {
 
         this.sliderRunway.addEventListener('mousedown', this.onSliderClick);
         this.sliderBtnWrapper.addEventListener('mousedown', this.onButtonDown);
+        this.sliderBtnWrapper.addEventListener('mouseover', this.onButtonHover);
 
         if (this.hasAttribute('value')) {
             this._value = this.getAttribute('value');
@@ -59,11 +68,11 @@ class VanillaSliderV2 extends HTMLElement {
             this.max = 100;
         }
         if (this.hasAttribute('color')){
-            //this.sliderRunway.style.backgroundColor = 'red';
             this.sliderBar.style.backgroundColor = this.getAttribute('color');
             this.tootip.style.borderColor = this.getAttribute('color');
         }
         this.setInitPosition();
+        this.tooltipSpan.innerHTML = Math.round(this._value);
     }
 
     getCurrentPosition() {
@@ -87,6 +96,7 @@ class VanillaSliderV2 extends HTMLElement {
             targetValue = this.min;
         }
         this._value = targetValue;
+        this.tooltipSpan.innerHTML = Math.round(this._value);
 
         let newPercent = percent;
         if (newPercent > 100) {
@@ -109,6 +119,11 @@ class VanillaSliderV2 extends HTMLElement {
         const sliderOffsetLeft = this.sliderContainer.getBoundingClientRect().left;
         this.setPosition((event.clientX - sliderOffsetLeft) / this.sliderSize * 100);
         this.onButtonDown(event);
+    }
+
+    onButtonHover(event) {
+        console.log(event.screenX);
+        console.log(event.screenY);
     }
 
     onButtonDown(event) {
