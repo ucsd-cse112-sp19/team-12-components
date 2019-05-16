@@ -56,7 +56,6 @@
     "mocha": "^6.1.4",
     "testcafe": "^1.1.4",
     "testcafe-browser-provider-saucelabs": "^1.7.0"
-    "mocha": "^6.1.4"
   },
   "dependencies": {
     "@babel/runtime": "^7.4.4",
