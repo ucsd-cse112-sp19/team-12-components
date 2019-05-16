@@ -15,6 +15,7 @@ function searchFilesInDirectory(dir, ext) {
     const found = getFilesInDirectory(dir, ext);
     //main wrapper array (to be json later)
     var componentsList = [];
+    var allComponentNames = [];
     //keep track of total files to know when we are done looping
     totalFiles = 0;
 
@@ -34,6 +35,8 @@ function searchFilesInDirectory(dir, ext) {
             //---- Get all comments and add to array (to be json later) ----
             if(line.includes('@component_name')){
                 name = line.replace('* @component_name','').trim();
+                var fileName = name.replace(/ +/g, '-').toLowerCase();
+                allComponentNames.push([name,fileName]);
             }
             if(line.includes('@component_desc')){
                 description = line.replace('* @component_desc','').trim();
@@ -57,13 +60,20 @@ function searchFilesInDirectory(dir, ext) {
                 ComponentName: name,
                 Description: description,
                 Attributes: attributeArray,
+                AllComponents: [],
             });
+
             //clear temp array
             attributeArray = [];
             //update total files read so far
             totalFiles++;
             //check if done reading all files, change into JSON
             if (totalFiles == found.length){
+
+                for(var j = 0; j<componentsList.length; j++){
+                    componentsList[j].AllComponents = allComponentNames; 
+                }
+                //console.log(componentsList);
                 var json = JSON.stringify(componentsList);
                 fs.writeFile("./docs/components.json", json, (err) => {
                     if (err) {  console.error(err);  return; };

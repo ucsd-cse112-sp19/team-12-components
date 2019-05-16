@@ -1,0 +1,44 @@
+<nav class="col-md-2 d-none d-md-block bg-light sidebar">
+          <div class="sidebar-sticky">
+            <ul class="nav flex-column">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">
+                  <span data-feather="home"></span>
+                  Get Started <span class="sr-only">(current)</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="file"></span>
+                  Installation
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">
+                  <span data-feather="shopping-cart"></span>
+                  Examples
+                </a>
+              </li>
+            </ul>
+
+
+            <h6 class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted">
+              <span>Components</span>
+              <a class="d-flex align-items-center text-muted" href="#">
+                <span data-feather="plus-circle"></span>
+              </a>
+            </h6>
+            <ul class="nav flex-column mb-2">
+                {{#each AllComponents}}
+        
+                <li class="nav-item">
+                    <a class="nav-link" href="./{{this.[1]}}.html">
+                        <span data-feather="file-text"></span>
+                        {{this.[0]}}
+                        </a>
+                </li>
+        
+                {{/each}}
+            </ul>
+          </div>
+        </nav>
