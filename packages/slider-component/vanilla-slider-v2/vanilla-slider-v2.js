@@ -67,6 +67,8 @@ class VanillaSliderV2 extends HTMLElement {
         } else {
             this.max = 100;
         }
+        // If 'color' attribute is specified, the colour of the button and the runway before the button will be set
+        // to that colour
         if (this.hasAttribute('color')){
             this.sliderBar.style.backgroundColor = this.getAttribute('color');
             this.tootip.style.borderColor = this.getAttribute('color');
