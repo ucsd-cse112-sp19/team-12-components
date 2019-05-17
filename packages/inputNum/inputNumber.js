@@ -24,8 +24,7 @@ template2.innerHTML = `
 
 class InputNum extends HTMLElement {
   set value(value) {
-    // console.log("in set value: " + value);
-    // console.log("after concersion: " + this.trans(value));
+
     if (value === '') {
       this._value = this.trans('');
       this.valueElement.value = '';
@@ -159,7 +158,10 @@ class InputNum extends HTMLElement {
   trans(value) { return parseFloat(parseFloat(value).toFixed(this.precision)); }
 
   load() {
+    // This timer is used for the click and hold functionality.
     var timer;
+    
+    // Check if where the position is and render the buttons accordingly.
     if (this.getAttribute('controls-position') === 'right') {
       this.root.appendChild(template2.content.cloneNode(true));
       this.inputDiv = this.root.querySelector('div');
@@ -175,27 +177,16 @@ class InputNum extends HTMLElement {
       this.decrementButton = this.root.querySelectorAll('button')[0];
     }
 
+    // Logic for the increment button getting clicked
     this.incrementButton.addEventListener('mousedown', (e) => {
       if ((this.valueElement.max) >= (this.value) + (this.step)) {
         this.value = (this.value) + (this.step);
 
         // Click and hold functionality.
-        var dom = this.root;
-        var step = this.step;
-        var precision = this.precision;
-        var value = this.value;
         let _this = this; // reserve 'this' context
         timer = setInterval(function() {
-          dom.querySelector('input').value =
-              (parseFloat(dom.querySelector('input').value) + step)
-                  .toFixed(precision);
-          value = (parseFloat(dom.querySelector('input').value) + step)
-                      .toFixed(precision);
-          console.log('inside the fun' + value);
-          _this.value = value; // this.value won't work
-        }, 500);
-        console.log(value);
-        // this.value = value;
+          _this.value = (_this.value) + (_this.step);
+        }, 400);
 
         this.decrementButton.classList.remove('disabled');
         if ((this.valueElement.max) <= (this.value))
@@ -209,23 +200,16 @@ class InputNum extends HTMLElement {
     this.incrementButton.addEventListener('mouseup',
                                           function() { clearInterval(timer); });
 
+    // Logic for the decrement button getting clicked
     this.decrementButton.addEventListener('mousedown', (e) => {
       if ((this.valueElement.min) <= (this.value) - (this.step)) {
         this.value = (this.value) - (this.step);
-        var dom = this.root;
-        var step = this.step;
-        var precision = this.precision;
-        var value = this.value;
+
         let _this = this;
         timer = setInterval(function() {
-          dom.querySelector('input').value =
-              (parseFloat(dom.querySelector('input').value) - step)
-                  .toFixed(precision);
-          value = (parseFloat(dom.querySelector('input').value) - step)
-                      .toFixed(precision);
-          _this.value = value;
-        }, 500);
-        // this.value = value;
+          _this.value = (_this.value) - (_this.step);
+        }, 400);
+
         this.incrementButton.classList.remove('disabled');
         if ((this.valueElement.min) >= (this.value))
           this.decrementButton.classList.add('disabled');
