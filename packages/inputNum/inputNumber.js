@@ -26,33 +26,30 @@ class InputNum extends HTMLElement {
   set value(value) {
     // console.log("in set value: " + value);
     // console.log("after concersion: " + this.trans(value));
-    if (value===''){
+    if (value === '') {
       this._value = this.trans('');
       this.valueElement.value = '';
       return;
     }
 
-    if( this.trans(value) >= this.valueElement.max) {
+    if (this.trans(value) >= this.valueElement.max) {
       value = this.valueElement.max;
       this.incrementButton.classList.add('disabled');
-    }
-    else{
+    } else {
       this.incrementButton.classList.remove('disabled');
     }
-    
+
     if (this.trans(value) <= this.valueElement.min) {
       value = this.valueElement.min;
       this.decrementButton.classList.add('disabled');
-    }
-    else{
+    } else {
       this.decrementButton.classList.remove('disabled');
     }
-      
+
     this._value = this.trans(value);
     this.valueElement.value = parseFloat(this.value).toFixed(this.precision);
   }
-  
-  
+
   get value() { return this._value; }
 
   set size(sizeValue) { this._size = this.trans(sizeValue); }
@@ -188,9 +185,12 @@ class InputNum extends HTMLElement {
         var precision = this.precision;
         var value = this.value;
         let _this = this; // reserve 'this' context
-        timer = setInterval(function () {
-          dom.querySelector('input').value = (parseFloat(dom.querySelector('input').value) +  step).toFixed(precision);
-          value = (parseFloat(dom.querySelector('input').value) +  step).toFixed(precision);
+        timer = setInterval(function() {
+          dom.querySelector('input').value =
+              (parseFloat(dom.querySelector('input').value) + step)
+                  .toFixed(precision);
+          value = (parseFloat(dom.querySelector('input').value) + step)
+                      .toFixed(precision);
           console.log('inside the fun' + value);
           _this.value = value; // this.value won't work
         }, 500);
@@ -203,13 +203,11 @@ class InputNum extends HTMLElement {
       }
     });
 
-    this.incrementButton.addEventListener('mouseleave', function() {
-      clearInterval(timer);
-    });
+    this.incrementButton.addEventListener('mouseleave',
+                                          function() { clearInterval(timer); });
 
-    this.incrementButton.addEventListener('mouseup', function () {
-      clearInterval(timer);
-    });
+    this.incrementButton.addEventListener('mouseup',
+                                          function() { clearInterval(timer); });
 
     this.decrementButton.addEventListener('mousedown', (e) => {
       if ((this.valueElement.min) <= (this.value) - (this.step)) {
@@ -219,9 +217,12 @@ class InputNum extends HTMLElement {
         var precision = this.precision;
         var value = this.value;
         let _this = this;
-        timer = setInterval(function () {
-          dom.querySelector('input').value = (parseFloat(dom.querySelector('input').value) -  step).toFixed(precision);
-          value = (parseFloat(dom.querySelector('input').value) -  step).toFixed(precision);
+        timer = setInterval(function() {
+          dom.querySelector('input').value =
+              (parseFloat(dom.querySelector('input').value) - step)
+                  .toFixed(precision);
+          value = (parseFloat(dom.querySelector('input').value) - step)
+                      .toFixed(precision);
           _this.value = value;
         }, 500);
         // this.value = value;
@@ -231,13 +232,11 @@ class InputNum extends HTMLElement {
       }
     });
 
-    this.decrementButton.addEventListener('mouseleave', function() {
-      clearInterval(timer);
-    });
+    this.decrementButton.addEventListener('mouseleave',
+                                          function() { clearInterval(timer); });
 
-    this.decrementButton.addEventListener('mouseup', function () {
-      clearInterval(timer);
-    });
+    this.decrementButton.addEventListener('mouseup',
+                                          function() { clearInterval(timer); });
 
     /* This two lines give us too much pain!!!!!
     this.valueElement.addEventListener('keyup', (e) => this.value =
@@ -261,29 +260,26 @@ class InputNum extends HTMLElement {
       this.inputDiv.style.borderColor = "#c2c2c2";
       this.incrementButton.style.color = "black";
     });
-    
-    this.valueElement.addEventListener(
-        'keydown', (e) => {
-          const key = e.key;
-          let string = this.valueElement.value;
-          if (key === "Backspace" || key === "Delete"){
-            if(string.length==1 || string.length == 0){
-              this.value = '';
-            }
-            else{
-              this.valueElement.value = string.substring(0,string.length);
-              return;
-            }
-          }
-          if(key === "Enter"){
-            this.value = e.srcElement.value;
-          }
-        });
-    this.valueElement.addEventListener(
-      'click', (e) => {
+
+    this.valueElement.addEventListener('keydown', (e) => {
+      const key = e.key;
+      let string = this.valueElement.value;
+      if (key === "Backspace" || key === "Delete") {
+        if (string.length == 1 || string.length == 0) {
+          this.value = '';
+        } else {
+          this.valueElement.value = string.substring(0, string.length);
+          return;
+        }
+      }
+      if (key === "Enter") {
         this.value = e.srcElement.value;
-        this.inputDiv.style.borderColor = "#75baff";
-      });
+      }
+    });
+    this.valueElement.addEventListener('click', (e) => {
+      this.value = e.srcElement.value;
+      this.inputDiv.style.borderColor = "#75baff";
+    });
   }
 }
 customElements.define('input-number', InputNum);
