@@ -187,13 +187,15 @@ class InputNum extends HTMLElement {
         var step = this.step;
         var precision = this.precision;
         var value = this.value;
+        let _this = this; // reserve 'this' context
         timer = setInterval(function () {
           dom.querySelector('input').value = (parseFloat(dom.querySelector('input').value) +  step).toFixed(precision);
           value = (parseFloat(dom.querySelector('input').value) +  step).toFixed(precision);
           console.log('inside the fun' + value);
+          _this.value = value; // this.value won't work
         }, 500);
         console.log(value);
-        this.value = value;
+        // this.value = value;
 
         this.decrementButton.classList.remove('disabled');
         if ((this.valueElement.max) <= (this.value))
@@ -216,11 +218,13 @@ class InputNum extends HTMLElement {
         var step = this.step;
         var precision = this.precision;
         var value = this.value;
+        let _this = this;
         timer = setInterval(function () {
           dom.querySelector('input').value = (parseFloat(dom.querySelector('input').value) -  step).toFixed(precision);
           value = (parseFloat(dom.querySelector('input').value) -  step).toFixed(precision);
+          _this.value = value;
         }, 500);
-        this.value = value;
+        // this.value = value;
         this.incrementButton.classList.remove('disabled');
         if ((this.valueElement.min) >= (this.value))
           this.decrementButton.classList.add('disabled');
