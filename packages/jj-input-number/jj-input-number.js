@@ -46,11 +46,10 @@ class JJInputNum extends HTMLElement {
     }
 
     this._value = this.trans(value);
-    if(isNaN(this._value)){
+    if (isNaN(this._value)) {
       this._value = this.trans('');
       this.valueElement.value = '';
-    }
-    else
+    } else
       this.valueElement.value = parseFloat(this._value).toFixed(this.precision);
   }
 
@@ -264,7 +263,6 @@ class JJInputNum extends HTMLElement {
       }
     });
     this.valueElement.addEventListener('mousemove', (e) => {
-      
       this.value = e.srcElement.value;
       this.inputDiv.style.borderColor = "#75baff";
     });
