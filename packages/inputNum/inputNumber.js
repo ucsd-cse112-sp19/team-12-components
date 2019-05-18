@@ -46,7 +46,12 @@ class JJInputNum extends HTMLElement {
     }
 
     this._value = this.trans(value);
-    this.valueElement.value = parseFloat(this.value).toFixed(this.precision);
+    if(isNaN(this._value)){
+      this._value = this.trans('');
+      this.valueElement.value = '';
+    }
+    else
+      this.valueElement.value = parseFloat(this._value).toFixed(this.precision);
   }
 
   get value() { return this._value; }
@@ -179,7 +184,6 @@ class JJInputNum extends HTMLElement {
 
     // Logic for the increment button getting clicked
     this.incrementButton.addEventListener('mousedown', (e) => {
-      
       if ((this.valueElement.max) >= (this.value) + (this.step)) {
         this.value = (this.value) + (this.step);
 
@@ -260,6 +264,7 @@ class JJInputNum extends HTMLElement {
       }
     });
     this.valueElement.addEventListener('mousemove', (e) => {
+      
       this.value = e.srcElement.value;
       this.inputDiv.style.borderColor = "#75baff";
     });
