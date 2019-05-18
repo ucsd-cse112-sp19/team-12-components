@@ -104,59 +104,59 @@ class JJInputNum extends HTMLElement {
     }
 
     switch (attrName) {
-    case 'min':
-      this.valueElement.min = this.trans(newValue);
-      this.value = this.value;
-      break;
-    case 'max':
-      this.valueElement.max = this.trans(newValue);
-      this.value = this.value;
-      break;
-    case 'step':
-      this.step = this.trans(newValue);
-      break;
-    case 'size':
-      this.inputDiv.classList.remove(oldValue);
-      this.inputDiv.classList.add(newValue);
-      break;
-    case 'disabled':
-      if (newValue)
-        this.inputDiv.classList.add('disabled');
-      else
-        this.inputDiv.classList.remove('disabled');
-      break;
-    case 'placeholder':
-      this.valueElement.setAttribute('placeholder', newValue);
-      break;
-    case 'value':
-      this.value = this.trans(newValue);
-      break;
+      case 'min':
+        this.valueElement.min = this.trans(newValue);
+        this.value = this.value;
+        break;
+      case 'max':
+        this.valueElement.max = this.trans(newValue);
+        this.value = this.value;
+        break;
+      case 'step':
+        this.step = this.trans(newValue);
+        break;
+      case 'size':
+        this.inputDiv.classList.remove(oldValue);
+        this.inputDiv.classList.add(newValue);
+        break;
+      case 'disabled':
+        if (newValue)
+          this.inputDiv.classList.add('disabled');
+        else
+          this.inputDiv.classList.remove('disabled');
+        break;
+      case 'placeholder':
+        this.valueElement.setAttribute('placeholder', newValue);
+        break;
+      case 'value':
+        this.value = this.trans(newValue);
+        break;
 
-    case 'controls':
-      if (newValue === 'false') {
-        this.incrementButton.style.display = 'none';
-        this.decrementButton.style.display = 'none';
-        this.valueElement.style.width = '99%';
-      } else {
-        this.incrementButton.style.display = 'inline-block';
-        this.decrementButton.style.display = 'inline-block';
-        this.valueElement.style.width = '59%';
-      }
-      break;
+      case 'controls':
+        if (newValue === 'false') {
+          this.incrementButton.style.display = 'none';
+          this.decrementButton.style.display = 'none';
+          this.valueElement.style.width = '99%';
+        } else {
+          this.incrementButton.style.display = 'inline-block';
+          this.decrementButton.style.display = 'inline-block';
+          this.valueElement.style.width = '59%';
+        }
+        break;
 
-    case 'precision':
-      if (parseInt(newValue) >= 0) {
-        this.precision = parseInt(newValue);
-        this.value = this.trans(this.value);
-      }
-      break;
+      case 'precision':
+        if (parseInt(newValue) >= 0) {
+          this.precision = parseInt(newValue);
+          this.value = this.trans(this.value);
+        }
+        break;
     }
     this.position = 'done';
   }
 
   constructor() {
     super();
-    this.root = this.attachShadow({mode : 'open'});
+    this.root = this.attachShadow({ mode: 'open' });
   }
 
   trans(value) { return parseFloat(parseFloat(value).toFixed(this.precision)); }
@@ -189,7 +189,7 @@ class JJInputNum extends HTMLElement {
         // Click and hold functionality.
         let _this = this; // reserve 'this' context
         timer = setInterval(
-            function() { _this.value = (_this.value) + (_this.step); }, 400);
+          function () { _this.value = (_this.value) + (_this.step); }, 400);
 
         this.decrementButton.classList.remove('disabled');
         if ((this.valueElement.max) <= (this.value))
@@ -198,10 +198,10 @@ class JJInputNum extends HTMLElement {
     });
 
     this.incrementButton.addEventListener('mouseleave',
-                                          function() { clearInterval(timer); });
+      function () { clearInterval(timer); });
 
     this.incrementButton.addEventListener('mouseup',
-                                          function() { clearInterval(timer); });
+      function () { clearInterval(timer); });
 
     // Logic for the decrement button getting clicked
     this.decrementButton.addEventListener('mousedown', (e) => {
@@ -210,7 +210,7 @@ class JJInputNum extends HTMLElement {
 
         let _this = this;
         timer = setInterval(
-            function() { _this.value = (_this.value) - (_this.step); }, 400);
+          function () { _this.value = (_this.value) - (_this.step); }, 400);
 
         this.incrementButton.classList.remove('disabled');
         if ((this.valueElement.min) >= (this.value))
@@ -219,10 +219,10 @@ class JJInputNum extends HTMLElement {
     });
 
     this.decrementButton.addEventListener('mouseleave',
-                                          function() { clearInterval(timer); });
+      function () { clearInterval(timer); });
 
     this.decrementButton.addEventListener('mouseup',
-                                          function() { clearInterval(timer); });
+      function () { clearInterval(timer); });
 
     /* This two lines give us too much pain!!!!!
     this.valueElement.addEventListener('keyup', (e) => this.value =
