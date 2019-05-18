@@ -160,7 +160,7 @@ class JJInputNum extends HTMLElement {
   load() {
     // This timer is used for the click and hold functionality.
     var timer;
-    
+
     // Check if where the position is and render the buttons accordingly.
     if (this.getAttribute('controls-position') === 'right') {
       this.root.appendChild(template2.content.cloneNode(true));
@@ -184,9 +184,8 @@ class JJInputNum extends HTMLElement {
 
         // Click and hold functionality.
         let _this = this; // reserve 'this' context
-        timer = setInterval(function() {
-          _this.value = (_this.value) + (_this.step);
-        }, 400);
+        timer = setInterval(
+            function() { _this.value = (_this.value) + (_this.step); }, 400);
 
         this.decrementButton.classList.remove('disabled');
         if ((this.valueElement.max) <= (this.value))
@@ -206,9 +205,8 @@ class JJInputNum extends HTMLElement {
         this.value = (this.value) - (this.step);
 
         let _this = this;
-        timer = setInterval(function() {
-          _this.value = (_this.value) - (_this.step);
-        }, 400);
+        timer = setInterval(
+            function() { _this.value = (_this.value) - (_this.step); }, 400);
 
         this.incrementButton.classList.remove('disabled');
         if ((this.valueElement.min) >= (this.value))
