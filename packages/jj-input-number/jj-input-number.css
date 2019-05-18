@@ -20,6 +20,14 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 0px;
 }
 
+.border-blue {
+    border-color: #75baff;
+}
+
+.color-blue {
+    color: #75baff;
+}
+
 .decrement-btn {
     width: 20%;
     height: 100%;

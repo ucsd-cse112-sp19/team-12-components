@@ -1,7 +1,7 @@
 // This is the template for the Position default.
 const template = document.createElement('template');
 template.innerHTML = `
-  <link rel="stylesheet" href="jj-input-Number.css">
+  <link rel="stylesheet" href="jj-input-number.css">
   <div class="jj-input-number">
     <button aria-label="decrement" class="decrement-btn" id="decrementBtn">-</button><!--
     --><input type = "text" class="input-field"></input><!--
@@ -12,7 +12,7 @@ template.innerHTML = `
 // This is the template for Position right
 const template2 = document.createElement('template');
 template2.innerHTML = `
-  <link rel="stylesheet" href="jj-input-Number.css">
+  <link rel="stylesheet" href="jj-input-number.css">
   <div class="jj-input-number">
     <input type = "text" class="input-field"></input>
     <div class = "button-container">
@@ -230,21 +230,21 @@ class JJInputNum extends HTMLElement {
     */
 
     this.decrementButton.addEventListener('mouseover', (e) => {
-      this.inputDiv.style.borderColor = "#75baff";
-      this.decrementButton.style.color = "#75baff";
+      this.inputDiv.classList.add("border-blue");
+      this.decrementButton.classList.add("color-blue");
     });
     this.decrementButton.addEventListener('mouseout', (e) => {
-      this.inputDiv.style.borderColor = "#c2c2c2";
-      this.decrementButton.style.color = "black";
+      this.inputDiv.classList.remove("border-blue");
+      this.incrementButton.classList.remove("color-blue");
     });
 
     this.incrementButton.addEventListener('mouseover', (e) => {
-      this.inputDiv.style.borderColor = "#75baff";
-      this.incrementButton.style.color = "#75baff";
+      this.inputDiv.classList.add("border-blue");
+      this.incrementButton.classList.add("color-blue");;
     });
     this.incrementButton.addEventListener('mouseout', (e) => {
-      this.inputDiv.style.borderColor = "#c2c2c2";
-      this.incrementButton.style.color = "black";
+      this.inputDiv.classList.remove("border-blue");
+      this.incrementButton.classList.remove("color-blue");
     });
 
     this.valueElement.addEventListener('keydown', (e) => {
@@ -262,9 +262,13 @@ class JJInputNum extends HTMLElement {
         this.value = e.srcElement.value;
       }
     });
-    this.valueElement.addEventListener('mousemove', (e) => {
+    this.valueElement.addEventListener('mouseover', (e) => {
       this.value = e.srcElement.value;
-      this.inputDiv.style.borderColor = "#75baff";
+      this.inputDiv.classList.add("border-blue");
+    });
+    this.valueElement.addEventListener('mouseout', (e) => {
+      this.value = e.srcElement.value;
+      this.inputDiv.classList.remove("border-blue");
     });
   }
 }
