@@ -1,7 +1,7 @@
 // This is the template for the Position default.
 const template = document.createElement('template');
 template.innerHTML = `
-  <link rel="stylesheet" href="inputNumber.css">
+  <link rel="stylesheet" href="jj-input-Number.css">
   <div class="jj-input-number">
     <button aria-label="decrement" class="decrement-btn" id="decrementBtn">-</button><!--
     --><input type = "text" class="input-field"></input><!--
@@ -12,7 +12,7 @@ template.innerHTML = `
 // This is the template for Position right
 const template2 = document.createElement('template');
 template2.innerHTML = `
-  <link rel="stylesheet" href="inputNumber.css">
+  <link rel="stylesheet" href="jj-input-Number.css">
   <div class="jj-input-number">
     <input type = "text" class="input-field"></input>
     <div class = "button-container">
