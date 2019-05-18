@@ -179,6 +179,7 @@ class JJInputNum extends HTMLElement {
 
     // Logic for the increment button getting clicked
     this.incrementButton.addEventListener('mousedown', (e) => {
+      
       if ((this.valueElement.max) >= (this.value) + (this.step)) {
         this.value = (this.value) + (this.step);
 
@@ -258,7 +259,7 @@ class JJInputNum extends HTMLElement {
         this.value = e.srcElement.value;
       }
     });
-    this.valueElement.addEventListener('click', (e) => {
+    this.valueElement.addEventListener('mousemove', (e) => {
       this.value = e.srcElement.value;
       this.inputDiv.style.borderColor = "#75baff";
     });
