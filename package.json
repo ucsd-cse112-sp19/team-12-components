@@ -6,6 +6,8 @@
   "scripts": {
     "build": "./node_modules/.bin/babel ./test/ --out-dir ./testCompiled/",
     "test": "karma start",
+    "test:testcafe-chrome": "testcafe --skip-js-errors \"saucelabs:Chrome@beta:Windows 10\" test_ui/**/*.js",
+    "test:testcafe-firefox": "testcafe --skip-js-errors \"saucelabs:Firefox@beta:Windows 10\" test_ui/**/*.js",
     "test:watch": "karma start --auto-watch=true --single-run=false",
     "doc": "./node_modules/.bin/jsdoc -c jsdoc.json",
     "storybook": "start-storybook -p 6006",
@@ -51,7 +53,9 @@
     "clang-format": "^1.2.4",
     "husky": "^2.1.0",
     "lit-html": "^1.0.0",
-    "mocha": "^6.1.4"
+    "mocha": "^6.1.4",
+    "testcafe": "^1.1.4",
+    "testcafe-browser-provider-saucelabs": "^1.7.0"
   },
   "dependencies": {
     "@babel/runtime": "^7.4.4",
