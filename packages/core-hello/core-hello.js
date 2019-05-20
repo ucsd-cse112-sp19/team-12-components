@@ -23,9 +23,12 @@ class CoreHello extends HTMLElement {
    * @return list of attribute strings
    *
    * //attributeName, attributeDescription, type, accepted values, default
-   * @attribute Rainbow, Flashes components text in various colors, boolean,---,false
-   * @attribute Fake Attribute1, Fake attribute1 description, string,small/medium/large,medium
-   * @attribute Fake Attribute2, Fake attribute2 description, string,primary/success/warning,----
+   * @attribute Rainbow, Flashes components text in various colors,
+   *boolean,---,false
+   * @attribute Fake Attribute1, Fake attribute1 description,
+   *string,small/medium/large,medium
+   * @attribute Fake Attribute2, Fake attribute2 description,
+   *string,primary/success/warning,----
    *
    **/
   static get observedAttributes() { return [ 'lang', 'rainbow' ]; }
