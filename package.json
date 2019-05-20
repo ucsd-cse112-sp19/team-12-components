@@ -4,10 +4,8 @@
   "description": "Hello World Component - CSE 112 - Team JJ",
   "main": "",
   "scripts": {
-    "build": "./node_modules/.bin/babel ./test/ --out-dir ./testCompiled/",
-    "test": "karma start",
     "precommit": "./node_modules/.bin/check-clang-format \"yarn format\"",
-    "format": "./node_modules/.bin/git-clang-format",
+    "test": "karma start",
     "test:testcafe-chrome": "testcafe --skip-js-errors \"saucelabs:Chrome@beta:Windows 10\" test_ui/**/*.js",
     "test:testcafe-firefox": "testcafe --skip-js-errors \"saucelabs:Firefox@beta:Windows 10\" test_ui/**/*.js",
     "test:watch": "karma start --auto-watch=true --single-run=false",
