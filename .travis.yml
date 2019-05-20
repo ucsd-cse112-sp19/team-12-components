@@ -1,9 +1,17 @@
 language: node_js
+node_js: "stable"
+
+before_install:
+  - stty cols 80
 node_js:
   - node
 
 script:
   - npm run test
+  - npm run test:testcafe-chrome
+  - npm run test:testcafe-firefox
+  - npm run snapshot # Visual regression tests
 
 notifications:
   email: false
+  

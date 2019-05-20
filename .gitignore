@@ -1,5 +1,8 @@
 # Autogenerate gitignore for node programs.
 # source: https://github.com/github/gitignore/blob/master/Node.gitignore
+#
+
+storybook-static
 
 # Logs
 logs
