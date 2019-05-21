@@ -105,12 +105,6 @@ class JJSlider extends HTMLElement {
     } else {
       this.max = 100;
     }
-    // If 'color' attribute is specified, the colour of the button and the
-    // runway before the button will be set to that colour
-    if (this.hasAttribute('color')) {
-      this.sliderBar.style.backgroundColor = this.getAttribute('color');
-      this.sliderBtn.style.borderColor = this.getAttribute('color');
-    }
 
     // Initialize positions
     this.setInitPosition();
@@ -281,13 +275,11 @@ class JJSlider extends HTMLElement {
   get value() { return this.getAttribute('value'); }
   get min() { return this.getAttribute('min'); }
   get max() { return this.getAttribute('max'); }
-  get color() { return this.getAttribute('color'); }
 
   // Setters
   set value(newValue) { this.setAttribute('value', newValue); }
   set min(newValue) { this.setAttribute('min', newValue); }
   set max(newValue) { this.setAttribute('max', newValue); }
-  set color(newValue) { this.setAttribute('color', newValue); }
 }
 
 customElements.define('jj-slider', JJSlider);
