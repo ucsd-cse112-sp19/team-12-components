@@ -1,6 +1,6 @@
 # UCSD-Team12 Web Component Library
 
-[![Build Status](https://travis-ci.com/ucsd-cse112/hello-world-component.svg?token=X6tJshpf7AyWKnGHNntd&branch=master)](https://travis-ci.com/ucsd-cse112/hello-world-component)
+[![Build Status](https://travis-ci.com/ucsd-cse112/team-12-components.svg?branch=master)](https://travis-ci.com/ucsd-cse112/team-12-components)
 [![Visual Regression Testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/ucsd-cse112/ucsd-cse112)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
 
