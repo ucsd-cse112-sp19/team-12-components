@@ -103,8 +103,25 @@ function getFilesInDirectory(dir, ext) {
             files = files.concat(nestedFiles);
         } else {
             if(path.basename(file).includes('_test') == false){
+                //get all js files for building json
+                //copy js files to docs/js for website
                 if (path.extname(file) === ext) {
                     files.push(filePath);
+                    //console.log(path.dirname(file) + path.basename(file));
+                    //console.log(filePath);
+                    const destinationJS = './docs/js/' + path.basename(file);
+                    fs.copyFile(filePath, destinationJS, (err) => {
+                        if (err) throw err;
+                        console.log('The File: ', filePath, ' was successfuly copied to: ./docs/js/', path.basename(file));
+                      });
+                }
+                //copy css files to docs/css for website
+                else if(path.extname(file) === '.css'){
+                    const destinationCSS = './docs/css/' + path.basename(file);
+                    fs.copyFile(filePath, destinationCSS, (err) => {
+                        if (err) throw err;
+                        console.log('The File: ', filePath, ' was successfuly copied to: ./docs/css/', path.basename(file));
+                      });
                 }
             }
         }

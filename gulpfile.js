@@ -1,4 +1,5 @@
 const gulp = require('gulp');
+    const fs = require('fs')
     handlebars = require('gulp-compile-handlebars');
     Handlebars = require('handlebars'); 
     rename = require('gulp-rename');
@@ -16,11 +17,26 @@ const gulp = require('gulp');
         for(var i=0; i<components.length; i++) {
             var component = components[i];
                 fileName = component.ComponentName.replace(/ +/g, '-').toLowerCase();
-                gulp.src('./docs/templates/component.handlebars')
-                //only passing in objects for each handlebar page render
-                .pipe(handlebars(component))
-                .pipe(rename(fileName + ".html"))
-                .pipe(gulp.dest('./docs/'));
+                const path = './docs/templates/' + fileName + '.handlebars';
+
+                try {
+                //if component template exisits, use that template
+                if (fs.existsSync(path)) {
+                    gulp.src(path)
+                    .pipe(handlebars(component))
+                    .pipe(rename(fileName + ".html"))
+                    .pipe(gulp.dest('./docs/'));
+                }
+                //else, use general component template.
+                else{
+                    gulp.src('./docs/templates/component.handlebars')
+                    .pipe(handlebars(component))
+                    .pipe(rename(fileName + ".html"))
+                    .pipe(gulp.dest('./docs/'));
+                }
+                } catch(err) {
+                    console.error(err)
+                }
         }
                 //render homepage
                 gulp.src('./docs/templates/homepage.handlebars')
