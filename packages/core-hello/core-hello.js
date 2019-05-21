@@ -87,7 +87,7 @@ class CoreHello extends HTMLElement {
     // set new string in component
     let toSplit = this.innerText.split(" ");
     let name = toSplit[toSplit.length - 1];
-    console.log(name);
+    //console.log(name);
 
     if (lang == "fr") {
       let nameString = "Salut Monde " + name;

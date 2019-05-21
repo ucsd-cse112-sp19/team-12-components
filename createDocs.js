@@ -102,8 +102,10 @@ function getFilesInDirectory(dir, ext) {
             const nestedFiles = getFilesInDirectory(filePath, ext);
             files = files.concat(nestedFiles);
         } else {
-            if (path.extname(file) === ext) {
-                files.push(filePath);
+            if(path.basename(file).includes('_test') == false){
+                if (path.extname(file) === ext) {
+                    files.push(filePath);
+                }
             }
         }
     });
