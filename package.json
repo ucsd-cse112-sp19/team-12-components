@@ -4,6 +4,7 @@
   "description": "Hello World Component - CSE 112 - Team JJ",
   "main": "",
   "scripts": {
+    "build": "./node_modules/.bin/babel --presets es2015 ./packages/*/ --out-dir ./src/",
     "precommit": "./node_modules/.bin/check-clang-format \"yarn format\"",
     "test": "karma start",
     "test:testcafe-chrome": "testcafe --skip-js-errors \"saucelabs:Chrome@beta:Windows 10\" test_ui/**/*.js",
