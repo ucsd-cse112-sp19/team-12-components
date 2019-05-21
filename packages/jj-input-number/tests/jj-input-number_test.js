@@ -1,6 +1,6 @@
 import {expect, assert} from 'chai';
 import '../jj-input-number.js';
-
+import $ from "jquery";
 
 //----------Unit Tests ------------------
 describe('jj-input-number Component Unit Tests', () => {
@@ -18,6 +18,24 @@ describe('jj-input-number Component Unit Tests', () => {
     let compMax = compEl.getAttribute("max");
     assert.equal(compMax, 8);
   });
+
+  it('Test Increment Button Click', async () => {
+    //need to wait for page to be done for jquery
+    $(document).ready(function() {
+    //get shadow dom of component
+    let buttonInc = document.getElementById('jj1').shadowRoot;
+    //get value attribute
+    let compValue = document.getElementById('jj1').getAttribute("value"); 
+    console.log(compValue);
+    //trigger click x1
+    $("incrementBtn", buttonInc).click();
+    assert.equal(compValue, 1.50);
+    console.log(compValue);
+    //trigger click x2
+    $("incrementBtn", buttonInc).click();
+    assert.equal(compValue, 2.00);
+    })
+  })
 
   //etc..
 });

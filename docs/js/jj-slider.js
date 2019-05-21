@@ -7,8 +7,8 @@
  * @attribute disabled,	whether Slider is disabled,	boolean,	/,
  * false
  * @attribute step,	step size	number,	/,	1
- * @attribute show-input,	whether to display an input box, works when range
- * is false,	boolean,	/,	false
+ * @attribute show-input,	whether to display an input box, works when
+ * range is false,	boolean,	/,	false
  * @attribute show-input-controls,	whether to display control buttons when
  * show-input is true,	boolean,	/,	true
  * @attribute input-size,	size of the input box,	string,	large / medium /
