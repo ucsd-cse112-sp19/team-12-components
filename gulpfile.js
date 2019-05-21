@@ -14,27 +14,27 @@ const gulp = require('gulp');
     function compileComponents(done) {
         //render all component pages
         for(var i=0; i<components.length; i++) {
-            var component = components[i],
+            var component = components[i];
                 fileName = component.ComponentName.replace(/ +/g, '-').toLowerCase();
                 gulp.src('./docs/templates/component.handlebars')
                 //only passing in objects for each handlebar page render
                 .pipe(handlebars(component))
                 .pipe(rename(fileName + ".html"))
-                .pipe(gulp.dest('./docs/site/'));
+                .pipe(gulp.dest('./docs/'));
         }
                 //render homepage
                 gulp.src('./docs/templates/homepage.handlebars')
                 //only passing in objects for each handlebar page render
                 .pipe(handlebars())
                 .pipe(rename("index.html"))
-                .pipe(gulp.dest('./docs/site/'));
+                .pipe(gulp.dest('./docs/'));
 
                 //render docs page
                 gulp.src('./docs/templates/docs.handlebars')
                 //only passing in objects for each handlebar page render
                 .pipe(handlebars(component))
                 .pipe(rename("docs.html"))
-                .pipe(gulp.dest('./docs/site/'));
+                .pipe(gulp.dest('./docs/'));
 
 
         done();
