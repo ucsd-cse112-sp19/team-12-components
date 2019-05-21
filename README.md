@@ -10,13 +10,22 @@
 
 ## Setup
 To initialize this repo for development, please run
-``` npm install ```
+
+`npm install`
+
+Once you have installed all the dependencies, you may want to transpile our
+webcomponents into es5 so that these component can be supported in older
+browsers. To do so run
+
+`npm run build`
+
 
 ## Contribute
 We use clang-format for linting. If you are going to contribute please install clang-format. Below are some steps you can follow to install.
 
 MacOS (install Homebrew):  
-    ```$ brew install clang-format```
+
+`$brew install clang-format`
 
 Windows please follow this [guide](https://github.com/google/closure-library/wiki/Formatting-.js-with-clang-format)
 
