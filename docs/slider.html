@@ -7,7 +7,7 @@
     <meta name="description" content="">
 
     <!-- TODO: Need to add a custom function to use variables in header with handlebars-->
-    <title>Core Hello - Component</title>
+    <title>Slider - Component</title>
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/main.css">
@@ -75,9 +75,23 @@
                       </li>
                     
                         <li class="nav-item">
-                            <a class="nav-link sidebar-subHeading active" href="./core-hello.html">
+                            <a class="nav-link sidebar-subHeading " href="./core-hello.html">
                                 <h7>
                                 Core Hello
+                                </h7>
+                                </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link sidebar-subHeading " href="./inputnumber.html">
+                                <h7>
+                                InputNumber
+                                </h7>
+                                </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link sidebar-subHeading active" href="./slider.html">
+                                <h7>
+                                Slider
                                 </h7>
                                 </a>
                         </li>
@@ -87,7 +101,7 @@
         <!-- Main body -->
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-            <h1 class="h2">Core Hello</h1>
+            <h1 class="h2">Slider</h1>
             <div class="btn-toolbar mb-2 mb-md-0">
               <div class="btn-group mr-2">
                 <button class="btn btn-sm btn-outline-secondary">Source</button>
@@ -95,7 +109,7 @@
             </div>
           </div>
           <section>
-            <p>This component simply outputs &quot;Hello World&quot; followed by the</p>
+            <p>Drag the slider within a fixed range.</p>
 
             <!-- Attribute Table--> 
             <table class="table">
@@ -109,25 +123,130 @@
                     </tr>
                 </thead>
             <tr>
-            <th >Rainbow</th>
-            <th> Flashes components text in various colors</th>
-            <th> boolean</th>
-            <th>---</th>
-            <th>false</th>
+            <th >value / v-model</th>
+            <th>	binding value	number</th>
+            <th>	/</th>
+            <th>	0</th>
+            <th></th>
             </tr>
             <tr>
-            <th >Fake Attribute1</th>
-            <th> Fake attribute1 description</th>
-            <th> string</th>
-            <th>small/medium/large</th>
-            <th>medium</th>
+            <th >min</th>
+            <th>	minimum value	number</th>
+            <th>	/</th>
+            <th> 0</th>
+            <th></th>
             </tr>
             <tr>
-            <th >Fake Attribute2</th>
-            <th> Fake attribute2 description</th>
+            <th >max</th>
+            <th>	maximum value	number</th>
+            <th>	/</th>
+            <th>	100</th>
+            <th></th>
+            </tr>
+            <tr>
+            <th >disabled</th>
+            <th>	whether Slider is disabled</th>
+            <th>	boolean</th>
+            <th>	/</th>
+            <th>	false</th>
+            </tr>
+            <tr>
+            <th >step</th>
+            <th>	step size	number</th>
+            <th>	/</th>
+            <th>	1</th>
+            <th></th>
+            </tr>
+            <tr>
+            <th >show-input</th>
+            <th>	whether to display an input box</th>
+            <th> works when range is false</th>
+            <th>	boolean</th>
+            <th>	/</th>
+            </tr>
+            <tr>
+            <th >show-input-controls</th>
+            <th>	whether to display control buttons when show-input is true</th>
+            <th>	boolean</th>
+            <th>	/</th>
+            <th>	true</th>
+            </tr>
+            <tr>
+            <th >input-size</th>
+            <th>	size of the input box</th>
+            <th>	string</th>
+            <th>	large / medium / small / mini</th>
+            <th>	small</th>
+            </tr>
+            <tr>
+            <th >show-stops</th>
+            <th>	whether to display breakpoints</th>
+            <th>	boolean</th>
+            <th>	/</th>
+            <th>	false</th>
+            </tr>
+            <tr>
+            <th >show-tooltip</th>
+            <th>	whether to display tooltip value</th>
+            <th>	boolean</th>
+            <th>	/</th>
+            <th>	true</th>
+            </tr>
+            <tr>
+            <th >format-tooltip</th>
+            <th>	format to display tooltip value</th>
+            <th>	function(value)</th>
+            <th>	/</th>
+            <th>	/</th>
+            </tr>
+            <tr>
+            <th >range</th>
+            <th>	whether to select a range</th>
+            <th>	boolean</th>
+            <th>	/</th>
+            <th>	false</th>
+            </tr>
+            <tr>
+            <th >vertical</th>
+            <th>	vertical mode	boolean</th>
+            <th>	/</th>
+            <th>	false</th>
+            <th></th>
+            </tr>
+            <tr>
+            <th >height</th>
+            <th>	Slider height</th>
+            <th> required in vertical mode</th>
             <th> string</th>
-            <th>primary/success/warning</th>
-            <th>----</th>
+            <th>	/</th>
+            </tr>
+            <tr>
+            <th >label</th>
+            <th>	label for screen reader</th>
+            <th>	string</th>
+            <th> /</th>
+            <th> /</th>
+            </tr>
+            <tr>
+            <th >debounce</th>
+            <th>	debounce delay when typing... in milliseconds...works when show-input is true</th>
+            <th>	number</th>
+            <th>	/</th>
+            <th>	300</th>
+            </tr>
+            <tr>
+            <th >tooltip-class</th>
+            <th>	custom class name for the tooltip</th>
+            <th> string</th>
+            <th>	/</th>
+            <th>	/</th>
+            </tr>
+            <tr>
+            <th >marks	marks</th>
+            <th> type of key must be number and must in closed interval [min max] each mark can custom style</th>
+            <th>	object</th>
+            <th> /</th>
+            <th>	/</th>
             </tr>
             </table>
           </section>
