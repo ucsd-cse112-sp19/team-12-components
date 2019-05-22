@@ -70,7 +70,6 @@
     "@babel/runtime": "^7.4.4",
     "@open-wc/testing": "^0.11.4",
     "@webcomponents/custom-elements": "^1.2.4",
-    "@webcomponents/webcomponentsjs": "^2.2.10",
-    "jquery": "^3.4.1"
+    "@webcomponents/webcomponentsjs": "^2.2.10"
   }
 }
