@@ -3,6 +3,11 @@ node_js: "stable"
 
 before_install:
   - stty cols 80
+
+cache:
+  directories:
+    - node_modules
+
 node_js:
   - node
 
