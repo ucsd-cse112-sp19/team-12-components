@@ -81,7 +81,7 @@ template.innerHTML = `
       }
       @media (min-width: 992px) {
         .container {
-          width: 970px;
+          //width: 970px;
         }
       }
       @media (min-width: 1200px) {
