@@ -10,7 +10,6 @@ describe('core-hello Unit Tests', () => {
     document.body.insertAdjacentHTML('afterbegin',hwHTML);
     let hwEl = document.getElementById('hw1');
     let hwText = hwEl.innerHTML;
-    //console.log("Component text: ", hwText);
     assert.equal(hwText, 'Hello World Shaya!');
   });
 
@@ -31,7 +30,6 @@ describe('core-hello Unit Tests', () => {
     document.body.insertAdjacentHTML('afterbegin',hwHTML);
     let hwEl = document.getElementById('hw3');
     let hwText = hwEl.innerText;
-    //console.log("Component text: ", hwText);
     assert.equal(hwText, 'Salut Monde Shaya!');
     assert.equal(hwEl.getAttribute('lang'),'fr');
   });
@@ -43,8 +41,6 @@ describe('core-hello Unit Tests', () => {
     let hwEl = document.getElementById('hw4');
     let hwText = hwEl.innerText;
     let hwClassList = hwEl.classList;
-    //console.log("Component text: ", hwText);
-    //console.log("classList: ", hwClassList);
     assert.equal(hwText, 'Salut Monde Shaya!');
     assert.equal(hwEl.getAttribute('lang'),'fr');
     assert.equal(hwClassList.contains("color-text-flow"), true);
@@ -58,8 +54,6 @@ describe('core-hello Unit Tests', () => {
     let hwEl = document.getElementById('hw5');
     let hwText = hwEl.innerText;
     let hwClassList = hwEl.classList;
-    //console.log("Component text: ", hwText);
-    //console.log("classList: ", hwClassList);
     assert.equal(hwText, 'Salut Monde Shaya!');
     assert.equal(hwEl.getAttribute('lang'),'fr');
     assert.equal(hwClassList.contains("color-text-flow"), false);

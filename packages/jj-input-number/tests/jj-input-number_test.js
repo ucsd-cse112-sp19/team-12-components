@@ -7,7 +7,6 @@ import '../jj-input-number.js';
  *
  * Source: https://stackoverflow.com/questions/24025165/simulating-a-mousedown-click-mouseup-sequence-in-tampermonkey
  */
-
 function triggerMouseEvent (node, eventType) {
     var clickEvent = document.createEvent ('MouseEvents');
     clickEvent.initEvent (eventType, true, true);
@@ -77,13 +76,16 @@ describe('jj-input-number with defined [min, max, value, precision, step]', func
 
     //go into shadow dom of component, find dec button
     //trigger dec click x1
-    document.getElementById('jj1').shadowRoot.getElementById("decrementBtn").click();
+    let decButton = document.getElementById('jj1').shadowRoot.getElementById("decrementBtn");
+    triggerMouseEvent(decButton, 'click');
     //get value in the input textbox
     let compValue = compEl.value;
     assert.equal(compValue, 1.50);
 
     //trigger dec click x2
-    document.getElementById('jj1').shadowRoot.getElementById("decrementBtn").click();
+    decButton = document.getElementById('jj1').shadowRoot.getElementById("decrementBtn");
+    triggerMouseEvent(decButton, 'click');
+
     //must recheck the value again in shadowDOM, otherwise it won't update
     compValue = compEl.value;
     assert.equal(compValue, 1.00);
