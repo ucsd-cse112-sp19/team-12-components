@@ -91,7 +91,7 @@ template.innerHTML = `
       }
     </style>
     <div role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" class="el-slider" aria-valuetext="0" aria-label="slider between 0 and 100">
-        <div class="el-slider__runway">
+        <div class="el-slider__runway" id="runway">
             <div class="el-slider__bar" style="left: 0%;"></div>
             <div tabindex="0" class="el-slider__button-wrapper" id="btn">
                 <div class="el-tooltip el-slider__button" aria-describedby="el-tooltip-9861" tabindex="0"></div>
@@ -210,6 +210,7 @@ class JJSlider extends HTMLElement {
 
     // Set tooltip display value
     this.tooltipSpan.innerHTML = Math.round(this._value);
+    this.setAttribute('value', Math.round(this._value));
     // Set tooltip position
     let rect = this.sliderBtnWrapper.getBoundingClientRect();
     this.tooltip.style =

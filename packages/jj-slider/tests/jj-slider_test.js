@@ -31,26 +31,23 @@ describe('jj-slider Component Unit Tests', () => {
     assert.equal(compMax, 50);
   });
 
-  // Bug: value is not being updated after the event (tested the same code in Google Chrome)
-  it('Test move slider to the right', () => {
-    let mouseDown = new MouseEvent('mousedown', {movementX: 50});
+  it('Test click on runway to the right of the button', () => {
+    let mouseDown = new MouseEvent('mousedown', {clientX: 1000});
     let mouseUp = new MouseEvent('mouseup');
     let oldValue = parseInt(compEl.getAttribute('value'));
-    compEl.shadowRoot.getElementById('btn').dispatchEvent(mouseDown);
-    compEl.shadowRoot.getElementById('btn').dispatchEvent(mouseUp);
-    wait(1000);
+    compEl.shadowRoot.getElementById('runway').dispatchEvent(mouseDown);
+    compEl.shadowRoot.getElementById('runway').dispatchEvent(mouseUp);
     let newValue = parseInt(compEl.getAttribute('value'));
     assert.isAbove(newValue, oldValue);
   });
 
-  // Bug: same as above, tested in Google Chrome
-  it('Test move slider to the left', () => {
-    let mouseDown = new MouseEvent('mousedown', {movementX: -50});
+  
+  it('Test click on runway to the left of the button', () => {
+    let mouseDown = new MouseEvent('mousedown');
     let mouseUp = new MouseEvent('mouseup');
     let oldValue = parseInt(compEl.getAttribute('value'));
-    compEl.shadowRoot.getElementById('btn').dispatchEvent(mouseDown);
-    compEl.shadowRoot.getElementById('btn').dispatchEvent(mouseUp);
-    wait(1000);
+    compEl.shadowRoot.getElementById('runway').dispatchEvent(mouseDown);
+    compEl.shadowRoot.getElementById('runway').dispatchEvent(mouseUp);
     let newValue = parseInt(compEl.getAttribute('value'));
     assert.isBelow(newValue, oldValue);
   });
