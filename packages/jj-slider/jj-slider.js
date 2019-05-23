@@ -93,7 +93,7 @@ template.innerHTML = `
     <div role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" class="el-slider" aria-valuetext="0" aria-label="slider between 0 and 100">
         <div class="el-slider__runway">
             <div class="el-slider__bar" style="left: 0%;"></div>
-            <div tabindex="0" class="el-slider__button-wrapper">
+            <div tabindex="0" class="el-slider__button-wrapper" id="btn">
                 <div class="el-tooltip el-slider__button" aria-describedby="el-tooltip-9861" tabindex="0"></div>
             </div>
         </div>
