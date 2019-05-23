@@ -9,20 +9,19 @@ describe('jj-slider Component Unit Tests', () => {
     document.body.insertAdjacentHTML('afterbegin',compHTML);
     let compEl = document.getElementById('inputNum');
 
-  it('Test Value attribute', async () => {
-    let compValue = compEl.getAttribute("value");
+  it('tests assigned value', async () => {
+    let compValue = compEl.value;
     assert.equal(compValue, 35);
   });
 
-  it('Test Min value', async () => {
-    let compMin = compEl.getAttribute("min");
+  it('tests assigned min value', async () => {
+    let compMin = compEl.min;
     assert.equal(compMin, 0);
   });
 
-  it('Test Max value', async () => {
-    let compMax = compEl.getAttribute("max");
+  it('tests assigned max value', async () => {
+    let compMax = compEl.max;
     assert.equal(compMax, 50);
   });
 
-  //etc..
 });
