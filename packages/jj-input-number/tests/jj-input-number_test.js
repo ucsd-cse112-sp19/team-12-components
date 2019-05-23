@@ -110,22 +110,6 @@ describe('jj-input-number with defined [min, max, value, precision, step]', func
     compEl.shadowRoot.getElementById("decrementBtn").click();
     assert.equal(compEl.value, oldValue);
   });
-
-  it('tests press and hold', function() {
-      let oldValue = compEl.value; // Get the normal value.
-      let incButton = compEl.shadowRoot.getElementById("incrementBtn");
-
-      // Press the mouse down.
-      triggerMouseEvent(test, 'mousedown');
-      setInterval(()=>{}, 2000); // wait for 2 seconds
-      // Let go of the mouse.
-      triggerMouseEvent(test, 'mouseup');
-
-      let newValue = compEl.value;
-      assert.notEqual(oldValue, val1); // Make sure the value atleast changed.
-
-      compEl.value = oldValue; // Reset initial value.
-  });
   //etc..
 });
 
