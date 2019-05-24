@@ -3,13 +3,18 @@ node_js: "stable"
 
 before_install:
   - stty cols 80
+
+cache:
+  directories:
+    - node_modules
+
 node_js:
   - node
 
 script:
   - npm run test
-  - npm run test:testcafe-chrome
-  - npm run test:testcafe-firefox
+  - npm run test:chrome-saucelab
+  - npm run test:firefox-saucelab
   - npm run snapshot # Visual regression tests
 
 notifications:

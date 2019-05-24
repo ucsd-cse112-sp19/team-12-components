@@ -31,7 +31,7 @@ template.innerHTML = `
   <link rel="stylesheet" href="jj-input-number.css">
   <div class="jj-input-number">
     <button aria-label="decrement" class="decrement-btn" id="decrementBtn">-</button><!--
-    --><input id="jj-inputBoxNum" type = "text" class="input-field"></input><!--
+    --><input type = "text" class="input-field"></input><!--
     --><button aria-label="increment" class="increment-btn" id="incrementBtn">+</button>
   </div>
 `;
@@ -41,7 +41,7 @@ const template2 = document.createElement('template');
 template2.innerHTML = `
   <link rel="stylesheet" href="jj-input-number.css">
   <div class="jj-input-number">
-    <input id="jj-inputBoxNum" type = "text" class="input-field"></input>
+    <input type = "text" class="input-field"></input>
     <div class = "button-container">
       <button aria-label="increment" class="increment-btn-2" id="incrementBtn">&#708;</button>
       <button aria-label="decrement" class="decrement-btn-2" id="decrementBtn">&#709;</button>
@@ -209,7 +209,7 @@ class JJInputNum extends HTMLElement {
     }
 
     // Logic for the increment button getting clicked
-    this.incrementButton.addEventListener('click', (e) => {
+    this.incrementButton.addEventListener('mousedown', (e) => {
       if ((this.valueElement.max) >= (this.value) + (this.step)) {
         this.value = (this.value) + (this.step);
 
@@ -231,7 +231,7 @@ class JJInputNum extends HTMLElement {
                                           function() { clearInterval(timer); });
 
     // Logic for the decrement button getting clicked
-    this.decrementButton.addEventListener('click', (e) => {
+    this.decrementButton.addEventListener('mousedown', (e) => {
       if ((this.valueElement.min) <= (this.value) - (this.step)) {
         this.value = (this.value) - (this.step);
 

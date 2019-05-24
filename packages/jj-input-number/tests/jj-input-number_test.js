@@ -1,0 +1,119 @@
+import {expect, assert} from 'chai';
+import '../jj-input-number.js';
+
+/**
+ * Triggers a mouse event so that we can simulate mousedown, mouseup,
+ * mouseenter, etc...
+ *
+ * Source: https://stackoverflow.com/questions/24025165/simulating-a-mousedown-click-mouseup-sequence-in-tampermonkey
+ */
+function triggerMouseEvent (node, eventType) {
+    var clickEvent = document.createEvent ('MouseEvents');
+    clickEvent.initEvent (eventType, true, true);
+    node.dispatchEvent (clickEvent);
+}
+
+//----------Unit Tests ------------------
+describe('jj-input-number with defined [min, max, value, precision, step]', function() {
+
+  let compHTML;
+  let compEl;
+
+  before(function() {
+    // runs before all tests in this block
+    //place component into DOM, get the element by id
+    compHTML = `<jj-input-number id="jj1" min=0 max=8 value=1 precision=2 step=0.5></jj-input-number>`;
+    document.body.insertAdjacentHTML('afterbegin',compHTML);
+    compEl = document.getElementById('jj1');
+  });
+
+  it('tests correct init value', function() {
+    let compVal = compEl.value;
+    assert.equal(compVal, 1);
+  });
+
+  it('tests correct min value', function() {
+    let compMin = compEl.getAttribute("min");
+    assert.equal(compMin, 0);
+  });
+
+  it('tests correct max value', function() {
+    let compMax = compEl.getAttribute("max");
+    assert.equal(compMax, 8);
+  });
+
+  it('tests correct precision value', function() {
+    let compPrecision = compEl.precision;
+    assert.equal(compPrecision, 2);
+  });
+
+  it('tests correct step value', function() {
+    let compStep = compEl.step;
+    assert.equal(compStep, 0.5);
+  });
+
+  it('tests increment button increases inner value', function() {
+    //currently value = 1.00 (see above)
+
+    //go into shadow dom of component, find inc button
+    //trigger inc click x1
+    document.getElementById('jj1').shadowRoot.getElementById("incrementBtn").click();
+    //get value in the input textbox
+    let compValue = document.getElementById('jj1').shadowRoot.getElementById('jj-inputBoxNum').value; 
+    assert.equal(compValue, 1.50);
+
+    //trigger inc click x2
+    document.getElementById('jj1').shadowRoot.getElementById("incrementBtn").click();
+    //must recheck the value again in shadowDOM, otherwise it won't update
+    compValue = document.getElementById('jj1').shadowRoot.getElementById('jj-inputBoxNum').value;
+    assert.equal(compValue, 2.00);
+    //set back to default for other tests
+    document.getElementById('jj1').shadowRoot.getElementById('jj-inputBoxNum').value = 1.0;
+  })
+
+  it('tests decrement buttons decreases the inner value', function() {
+    //currently value = 1.00 (see above)
+
+    //go into shadow dom of component, find dec button
+    //trigger dec click x1
+    let decButton = document.getElementById('jj1').shadowRoot.getElementById("decrementBtn");
+    triggerMouseEvent(decButton, 'click');
+    //get value in the input textbox
+    let compValue = compEl.value;
+    assert.equal(compValue, 1.50);
+
+    //trigger dec click x2
+    decButton = document.getElementById('jj1').shadowRoot.getElementById("decrementBtn");
+    triggerMouseEvent(decButton, 'click');
+
+    //must recheck the value again in shadowDOM, otherwise it won't update
+    compValue = compEl.value;
+    assert.equal(compValue, 1.00);
+    //set back to default for other tests
+    compEl.value = 1.0;
+  })
+ 
+  /*
+  it('tests if we can decrement jj-input-number with "disabled" _boolean attribue_', function() {
+    let savedValue = compEl.getAttribue('disabled');
+    compEl.setAttribute('disabled', ''); // Set the component as disabled.
+    let oldValue = compEl.value;
+    compEl.shadowRoot.getElementById("decrementBtn").click();
+    assert.equal(compEl.value, oldValue);
+    compEl.setAttribue('disabled', savedValue);
+  });
+
+  it('tests if we can mutate when jj-input-number using "disabled" attribue', function() {
+    compEl.setAttribute('disabled', 'true'); // Set the component as disabled.
+    let oldValue = compEl.value;
+    
+    // XXX (Nate): Problem with logic. If the button gets an event trigger it
+    // will still decrement. Need to abstract increment/decrement logic away
+    // from button.
+    compEl.shadowRoot.getElementById("decrementBtn").click();
+    assert.equal(compEl.value, oldValue);
+  });
+  */
+  //etc..
+});
+
