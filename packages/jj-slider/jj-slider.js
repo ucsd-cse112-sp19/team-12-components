@@ -143,8 +143,11 @@ class JJSlider extends HTMLElement {
     // Get attribute values and set default values if not provided
     if (this.hasAttribute('value')) {
       this._value = this.getAttribute('value');
+      //Set initial value of onchange to the starting value from attributes
+      this._onchange = this.getAttribute('value');
     } else {
       this._value = 0;
+      this._onchange = 0; 
     }
     if (this.hasAttribute('min')) {
       this.min = this.getAttribute('min');
@@ -166,7 +169,7 @@ class JJSlider extends HTMLElement {
     // Initialize positions
     this.setInitPosition();
     // Set tooltip display value
-    this.tooltipSpan.innerHTML = Math.round(this._value);
+    this.tooltipSpan.innerHTML = Math.round(this._onchange);
     // Hide tooltip at initialization
     this.tooltip.style =
         "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;";
@@ -174,13 +177,13 @@ class JJSlider extends HTMLElement {
 
   // Get the percentage value of button's position on slider runway.
   getCurrentPosition() {
-    return (this._value - this.min) / (this.max - this.min) * 100 + "%";
+    return (this._onchange - this.min) / (this.max - this.min) * 100 + "%";
   }
 
   // Initialization: Set width of slider bar and offset of slider button based
   // on position of current value
   setInitPosition() {
-    const percent = (this._value - this.min) / (this.max - this.min) * 100;
+    const percent = (this._onchange - this.min) / (this.max - this.min) * 100;
     this.sliderBar.style.width = percent + "%";
     this.sliderBtnWrapper.style.left = percent + "%";
   }
@@ -196,7 +199,7 @@ class JJSlider extends HTMLElement {
     } else if (targetValue < this.min) {
       targetValue = this.min;
     }
-    this._value = targetValue;
+    this._onchange = targetValue;
 
     // Percentage boundary check
     let newPercent = percent;
@@ -209,8 +212,8 @@ class JJSlider extends HTMLElement {
     this.sliderBtnWrapper.style.left = newPercent + "%";
 
     // Set tooltip display value
-    this.tooltipSpan.innerHTML = Math.round(this._value);
-    this.setAttribute('value', Math.round(this._value));
+    this.tooltipSpan.innerHTML = Math.round(this._onchange);
+    this.setAttribute('value', Math.round(this._onchange));
     // Set tooltip position
     let rect = this.sliderBtnWrapper.getBoundingClientRect();
     this.tooltip.style =
@@ -333,6 +336,7 @@ class JJSlider extends HTMLElement {
   get min() { return this.getAttribute('min'); }
   get max() { return this.getAttribute('max'); }
   get color() { return this.getAttribute('color'); }
+  get onchange() { return this.getAttribute('onchange')}
 
   // Setters
   set value(newValue) { this.setAttribute('value', newValue); }
