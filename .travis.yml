@@ -8,7 +8,7 @@ cache:
   directories:
     - node_modules
 env:
-  - SAUCE_BUILD=TRAVIS_BUILD_NUMBER
+  - SAUCE_BUILD=$TRAVIS_BUILD_NUMBER
 
 node_js:
   - node
