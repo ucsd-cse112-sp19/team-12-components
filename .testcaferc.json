@@ -1,5 +1,5 @@
 {
-  "browsers": ["saucelabs:Chrome@52.0", "saucelabs:Firefox@beta"],
+  "browsers": ["saucelabs:Chrome@52.0:Windows 10", "saucelabs:Firefox@beta:Windows 10"],
   "src": "packages/*/tests/*_testcafe.js",
   "skipJsErrors": true,
   "color": true
