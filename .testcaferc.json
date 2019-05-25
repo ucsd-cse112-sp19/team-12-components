@@ -1,17 +1,9 @@
 {
   "browsers": [
     "saucelabs:Chrome@beta:Windows 10", 
-    "saucelabs:Chrome@74.0:Windows 10",
-    "saucelabs:Chrome@69.0:Windows 10",
-    "saucelabs:Chrome@58.0:Windows 10",
     "saucelabs:Firefox@beta:Windows 10",
-    "saucelabs:Firefox@61.0:Windows 10",
-    "saucelabs:Firefox@52.0:Windows 10",
     "saucelabs:Firefox@65.0:Windows 8.1",
-    "saucelabs:Chrome@51.0:Windows 7",
     "saucelabs:Firefox@67.0:macOS 10.14",
-    "saucelabs:Safari@12.0:macOS 10.14",
-    "saucelabs:Chrome@74.0:macOS 10.14",
     "saucelabs:iPhone 8 Simulator@11.3"
   ],
   "src": "packages/*/tests/*_testcafe.js",
