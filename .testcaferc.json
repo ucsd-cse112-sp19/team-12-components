@@ -1,0 +1,6 @@
+{
+  "browsers": ["saucelabs:Chrome@52.0", "saucelabs:Firefox@beta"],
+  "src": "packages/*/tests/*_testcafe.js",
+  "skipJsErrors": true,
+  "color": true
+}

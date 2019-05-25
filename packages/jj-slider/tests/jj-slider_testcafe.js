@@ -24,7 +24,7 @@ test("increase slider value", async t => {
   await t
     .hover(sliderButton, {speed: 0.9})
     .click(sliderButton)
-    .drag(sliderButton, 200, 50, {speed: 0.5});
+    .drag(sliderButton, 200, 50, {speed: 0.9});
 
   // Need to break up execution by first assuring the first await is executed
   // and completed. Then we can do our check of value. If we don't we cannot 
@@ -51,7 +51,7 @@ test("decrease slider value", async t => {
   await t
     .hover(sliderButton, {speed: 0.9})
     .click(sliderButton)
-    .drag(sliderButton, -200, 50, {speed: 0.5});
+    .drag(sliderButton, -200, 50, {speed: 0.9});
 
   // Need to break up execution by first assuring the first await is executed
   // and completed. Then we can do our check of value. If we don't we cannot 
@@ -76,7 +76,7 @@ test("decrease to min limit", async t => {
   await t
     .hover(sliderButton, {speed: 0.9})
     .click(sliderButton)
-    .drag(sliderButton, -10000, 50, {speed: 0.5});
+    .drag(sliderButton, -10000, 50, {speed: 0.9});
 
   await t.expect(parseInt(await compSelector.value)).eql(0);
 });
@@ -98,7 +98,7 @@ test("increase to max limit", async t => {
   await t
     .hover(sliderButton, {speed: 0.9})
     .click(sliderButton)
-    .drag(sliderButton, 10000, 50, {speed: 0.5});
+    .drag(sliderButton, 10000, 50, {speed: 0.9});
 
   await t.expect(parseInt(await compSelector.value)).eql(50);
 });
