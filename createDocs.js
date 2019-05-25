@@ -75,9 +75,9 @@ function searchFilesInDirectory(dir, ext) {
                 }
                 //console.log(componentsList);
                 var json = JSON.stringify(componentsList);
-                fs.writeFile("./docs/components.json", json, (err) => {
+                fs.writeFile("./templates/components.json", json, (err) => {
                     if (err) {  console.error(err);  return; };
-                    console.log("File: './docs/components.json' has been created");
+                    console.log("File: './templates/components.json' has been created");
                 });
             }
         }
@@ -108,10 +108,10 @@ function getFilesInDirectory(dir, ext) {
                 //copy js files to docs/js for website
                 if (path.extname(file) === ext) {
                     files.push(filePath);
-                    const destinationJS = './docs/js/' + path.basename(file);
+                    const destinationJS = './docs/resources/js/' + path.basename(file);
                     fs.copyFile(filePath, destinationJS, (err) => {
                         if (err) throw err;
-                        console.log('The File: ', filePath, ' was successfuly copied to: ./docs/js/', path.basename(file));
+                        console.log('The File: ', filePath, ' was successfuly copied to: ./resources/js/', path.basename(file));
                       });
                 }
             }
