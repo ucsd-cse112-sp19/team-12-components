@@ -17,6 +17,9 @@ script:
   - npm run test:firefox-saucelab
   - npm run snapshot # Visual regression tests
 
+addons:
+  sauce_connect: true
+
 notifications:
   email: false
   
