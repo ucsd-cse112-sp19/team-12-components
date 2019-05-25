@@ -3,7 +3,7 @@
 
 import { Selector } from "testcafe";
 
-fixture`Getting Started`.page`../packages/core-hello/demo/core_hello.html`;
+fixture`Getting Started`.page`../demo/core_hello.html`;
 
 test("core-hello", async t => {
     // Use the assertion to check if the actual header text is equal to the expected one
