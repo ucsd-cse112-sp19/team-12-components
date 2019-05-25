@@ -15,17 +15,18 @@ const gulp = require('gulp');
     function compileComponents(done) {
         //supported languages:
         let languages = ['en','es','fr','zh'];
-        let path = ''
+        let path = '';
         //loop through all supported languages and generate docs
         for(var c=0; c<languages.length; c++){
             //------------render all component doc pages: ------------
             for(var i=0; i<components.length; i++) {
                 var component = components[i];
                 fileName = component.ComponentName.replace(/ +/g, '-').toLowerCase();
-                path = './templates/' + fileName + '_' + languages[c] + '.handlebars';
+                path = './templates/' + languages[c] + '/' + fileName + '_' + languages[c] + '.handlebars';
                 try {
                 //if component template exisits, use that template
                 if (fs.existsSync(path)) {
+                    console.log(path)
                     gulp.src(path)
                     .pipe(handlebars(component))
                     .pipe(rename(fileName + ".html"))
@@ -39,7 +40,7 @@ const gulp = require('gulp');
             //---------------Other Pages: -------------------
             try {
                 //if component template exisits, use that template
-                path = './templates/homepage' + '_' + languages[c] + '.handlebars';
+                path = './templates/' + languages[c] + '/homepage' + '_' + languages[c] + '.handlebars';
                 if (fs.existsSync(path)) {
                     //render homepage - by language
                     gulp.src(path)
@@ -50,7 +51,7 @@ const gulp = require('gulp');
                 }
 
                 //render docs page
-                path = './templates/docs' + '_' + languages[c] + '.handlebars';
+                path = './templates/' + languages[c] + '/docs' + '_' + languages[c] + '.handlebars';
                 if (fs.existsSync(path)) {
                     gulp.src(path)
                     //only passing in objects for each handlebar page render
@@ -67,7 +68,7 @@ const gulp = require('gulp');
 
         //Render single homepage default - index.html
         //This must be in root folder for home website
-        gulp.src('./templates/homepage_en.handlebars')
+        gulp.src('./templates/en/homepage_en.handlebars')
         //only passing in objects for each handlebar page render
         .pipe(handlebars())
         .pipe(rename("index.html"))
