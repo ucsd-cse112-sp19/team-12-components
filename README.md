@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.com/ucsd-cse112/team-12-components.svg?branch=master)](https://travis-ci.com/ucsd-cse112/team-12-components)
 [![Visual Regression Testing.](https://percy.io/static/images/percy-badge.svg)](https://percy.io/ucsd-cse112/ucsd-cse112)
 ![License](https://img.shields.io/badge/License-MIT-yellow.svg)
+[![Sauce Test Status](https://saucelabs.com/buildstatus/nonguyen)](https://saucelabs.com/u/nonguyen)
 
 [Unit Testing](#unit_test)  
 [Doc generation](#doc)  
