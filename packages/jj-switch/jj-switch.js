@@ -68,6 +68,38 @@ const jjSwitch = () => {
     .text-active {
       color: #2196F3;
     }
+
+    .slider.small {
+      width: 40px;
+      height: 18px;
+    }
+
+    .slider.small:before {
+      width: 13px;
+      height: 13px;
+    }
+
+    input:checked + .slider.small:before {
+      -webkit-transform: translateX(21px);
+      -ms-transform: translateX(21px);
+      transform: translateX(21px);
+    }
+
+    .slider.large {
+      width: 70px;
+      height: 32px;
+    }
+
+    .slider.large:before {
+      width: 26px;
+      height: 26px;
+    }
+
+    input:checked + .slider.large:before {
+      -webkit-transform: translateX(38px);
+      -ms-transform: translateX(38px);
+      transform: translateX(38px);
+    }
   </style>`;
 
   // this is the template for the switch
@@ -100,6 +132,7 @@ const jjSwitch = () => {
       this.label = this.root.querySelector('label');
       this.input = this.root.querySelector('input');
       this.slider = this.root.querySelector('#slider');
+      this.sliderBall = this.root.querySelector('#slider', ':before');
       this.activeText = this.root.querySelector('#activeText');
       this.inactiveText = this.root.querySelector('#inactiveText');
       this.container = this.root.querySelector('#container');
@@ -165,6 +198,19 @@ const jjSwitch = () => {
 
       if (this.hasAttribute('value')) {
         this.value = this.getAttribute('value');
+      }
+
+      if (this.hasAttribute('size')) {
+        var size = this.getAttribute('size');
+        if (size == 'small') {
+          this.slider.classList.add('small')
+          this.label.style.width = '40px';
+          this.label.style.height = '18px';
+        } else if (size == 'large'){
+          this.slider.classList.add('large')
+          this.label.style.width = '70px';
+          this.label.style.height = '32px';
+        }
       }
 
       //add event listeners
