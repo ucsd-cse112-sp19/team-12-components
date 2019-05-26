@@ -63,6 +63,11 @@ li.nav-item {
     list-style: none
 }
 
+a.nav-link.active {
+    color: #1a56c5;
+}
+
+
 .sidebar-right-wrapper{
     position: relative;
     max-width: 271px;

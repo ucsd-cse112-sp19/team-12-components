@@ -4,26 +4,26 @@
       <li class="nav-item">
         <a class="nav-link" href="#">
           <h6 class="sidebar-heading">
-            <span>Versions</span>
+            <span>{{PageName}}</span>
           </h6>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link {{#ifEquals 'Overview' PageName}}active{{/ifEquals}}" href="#">
           <h6 class="sidebar-heading">
             <span>Overview</span>
           </h6>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link {{#ifEquals 'Tutorials' PageName}}active{{/ifEquals}}" href="#">
           <h6 class="sidebar-heading">
             <span>Tutorials</span>
           </h6>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">
+        <a class="nav-link {{#ifEquals  'Components' PageName}}active{{/ifEquals}}" href="#">
           <h6 class="sidebar-heading">
             <span>Components</span>
           </h6>
@@ -31,7 +31,7 @@
       </li>
       {{#each AllComponents}}
       <li class="nav-item">
-        <a class="nav-link sidebar-subHeading {{#ifEquals this.[0] ../ComponentName}}active{{/ifEquals}}"
+        <a class="nav-link sidebar-subHeading {{#ifEquals this.[0] PageName}}active{{/ifEquals}}"
           href="./{{this.[1]}}.html">
           <h7>
             {{this.[0]}}

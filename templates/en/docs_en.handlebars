@@ -15,18 +15,14 @@
 
 <body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
   <div class="container">
-    {{> navbar }}
-
-    <!--<div class="page row">
-  <div class="col page-left-sidebar">Left sidebar</div>
-  <div class="col page-body">Body</div>
-  <div class="col page-right-sidebar">Right</div>
-</div>-->
+    <!-- Navbar Partial-->
+    {{> navbar lang='en' PageName='Docs'}}
 
     <div class="container page">
       <div class="row">
         <div class="col-sm-2 sidebar-left-wrapper">
-          {{> left_sidebar }}
+          <!-- Pass in the page name for highlighting--->
+          {{> left_sidebar PageName='Overview' }}
         </div>
         <div class="col-sm-8">
           <h1 id="h1">Heading1</h1>
@@ -71,6 +67,7 @@
         </div>
         <div class="col-sm-2 sidebar-left-wrapper">
 
+          <!-- Right Sidebar -->
           <nav id="contentHeadings" class="sidebar-right">
             <ul class="nav nav-pills flex-column">
               <li class="nav-item">
@@ -90,7 +87,7 @@
               </li>
             </ul>
           </nav>
-          
+          <!-- End Right Sidebar -->
         </div>
       </div>
     </div>
@@ -110,7 +107,7 @@
       crossorigin="anonymous"></script>
     <script>
       jQuery(window).scroll(function () {
-        //hide fixed sidebar if current screen reached footer
+        //hide left fixed sidebar if current screen reached footer
         var currentScroll = jQuery(document).height() - jQuery(this).scrollTop() - jQuery(this).height();
         if (currentScroll > 230) {
           jQuery('.sidebar-left').css('bottom', '0');

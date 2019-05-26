@@ -9,20 +9,40 @@
     <div class="collapse navbar-collapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
-          <a class="nav-link" href="#">Get Started<span class="sr-only">(current)</span></a>
+          <a class="nav-link {{#ifEquals 'Get Started' PageName}}active{{/ifEquals}}"
+            href="./{{lang}}/docs/get-started">
+            {{#ifEquals 'en' lang}}Get Started{{/ifEquals}}
+            {{#ifEquals 'es' lang}}Empezar{{/ifEquals}}
+            {{#ifEquals 'fr' lang}}Commencer{{/ifEquals}}
+            {{#ifEquals 'zh' lang}}入门{{/ifEquals}}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Docs</a>
+          <a class="nav-link {{#ifEquals 'Docs' PageName}}active{{/ifEquals}}" href="./{{lang}}/docs/get-started">
+            {{#ifEquals 'en' lang}}Docs{{/ifEquals}}
+            {{#ifEquals 'es' lang}}Docs{{/ifEquals}}
+            {{#ifEquals 'fr' lang}}Docs{{/ifEquals}}
+            {{#ifEquals 'zh' lang}}文件{{/ifEquals}}
+          </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Team</a>
+          <a class="nav-link {{#ifEquals 'Team' PageName}}active{{/ifEquals}}" href="./{{lang}}/team">
+            {{#ifEquals 'en' lang}}Team{{/ifEquals}}
+            {{#ifEquals 'es' lang}}Equipo{{/ifEquals}}
+            {{#ifEquals 'fr' lang}}Équipe{{/ifEquals}}
+            {{#ifEquals 'zh' lang}}球队{{/ifEquals}}
+          </a>
         </li>
       </ul>
 
       <ul class="navbar-nav">
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-            aria-haspopup="true" aria-expanded="false">Languages
+            aria-haspopup="true" aria-expanded="false">
+            {{#ifEquals 'en' lang}}Language{{/ifEquals}}
+            {{#ifEquals 'es' lang}}Idioma{{/ifEquals}}
+            {{#ifEquals 'fr' lang}}La langue{{/ifEquals}}
+            {{#ifEquals 'zh' lang}}语言{{/ifEquals}}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
             <a class="dropdown-item" href="#">English</a>

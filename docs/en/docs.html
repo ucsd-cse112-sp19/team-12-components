@@ -15,6 +15,7 @@
 
 <body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
   <div class="container">
+    <!-- Navbar Partial-->
     <nav class="navbar fixed-top navbar-expand-lg">
       <div class="container">
         <a class="navbar-brand" href="#"><img src="../resources/images/JayJay_logo.png"></a>
@@ -26,20 +27,40 @@
         <div class="collapse navbar-collapse">
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
-              <a class="nav-link" href="#">Get Started<span class="sr-only">(current)</span></a>
+              <a class="nav-link "
+                href="./en/docs/get-started">
+                Get Started
+                
+                
+                
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Docs</a>
+              <a class="nav-link active" href="./en/docs/get-started">
+                Docs
+                
+                
+                
+              </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#">Team</a>
+              <a class="nav-link " href="./en/team">
+                Team
+                
+                
+                
+              </a>
             </li>
           </ul>
     
           <ul class="navbar-nav">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                aria-haspopup="true" aria-expanded="false">Languages
+                aria-haspopup="true" aria-expanded="false">
+                Language
+                
+                
+                
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">English</a>
@@ -57,25 +78,13 @@
         </div>
       </div>
     </nav>
-    <!--<div class="page row">
-  <div class="col page-left-sidebar">Left sidebar</div>
-  <div class="col page-body">Body</div>
-  <div class="col page-right-sidebar">Right</div>
-</div>-->
-
     <div class="container page">
       <div class="row">
         <div class="col-sm-2 sidebar-left-wrapper">
+          <!-- Pass in the page name for highlighting--->
           
            
               <ul class="sidebar-left">
-                <li class="nav-item">
-                  <a class="nav-link" href="#">
-                    <h6 class="sidebar-heading">
-                      <span>Versions</span>
-                    </h6>
-                  </a>
-                </li>
                 <li class="nav-item">
                   <a class="nav-link" href="#">
                     <h6 class="sidebar-heading">
@@ -84,14 +93,21 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link active" href="#">
+                    <h6 class="sidebar-heading">
+                      <span>Overview</span>
+                    </h6>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="#">
                     <h6 class="sidebar-heading">
                       <span>Tutorials</span>
                     </h6>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">
+                  <a class="nav-link " href="#">
                     <h6 class="sidebar-heading">
                       <span>Components</span>
                     </h6>
@@ -114,7 +130,7 @@
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link sidebar-subHeading active"
+                  <a class="nav-link sidebar-subHeading "
                     href="./jj-slider.html">
                     <h7>
                       jj slider
@@ -165,6 +181,7 @@
         </div>
         <div class="col-sm-2 sidebar-left-wrapper">
 
+          <!-- Right Sidebar -->
           <nav id="contentHeadings" class="sidebar-right">
             <ul class="nav nav-pills flex-column">
               <li class="nav-item">
@@ -184,7 +201,7 @@
               </li>
             </ul>
           </nav>
-          
+          <!-- End Right Sidebar -->
         </div>
       </div>
     </div>
@@ -248,7 +265,7 @@
       crossorigin="anonymous"></script>
     <script>
       jQuery(window).scroll(function () {
-        //hide fixed sidebar if current screen reached footer
+        //hide left fixed sidebar if current screen reached footer
         var currentScroll = jQuery(document).height() - jQuery(this).scrollTop() - jQuery(this).height();
         if (currentScroll > 230) {
           jQuery('.sidebar-left').css('bottom', '0');
