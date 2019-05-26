@@ -1,36 +1,28 @@
 
  
     <ul class="sidebar-left">
-      <li class="nav-item">
+      <li class="sideL nav-item">
         <a class="nav-link" href="#">
-          <h6 class="sidebar-heading">
-            <span>{{PageName}}</span>
-          </h6>
+          Versions
         </a>
       </li>
-      <li class="nav-item">
+      <li class="sideL nav-item">
         <a class="nav-link {{#ifEquals 'Overview' PageName}}active{{/ifEquals}}" href="#">
-          <h6 class="sidebar-heading">
-            <span>Overview</span>
-          </h6>
+          Overview
         </a>
       </li>
-      <li class="nav-item">
+      <li class="sideL nav-item">
         <a class="nav-link {{#ifEquals 'Tutorials' PageName}}active{{/ifEquals}}" href="#">
-          <h6 class="sidebar-heading">
-            <span>Tutorials</span>
-          </h6>
+          Tutorials
         </a>
       </li>
-      <li class="nav-item">
+      <li class="sideL nav-item">
         <a class="nav-link {{#ifEquals  'Components' PageName}}active{{/ifEquals}}" href="#">
-          <h6 class="sidebar-heading">
-            <span>Components</span>
-          </h6>
+          Components
         </a>
       </li>
       {{#each AllComponents}}
-      <li class="nav-item">
+      <li class="sideL nav-item">
         <a class="nav-link sidebar-subHeading {{#ifEquals this.[0] PageName}}active{{/ifEquals}}"
           href="./{{this.[1]}}.html">
           <h7>
