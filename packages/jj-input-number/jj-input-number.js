@@ -147,7 +147,7 @@ class JJInputNum extends HTMLElement {
       this.inputDiv.classList.add(newValue);
       break;
     case 'disabled':
-      if (newValue)
+      if (newValue == "true" || newValue == "")
         this.inputDiv.classList.add('disabled');
       else
         this.inputDiv.classList.remove('disabled');
@@ -209,7 +209,7 @@ class JJInputNum extends HTMLElement {
     }
 
     // Logic for the increment button getting clicked
-    this.incrementButton.addEventListener('click', (e) => {
+    this.incrementButton.addEventListener('mousedown', (e) => {
       if ((this.valueElement.max) >= (this.value) + (this.step)) {
         this.value = (this.value) + (this.step);
 
@@ -231,7 +231,7 @@ class JJInputNum extends HTMLElement {
                                           function() { clearInterval(timer); });
 
     // Logic for the decrement button getting clicked
-    this.decrementButton.addEventListener('click', (e) => {
+    this.decrementButton.addEventListener('mousedown', (e) => {
       if ((this.valueElement.min) <= (this.value) - (this.step)) {
         this.value = (this.value) - (this.step);
 

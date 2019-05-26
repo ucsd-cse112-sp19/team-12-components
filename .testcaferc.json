@@ -1,0 +1,9 @@
+{
+  "browsers": [
+    "saucelabs:Chrome@beta:Windows 10", 
+    "saucelabs:Firefox@beta:Windows 10",
+    "saucelabs:Firefox@65.0:Windows 8.1"
+  ],
+  "src": "packages/*/tests/*_testcafe.js",
+  "skipJsErrors": "true"
+}
