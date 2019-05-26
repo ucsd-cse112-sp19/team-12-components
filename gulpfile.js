@@ -6,7 +6,8 @@ const gulp = require('gulp');
     components = require('./templates/components.json');
 
     //import templates for partials:
-    sidebar = require('./templates/sidebar.handlebars');
+    left_sidebar = require('./templates/left_sidebar.handlebars');
+    right_sidebar = require('./templates/right_sidebar.handlebars');
     navbar = require('./templates/navbar.handlebars');
 
 
@@ -26,7 +27,6 @@ const gulp = require('gulp');
                 try {
                 //if component template exisits, use that template
                 if (fs.existsSync(path)) {
-                    console.log(path)
                     gulp.src(path)
                     .pipe(handlebars(component))
                     .pipe(rename(fileName + ".html"))
@@ -85,7 +85,8 @@ const gulp = require('gulp');
     });
 
     //register all partitals:
-    Handlebars.registerPartial('sidebar', sidebar);
+    Handlebars.registerPartial('left_sidebar', left_sidebar);
+    Handlebars.registerPartial('right_sidebar', right_sidebar);
     Handlebars.registerPartial('navbar', navbar);
 
 
