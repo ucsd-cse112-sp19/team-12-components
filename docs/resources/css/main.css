@@ -10,6 +10,7 @@ html, body {
 body{
     font-family: 'Open Sans', sans-serif;
     color: #676767;
+    position: relative;
 }
 
 .hide{
@@ -29,12 +30,6 @@ a.nav-link {
 }
 li.nav-item {
     padding: 10px;
-}
-
-
-.page{
-    height: 100%;
-    margin: 0 auto;
 }
 
 .col{
@@ -76,21 +71,42 @@ li.nav-item {
     position: fixed;
     margin-top: 110px;
     top: 0;
-    bottom: 0;
     max-width: inherit;
     width: 100%;
 }
 
+/* right sidebar highlighting */
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #2352ad;
+    background-color: transparent;
+    font-weight: 600;
+}
+
+
+/* Hide scrollbar */
+.sidebar-left::-webkit-scrollbar { 
+    width: 0 !important;
+}
+.sidebar-left{
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+}
 .sidebar-subHeading{
     padding: 0px 0px 0px 35px;
     color: #717a81;
 }
 
 
+
+
+
 /*  Main Docs Body */
-.content{
-    top: 113px;
-    position: relative;
+h1, h2, h3{
+    padding-top:50px;
+}
+
+.activeHeading{
+    color:pink;
 }
 
 
@@ -114,7 +130,12 @@ li.nav-item {
 }
 
 
-
+.footer-wrapper{
+    z-index: 2000;
+    margin: 100px 0px;
+    max-height: 200px;
+    height: 100%;
+}
 
 
 

@@ -7,8 +7,8 @@ const gulp = require('gulp');
 
     //import templates for partials:
     left_sidebar = require('./templates/left_sidebar.handlebars');
-    right_sidebar = require('./templates/right_sidebar.handlebars');
     navbar = require('./templates/navbar.handlebars');
+    footer = require('./templates/footer.handlebars')
 
 
     //takes the components.handlebars template and json file
@@ -86,8 +86,8 @@ const gulp = require('gulp');
 
     //register all partitals:
     Handlebars.registerPartial('left_sidebar', left_sidebar);
-    Handlebars.registerPartial('right_sidebar', right_sidebar);
     Handlebars.registerPartial('navbar', navbar);
+    Handlebars.registerPartial('footer', footer);
 
 
     exports.compileComponents = compileComponents;
