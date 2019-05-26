@@ -149,7 +149,7 @@ const jjInputNum = () => {
           this.inputDiv.classList.add(newValue);
           break;
         case 'disabled':
-          if (newValue)
+          if (newValue == "" || newValue == "true")
             this.inputDiv.classList.add('disabled');
           else
             this.inputDiv.classList.remove('disabled');
@@ -212,7 +212,8 @@ const jjInputNum = () => {
 
       // Logic for the increment button getting clicked
       this.incrementButton.addEventListener('mousedown', (e) => {
-        if ((this.valueElement.max) >= (this.value) + (this.step)) {
+        if ((this.valueElement.max >= this.value + this.step) &&
+            this.inputDiv.classList.contains('disabled') != true) {
           this.value = (this.value) + (this.step);
           this.setAttribute("value", this.value);
 
@@ -238,7 +239,8 @@ const jjInputNum = () => {
 
       // Logic for the decrement button getting clicked
       this.decrementButton.addEventListener('mousedown', (e) => {
-        if ((this.valueElement.min) <= (this.value) - (this.step)) {
+        if ((this.valueElement.min <= this.value - this.step) &&
+            this.inputDiv.classList.contains('disabled') != true) {
           this.value = (this.value) - (this.step);
           this.setAttribute("value", this.value);
 

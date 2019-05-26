@@ -6,7 +6,7 @@
   "scripts": {
     "build": "./node_modules/.bin/babel --presets es2015 ./packages/*/ --out-dir ./src/",
     "precommit": "./node_modules/.bin/check-clang-format \"yarn format\"",
-    "test": "karma start",
+    "test": "karma start && npm run test:chrome",
     "testcafe": "testcafe",
     "test:chrome-saucelab": "testcafe --skip-js-errors \"saucelabs:Chrome@beta:Windows 10\" packages/*/tests/*_testcafe.js",
     "test:firefox-saucelab": "testcafe --skip-js-errors \"saucelabs:Firefox@beta:Windows 10\" packages/*/tests/*_testcafe.js",
