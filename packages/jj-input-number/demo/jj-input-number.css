@@ -15,17 +15,17 @@ input[type=number]::-webkit-outer-spin-button {
 
 .jj-input-number {
     display: inline-block;
-    border: 1px solid #c2c2c2;
+    border: 1px solid var(--border-color,#c2c2c2);
     border-radius: 5px;
     padding: 0px;
 }
 
 .border-blue {
-    border-color: #75baff;
+    border-color: var(--border-color,#75baff);
 }
 
 .color-blue {
-    color: #75baff;
+    color: var(--color,#75baff);
 }
 
 .decrement-btn {
@@ -33,9 +33,10 @@ input[type=number]::-webkit-outer-spin-button {
     height: 100%;
     font-size: 14px;
     border: none;
-    border-right: 1px solid #c2c2c2;
+    border-right: 1px solid var(--border-color,#c2c2c2);
     border-radius: 5px;
     padding: 0px;
+    background-color: var(--decrement-color);
 }
 
 .increment-btn {
@@ -43,9 +44,10 @@ input[type=number]::-webkit-outer-spin-button {
     height: 100%;
     font-size: 14px;
     border: none;
-    border-left: 1px solid #c2c2c2;
+    border-left: 1px solid var(--border-color,#c2c2c2);
     border-radius: 5px;
     padding: 0px;
+    background-color: var(--increment-color);
 }
 
 .button-container {
@@ -62,8 +64,8 @@ input[type=number]::-webkit-outer-spin-button {
     height:50%;
     font-size:14px;
     border:none;
-    border-left:1px solid #c2c2c2;
-    border-bottom: 1px solid #c2c2c2;
+    border-left:1px solid var(--border-color,#c2c2c2);
+    border-bottom: 1px solid var(--border-color,#c2c2c2);
     border-radius: 5px;
     text-align: center;
     padding: 0px;
@@ -74,7 +76,7 @@ input[type=number]::-webkit-outer-spin-button {
     height:50%;
     font-size:14px;
     border:none;
-    border-left:1px solid #c2c2c2;
+    border-left:1px solid var(--border-color,#c2c2c2);
     border-radius: 5px;
     text-align: center;
     padding: 0px;
@@ -87,6 +89,7 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
     border: none;
     padding: 0px;
+    font-family: var(--font, Arial);
 }
 
 .disabled {

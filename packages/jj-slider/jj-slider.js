@@ -40,7 +40,36 @@ const jjSlider = () => {
     const template = document.createElement('template');
     template.innerHTML = `
     <style>
-      @import "./jj-slider.css"
+    @import url("https://unpkg.com/element-ui/lib/theme-chalk/slider.css");
+
+    .el-slider {
+        font-family: var(--tooltip-font, Helvetica, Arial, sans-serif);
+        width: var(--slider-width);
+        margin: 0 auto;
+    }
+    
+    .el-slider__runway {
+        background-color: var(--runway-color, #E4E7ED);
+    }
+    
+    .el-slider__bar {
+        background-color: var(--bar-color, #409EFF);
+    }
+    
+    .el-slider__button {
+        border: 2px solid var(--button-border-color, #409EFF);
+        background-color: var(--button-color, #FFF);
+    }
+    
+    .el-tooltip__popper.is-dark {
+        background: var(--tooltip-color, #303133);
+        color: var(--tooltip-text-color, #FFF);
+    }
+    
+    .el-tooltip__popper[x-placement^=top] .popper__arrow,
+    .el-tooltip__popper[x-placement^=top] .popper__arrow::after {
+        border-top-color: var(--tooltip-color, #303133);
+    }
     </style>
     <div role="slider" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" class="el-slider" aria-valuetext="0" aria-label="slider between 0 and 100">
         <div class="el-slider__runway" id="runway">
