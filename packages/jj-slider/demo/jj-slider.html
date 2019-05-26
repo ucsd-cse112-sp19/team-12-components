@@ -4,14 +4,28 @@
 <head>
     <meta charset="UTF-8">
     <script src='../jj-slider.js'></script>
-    <title> Slider </title>
+    <title>Slider</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <style>
+        jj-slider {
+            --slider-width: 70%;
+            --runway-color: var(--secondary);
+            --bar-color: var(--primary);
+            --button-color: var(--white);
+            --button-border-color: var(--primary);
+            --tooltip-color: var(--dark);
+            --tooltip-text-color: var(--white);
+            --tooltip-font: var(--font-family-sans-serif);
+        }
+    </style>
 </head>
 
 <body>
-    <br/>
-    <br/>
-    <br/>
-    <jj-slider id="jj" value=35 min=0 max=50></jj-slider>
+    <div class="container" style="margin-top: 100px; text-align: center;">
+        <jj-slider id="jj" value=35 min=0 max=50></jj-slider>
+    </div>
 </body>
 
 </html>
