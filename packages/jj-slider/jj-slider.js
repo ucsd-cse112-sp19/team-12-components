@@ -143,6 +143,7 @@ const jjSlider = () => {
           targetValue = this.min;
         }
         this._value = targetValue;
+        this.setAttribute("value", Math.round(this._value));
 
         // Percentage boundary check
         let newPercent = percent;
