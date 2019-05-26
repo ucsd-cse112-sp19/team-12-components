@@ -1,8 +1,8 @@
 
 html, body {
+    height: 100%;
     /* prevent horizonal scrolling */
     max-width: 100%;
-    height: 100%;
     /* prevent overscroll bounce */
     overscroll-behavior:none;
 }
@@ -106,6 +106,10 @@ a.nav-link.active {
     color: #1a56c5;
 }
 
+.carrot-down{
+    font-size:10px;
+    padding: 2px;
+}
 
 .sidebar-right-wrapper{
     position: relative;
@@ -149,14 +153,13 @@ li.sideR.nav-item {
 
 
 /*  Main Docs Body */
-h1, h2, h3{
-    padding-top:42px;
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
+    font-weight: 300;
 }
 
-.activeHeading{
-    color:pink;
+.content > h1, .content > h2, .content > h3, .content > h4, .content > h5 {
+    padding-top: 25px;
 }
-
 
 .attributeTable{
     padding:10px;
@@ -179,10 +182,15 @@ h1, h2, h3{
 
 
 .footer-wrapper{
-    z-index: 2000;
     margin: 100px 0px;
     max-height: 200px;
     height: 100%;
+    padding: 0px 100px;
+}
+
+.footer-section-content {
+    color: #7da3ef;
+    list-style: none;
 }
 
 

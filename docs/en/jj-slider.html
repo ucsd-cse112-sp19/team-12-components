@@ -83,54 +83,60 @@
       <div class="row">
 
         <!-- Use sidebar template (handlebars partial)-->
+        <ul class="sidebar-left">
         
-         
-            <ul class="sidebar-left">
-              <li class="sideL nav-item">
-                <a class="nav-link" href="#">
-                  Versions
-                </a>
-              </li>
-              <li class="sideL nav-item">
-                <a class="nav-link " href="#">
-                  Overview
-                </a>
-              </li>
-              <li class="sideL nav-item">
-                <a class="nav-link " href="#">
-                  Tutorials
-                </a>
-              </li>
-              <li class="sideL nav-item">
-                <a class="nav-link " href="#">
-                  Components
-                </a>
-              </li>
-              <li class="sideL nav-item">
-                <a class="nav-link sidebar-subHeading "
-                  href="./core-hello.html">
-                  <h7>
-                    Core Hello
-                  </h7>
-                </a>
-              </li>
-              <li class="sideL nav-item">
-                <a class="nav-link sidebar-subHeading "
-                  href="./jj-input-number.html">
-                  <h7>
-                    jj input number
-                  </h7>
-                </a>
-              </li>
-              <li class="sideL nav-item">
-                <a class="nav-link sidebar-subHeading "
-                  href="./jj-slider.html">
-                  <h7>
-                    jj slider
-                  </h7>
-                </a>
-              </li>
-            </ul>
+          <li class="sideL nav-item dropdown">
+            <a class="nav-link" data-toggle="collapse" href="#collapseVersions" aria-expanded="false"
+              aria-controls="collapseVersions">
+              API:  <span class="carrot-down">&#9660;</span>
+            </a>
+            <div class="collapse" id="collapseVersions">
+              <a class="nav-link sidebar-subHeading " href="#">
+                0.03
+              </a>
+              <a class="nav-link sidebar-subHeading " href="#">
+                0.02
+              </a>
+              <a class="nav-link sidebar-subHeading " href="#">
+                0.01
+              </a>
+            </div>
+          </li>
+        
+          <li class="sideL nav-item">
+            <a class="nav-link " href="#">
+              Overview
+            </a>
+          </li>
+          <li class="sideL nav-item">
+            <a class="nav-link " href="#">
+              Tutorials
+            </a>
+          </li>
+          <li class="sideL nav-item">
+            <a class="nav-link " href="#">
+              Components
+            </a>
+          </li>
+          <li class="sideL nav-item">
+            <a class="nav-link sidebar-subHeading "
+              href="./core-hello.html">
+              Core Hello
+            </a>
+          </li>
+          <li class="sideL nav-item">
+            <a class="nav-link sidebar-subHeading "
+              href="./jj-input-number.html">
+              jj input number
+            </a>
+          </li>
+          <li class="sideL nav-item">
+            <a class="nav-link sidebar-subHeading "
+              href="./jj-slider.html">
+              jj slider
+            </a>
+          </li>
+        </ul>
         <!-- Main body -->
         <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4">
           <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
