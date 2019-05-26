@@ -26,11 +26,120 @@
  */
 
 const jjInputNum = () => {
+  let styles = `<style>
+    button, p {
+        display: inline-block;
+    }
+
+    input[type="number"] {
+    -webkit-appearance: textfield;
+        -moz-appearance: textfield;
+            appearance: textfield;
+    }
+
+    input[type=number]::-webkit-inner-spin-button, 
+    input[type=number]::-webkit-outer-spin-button { 
+    -webkit-appearance: none;
+    }
+
+    .jj-input-number {
+        display: inline-block;
+        border: 1px solid var(--border-color,#c2c2c2);
+        border-radius: 5px;
+        padding: 0px;
+    }
+
+    .border-blue {
+        border-color: var(--border-color,#75baff);
+    }
+
+    .color-blue {
+        color: var(--color,#75baff);
+    }
+
+    .decrement-btn {
+        width: 20%;
+        height: 100%;
+        font-size: 14px;
+        border: none;
+        border-right: 1px solid var(--border-color,#c2c2c2);
+        border-radius: 5px;
+        padding: 0px;
+        background-color: var(--decrement-color);
+    }
+
+    .increment-btn {
+        width: 20%;
+        height: 100%;
+        font-size: 14px;
+        border: none;
+        border-left: 1px solid var(--border-color,#c2c2c2);
+        border-radius: 5px;
+        padding: 0px;
+        background-color: var(--increment-color);
+    }
+
+    .button-container {
+        width:40%;
+        height: 100%;
+        float:right;
+        display: flex;
+        flex-direction: column;
+        padding: 0px;
+    }
+
+    .increment-btn-2{
+        width:100%;
+        height:50%;
+        font-size:14px;
+        border:none;
+        border-left:1px solid var(--border-color,#c2c2c2);
+        border-bottom: 1px solid var(--border-color,#c2c2c2);
+        border-radius: 5px;
+        text-align: center;
+        padding: 0px;
+    }
+
+    .decrement-btn-2{
+        width:100%;
+        height:50%;
+        font-size:14px;
+        border:none;
+        border-left:1px solid var(--border-color,#c2c2c2);
+        border-radius: 5px;
+        text-align: center;
+        padding: 0px;
+    }
+    
+    .input-field {
+        width: 60%;
+        height: 100%;
+        font-size: 14px;
+        text-align: center;
+        border: none;
+        padding: 0px;
+        font-family: var(--font, Arial);
+    }
+
+    .disabled {
+        pointer-events:none;
+        opacity: 0.4;
+    }
+
+    .small {
+        width: 200px;
+        height: 40px;
+    }
+
+    .large {
+        width: 250px;
+        height: 55px;
+    }
+  </style>`;
 
   // This is the template for the Position default.
   const template = document.createElement('template');
-  template.innerHTML = `
-  <link rel="stylesheet" href="jj-input-number.css">
+  template.innerHTML = styles + `
   <div class="jj-input-number">
     <button aria-label="decrement" class="decrement-btn" id="decrementBtn">-</button><!--
     --><input id="jj-inputBoxNum" type = "text" class="input-field"></input><!--
@@ -40,8 +149,7 @@ const jjInputNum = () => {
 
   // This is the template for Position right
   const template2 = document.createElement('template');
-  template2.innerHTML = `
-  <link rel="stylesheet" href="jj-input-number.css">
+  template2.innerHTML = styles + `
   <div class="jj-input-number">
     <input id="jj-inputBoxNum" type = "text" class="input-field"></input>
     <div class = "button-container">
