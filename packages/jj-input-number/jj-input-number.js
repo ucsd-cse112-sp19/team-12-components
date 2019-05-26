@@ -214,11 +214,15 @@ const jjInputNum = () => {
       this.incrementButton.addEventListener('mousedown', (e) => {
         if ((this.valueElement.max) >= (this.value) + (this.step)) {
           this.value = (this.value) + (this.step);
+          this.setAttribute("value", this.value);
 
           // Click and hold functionality.
           let _this = this; // reserve 'this' context
           timer = setInterval(
-            function () { _this.value = (_this.value) + (_this.step); }, 400);
+            function () {
+              _this.value = (_this.value) + (_this.step);
+              _this.setAttribute("value", _this.value);
+            }, 400);
 
           this.decrementButton.classList.remove('disabled');
           if ((this.valueElement.max) <= (this.value))
@@ -236,10 +240,14 @@ const jjInputNum = () => {
       this.decrementButton.addEventListener('mousedown', (e) => {
         if ((this.valueElement.min) <= (this.value) - (this.step)) {
           this.value = (this.value) - (this.step);
+          this.setAttribute("value", this.value);
 
           let _this = this;
           timer = setInterval(
-            function () { _this.value = (_this.value) - (_this.step); }, 400);
+            function () {
+              _this.value = (_this.value) - (_this.step);
+              _this.setAttribute("value", _this.value);
+            }, 400);
 
           this.incrementButton.classList.remove('disabled');
           if ((this.valueElement.min) >= (this.value))
@@ -290,14 +298,17 @@ const jjInputNum = () => {
         }
         if (key === "Enter") {
           this.value = e.srcElement.value;
+          this.setAttribute("value", this.value);
         }
       });
       this.valueElement.addEventListener('mouseover', (e) => {
         this.value = e.srcElement.value;
+        this.setAttribute("value", this.value);
         this.inputDiv.classList.add("border-blue");
       });
       this.valueElement.addEventListener('mouseout', (e) => {
         this.value = e.srcElement.value;
+        this.setAttribute("value", this.value);
         this.inputDiv.classList.remove("border-blue");
       });
     }
