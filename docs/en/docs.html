@@ -13,6 +13,9 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="../resources/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
 </head>
 
 <body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
@@ -20,7 +23,7 @@
     <!-- Navbar Partial-->
     <nav class="navbar fixed-top navbar-expand-lg">
       <div class="container">
-        <a class="navbar-brand" href="#"><img class="site-logo" src="../resources/images/JayJay_logo.png"></a>
+        <a class="navbar-brand" href="./en/index.html"><img class="site-logo" src="../resources/images/JayJay_logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -93,48 +96,66 @@
               </a>
               <div class="collapse" id="collapseVersions">
                 <a class="nav-link sidebar-subHeading active" href="#">
+                <span>
                   0.03
+                  </span>
                 </a>
                 <a class="nav-link sidebar-subHeading " href="#">
+                <span>
                   0.02
+                  </span>
                 </a>
                 <a class="nav-link sidebar-subHeading " href="#">
+                <span>
                   0.01
+                  </span>
                 </a>
               </div>
             </li>
           
             <li class="sideL nav-item">
               <a class="nav-link active" href="#">
-                Overview
+                <span>
+                  Overview
+                </span>
               </a>
             </li>
             <li class="sideL nav-item">
               <a class="nav-link " href="#">
-                Tutorials
+                <span>
+                  Tutorials
+                </span>
               </a>
             </li>
             <li class="sideL nav-item">
               <a class="nav-link " href="#">
-                Components
+                <span>
+                  Components
+                </span>
               </a>
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
                 href="./core-hello.html">
-                Core Hello
+                <span>
+                  Core Hello
+                </span>
               </a>
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
                 href="./jj-input-number.html">
-                jj input number
+                <span>
+                  jj input number
+                </span>
               </a>
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
                 href="./jj-slider.html">
-                jj slider
+                <span>
+                  jj slider
+                </span>
               </a>
             </li>
           </ul>        </div>
@@ -147,6 +168,12 @@
             Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
             Aldus
             PageMaker including versions of Lorem Ipsum.</p>
+         
+          <pre
+            class="prettyprint"><code class="language-html">&lt;jj-input-number min=0 max=8 value=1 precision=2 step=0.5>&lt;/jj-input-number></code></pre>
+
+
+
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
             industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
             scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
@@ -261,6 +288,8 @@
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
       crossorigin="anonymous"></script>
     <script>
+
+
       jQuery(window).scroll(function () {
         //hide left fixed sidebar if current screen reached footer
         var currentScroll = jQuery(document).height() - jQuery(this).scrollTop() - jQuery(this).height();
@@ -268,7 +297,7 @@
           jQuery('.sidebar-left').css('bottom', '0');
           jQuery('.sidebar-left').css('top', '0');
         } else {
-          jQuery('.sidebar-left').css('bottom', '300px');
+          jQuery('.sidebar-left').css('bottom', '200px');
           jQuery('.sidebar-left').css('top', '0px');
         }
       });

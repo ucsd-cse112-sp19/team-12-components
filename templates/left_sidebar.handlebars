@@ -7,37 +7,51 @@
     </a>
     <div class="collapse" id="collapseVersions">
       <a class="nav-link sidebar-subHeading {{#ifEquals '0.03' Version}}active{{/ifEquals}}" href="#">
+      <span>
         0.03
+        </span>
       </a>
       <a class="nav-link sidebar-subHeading {{#ifEquals '0.02' Version}}active{{/ifEquals}}" href="#">
+      <span>
         0.02
+        </span>
       </a>
       <a class="nav-link sidebar-subHeading {{#ifEquals '0.01' Version}}active{{/ifEquals}}" href="#">
+      <span>
         0.01
+        </span>
       </a>
     </div>
   </li>
 
   <li class="sideL nav-item">
     <a class="nav-link {{#ifEquals 'Overview' PageName}}active{{/ifEquals}}" href="#">
-      Overview
+      <span>
+        Overview
+      </span>
     </a>
   </li>
   <li class="sideL nav-item">
     <a class="nav-link {{#ifEquals 'Tutorials' PageName}}active{{/ifEquals}}" href="#">
-      Tutorials
+      <span>
+        Tutorials
+      </span>
     </a>
   </li>
   <li class="sideL nav-item">
     <a class="nav-link {{#ifEquals  'Components' PageName}}active{{/ifEquals}}" href="#">
-      Components
+      <span>
+        Components
+      </span>
     </a>
   </li>
   {{#each AllComponents}}
   <li class="sideL nav-item">
     <a class="nav-link sidebar-subHeading {{#ifEquals this.[0] PageName}}active{{/ifEquals}}"
       href="./{{this.[1]}}.html">
-      {{this.[0]}}
+      <span>
+        {{this.[0]}}
+      </span>
     </a>
   </li>
   {{/each}}
