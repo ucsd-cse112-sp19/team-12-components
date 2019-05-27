@@ -14,8 +14,7 @@ node_js:
   - node
 
 script:
-  - npm run test
-  - npm run testcafe
+  - npm run test:travis
   - npm run snapshot # Visual regression tests
 
 notifications:

@@ -107,14 +107,14 @@ describe('jj-input-number with defined [min, max, value, precision, step]', func
     compEl.value = 1.0;
   })
  
-  it('tests if we can decrement jj-input-number with "disabled" _boolean attribue_', function() {
+  it('tests if we can decrease jj-input-number with "disabled" _boolean attribue_', function() {
     let savedDisabledValue = compEl.getAttribute('disabled'); // Save disabled value.
     compEl.setAttribute('disabled', ''); // Set the component as disabled.
 
     let oldValue = compEl.value;
     let decButton = document.getElementById('jj1').shadowRoot.getElementById("decrementBtn");
-    triggerMouseEvent(decButton, 'buttondown');
-    triggerMouseEvent(decButton, 'buttonup');
+    triggerMouseEvent(decButton, 'mousedown');
+    triggerMouseEvent(decButton, 'mouseup');
 
     assert.equal(compEl.value, oldValue);
 
@@ -126,15 +126,36 @@ describe('jj-input-number with defined [min, max, value, precision, step]', func
     }
   });
 
-  it('tests if we can mutate when jj-input-number using "disabled" attribue', function() {
+  it('tests if we can increase jj-input-number with "disabled" _boolean attribue_', function() {
+    //compEl.removeAttribute('disabled');
+    let savedDisabledValue = compEl.getAttribute('disabled'); // Save disabled value.
+    compEl.setAttribute('disabled', ''); // Set the component as disabled.
+
+    let incButton = document.getElementById('jj1').shadowRoot.getElementById("incrementBtn");
+    let oldValue = compEl.value;
+
+    triggerMouseEvent(incButton, 'mousedown');
+    triggerMouseEvent(incButton, 'mouseup');
+
+    assert.equal(compEl.value, oldValue);
+
+    // reset disable value.
+    if (savedDisabledValue == null) {
+      compEl.removeAttribute('disabled');
+    } else {
+      compEl.setAttribute('disabled', savedDisabledValue);
+    }
+  });
+
+  it('tests if we can decrease when jj-input-number using "disabled" attribue', function() {
     let savedDisabledValue = compEl.getAttribute('disabled');
 
     compEl.setAttribute('disabled', 'true'); // Set the component as disabled.
     let oldValue = compEl.value;
     
     let decButton = document.getElementById('jj1').shadowRoot.getElementById("decrementBtn");
-    triggerMouseEvent(decButton, 'buttondown');
-    triggerMouseEvent(decButton,'buttonup');
+    triggerMouseEvent(decButton, 'mousedown');
+    triggerMouseEvent(decButton,'mouseup');
     assert.equal(compEl.value, oldValue);
 
     // reset disable value.
@@ -145,6 +166,25 @@ describe('jj-input-number with defined [min, max, value, precision, step]', func
     }
   });
 
-  //etc..
+ it('tests if we can increase when jj-input-number using "disabled" attribue', function() {
+   let savedDisabledValue = compEl.getAttribute('disabled');
+
+   compEl.setAttribute("disabled", "true"); // Set the component as disabled.
+
+   let incButton = document.getElementById('jj1').shadowRoot.getElementById("incrementBtn");
+   let oldValue = compEl.value;
+
+   triggerMouseEvent(incButton, 'mousedown');
+   triggerMouseEvent(incButton,'mouseup');
+   assert.equal(compEl.value, oldValue);
+
+   // reset disable value.
+   if (savedDisabledValue == null) {
+       compEl.removeAttribute('disabled');
+   } else {
+       compEl.setAttribute('disabled', savedDisabledValue);
+   }
+ });
+    //etc..
 });
 
