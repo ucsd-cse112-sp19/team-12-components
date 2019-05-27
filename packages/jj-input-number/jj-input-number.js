@@ -163,7 +163,8 @@ const jjInputNum = () => {
 
       class JJInputNum extends HTMLElement {
         set value(value) {
-
+          if (this.inputDiv.classList.contains('disabled'))
+            return
           if (value === '') {
             this._value = this.trans('');
             this.valueElement.value = '';
@@ -325,8 +326,7 @@ const jjInputNum = () => {
 
           // Logic for the increment button getting clicked
           this.incrementButton.addEventListener('mousedown', (e) => {
-            if ((this.valueElement.max >= this.value + this.step) &&
-                this.inputDiv.classList.contains('disabled') != true) {
+            if (this.valueElement.max >= this.value + this.step) {
               this.value = (this.value) + (this.step);
               this.setAttribute("value", this.value);
 
@@ -351,8 +351,7 @@ const jjInputNum = () => {
 
           // Logic for the decrement button getting clicked
           this.decrementButton.addEventListener('mousedown', (e) => {
-            if ((this.valueElement.min <= this.value - this.step) &&
-                this.inputDiv.classList.contains('disabled') != true) {
+            if (this.valueElement.min <= this.value - this.step){
               this.value = (this.value) - (this.step);
               this.setAttribute("value", this.value);
 
