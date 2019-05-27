@@ -154,7 +154,7 @@ li.sideR.nav-item {
 
 /*  Main Docs Body */
 .h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6{
-    font-weight: 300;
+    font-weight: 100;
 }
 
 .content > h1, .content > h2, .content > h3, .content > h4, .content > h5 {
