@@ -1,0 +1,24 @@
+{
+  "name": "jj-components",
+  "version": "0.1.0",
+  "description": "A vanilla javascript port of the Element Library https://ucsd-cse112.github.io/team-12-components/",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ucsd-cse112/team-12-components.git"
+  },
+  "keywords": [
+    "javascript",
+    "element",
+    "web-components"
+  ],
+  "author": "Team JJ - Team 12",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ucsd-cse112/team-12-components/issues"
+  },
+  "homepage": "https://github.com/ucsd-cse112/team-12-components#readme"
+}
