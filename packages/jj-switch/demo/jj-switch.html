@@ -7,22 +7,21 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
-    <style>
-        jj-slider {
-            --slider-width: 70%;
-            --runway-color: var(--secondary);
-            --bar-color: var(--primary);
-            --button-color: var(--white);
-            --button-border-color: var(--primary);
-            --tooltip-color: var(--dark);
-            --tooltip-text-color: var(--white);
-            --tooltip-font: var(--font-family-sans-serif);
-        }
-    </style>
+        <style>
+          jj-switch {
+            --large-width: 70px;
+            --small-width: 75px;
+            --slider-button-color: var(--white);
+            --text-font: var(--font-family-sans-serif);
+
+            --active-text-color: var(--primary);
+            --inactive-text-color: var(--dark);
+          }
+      </style>
 </head>
 
 <body>
-  <jj-switch inactive-text="Pay by the year" active-text="Pay by the month" inactive-color="#000" active-color="#ccc" round size="small"></jj-switch>
+  <jj-switch inactive-text="Pay by the year" active-text="Pay by the month" inactive-color="pink" active-color="#409eff" round size="large"></jj-switch>
 </body>
 
 </html>

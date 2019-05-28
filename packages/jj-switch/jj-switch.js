@@ -27,11 +27,15 @@
 
 //define the css for this component.
 const jjSwitch = () => {
-  let styles = `<style>
+  const template = document.createElement('template');
+  template.innerHTML = `
+  <style>
+  @import url("https://unpkg.com/element-ui/lib/theme-chalk/switch.css");
+
     .switch {
       position: relative;
       display: inline-block;
-      width: 50px;
+      width: 40px;
       height: 23px;
     }
     
@@ -61,7 +65,7 @@ const jjSwitch = () => {
       width: 18px;
       left: 3px;
       bottom: 3px;
-      background-color: white;
+      background-color: var(--slider-button-color, white);
       -webkit-transition: .4s;
       transition: .4s;
     }
@@ -88,16 +92,20 @@ const jjSwitch = () => {
     
     .text {
       margin: 0 5px;
-      font-size: 16px;
-      color: black;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: var(--text-font,
+      Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,
+      Microsoft YaHei,SimSun,sans-serif);
+      color: var(--inactive-text-color, black);
     }
     
     .text-active {
-      color: #2196F3;
+      color: var(--active-text-color, #2196F3);
     }
 
     .slider.small {
-      width: 40px;
+      width: var(--small-width, 40px);
       height: 18px;
     }
 
@@ -113,7 +121,7 @@ const jjSwitch = () => {
     }
 
     .slider.large {
-      width: 70px;
+      width: var(--large-width, 70px);
       height: 32px;
     }
 
@@ -127,19 +135,15 @@ const jjSwitch = () => {
       -ms-transform: translateX(38px);
       transform: translateX(38px);
     }
-  </style>`;
-
-  // this is the template for the switch
-  const template = document.createElement('template');
-  template.innerHTML = styles + `
-    <div id="container">
-      <span id="inactiveText" class='text'></span>
+  </style>
+  <div role="switch" id="container" class="el-switch">
+    <span id="inactiveText" class='text'></span>
       <label class="switch">
-        <input type="checkbox">
-        <span id="slider" class="slider"></span>
+      <input type="checkbox">
+      <span id="slider" class="slider"></span>
       </label>
-      <span id="activeText" class='text'></span>
-    </div>
+    <span id="activeText" class='text'></span>
+  </div>
   `;
 
   class JJSwitch extends HTMLElement {
@@ -176,7 +180,7 @@ const jjSwitch = () => {
           this.activeText.classList.add('text-active');
         }
       } else {
-        this.activeColor = '#2196F3';
+        this.activeColor = '#409eff';
       }
 
       if (this.hasAttribute('inactive-color')) {
@@ -186,7 +190,7 @@ const jjSwitch = () => {
           this.inactiveText.classList.add('text-active');
         }
       } else {
-        this.inactiveColor = '#ccc';
+        this.inactiveColor = '#dcdfe6';
       }
 
       if (this.hasAttribute('active-text')) {
