@@ -1,3 +1,30 @@
+/**
+ * @component_name jj switch
+ * @component_desc Switch between opposing states. 
+ * @attribute value / v-model, binding value	number,	boolean/ string/ number,
+ * /, /
+ * @attribute disabled,	whether switch is disabled,	boolean, /, false
+ * @attribute width, width of Switch number, /, 40
+ * @attribute active-icon-class, class name of the icon displayed when in on 
+ * state overrides active-text, string, /, /
+ * @attribute inactive-icon-class, class name of the icon displayed when in off
+ * state overrides inactive-text, string, /, /
+ * @attribute active-text, text displayed when in on state, string, /, /
+ * @attribute inactive-text, text displayed when in off state, string, /, /
+ * @attribute active-value, switch value when in on state, 
+ * boolean/ string/ number, /, true
+ * @attribute inactive-value, switch value when in off state, 
+ * boolean/ string/ number, /, false
+ * @attribute active-color, background color when in on state, string, /,
+ * #409EFF
+ * @attribute inactive-color, background color when in off state, string, /,
+ * #C0CCDA
+ * @attribute name, input name of Switch, string, /, /
+ * @attribute validate-event, whether to trigger form validation, boolean, /,
+ * true
+ * 
+ */
+
 //define the css for this component.
 const jjSwitch = () => {
   let styles = `<style>

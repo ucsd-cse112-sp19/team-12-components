@@ -22,7 +22,6 @@
  * @attribute label, label text,	string,	/,	/
  * @attribute placeholder,	placeholder in input,	string,	/,	/
  *
- *
  */
 
 // This is the template for the Position default.
