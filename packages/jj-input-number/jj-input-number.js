@@ -138,9 +138,9 @@ const jjInputNum = () => {
     }
   </style>`;
 
-  // This is the template for the Position default.
-  const template = document.createElement('template');
-  template.innerHTML = styles + `
+      // This is the template for the Position default.
+      const template = document.createElement('template');
+      template.innerHTML = styles + `
   <div class="jj-input-number">
     <button aria-label="decrement" class="decrement-btn" id="decrementBtn">-</button><!--
     --><input id="jj-inputBoxNum" type = "text" class="input-field"></input><!--
