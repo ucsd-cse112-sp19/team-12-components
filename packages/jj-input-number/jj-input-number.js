@@ -25,9 +25,9 @@
  *
  */
 
-const jjInputNum =
-    () => {
-      let styles = `<style>
+
+const jjInputNum = () => {
+  let styles = `<style>
     button, p {
         display: inline-block;
     }
@@ -148,9 +148,10 @@ const jjInputNum =
   </div>
 `;
 
-      // This is the template for Position right
-      const template2 = document.createElement('template');
-      template2.innerHTML = styles + `
+
+  // This is the template for Position right
+  const template2 = document.createElement('template');
+  template2.innerHTML = styles + `
   <div class="jj-input-number">
     <input id="jj-inputBoxNum" type = "text" class="input-field"></input>
     <div class = "button-container">
@@ -162,7 +163,8 @@ const jjInputNum =
 
       class JJInputNum extends HTMLElement {
         set value(value) {
-
+          if (this.inputDiv.classList.contains('disabled'))
+            return
           if (value === '') {
             this._value = this.trans('');
             this.valueElement.value = '';
@@ -259,7 +261,7 @@ const jjInputNum =
             this.inputDiv.classList.add(newValue);
             break;
           case 'disabled':
-            if (newValue)
+            if (newValue == "" || newValue == "true")
               this.inputDiv.classList.add('disabled');
             else
               this.inputDiv.classList.remove('disabled');
@@ -324,7 +326,7 @@ const jjInputNum =
 
           // Logic for the increment button getting clicked
           this.incrementButton.addEventListener('mousedown', (e) => {
-            if ((this.valueElement.max) >= (this.value) + (this.step)) {
+            if (this.valueElement.max >= this.value + this.step) {
               this.value = (this.value) + (this.step);
               this.setAttribute("value", this.value);
 
@@ -349,7 +351,7 @@ const jjInputNum =
 
           // Logic for the decrement button getting clicked
           this.decrementButton.addEventListener('mousedown', (e) => {
-            if ((this.valueElement.min) <= (this.value) - (this.step)) {
+            if (this.valueElement.min <= this.value - this.step){
               this.value = (this.value) - (this.step);
               this.setAttribute("value", this.value);
 
