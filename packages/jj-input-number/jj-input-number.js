@@ -25,9 +25,9 @@
  *
  */
 
-
-const jjInputNum = () => {
-  let styles = `<style>
+const jjInputNum =
+    () => {
+      let styles = `<style>
     button, p {
         display: inline-block;
     }
@@ -44,7 +44,6 @@ const jjInputNum = () => {
     }
 
     .jj-input-number {
-        display: inline-block;
         border: 1px solid var(--border-color,#c2c2c2);
         border-radius: 5px;
         padding: 0px;
@@ -148,10 +147,9 @@ const jjInputNum = () => {
   </div>
 `;
 
-
-  // This is the template for Position right
-  const template2 = document.createElement('template');
-  template2.innerHTML = styles + `
+      // This is the template for Position right
+      const template2 = document.createElement('template');
+      template2.innerHTML = styles + `
   <div class="jj-input-number">
     <input id="jj-inputBoxNum" type = "text" class="input-field"></input>
     <div class = "button-container">
@@ -164,12 +162,12 @@ const jjInputNum = () => {
       class JJInputNum extends HTMLElement {
         set value(value) {
           if (this.inputDiv.classList.contains('disabled'))
-            return
-          if (value === '') {
-            this._value = this.trans('');
-            this.valueElement.value = '';
-            return;
-          }
+            return; 
+            if (value === '') {
+              this._value = this.trans('');
+              this.valueElement.value = '';
+              return;
+            }
 
           if (this.trans(value) >= this.valueElement.max) {
             value = this.valueElement.max;
@@ -351,7 +349,7 @@ const jjInputNum = () => {
 
           // Logic for the decrement button getting clicked
           this.decrementButton.addEventListener('mousedown', (e) => {
-            if (this.valueElement.min <= this.value - this.step){
+            if (this.valueElement.min <= this.value - this.step) {
               this.value = (this.value) - (this.step);
               this.setAttribute("value", this.value);
 
