@@ -97,15 +97,15 @@ const jjSwitch = () => {
       font-family: var(--text-font,
       Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,
       Microsoft YaHei,SimSun,sans-serif);
-      color: var(--inactive-text-color, black);
+      color: var(--inactive-text-color, #303133);
     }
     
     .text-active {
-      color: var(--active-text-color, #2196F3);
+      color: var(--active-text-color, #409eff);
     }
 
     .slider.small {
-      width: var(--small-width, 40px);
+      width: 40px;
       height: 18px;
     }
 
@@ -121,7 +121,7 @@ const jjSwitch = () => {
     }
 
     .slider.large {
-      width: var(--large-width, 70px);
+      width: 70px;
       height: 32px;
     }
 
