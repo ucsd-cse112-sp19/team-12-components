@@ -44,7 +44,6 @@ const jjInputNum = () => {
     }
 
     .jj-input-number {
-        display: inline-block;
         border: 1px solid var(--border-color,#c2c2c2);
         border-radius: 5px;
         padding: 0px;
