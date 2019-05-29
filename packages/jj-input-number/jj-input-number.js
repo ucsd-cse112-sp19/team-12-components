@@ -162,7 +162,8 @@ const jjInputNum =
       class JJInputNum extends HTMLElement {
         set value(value) {
           if (this.inputDiv.classList.contains('disabled'))
-            return if (value === '') {
+            return; 
+            if (value === '') {
               this._value = this.trans('');
               this.valueElement.value = '';
               return;
