@@ -17,14 +17,14 @@
 
   <body>
       <!-- Use navbar template (handlebars partial)-->
-      <nav class="navbar fixed-top navbar-expand-lg">
+      <nav class="navbar navbar-dark fixed-top navbar-expand-lg">
         <div class="container">
           <a class="navbar-brand" href=".//index.html"><img class="site-logo" src="../resources/images/JayJay_logo.png"></a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-nav-menu" aria-controls="top-nav-menu" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
           </button>
       
-          <div class="collapse navbar-collapse">
+          <div class="collapse navbar-collapse" id="top-nav-menu" >
             <ul class="navbar-nav mr-auto">
               <li class="nav-item">
                 <a class="topNav nav-link "
@@ -63,10 +63,10 @@
                   
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <a class="dropdown-item" href="#">English</a>
-                  <a class="dropdown-item" href="#">Español</a>
-                  <a class="dropdown-item" href="#">中文</a>
-                  <a class="dropdown-item" href="#">French</a>
+                  <a class="dropdown-item " href="#">English</a>
+                  <a class="dropdown-item " href="#">Español</a>
+                  <a class="dropdown-item " href="#">中文</a>
+                  <a class="dropdown-item " href="#">French</a>
                 </div>
               </li>
               <li class="nav-item">
@@ -82,7 +82,10 @@
       <div class="row">
 
         <!-- Use sidebar template (handlebars partial)-->
-        <ul class="sidebar-left">
+        <button class="navbar-toggler sidebarButton" type="button" data-toggle="collapse" data-target="#left-nav-sidebar" aria-controls="left-nav-sidebar" aria-expanded="false" aria-label="Toggle navigation">
+             <span class="carrot-down">&#9660;</span> 
+            </button>
+        <ul class="sidebar-left collapse navbar-collapse" id="left-nav-sidebar">
         
           <li class="sideL nav-item dropdown">
             <a class="nav-link" data-toggle="collapse" href="#collapseVersions" aria-expanded="false"
@@ -91,18 +94,18 @@
             </a>
             <div class="collapse" id="collapseVersions">
               <a class="nav-link sidebar-subHeading " href="#">
-              <span>
-                0.03
+                <span>
+                  0.3.0
                 </span>
               </a>
               <a class="nav-link sidebar-subHeading " href="#">
-              <span>
-                0.02
+                <span>
+                  0.2.0
                 </span>
               </a>
               <a class="nav-link sidebar-subHeading " href="#">
-              <span>
-                0.01
+                <span>
+                  0.1.0
                 </span>
               </a>
             </div>

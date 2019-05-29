@@ -1,4 +1,7 @@
-<ul class="sidebar-left">
+<button class="navbar-toggler sidebarButton" type="button" data-toggle="collapse" data-target="#left-nav-sidebar" aria-controls="left-nav-sidebar" aria-expanded="false" aria-label="Toggle navigation">
+    {{PageName}} <span class="carrot-down">&#9660;</span> 
+    </button>
+<ul class="sidebar-left collapse navbar-collapse" id="left-nav-sidebar">
 
   <li class="sideL nav-item dropdown">
     <a class="nav-link" data-toggle="collapse" href="#collapseVersions" aria-expanded="false"
@@ -6,19 +9,19 @@
       API: {{Version}} <span class="carrot-down">&#9660;</span>
     </a>
     <div class="collapse" id="collapseVersions">
-      <a class="nav-link sidebar-subHeading {{#ifEquals '0.03' Version}}active{{/ifEquals}}" href="#">
-      <span>
-        0.03
+      <a class="nav-link sidebar-subHeading {{#ifEquals '0.3.0' Version}}active{{/ifEquals}}" href="#">
+        <span>
+          0.3.0
         </span>
       </a>
-      <a class="nav-link sidebar-subHeading {{#ifEquals '0.02' Version}}active{{/ifEquals}}" href="#">
-      <span>
-        0.02
+      <a class="nav-link sidebar-subHeading {{#ifEquals '0.2.0' Version}}active{{/ifEquals}}" href="#">
+        <span>
+          0.2.0
         </span>
       </a>
-      <a class="nav-link sidebar-subHeading {{#ifEquals '0.01' Version}}active{{/ifEquals}}" href="#">
-      <span>
-        0.01
+      <a class="nav-link sidebar-subHeading {{#ifEquals '0.1.0' Version}}active{{/ifEquals}}" href="#">
+        <span>
+          0.1.0
         </span>
       </a>
     </div>

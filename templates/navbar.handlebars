@@ -1,11 +1,11 @@
-<nav class="navbar fixed-top navbar-expand-lg">
+<nav class="navbar navbar-dark fixed-top navbar-expand-lg">
   <div class="container">
     <a class="navbar-brand" href="./{{lang}}/index.html"><img class="site-logo" src="../resources/images/JayJay_logo.png"></a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-nav-menu" aria-controls="top-nav-menu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse">
+    <div class="collapse navbar-collapse" id="top-nav-menu" >
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="topNav nav-link {{#ifEquals 'Get Started' PageName}}active{{/ifEquals}}"
@@ -44,10 +44,10 @@
             {{#ifEquals 'zh' lang}}语言{{/ifEquals}}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">English</a>
-            <a class="dropdown-item" href="#">Español</a>
-            <a class="dropdown-item" href="#">中文</a>
-            <a class="dropdown-item" href="#">French</a>
+            <a class="dropdown-item {{#ifEquals 'en' lang}}active{{/ifEquals}}" href="#">English</a>
+            <a class="dropdown-item {{#ifEquals 'es' lang}}active{{/ifEquals}}" href="#">Español</a>
+            <a class="dropdown-item {{#ifEquals 'zh' lang}}active{{/ifEquals}}" href="#">中文</a>
+            <a class="dropdown-item {{#ifEquals 'fr' lang}}active{{/ifEquals}}" href="#">French</a>
           </div>
         </li>
         <li class="nav-item">

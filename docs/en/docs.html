@@ -13,22 +13,23 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="../resources/css/main.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-input-number/jj-input-number.js"></script>
 </head>
 
 <body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
   <div class="container">
     <!-- Navbar Partial-->
-    <nav class="navbar fixed-top navbar-expand-lg">
+    <nav class="navbar navbar-dark fixed-top navbar-expand-lg">
       <div class="container">
         <a class="navbar-brand" href="./en/index.html"><img class="site-logo" src="../resources/images/JayJay_logo.png"></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-nav-menu" aria-controls="top-nav-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
     
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse" id="top-nav-menu" >
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
               <a class="topNav nav-link "
@@ -67,10 +68,10 @@
                 
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">English</a>
-                <a class="dropdown-item" href="#">Español</a>
-                <a class="dropdown-item" href="#">中文</a>
-                <a class="dropdown-item" href="#">French</a>
+                <a class="dropdown-item active" href="#">English</a>
+                <a class="dropdown-item " href="#">Español</a>
+                <a class="dropdown-item " href="#">中文</a>
+                <a class="dropdown-item " href="#">French</a>
               </div>
             </li>
             <li class="nav-item">
@@ -84,29 +85,32 @@
     </nav>
     <div class="container page">
       <div class="row">
-        <div class="col-md-2 col-sm-12 sidebar-left-wrapper">
+        <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
           <!-- Pass in the page name for highlighting--->
-          <ul class="sidebar-left">
+          <button class="navbar-toggler sidebarButton" type="button" data-toggle="collapse" data-target="#left-nav-sidebar" aria-controls="left-nav-sidebar" aria-expanded="false" aria-label="Toggle navigation">
+              Overview <span class="carrot-down">&#9660;</span> 
+              </button>
+          <ul class="sidebar-left collapse navbar-collapse" id="left-nav-sidebar">
           
             <li class="sideL nav-item dropdown">
               <a class="nav-link" data-toggle="collapse" href="#collapseVersions" aria-expanded="false"
                 aria-controls="collapseVersions">
-                API: 0.03 <span class="carrot-down">&#9660;</span>
+                API: 0.1.0 <span class="carrot-down">&#9660;</span>
               </a>
               <div class="collapse" id="collapseVersions">
+                <a class="nav-link sidebar-subHeading " href="#">
+                  <span>
+                    0.3.0
+                  </span>
+                </a>
+                <a class="nav-link sidebar-subHeading " href="#">
+                  <span>
+                    0.2.0
+                  </span>
+                </a>
                 <a class="nav-link sidebar-subHeading active" href="#">
-                <span>
-                  0.03
-                  </span>
-                </a>
-                <a class="nav-link sidebar-subHeading " href="#">
-                <span>
-                  0.02
-                  </span>
-                </a>
-                <a class="nav-link sidebar-subHeading " href="#">
-                <span>
-                  0.01
+                  <span>
+                    0.1.0
                   </span>
                 </a>
               </div>
@@ -167,11 +171,13 @@
             Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
             Aldus
             PageMaker including versions of Lorem Ipsum.</p>
-         
+
+            <jj-input-number min=0 max=8 value=1 precision=2 step=0.5></jj-input-number>
+
           <pre
             class="prettyprint"><code class="language-html">&lt;jj-input-number min=0 max=8 value=1 precision=2 step=0.5>&lt;/jj-input-number></code></pre>
 
-
+          
 
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
             industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
