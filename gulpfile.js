@@ -9,16 +9,25 @@ const gulp = require('gulp');
     left_sidebar = require('./templates/left_sidebar.handlebars');
     navbar = require('./templates/navbar.handlebars');
     footer = require('./templates/footer.handlebars')
+    //const version = process.argv[2];
 
 
     //takes the components.handlebars template and json file
     //--- and compiles in the data, creating html files destination
     function compileComponents(done) {
+        //get version from params
+        const version = process.argv[4]; 
+        console.log("version: ", process.argv[4]);
         //supported languages:
         let languages = ['en','es','fr','zh'];
         let path = '';
         //loop through all supported languages and generate docs
         for(var c=0; c<languages.length; c++){
+            var versionPath = './docs/' + languages[c] + '/docs/' + version + '/components/';
+            //create directories if they don't exist already
+            fs.mkdir(versionPath, { recursive: true }, (err) => {
+                if (err) throw err;
+            });
             //------------render all component doc pages: ------------
             for(var i=0; i<components.length; i++) {
                 var component = components[i];
@@ -30,7 +39,7 @@ const gulp = require('gulp');
                     gulp.src(path)
                     .pipe(handlebars(component))
                     .pipe(rename(fileName + ".html"))
-                    .pipe(gulp.dest('./docs/' + languages[c] + '/'));
+                    .pipe(gulp.dest('./docs/' + languages[c] + '/docs/' + version + '/components/'));
                 }
                 } catch(err) {
                     console.error(err)
@@ -56,8 +65,8 @@ const gulp = require('gulp');
                     gulp.src(path)
                     //only passing in objects for each handlebar page render
                     .pipe(handlebars(component))
-                    .pipe(rename("docs.html"))
-                    .pipe(gulp.dest('./docs/' + languages[c] + '/'));
+                    .pipe(rename("overview.html"))
+                    .pipe(gulp.dest('./docs/' + languages[c] + '/docs/'));
                 }
             }
             catch(err) {
