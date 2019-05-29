@@ -14,7 +14,12 @@ node_js:
   - node
 
 script:
-  - npm run test:travis
+  - if [ $TRAVIS_PULL_REQUEST = false ] | [ $TRAVIS_BRANCH = "master" ]; then # Should be true
+    npm run test:PR;
+    fi
+  - if [ $TRAVIS_PULL_REQUEST = true ]; then  # Should be false. Just checking usage
+    npm run test:travis;
+    fi
   - npm run snapshot # Visual regression tests
 
 notifications:
