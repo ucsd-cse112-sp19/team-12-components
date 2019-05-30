@@ -1,19 +1,19 @@
 /**
  * @component_name jj switch
- * @component_desc Switch between opposing states. 
+ * @component_desc Switch between opposing states.
  * @attribute value / v-model, binding value	number,	boolean/ string/ number,
  * /, /
  * @attribute disabled,	whether switch is disabled,	boolean, /, false
  * @attribute width, width of Switch number, /, 40
- * @attribute active-icon-class, class name of the icon displayed when in on 
+ * @attribute active-icon-class, class name of the icon displayed when in on
  * state overrides active-text, string, /, /
  * @attribute inactive-icon-class, class name of the icon displayed when in off
  * state overrides inactive-text, string, /, /
  * @attribute active-text, text displayed when in on state, string, /, /
  * @attribute inactive-text, text displayed when in off state, string, /, /
- * @attribute active-value, switch value when in on state, 
+ * @attribute active-value, switch value when in on state,
  * boolean/ string/ number, /, true
- * @attribute inactive-value, switch value when in off state, 
+ * @attribute inactive-value, switch value when in off state,
  * boolean/ string/ number, /, false
  * @attribute active-color, background color when in on state, string, /,
  * #409EFF
@@ -22,10 +22,10 @@
  * @attribute name, input name of Switch, string, /, /
  * @attribute validate-event, whether to trigger form validation, boolean, /,
  * true
- * 
+ *
  */
 
-//define the css for this component.
+// define the css for this component.
 const jjSwitch = () => {
   const template = document.createElement('template');
   template.innerHTML = `
@@ -159,7 +159,7 @@ const jjSwitch = () => {
       this.root = this.attachShadow({mode : 'open'});
       this.root.appendChild(template.content.cloneNode(true));
 
-      //define the elements.
+      // define the elements.
       this.label = this.root.querySelector('label');
       this.input = this.root.querySelector('input');
       this.slider = this.root.querySelector('#slider');
@@ -167,7 +167,7 @@ const jjSwitch = () => {
       this.activeText = this.root.querySelector('#activeText');
       this.inactiveText = this.root.querySelector('#inactiveText');
       this.container = this.root.querySelector('#container');
-      
+
       // Bind "this" to functions to reserve context
       this.onSwitchClick = this.onSwitchClick.bind(this);
     }
@@ -234,95 +234,93 @@ const jjSwitch = () => {
       if (this.hasAttribute('size')) {
         var size = this.getAttribute('size');
         if (size == 'small') {
-          this.slider.classList.add('small')
-          this.label.style.width = '40px';
+          this.slider.classList.add('small') this.label.style.width = '40px';
           this.label.style.height = '18px';
-        } else if (size == 'large'){
-          this.slider.classList.add('large')
-          this.label.style.width = '70px';
+        } else if (size == 'large') {
+          this.slider.classList.add('large') this.label.style.width = '70px';
           this.label.style.height = '32px';
         }
       }
 
-      //add event listeners
+      // add event listeners
       this.input.addEventListener('click', this.onSwitchClick);
     }
 
     attributeChangedCallback(attrName, oldValue, newValue) {
       switch (attrName) {
 
-        case 'round':
-          if (this.slider.classList.contains('round')) {
-            this.slider.classList.remove('round');
-          } else {
-            this.slider.classList.add('round');
-          }
-          break;
+      case 'round':
+        if (this.slider.classList.contains('round')) {
+          this.slider.classList.remove('round');
+        } else {
+          this.slider.classList.add('round');
+        }
+        break;
 
-        case 'disabled':
-          if (this.container.classList.contains('disabled')) {
-            this.container.classList.remove('disabled');
-          } else {
-            this.container.classList.add('disabled');
-          }
-          break;
+      case 'disabled':
+        if (this.container.classList.contains('disabled')) {
+          this.container.classList.remove('disabled');
+        } else {
+          this.container.classList.add('disabled');
+        }
+        break;
 
-        case 'inactive-text':
-          this.inactiveText.innerHTML = newValue;
-          break;
+      case 'inactive-text':
+        this.inactiveText.innerHTML = newValue;
+        break;
 
-        case 'inactive-color':
-          this.inactiveColor = newValue;
-          if (!this.input.checked) {
-            this.slider.style.background = newValue;
-          }
-          break;
+      case 'inactive-color':
+        this.inactiveColor = newValue;
+        if (!this.input.checked) {
+          this.slider.style.background = newValue;
+        }
+        break;
 
-        case 'inactive-value':
-          this.inactiveValue = newValue;
-          break;
+      case 'inactive-value':
+        this.inactiveValue = newValue;
+        break;
 
-        case 'active-text':
-          this.activeText.innerHTML = newValue;
-          break;
-    
-        case 'active-color':
-          this.activeColor = newValue;
-          if (this.input.checked) {
-            this.slider.style.background = newValue;
-          }
-          break;
+      case 'active-text':
+        this.activeText.innerHTML = newValue;
+        break;
 
-        case 'active-value':
-          this.activeValue = newValue;
-          break;
+      case 'active-color':
+        this.activeColor = newValue;
+        if (this.input.checked) {
+          this.slider.style.background = newValue;
+        }
+        break;
 
-        case 'name':
-          this.name = newValue;
-          break;
-        
-        case 'value':
-          this.value = newValue;
-          break;
+      case 'active-value':
+        this.activeValue = newValue;
+        break;
 
-        default:
-          break;
+      case 'name':
+        this.name = newValue;
+        break;
+
+      case 'value':
+        this.value = newValue;
+        break;
+
+      default:
+        break;
       }
     }
 
     onSwitchClick() {
       if (this.input.checked) {
-        //change the slider color
+        // change the slider color
         this.slider.style.background = this.activeColor;
 
-        //highlight the text if there is any
+        // highlight the text if there is any
         this.activeText.classList.add('text-active');
         this.inactiveText.classList.remove('text-active');
       } else {
-        //change the slider color
+        // change the slider color
         this.slider.style.background = this.inactiveColor;
 
-        //highlight the text if there is any
+        // highlight the text if there is any
         this.activeText.classList.remove('text-active');
         this.inactiveText.classList.add('text-active');
       }
@@ -333,23 +331,26 @@ const jjSwitch = () => {
     get active_value() { return this.getAttribute('active-value'); }
     get inactive_value() { return this.getAttribute('inactive-value'); }
     get active_text() { return this.getAttribute('active-text'); }
-    get inactive_text() {return this.getAttribute('inactive-text'); }
-    get active_color() {return this.getAttribute('active-color'); }
-    get inactive_color() {return this.getAttribute('inactive-color'); }
-    get size() {return this.getAttribute('size'); }
-   
+    get inactive_text() { return this.getAttribute('inactive-text'); }
+    get active_color() { return this.getAttribute('active-color'); }
+    get inactive_color() { return this.getAttribute('inactive-color'); }
+    get size() { return this.getAttribute('size'); }
 
     // Setters
     set value(newValue) { this.setAttribute('value', newValue); }
-    set active_value(newValue) {this.setAttribute('active-value', newValue); }
-    set inactive_value(newValue) {this.setAttribute('inactive-value', newValue); }
-    set active_text(newValue) {this.setAttribute('active-text', newValue); }
-    set inactive_text(newValue) {this.setAttribute('inactive-text', newValue); }
-    set active_color(newValue) {this.setAttribute('active-color', newValue); }
-    set inactive_color(newValue) {this.setAttribute('inactive-color', newValue); }
-    set size(newValue) {this.setAttribute('size', newValue);  }
-
+    set active_value(newValue) { this.setAttribute('active-value', newValue); }
+    set inactive_value(newValue) {
+      this.setAttribute('inactive-value', newValue);
+    }
+    set active_text(newValue) { this.setAttribute('active-text', newValue); }
+    set inactive_text(newValue) {
+      this.setAttribute('inactive-text', newValue);
+    }
+    set active_color(newValue) { this.setAttribute('active-color', newValue); }
+    set inactive_color(newValue) {
+      this.setAttribute('inactive-color', newValue);
+    }
+    set size(newValue) { this.setAttribute('size', newValue); }
   }
   customElements.define('jj-switch', JJSwitch);
-}
-jjSwitch();
+} jjSwitch();
