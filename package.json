@@ -22,7 +22,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "clang-format -i -style=llvm packages/*/*.js"
+      "pre-commit": "clang-format -i -style=llvm packages/*/*.js && ROOT=`git rev-parse --show-toplevel` && $ROOT/scripts/minify.sh"
     }
   },
   "repository": {
