@@ -149,7 +149,7 @@ const jjSwitch = () => {
   class JJSwitch extends HTMLElement {
     static get observedAttributes() {
       return [
-        'value', 'disabled', 'name', 'active-value', 'inactive-value', 'active-color',
+        'value', 'disabled', 'active-value', 'inactive-value', 'active-color',
         'inactive-color', 'active-text', 'inactive-text', 'size', 'round'
       ];
     }
@@ -337,7 +337,7 @@ const jjSwitch = () => {
     get active_color() {return this.getAttribute('active-color'); }
     get inactive_color() {return this.getAttribute('inactive-color'); }
     get size() {return this.getAttribute('size'); }
-    get name() {return this.getAttribute('name'); }
+   
 
     // Setters
     set value(newValue) { this.setAttribute('value', newValue); }
@@ -348,7 +348,7 @@ const jjSwitch = () => {
     set active_color(newValue) {this.setAttribute('active-color', newValue); }
     set inactive_color(newValue) {this.setAttribute('inactive-color', newValue); }
     set size(newValue) {this.setAttribute('size', newValue);  }
-    set name(newValue) {this.setAttribute('name', newValue); }
+
   }
   customElements.define('jj-switch', JJSwitch);
 }
