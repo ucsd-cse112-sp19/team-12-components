@@ -9,7 +9,9 @@ cache:
     - node_modules
 
 env:
-  - SAUCE_BUILD=$TRAVIS_BUILD_NUMBER  
+  - if: $TRAVIS_PULL_REQUEST = false AND \
+        $TRAVIS_BRANCH = "master"
+    SAUCE_BUILD=$TRAVIS_BUILD_NUMBER  
 
 node_js:
   - node
