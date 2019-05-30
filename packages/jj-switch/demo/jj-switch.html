@@ -20,7 +20,17 @@
 <body>
   <br>
   <br>
-  <jj-switch inactive-text="Pay by the year" active-text="Pay by the month" inactive-color="#dcdfe6" active-color="#409eff" round size="large"></jj-switch>
+  <jj-switch id="switch" inactive-text="Pay by the year" active-text="Pay by the month" inactive-color="#dcdfe6" active-color="#409eff" size="large" value="true"></jj-switch>
 </body>
-
+<script>
+  var v = document.getElementById("switch");
+  // console.log(v.value);
+  v.addEventListener('click', () => {
+    if (v.value == false) {
+      console.log('false');
+    } else {
+      console.log('true');
+    }
+  })
+</script>
 </html>

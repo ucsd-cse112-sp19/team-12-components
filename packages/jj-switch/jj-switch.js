@@ -140,7 +140,7 @@ const jjSwitch = () => {
     <span id="inactiveText" class='text'></span>
       <label class="switch">
       <input type="checkbox">
-      <span id="slider" class="slider"></span>
+      <span id="slider" class="slider round"></span>
       </label>
     <span id="activeText" class='text'></span>
   </div>
@@ -202,7 +202,11 @@ const jjSwitch = () => {
       }
 
       if (this.hasAttribute('disabled')) {
-        this.container.classList.add('disabled');
+        if (this.getAttribute('disabled') == 'true') {
+          this.container.classList.add('disabled');
+        } else {
+          this.container.classList.remove('disabled');
+        }
       }
 
       if (this.hasAttribute('active-value')) {
@@ -224,11 +228,27 @@ const jjSwitch = () => {
       }
 
       if (this.hasAttribute('round')) {
-        this.slider.classList.add('round');
+        if (this.getAttribute('round') == 'false') {
+          console.log(this.getAttribute('round'));
+          this.slider.classList.remove('round');
+        } else {
+          console.log("else "+this.getAttribute('round'));
+          this.slider.classList.add('round');
+        }
       }
 
       if (this.hasAttribute('value')) {
         this.value = this.getAttribute('value');
+        if (this.getAttribute('value') == 'true') {
+          this.input.checked = true;
+          this.onSwitchClick();
+        }
+      } else {
+        if (this.input.checked) {
+          this.value = this.activeValue;
+        } else {
+          this.value = this.inactiveValue;
+        }
       }
 
       if (this.hasAttribute('size')) {
@@ -297,14 +317,6 @@ const jjSwitch = () => {
           this.activeValue = newValue;
           break;
 
-        case 'name':
-          this.name = newValue;
-          break;
-        
-        case 'value':
-          this.value = newValue;
-          break;
-
         default:
           break;
       }
@@ -318,6 +330,10 @@ const jjSwitch = () => {
         //highlight the text if there is any
         this.activeText.classList.add('text-active');
         this.inactiveText.classList.remove('text-active');
+
+        // change the value
+        this.value = this.activeValue;
+        console.log("switch click checked "+this.value);
       } else {
         //change the slider color
         this.slider.style.background = this.inactiveColor;
@@ -325,11 +341,15 @@ const jjSwitch = () => {
         //highlight the text if there is any
         this.activeText.classList.remove('text-active');
         this.inactiveText.classList.add('text-active');
+
+        // change the value
+        this.value = this.inactiveValue;
+        console.log("switch click not checked "+this.value);
       }
     }
 
     // Getters
-    get value() { return this.getAttribute('value'); }
+    get value() { return (this.getAttribute('value') == 'true'); }
     get active_value() { return this.getAttribute('active-value'); }
     get inactive_value() { return this.getAttribute('inactive-value'); }
     get active_text() { return this.getAttribute('active-text'); }
@@ -347,7 +367,7 @@ const jjSwitch = () => {
     set inactive_text(newValue) {this.setAttribute('inactive-text', newValue); }
     set active_color(newValue) {this.setAttribute('active-color', newValue); }
     set inactive_color(newValue) {this.setAttribute('inactive-color', newValue); }
-    set size(newValue) {this.setAttribute('size', newValue);  }
+    set size(newValue) {this.setAttribute('size', newValue); }
     set name(newValue) {this.setAttribute('name', newValue); }
   }
   customElements.define('jj-switch', JJSwitch);
