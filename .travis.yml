@@ -8,13 +8,13 @@ cache:
   directories:
     - node_modules
 
+env:
+  - SAUCE_BUILD=$TRAVIS_BUILD_NUMBER  
+
 node_js:
   - node
 
 script:
-  - if [ $TRAVIS_PULL_REQUEST = false -a $TRAVIS_BRANCH = "master" ]; then
-    export SAUCE_BUILD=$TRAVIS_BUILD_NUMBER
-    fi
   - if [ $TRAVIS_PULL_REQUEST = true ] | [ $TRAVIS_BRANCH = "master" ]; then
     npm run test:PR;
     fi
