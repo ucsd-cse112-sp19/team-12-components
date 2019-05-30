@@ -13,7 +13,8 @@ node_js:
 
 script:
   - if [ $TRAVIS_PULL_REQUEST = false ] && [ $TRAVIS_BRANCH = "master" ]; then
-    SAUCE_BUILD=$TRAVIS_BUILD_NUMBER  
+    SAUCE_BUILD=$TRAVIS_BUILD_NUMBER;
+    fi
   - if [ $TRAVIS_PULL_REQUEST = true ] | [ $TRAVIS_BRANCH = "master" ]; then
     npm run test:PR;
     fi
