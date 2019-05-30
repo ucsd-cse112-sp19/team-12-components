@@ -7,7 +7,7 @@
     "build": "./node_modules/.bin/babel --presets es2015 ./packages/*/ --out-dir ./src/",
     "precommit": "./node_modules/.bin/check-clang-format \"yarn format\"",
     "test": "karma start && npm run test:chrome",
-    "test:travis": "karma start && testcafe",
+    "test:travis": "karma start",
     "test:PR": "karma start && ./.test.sh",
     "test:chrome": "testcafe --skip-js-errors Chrome packages/*/tests/*_testcafe.js",
     "test:firefox": "testcafe --skip-js-errors Firefox packages/*/tests/*_testcafe.js",
