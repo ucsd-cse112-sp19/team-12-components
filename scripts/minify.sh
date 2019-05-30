@@ -7,7 +7,7 @@ for file in $FILES; do
     filename=${file%.js} # Get the name without .js extension
     #node ./node_modules/babel-minify/bin/minify.js packages/core-hello/core-hello.js --out-file input.min.js --mangle.keepClassName
     node ./node_modules/babel-minify/bin/minify.js packages/$filename/$file --out-file src/$file.min.js --mangle.keepClassName
-    echo minified: $filename into src/$filename
+    echo minified: $file into src/$filename
 done 
 
 # Add all our new files to be commited
