@@ -1,19 +1,19 @@
 /**
  * @component_name jj switch
- * @component_desc Switch between opposing states. 
+ * @component_desc Switch between opposing states.
  * @attribute value / v-model, binding value	number,	boolean/ string/ number,
  * /, /
  * @attribute disabled,	whether switch is disabled,	boolean, /, false
  * @attribute width, width of Switch number, /, 40
- * @attribute active-icon-class, class name of the icon displayed when in on 
+ * @attribute active-icon-class, class name of the icon displayed when in on
  * state overrides active-text, string, /, /
  * @attribute inactive-icon-class, class name of the icon displayed when in off
  * state overrides inactive-text, string, /, /
  * @attribute active-text, text displayed when in on state, string, /, /
  * @attribute inactive-text, text displayed when in off state, string, /, /
- * @attribute active-value, switch value when in on state, 
+ * @attribute active-value, switch value when in on state,
  * boolean/ string/ number, /, true
- * @attribute inactive-value, switch value when in off state, 
+ * @attribute inactive-value, switch value when in off state,
  * boolean/ string/ number, /, false
  * @attribute active-color, background color when in on state, string, /,
  * #409EFF
@@ -22,10 +22,10 @@
  * @attribute name, input name of Switch, string, /, /
  * @attribute validate-event, whether to trigger form validation, boolean, /,
  * true
- * 
+ *
  */
 
-//define the css for this component.
+// define the css for this component.
 const jjSwitch = () => {
   const template = document.createElement('template');
   template.innerHTML = `
@@ -149,7 +149,7 @@ const jjSwitch = () => {
   class JJSwitch extends HTMLElement {
     static get observedAttributes() {
       return [
-        'value', 'disabled', 'name', 'active-value', 'inactive-value', 'active-color',
+        'value', 'disabled', 'active-value', 'inactive-value', 'active-color',
         'inactive-color', 'active-text', 'inactive-text', 'size', 'round'
       ];
     }
@@ -159,7 +159,7 @@ const jjSwitch = () => {
       this.root = this.attachShadow({mode : 'open'});
       this.root.appendChild(template.content.cloneNode(true));
 
-      //define the elements.
+      // define the elements.
       this.label = this.root.querySelector('label');
       this.input = this.root.querySelector('input');
       this.slider = this.root.querySelector('#slider');
@@ -167,7 +167,7 @@ const jjSwitch = () => {
       this.activeText = this.root.querySelector('#activeText');
       this.inactiveText = this.root.querySelector('#inactiveText');
       this.container = this.root.querySelector('#container');
-      
+
       // Bind "this" to functions to reserve context
       this.onSwitchClick = this.onSwitchClick.bind(this);
     }
@@ -254,17 +254,17 @@ const jjSwitch = () => {
       if (this.hasAttribute('size')) {
         var size = this.getAttribute('size');
         if (size == 'small') {
-          this.slider.classList.add('small')
+          this.slider.classList.add('small');
           this.label.style.width = '40px';
           this.label.style.height = '18px';
-        } else if (size == 'large'){
-          this.slider.classList.add('large')
+        } else if (size == 'large') {
+          this.slider.classList.add('large');
           this.label.style.width = '70px';
           this.label.style.height = '32px';
         }
       }
 
-      //add event listeners
+      // add event listeners
       this.input.addEventListener('click', this.onSwitchClick);
     }
 
@@ -324,10 +324,10 @@ const jjSwitch = () => {
 
     onSwitchClick() {
       if (this.input.checked) {
-        //change the slider color
+        // change the slider color
         this.slider.style.background = this.activeColor;
 
-        //highlight the text if there is any
+        // highlight the text if there is any
         this.activeText.classList.add('text-active');
         this.inactiveText.classList.remove('text-active');
 
@@ -335,10 +335,10 @@ const jjSwitch = () => {
         this.value = this.activeValue;
         console.log("switch click checked "+this.value);
       } else {
-        //change the slider color
+        // change the slider color
         this.slider.style.background = this.inactiveColor;
 
-        //highlight the text if there is any
+        // highlight the text if there is any
         this.activeText.classList.remove('text-active');
         this.inactiveText.classList.add('text-active');
 
@@ -353,11 +353,10 @@ const jjSwitch = () => {
     get active_value() { return this.getAttribute('active-value'); }
     get inactive_value() { return this.getAttribute('inactive-value'); }
     get active_text() { return this.getAttribute('active-text'); }
-    get inactive_text() {return this.getAttribute('inactive-text'); }
-    get active_color() {return this.getAttribute('active-color'); }
-    get inactive_color() {return this.getAttribute('inactive-color'); }
-    get size() {return this.getAttribute('size'); }
-    get name() {return this.getAttribute('name'); }
+    get inactive_text() { return this.getAttribute('inactive-text'); }
+    get active_color() { return this.getAttribute('active-color'); }
+    get inactive_color() { return this.getAttribute('inactive-color'); }
+    get size() { return this.getAttribute('size'); }
 
     // Setters
     set value(newValue) { this.setAttribute('value', newValue); }
