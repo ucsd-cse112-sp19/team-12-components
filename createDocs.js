@@ -108,11 +108,11 @@ function getFilesInDirectory(dir, ext) {
                 //copy js files to docs/js for website
                 if (path.extname(file) === ext) {
                     files.push(filePath);
-                    const destinationJS = './docs/resources/js/' + path.basename(file);
-                    fs.copyFile(filePath, destinationJS, (err) => {
-                        if (err) throw err;
-                        console.log('The File: ', filePath, ' was successfuly copied to: ./resources/js/', path.basename(file));
-                      });
+                    //const destinationJS = './docs/resources/js/' + path.basename(file);
+                    //fs.copyFile(filePath, destinationJS, (err) => {
+                    //    if (err) throw err;
+                    //    console.log('The File: ', filePath, ' was successfuly copied to: ./resources/js/', path.basename(file));
+                    //  });
                 }
             }
         }

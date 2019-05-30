@@ -21,14 +21,14 @@
 
 <body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
   <div class="container">
-    <!-- Navbar Partial-->
-    {{> navbar lang='en' PageName='Docs'}}
+    <!-- Navbar Partial .. docs is two directories away from resources-->
+    {{> navbar lang='en' PageName='Docs' Path='../../'}}
 
     <div class="container page">
       <div class="row">
         <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
           <!-- Pass in the page name for highlighting -->
-          {{> left_sidebar PageName='Overview' Version='0.1.0'}}
+          {{> left_sidebar PageName='Overview' Version='0.1.0' MainPath='./' CompPath='./0.1.0/components/'}}
         </div>
         <div class="col-md-8 col-sm-12 content">
           <h1 id="h1">Getting Started</h1>
@@ -40,11 +40,11 @@
             Aldus
             PageMaker including versions of Lorem Ipsum.</p>
 
-            <jj-input-number min=0 max=8 value=1 precision=2 step=0.5></jj-input-number>
-
+            <p><jj-input-number min=0 max=8 value=1 precision=2 step=0.5></jj-input-number></p>
+          
+          <p>
           <pre
-            class="prettyprint"><code class="language-html">&lt;jj-input-number min=0 max=8 value=1 precision=2 step=0.5>&lt;/jj-input-number></code></pre>
-
+            class="prettyprint"><code class="language-html">&lt;jj-input-number min=0 max=8 value=1 precision=2 step=0.5>&lt;/jj-input-number></code></pre></p>
           
 
           <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
@@ -106,7 +106,7 @@
       </div>
     </div>
 
-    {{> footer }}
+    {{> footer Path='../../' }}
 
     <!-- JS files at bottom of page -->
     <!-- Bootstrap core JavaScript-->

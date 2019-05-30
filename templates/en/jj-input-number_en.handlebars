@@ -16,68 +16,84 @@
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
 
   <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-input-number/jj-input-number.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-input-number/jj-input-number.js"></script>
+  <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
 </head>
 
 <body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
   <div class="container">
     <!-- Navbar Partial-->
-    {{> navbar lang='en' PageName='Docs'}}
+    {{> navbar lang='en' PageName='Docs' Path='../../../../'}}
 
     <div class="container page">
       <div class="row">
         <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
           <!-- Pass in the page name for highlighting -->
-          {{> left_sidebar PageName='Overview' Version='0.1.0'}}
+          {{> left_sidebar PageName='Overview' Version='0.1.0' MainPath='../../' CompPath='./'}}
         </div>
         <div class="col-md-8 col-sm-12 content">
-          <h1 id="h1">JJ Input Number</h1>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus
-            PageMaker including versions of Lorem Ipsum.</p>
+          <h1 id="description">
+            JJ Input Number
+          </h1>
+          <p>
+            Customizable number input field with increse and decrease buttons.
+          </p>
+          <h2 id="usage">Basic usage</h2>
+          <div class="demo-section">
+            <div class="demo-entry">
+              <p>Change range</p>
+              <jj-input-number min="0" max="8"></jj-input-number>
+              <pre
+                class="prettyprint"><code class="language-html">&lt;jj-input-number min="0" max="8">&lt;/jj-input-number></code></pre>
+            </div>
+            <div class="demo-entry">
+              <p>Customized initial value</p>
+              <jj-input-number min="0" max="8" value="4"></jj-input-number>
+              <pre
+                class="prettyprint"><code class="language-html">&lt;jj-input-number min="0" max="8" value="4">&lt;/jj-input-number></code></pre>
+            </div>
+            <div class="demo-entry">
+              <p>Change step</p>
+              <jj-input-number min="0" max="8" step="2"></jj-input-number>
+              <pre
+                class="prettyprint"><code class="language-html">&lt;jj-input-number min="0" max="8" step="2">&lt;/jj-input-number></code></pre>
+            </div>
+            <div class="demo-entry">
+              <p>Change presition</p>
+              <jj-input-number min="0" max="8" value="1" precision="2" step="0.5"></jj-input-number>
+              <pre
+                class="prettyprint"><code class="language-html">&lt;min="0" max="8" value="1" precision="2" step="0.5">&lt;/jj-input-number></code></pre>
+            </div>
+          </div>
 
-            <jj-input-number min=0 max=8 value=1 precision=2 step=0.5></jj-input-number>
+          <h2 id='attributes'>Attributes</h2>
+          <!-- Attribute Table-->
 
-          <pre
-            class="prettyprint"><code class="language-html">&lt;jj-input-number min=0 max=8 value=1 precision=2 step=0.5>&lt;/jj-input-number></code></pre>
 
-          
+          <zing-grid caption="Attributes" layout="row"
+            viewport-stop data='[
+     {{#each Attributes}} 
+        {
+          "Attribute Name": "{{this.AttributeName}}",
+          "Description": "{{this.AttributeDescription}}",
+          "Type": "{{this.AttributeType}}",
+          "Accepted Values": "{{this.AttributeAcceptedValues}}",
+          "Default": "{{this.AttributeDefault}}"
+        },
+   {{/each}}
+    {
+          "Attribute Name": "",
+          "Description": "",
+          "Type": "",
+          "Accepted Values": "",
+          "Default": ""
+        }
+      ]'>
+          </zing-grid>
 
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus
-            PageMaker including versions of Lorem Ipsum.</p>
-          <h2 id="h2">Subheading2</h2>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus
-            PageMaker including versions of Lorem Ipsum.</p>
-          <h3 id="h3">Subheading3</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus
-            PageMaker including versions of Lorem Ipsum.</p>
-          <h4>Subheading4</h4>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus
-            PageMaker including versions of Lorem Ipsum.</p>
+
+
         </div>
         <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
 
@@ -85,18 +101,18 @@
           <nav id="contentHeadings" class="sidebar-right">
             <ul class="nav nav-pills flex-column">
               <li class="sideR nav-item">
-                <a class="nav-link" href="#h1">
-                  Heading1
+                <a class="nav-link" href="#description">
+                  Description
                 </a>
               </li>
               <li class="sideR nav-item">
-                <a class="nav-link" href="#h2">
-                  Heading2
+                <a class="nav-link" href="#usage">
+                  Usage
                 </a>
               </li>
               <li class="sideR nav-item">
-                <a class="nav-link" href="#h3">
-                  Heading3
+                <a class="nav-link" href="#attributes">
+                  Attributes
                 </a>
               </li>
             </ul>
@@ -106,7 +122,7 @@
       </div>
     </div>
 
-    {{> footer }}
+    {{> footer Path='../../../../'}}
 
     <!-- JS files at bottom of page -->
     <!-- Bootstrap core JavaScript-->

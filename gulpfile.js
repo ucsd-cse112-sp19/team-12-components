@@ -17,7 +17,6 @@ const gulp = require('gulp');
     function compileComponents(done) {
         //get version from params
         const version = process.argv[4]; 
-        console.log("version: ", process.argv[4]);
         //supported languages:
         let languages = ['en','es','fr','zh'];
         let path = '';
@@ -54,7 +53,7 @@ const gulp = require('gulp');
                     //render homepage - by language
                     gulp.src(path)
                     //only passing in objects for each handlebar page render
-                    .pipe(handlebars())
+                    .pipe(handlebars(components[0]))
                     .pipe(rename("index.html"))
                     .pipe(gulp.dest('./docs/' + languages[c] + '/'));
                 }
@@ -64,7 +63,7 @@ const gulp = require('gulp');
                 if (fs.existsSync(path)) {
                     gulp.src(path)
                     //only passing in objects for each handlebar page render
-                    .pipe(handlebars(component))
+                    .pipe(handlebars(components[0]))
                     .pipe(rename("overview.html"))
                     .pipe(gulp.dest('./docs/' + languages[c] + '/docs/'));
                 }
