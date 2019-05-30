@@ -14,10 +14,6 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="../../../../resources/css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
-
-  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-slider/jj-slider.js"></script>
-  <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
 </head>
 
 <body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
@@ -29,16 +25,16 @@
       <div class="row">
         <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
           <!-- Pass in the page name for highlighting -->
-          {{> left_sidebar PageName='Overview' Version='0.1.0' MainPath='../../' CompPath='./'}}
+          {{> left_sidebar PageName='jj slider' Version='0.1.0' MainPath='../../' CompPath='./'}}
         </div>
         <div class="col-md-8 col-sm-12 content">
-          <h1>
+          <h1 id="description">
             JJ Slider
           </h1>
           <p>
             Highly customizable dragging slider within ranges.
           </p>
-          <h2>Basic usage</h2>
+          <h2 id="usage">Basic usage</h2>
           <div class="demo-section">
             <div class="demo-entry">
               <p>Default Settings</p>
@@ -60,7 +56,7 @@
           </div>
           <h2 id='attributes'>Attributes</h2>
           <!-- Attribute Table -->
-          <zing-grid caption="Attributes" layout="row" viewport-stop data='[
+          <zing-grid caption="JJ Slider Attributes" layout="row" viewport-stop data='[
      {{#each Attributes}} 
         {
           "Attribute Name": "{{this.AttributeName}}",
@@ -112,6 +108,9 @@
     {{> footer Path='../../../../'}}
 
     <!-- JS files at bottom of page -->
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-slider/jj-slider.js"></script>
+  <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
     <!-- Bootstrap core JavaScript-->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
       integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"

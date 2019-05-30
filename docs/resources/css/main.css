@@ -15,6 +15,10 @@ body{
     background-color: #f7f7f7;
 }
 
+#homepage{
+    background-color: #FFFFFF;
+}
+
 .content{
     background-color: #FFFFFF;
     padding: 10px 45px 35px 45px;
@@ -213,6 +217,10 @@ li.sideR.nav-item {
     padding-top: 25px;
 }
 
+.content p {
+    padding: 8px 0px 6px 0px;
+}
+
 .attributeTable{
     padding:10px;
 }
@@ -250,7 +258,7 @@ li.sideR.nav-item {
 pre.prettyprint.prettyprinted {
     border: none;
     background-color: #f8f8f8;
-    padding: 20px 40px 20px 40px;
+    padding: 20px 40px 20px 30px;
 }
 
 span.tag {
@@ -270,6 +278,15 @@ span.atv{
     border: 2px solid #85a9ef;
     background: #85a9ef;
 }
+
+
+zg-caption {
+    background-color: #568ef6;
+}
+
+zing-grid {
+    --zg-control-bar-background: #cfddf9;
+  }
 
 @media (min-width: 1200px){
 .container {

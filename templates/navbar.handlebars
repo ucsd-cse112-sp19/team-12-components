@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark fixed-top navbar-expand-lg">
   <div class="container">
-    <a class="navbar-brand" href="./{{lang}}/index.html"><img class="site-logo" src="{{Path}}resources/images/JayJay_logo.png"></a>
+    <a class="navbar-brand" href="/docs/{{lang}}/index.html"><img class="site-logo" src="{{Path}}resources/images/JayJay_logo.png"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-nav-menu" aria-controls="top-nav-menu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,7 +9,7 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="topNav nav-link {{#ifEquals 'Get Started' PageName}}active{{/ifEquals}}"
-            href="./{{lang}}/docs/get-started">
+            href="/{{lang}}/docs/0.1.0/overview.html">
             {{#ifEquals 'en' lang}}Get Started{{/ifEquals}}
             {{#ifEquals 'es' lang}}Empezar{{/ifEquals}}
             {{#ifEquals 'fr' lang}}Commencer{{/ifEquals}}
@@ -17,7 +17,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="topNav nav-link {{#ifEquals 'Docs' PageName}}active{{/ifEquals}}" href="./{{lang}}/docs/get-started">
+          <a class="topNav nav-link {{#ifEquals 'Docs' PageName}}active{{/ifEquals}}" href="/{{lang}}/docs/0.1.0/overview.html">
             {{#ifEquals 'en' lang}}Docs{{/ifEquals}}
             {{#ifEquals 'es' lang}}Docs{{/ifEquals}}
             {{#ifEquals 'fr' lang}}Docs{{/ifEquals}}
@@ -25,7 +25,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="topNav nav-link {{#ifEquals 'Team' PageName}}active{{/ifEquals}}" href="./{{lang}}/team">
+          <a class="topNav nav-link {{#ifEquals 'Team' PageName}}active{{/ifEquals}}" href="/{{lang}}/team">
             {{#ifEquals 'en' lang}}Team{{/ifEquals}}
             {{#ifEquals 'es' lang}}Equipo{{/ifEquals}}
             {{#ifEquals 'fr' lang}}Équipe{{/ifEquals}}
@@ -44,14 +44,14 @@
             {{#ifEquals 'zh' lang}}语言{{/ifEquals}}
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item {{#ifEquals 'en' lang}}active{{/ifEquals}}" href="#">English</a>
-            <a class="dropdown-item {{#ifEquals 'es' lang}}active{{/ifEquals}}" href="#">Español</a>
-            <a class="dropdown-item {{#ifEquals 'zh' lang}}active{{/ifEquals}}" href="#">中文</a>
-            <a class="dropdown-item {{#ifEquals 'fr' lang}}active{{/ifEquals}}" href="#">French</a>
+            <a class="dropdown-item {{#ifEquals 'en' lang}}active{{/ifEquals}}" href="/docs/en/">English</a>
+            <a class="dropdown-item {{#ifEquals 'es' lang}}active{{/ifEquals}}" href="/docs/es/">Español</a>
+            <a class="dropdown-item {{#ifEquals 'zh' lang}}active{{/ifEquals}}" href="/docs/zh/">中文</a>
+            <a class="dropdown-item {{#ifEquals 'fr' lang}}active{{/ifEquals}}" href="/docs/fr/">French</a>
           </div>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="https://github.com/ucsd-cse112/team-12-components"><img
+          <a class="nav-link" target="_blank" href="https://github.com/ucsd-cse112/team-12-components"><img
             src="{{Path}}resources/images/github_logo.png"></a>
         </li>
 
