@@ -8,15 +8,12 @@ cache:
   directories:
     - node_modules
 
-env:
-  - if: $TRAVIS_PULL_REQUEST = false AND \
-        $TRAVIS_BRANCH = "master"
-    SAUCE_BUILD=$TRAVIS_BUILD_NUMBER  
-
 node_js:
   - node
 
 script:
+  - if [ $TRAVIS_PULL_REQUEST = false ] && [ $TRAVIS_BRANCH = "master" ]; then
+    SAUCE_BUILD=$TRAVIS_BUILD_NUMBER  
   - if [ $TRAVIS_PULL_REQUEST = true ] | [ $TRAVIS_BRANCH = "master" ]; then
     npm run test:PR;
     fi
