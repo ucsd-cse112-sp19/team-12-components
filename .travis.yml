@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 language: node_js
 node_js: "stable"
 
@@ -20,3 +21,27 @@ script:
 notifications:
   email: false
   
+=======
+language: node_js
+node_js: "stable"
+
+before_install:
+  - stty cols 80
+
+cache:
+  directories:
+    - node_modules
+env:
+  - SAUCE_BUILD=$TRAVIS_BUILD_NUMBER
+
+node_js:
+  - node
+
+script:
+  - npm run test:travis
+  - npm run snapshot # Visual regression tests
+
+notifications:
+  email: false
+  
+>>>>>>> 69c980649fcd6c9bf5da4522234224548bb5ad53
