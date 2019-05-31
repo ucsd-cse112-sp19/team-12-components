@@ -4,34 +4,32 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
+  <meta name="description"
+    content="A web component with a Customizable number input field with increse and decrease buttons.">
   <meta name="author" content="Jay Jay Web Components">
   <meta name="theme-color" content="#7da3ef">
-  <!-- TODO: Need to add a custom function to use variables in header with handlebars-->
-  <title>Web Component Documentation</title>
-  <!-- Bootstrap core CSS -->
+  <title>JJ Input Number | Web Component Documentation</title>
+  <!-- Core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../../../resources/css/main.css">
+  <link rel="stylesheet" href="../../../resources/css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
-
-  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-  <script
-    src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-input-number/jj-input-number.js"></script>
-  <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
+  <base href="{{#getUrlBase}}{{/getUrlBase}}">
 </head>
 
 <body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
   <div class="container">
     <!-- Navbar Partial-->
-    {{> navbar lang='en' PageName='Docs' Path='../../../../'}}
+    {{> navbar lang='en' PageName='Docs'}}
 
     <div class="container page">
       <div class="row">
+        <!-- Left sidebar: -->
         <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
-          <!-- Pass in the page name for highlighting -->
-          {{> left_sidebar PageName='jj input number' Version='0.1.0' MainPath='../../' CompPath='./'}}
+          {{> left_sidebar lang='en' PageName='jj input number' }}
         </div>
+
+        <!-- Middle Content -->
         <div class="col-md-8 col-sm-12 content">
           <h1 id="description">
             JJ Input Number
@@ -68,35 +66,29 @@
           </div>
 
           <h2 id='attributes'>Attributes</h2>
-          <!-- Attribute Table-->
-
-
-          <zing-grid caption="Attributes" layout="row"
-            viewport-stop data='[
-     {{#each Attributes}} 
-        {
+          <!-- Attribute Table -->
+          <zing-grid caption="JJ Slider Attributes" layout="row" viewport-stop data='[
+            {{#each Attributes}} 
+          {
           "Attribute Name": "{{this.AttributeName}}",
           "Description": "{{this.AttributeDescription}}",
           "Type": "{{this.AttributeType}}",
           "Accepted Values": "{{this.AttributeAcceptedValues}}",
           "Default": "{{this.AttributeDefault}}"
-        },
-   {{/each}}
-    {
+          },
+            {{/each}}
+          {
           "Attribute Name": "",
           "Description": "",
           "Type": "",
           "Accepted Values": "",
           "Default": ""
-        }
-      ]'>
+          }
+          ]'>
           </zing-grid>
-
-
-
         </div>
-        <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
 
+        <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
           <!-- Right Sidebar -->
           <nav id="contentHeadings" class="sidebar-right">
             <ul class="nav nav-pills flex-column">
@@ -122,34 +114,12 @@
       </div>
     </div>
 
-    {{> footer Path='../../../../'}}
+    <!-- Footer -->
+    {{> footer }}
 
     <!-- JS files at bottom of page -->
-    <!-- Bootstrap core JavaScript-->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"></script>
-    <script>
+    {{> scripts}}
 
-
-      jQuery(window).scroll(function () {
-        //hide left fixed sidebar if current screen reached footer
-        var currentScroll = jQuery(document).height() - jQuery(this).scrollTop() - jQuery(this).height();
-        if (currentScroll > 230) {
-          jQuery('.sidebar-left').css('bottom', '0');
-          jQuery('.sidebar-left').css('top', '0');
-        } else {
-          jQuery('.sidebar-left').css('bottom', '200px');
-          jQuery('.sidebar-left').css('top', '0px');
-        }
-      });
-    </script>
   </div>
 </body>
 

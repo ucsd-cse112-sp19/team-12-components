@@ -4,27 +4,25 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
+  <meta name="description"
+    content="A web component with a Customizable number input field with increse and decrease buttons.">
   <meta name="author" content="Jay Jay Web Components">
   <meta name="theme-color" content="#7da3ef">
-  <!-- TODO: Need to add a custom function to use variables in header with handlebars-->
-  <title>Web Component Documentation</title>
-  <!-- Bootstrap core CSS -->
+  <title>Jay Jay Docs | Web Component Documentation</title>
+  <!-- Core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="../../resources/css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
-
-  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
-  <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-input-number/jj-input-number.js"></script>
+  <base href="https://ucsd-cse112.github.io/team-12-components/">
 </head>
 
 <body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
   <div class="container">
-    <!-- Navbar Partial .. docs is two directories away from resources-->
+    <!-- Navbar Partial-->
     <nav class="navbar navbar-dark fixed-top navbar-expand-lg">
       <div class="container">
-        <a class="navbar-brand" href="/docs/en/index.html"><img class="site-logo" src="../../resources/images/JayJay_logo.png"></a>
+        <a class="navbar-brand" href="en/index.html"><img class="site-logo" src="resources/images/JayJay_logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-nav-menu" aria-controls="top-nav-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,7 +31,7 @@
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
               <a class="topNav nav-link "
-                href="/en/docs/0.1.0/overview.html">
+                href="en/docs/overview.html">
                 Get Started
                 
                 
@@ -41,7 +39,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="topNav nav-link active" href="/en/docs/0.1.0/overview.html">
+              <a class="topNav nav-link active" href="en/docs/overview.html">
                 Docs
                 
                 
@@ -49,7 +47,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="topNav nav-link " href="/en/team">
+              <a class="topNav nav-link " href="team.html">
                 Team
                 
                 
@@ -68,25 +66,24 @@
                 
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item active" href="/docs/en/">English</a>
-                <a class="dropdown-item " href="/docs/es/">Español</a>
-                <a class="dropdown-item " href="/docs/zh/">中文</a>
-                <a class="dropdown-item " href="/docs/fr/">French</a>
+                <a class="dropdown-item active" href="en/index.html">English</a>
+                <a class="dropdown-item " href="es/index.html">Español</a>
+                <a class="dropdown-item " href="zh/index.html">中文</a>
+                <a class="dropdown-item " href="fr/index.html">French</a>
               </div>
             </li>
             <li class="nav-item">
               <a class="nav-link" target="_blank" href="https://github.com/ucsd-cse112/team-12-components"><img
-                src="../../resources/images/github_logo.png"></a>
+                src="resources/images/github_logo.png"></a>
             </li>
-    
           </ul>
         </div>
       </div>
     </nav>
     <div class="container page">
       <div class="row">
+        <!-- Left sidebar: -->
         <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
-          <!-- Pass in the page name for highlighting -->
           <button class="navbar-toggler sidebarButton" type="button" data-toggle="collapse" data-target="#left-nav-sidebar" aria-controls="left-nav-sidebar" aria-expanded="false" aria-label="Toggle navigation">
               Overview <span class="carrot-down">&#9660;</span> 
               </button>
@@ -95,7 +92,7 @@
             <li class="sideL nav-item dropdown">
               <a class="nav-link" data-toggle="collapse" href="#collapseVersions" aria-expanded="false"
                 aria-controls="collapseVersions">
-                API: 0.1.0 <span class="carrot-down">&#9660;</span>
+                Releases <span class="carrot-down">&#9660;</span>
               </a>
               <div class="collapse" id="collapseVersions">
                 <a class="nav-link sidebar-subHeading " href="#">
@@ -108,7 +105,7 @@
                     0.2.0
                   </span>
                 </a>
-                <a class="nav-link sidebar-subHeading active" href="#">
+                <a class="nav-link sidebar-subHeading " href="#">
                   <span>
                     0.1.0
                   </span>
@@ -117,14 +114,14 @@
             </li>
           
             <li class="sideL nav-item">
-              <a class="nav-link active" href="./overview.html">
+              <a class="nav-link active" href="en/docs/overview.html">
                 <span>
                   Overview
                 </span>
               </a>
             </li>
             <li class="sideL nav-item">
-              <a class="nav-link " href="./tutorials.html">
+              <a class="nav-link " href="en/docs/tutorials.html">
                 <span>
                   Tutorials
                 </span>
@@ -139,7 +136,7 @@
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
-                href="./0.1.0/components/core-hello.html">
+                href="en/docs/components/core-hello.html">
                 <span>
                   Core Hello 
                 </span>
@@ -147,7 +144,7 @@
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
-                href="./0.1.0/components/jj-input-number.html">
+                href="en/docs/components/jj-input-number.html">
                 <span>
                   jj input number 
                 </span>
@@ -155,80 +152,73 @@
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
-                href="./0.1.0/components/jj-slider.html">
+                href="en/docs/components/jj-slider.html">
                 <span>
                   jj slider 
                 </span>
               </a>
             </li>
           </ul>        </div>
+
+        <!-- Middle Content -->
         <div class="col-md-8 col-sm-12 content">
-          <h1 id="h1">Getting Started</h1>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus
-            PageMaker including versions of Lorem Ipsum.</p>
-
-            <p><jj-input-number min=0 max=8 value=1 precision=2 step=0.5></jj-input-number></p>
-          
+          <h1 id="welcome">Welcome to JJ Components</h1>
           <p>
+            This is the version 1.0.0 of Jay Jay Components web components
+            library. New components included in this release includes:
+          </p>
+
+          <p>JJ Input Number</p>
+          <p>
+            <jj-input-number min="0" max="8" value="1" precision="2" step="0.5"></jj-input-number>
+          </p>
+          <p>
+            JJ Slider<jj-slider style="padding: 100px" min="0" max="8" value="4"></jj-slider>
+          </p>
+
+          <p>
+            More components will be coming out soon. Stay tuned for updates.
+            You can find our GitHub repo
+            <a href="https://github.com/ucsd-cse112/team-12-components">here</a>
+          </p>
+
+          <h2 id="npm">NPM</h2>
+          <p>
+            Run the following NPM command in terminal at your project's root
+            directory to install JJ Components Library. All components would
+            be included.
+          </p>
+          <pre class="prettyprint"><code class="language-html">npm i jj-components</code></pre>
+          <h2 id="cdn">CDN</h2>
+          <p>
+            Copy the following code into your html header section to import
+            the components you want
+          </p>
+          <h5>JJ Input Number</h5>
           <pre
-            class="prettyprint"><code class="language-html">&lt;jj-input-number min=0 max=8 value=1 precision=2 step=0.5>&lt;/jj-input-number></code></pre></p>
-          
-
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus
-            PageMaker including versions of Lorem Ipsum.</p>
-          <h2 id="h2">Subheading2</h2>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus
-            PageMaker including versions of Lorem Ipsum.</p>
-          <h3 id="h3">Subheading3</h3>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus
-            PageMaker including versions of Lorem Ipsum.</p>
-          <h4>Subheading4</h4>
-          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
-            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
-            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
-            Aldus
-            PageMaker including versions of Lorem Ipsum.</p>
+            class="prettyprint"><code class="language-html">&lt;script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-input-number/jj-input-number.js">&lt;/script></code></pre>
+          <h5>JJ Slider</h5>
+          <pre
+            class="prettyprint"><code class="language-html">&lt;script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-slider/jj-slider.js">&lt;/script></code></pre>
         </div>
-        <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
 
+        <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
           <!-- Right Sidebar -->
           <nav id="contentHeadings" class="sidebar-right">
             <ul class="nav nav-pills flex-column">
               <li class="sideR nav-item">
-                <a class="nav-link" href="#h1">
-                  Heading1
+                <a class="nav-link" href="#welcome">
+                  Intro
                 </a>
               </li>
               <li class="sideR nav-item">
-                <a class="nav-link" href="#h2">
-                  Heading2
+                <a class="nav-link" href="#npm">
+                  NPM
                 </a>
               </li>
               <li class="sideR nav-item">
-                <a class="nav-link" href="#h3">
-                  Heading3
+                <a class="nav-link" href="#cdn">
+                  CDN
                 </a>
               </li>
             </ul>
@@ -238,13 +228,14 @@
       </div>
     </div>
 
+    <!-- Footer -->
     <div class="container footer-wrapper"> 
           <div class="containter"> 
            <div class="row"> 
             
               <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-pull-9 col-lg-pull-9"> 
                <div class="footer-section-content phone-email-footer"> 
-                <img src="../../resources/images/JayJay_logo.png" class="img-responsive"> 
+                <img src="resources/images/JayJay_logo.png" class="img-responsive"> 
                </div> 
               </div> 
         
@@ -282,19 +273,21 @@
           </div> 
          </div>
     <!-- JS files at bottom of page -->
-    <!-- Bootstrap core JavaScript-->
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-input-number/jj-input-number.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-slider/jj-slider.js"></script>
+    
+    <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
+    
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"></script>
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"></script>
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"></script>
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
     <script>
-
-
       jQuery(window).scroll(function () {
         //hide left fixed sidebar if current screen reached footer
         var currentScroll = jQuery(document).height() - jQuery(this).scrollTop() - jQuery(this).height();
@@ -305,6 +298,15 @@
           jQuery('.sidebar-left').css('bottom', '200px');
           jQuery('.sidebar-left').css('top', '0px');
         }
+      });
+    
+      //allow right sidebar anchors with base html at the same time.
+      $(document).ready(function () {
+        $().ready(function () {
+          $("a[href^='\#']").each(function () {
+            this.href = location.href.split("#")[0] + '#' + this.href.substr(this.href.indexOf('#') + 1);
+          });
+        });
       });
     </script>
   </div>

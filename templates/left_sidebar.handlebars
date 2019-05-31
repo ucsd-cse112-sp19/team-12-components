@@ -6,7 +6,7 @@
   <li class="sideL nav-item dropdown">
     <a class="nav-link" data-toggle="collapse" href="#collapseVersions" aria-expanded="false"
       aria-controls="collapseVersions">
-      API: {{Version}} <span class="carrot-down">&#9660;</span>
+      Releases <span class="carrot-down">&#9660;</span>
     </a>
     <div class="collapse" id="collapseVersions">
       <a class="nav-link sidebar-subHeading {{#ifEquals '0.3.0' Version}}active{{/ifEquals}}" href="#">
@@ -28,14 +28,14 @@
   </li>
 
   <li class="sideL nav-item">
-    <a class="nav-link {{#ifEquals 'Overview' PageName}}active{{/ifEquals}}" href="{{MainPath}}overview.html">
+    <a class="nav-link {{#ifEquals 'Overview' PageName}}active{{/ifEquals}}" href="{{lang}}/docs/overview.html">
       <span>
         Overview
       </span>
     </a>
   </li>
   <li class="sideL nav-item">
-    <a class="nav-link {{#ifEquals 'Tutorials' PageName}}active{{/ifEquals}}" href="{{MainPath}}tutorials.html">
+    <a class="nav-link {{#ifEquals 'Tutorials' PageName}}active{{/ifEquals}}" href="{{lang}}/docs/tutorials.html">
       <span>
         Tutorials
       </span>
@@ -51,7 +51,7 @@
   {{#each AllComponents}}
   <li class="sideL nav-item">
     <a class="nav-link sidebar-subHeading {{#ifEquals this.[0] ../PageName}}active{{/ifEquals}}"
-      href="{{../CompPath}}{{this.[1]}}.html">
+      href="{{../lang}}/docs/components/{{this.[1]}}.html">
       <span>
         {{this.[0]}} 
       </span>

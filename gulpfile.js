@@ -8,23 +8,24 @@ const gulp = require('gulp');
     //import templates for partials:
     left_sidebar = require('./templates/left_sidebar.handlebars');
     navbar = require('./templates/navbar.handlebars');
-    footer = require('./templates/footer.handlebars')
-    //const version = process.argv[2];
+    footer = require('./templates/footer.handlebars');
+    scripts = require('./templates/scripts.handlebars');
+    
+    const envPath = process.argv[4];
 
 
     //takes the components.handlebars template and json file
     //--- and compiles in the data, creating html files destination
     function compileComponents(done) {
-        //get version from params
-        const version = process.argv[4]; 
+         
         //supported languages:
         let languages = ['en','es','fr','zh'];
         let path = '';
         //loop through all supported languages and generate docs
         for(var c=0; c<languages.length; c++){
-            var versionPath = './docs/' + languages[c] + '/docs/' + version + '/components/';
+            var componentPath = './docs/' + languages[c] + '/docs/components/';
             //create directories if they don't exist already
-            fs.mkdir(versionPath, { recursive: true }, (err) => {
+            fs.mkdir(componentPath, { recursive: true }, (err) => {
                 if (err) throw err;
             });
             //------------render all component doc pages: ------------
@@ -38,7 +39,7 @@ const gulp = require('gulp');
                     gulp.src(path)
                     .pipe(handlebars(component))
                     .pipe(rename(fileName + ".html"))
-                    .pipe(gulp.dest('./docs/' + languages[c] + '/docs/' + version + '/components/'));
+                    .pipe(gulp.dest('./docs/' + languages[c] + '/docs/components/'));
                 }
                 } catch(err) {
                     console.error(err)
@@ -92,10 +93,20 @@ const gulp = require('gulp');
         return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
     });
 
+    Handlebars.registerHelper('getUrlBase', function() {
+        if (envPath == 'production'){
+            return 'https://ucsd-cse112.github.io/team-12-components/';
+        }
+        else if (envPath == 'dev'){
+            return '/docs/';
+        }
+    });
+
     //register all partitals:
     Handlebars.registerPartial('left_sidebar', left_sidebar);
     Handlebars.registerPartial('navbar', navbar);
     Handlebars.registerPartial('footer', footer);
+    Handlebars.registerPartial('scripts', scripts);
 
 
     exports.compileComponents = compileComponents;

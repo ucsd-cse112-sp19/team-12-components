@@ -1,315 +1,293 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="" />
 
-    <title>Jay Jay - Open Source Web Component Library</title>
-    <!-- Bootstrap core CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="../resources/css/main.css" />
-    <link href="../resources/css/index.css" rel="stylesheet" />
-    <!-- Base tag -->
-    <base href="./docs/">
-  </head>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
 
-  <body id="homepage">
-    <!-- Use navbar template (handlebars partial)-->
-     <nav class="navbar navbar-dark fixed-top navbar-expand-lg">
-       <div class="container">
-         <a class="navbar-brand" href="/docs/en/index.html"><img class="site-logo" src="../resources/images/JayJay_logo.png"></a>
-         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-nav-menu" aria-controls="top-nav-menu" aria-expanded="false" aria-label="Toggle navigation">
-         <span class="navbar-toggler-icon"></span>
-         </button>
-     
-         <div class="collapse navbar-collapse" id="top-nav-menu" >
-           <ul class="navbar-nav mr-auto">
-             <li class="nav-item">
-               <a class="topNav nav-link "
-                 href="/en/docs/0.1.0/overview.html">
-                 Get Started
-                 
-                 
-                 
-               </a>
-             </li>
-             <li class="nav-item">
-               <a class="topNav nav-link " href="/en/docs/0.1.0/overview.html">
-                 Docs
-                 
-                 
-                 
-               </a>
-             </li>
-             <li class="nav-item">
-               <a class="topNav nav-link " href="/en/team">
-                 Team
-                 
-                 
-                 
-               </a>
-             </li>
-           </ul>
-     
-           <ul class="navbar-nav">
-             <li class="nav-item dropdown">
-               <a class="topNav nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
-                 aria-haspopup="true" aria-expanded="false">
-                 Language
-                 
-                 
-                 
-               </a>
-               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                 <a class="dropdown-item active" href="/docs/en/">English</a>
-                 <a class="dropdown-item " href="/docs/es/">Español</a>
-                 <a class="dropdown-item " href="/docs/zh/">中文</a>
-                 <a class="dropdown-item " href="/docs/fr/">French</a>
-               </div>
-             </li>
-             <li class="nav-item">
-               <a class="nav-link" target="_blank" href="https://github.com/ucsd-cse112/team-12-components"><img
-                 src="../resources/images/github_logo.png"></a>
-             </li>
-     
-           </ul>
-         </div>
-       </div>
-     </nav>
-    <section class="page-section bg-light " id="intro">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase" id="head">
-              Jay Jay Web Components
-            </h2>
-            <h3 class="section-subheading text-muted">
-              A Web Component Library Written in Vanilla JavaSript
-            </h3>
-          </div>
-        </div>
-        <div class="row text-center">
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fas fa-circle fa-stack-2x text-primary"></i>
-              <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="intro-heading">Performance</h4>
-            <p class="text-muted">
-              Vanilla JavaScript Offers the Best Performance Avaliabe. Just Like
-              Vanilla Ice Cream Always Taste the Best.
-            </p>
-          </div>
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fas fa-circle fa-stack-2x text-primary"></i>
-              <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="intro-heading">Compatibility</h4>
-            <p class="text-muted">
-              Compatible with React, Vue and More Framworks of Your Choice.
-              Simply use CDN or NPM, and Components Will Be Ready.
-            </p>
-          </div>
-          <div class="col-md-4">
-            <span class="fa-stack fa-4x">
-              <i class="fas fa-circle fa-stack-2x text-primary"></i>
-              <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-            </span>
-            <h4 class="intro-heading">Reliability</h4>
-            <p class="text-muted">
-              Made By a Robust Code Factory Formed by Web Component Experts Who
-              Are Passionate About Web Development Just Like You.
-            </p>
-          </div>
-        </div>
-        <div class="row text-center">
-          <div class="col-md-4">
-            <img id="framework" src="../resources/images/JS_logo.png" />
-          </div>
-          <div class="col-md-4">
-            <img id="framework" src="../resources/images/react_logo.png" />
-          </div>
-          <div class="col-md-4">
-            <img id="framework" src="../resources/images/vue_logo.png" />
-          </div>
+  <title>Jay Jay - Open Source Web Component Library</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../resources/css/main.css" />
+  <link href="../resources/css/index.css" rel="stylesheet" />
+  <base href="https://ucsd-cse112.github.io/team-12-components/">
+</head>
+
+<body id="homepage">
+
+  <nav class="navbar navbar-dark fixed-top navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand" href="en/index.html"><img class="site-logo" src="resources/images/JayJay_logo.png"></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-nav-menu" aria-controls="top-nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="top-nav-menu" >
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="topNav nav-link "
+              href="en/docs/overview.html">
+              Get Started
+              
+              
+              
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="topNav nav-link " href="en/docs/overview.html">
+              Docs
+              
+              
+              
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="topNav nav-link " href="team.html">
+              Team
+              
+              
+              
+            </a>
+          </li>
+        </ul>
+  
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+            <a class="topNav nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+              aria-haspopup="true" aria-expanded="false">
+              Language
+              
+              
+              
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item active" href="en/index.html">English</a>
+              <a class="dropdown-item " href="es/index.html">Español</a>
+              <a class="dropdown-item " href="zh/index.html">中文</a>
+              <a class="dropdown-item " href="fr/index.html">French</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" target="_blank" href="https://github.com/ucsd-cse112/team-12-components"><img
+              src="resources/images/github_logo.png"></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <section class="page-section bg-light " id="intro">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase" id="head">
+            Jay Jay Web Components
+          </h2>
+          <h3 class="section-subheading text-muted">
+            A Web Component Library Written in Vanilla JavaSript
+          </h3>
         </div>
       </div>
-    </section>
-
-    <section class="page-section" id="components">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-12 text-center">
-            <h2 class="section-heading text-uppercase">Components</h2>
-            <h3 class="section-subheading text-muted">
-              Some Components in Jay Jay Components.
-            </h3>
-          </div>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="intro-heading">Performance</h4>
+          <p class="text-muted">
+            Vanilla JavaScript Offers the Best Performance Avaliabe. Just Like
+            Vanilla Ice Cream Always Taste the Best.
+          </p>
         </div>
-        <div class="row">
-          <div class="col-md-4 Components-item">
-            <a
-              class="Components-link"
-              data-toggle="modal"
-              href="#ComponentsModal1"
-            >
-              <div class="Components-hover">
-                <div class="Components-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img
-                id="num-demo"
-                src="../resources/gifs/num_1.gif"
-                alt=""
-              />
-              <img
-                id="num-demo"
-                src="../resources/gifs/num_2.gif"
-                alt=""
-              />
-            </a>
-          </div>
-          <div class="col-md-4 Components-item">
-            <a
-              class="Components-link"
-              data-toggle="modal"
-              href="#ComponentsModal1"
-            >
-              <div class="Components-hover">
-                <div class="Components-hover-content">
-                  <i class="fas fa-plus fa-3x"></i>
-                </div>
-              </div>
-              <img
-                id="slider-demo"
-                src="../resources/gifs/slider_1.gif"
-                alt=""
-              />
-              <img
-                id="slider-demo"
-                src="../resources/gifs/slider_2.gif"
-                alt=""
-              />
-            </a>
-          </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="intro-heading">Compatibility</h4>
+          <p class="text-muted">
+            Compatible with React, Vue and More Framworks of Your Choice.
+            Simply use CDN or NPM, and Components Will Be Ready.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="intro-heading">Reliability</h4>
+          <p class="text-muted">
+            Made By a Robust Code Factory Formed by Web Component Experts Who
+            Are Passionate About Web Development Just Like You.
+          </p>
+        </div>
       </div>
-    </section>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <img id="framework" src="../resources/images/JS_logo.png" />
+        </div>
+        <div class="col-md-4">
+          <img id="framework" src="../resources/images/react_logo.png" />
+        </div>
+        <div class="col-md-4">
+          <img id="framework" src="../resources/images/vue_logo.png" />
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="page-section bg-light" id="how">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-12 text-center">
-                  <h2 class="section-heading text-uppercase">How to Install</h2>
-                  <h3 class="section-subheading text-muted">
-                    Some Components in Jay Jay Components.
-                  </h3>
-                </div>
-              </div>
-              <div class="row text-center">
-                    <div class="col-md-12">
-                      <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                      </span>
-                      <h4 class="intro-heading">Using a CDN</h4>
-                      <p class="text-muted">
-                        You could easily import Jay Jay Components Library into your library with the CDN provided by us.
-                      </p>
-                    </div>
-                    <div class="col-md-12">
-                      <span class="fa-stack fa-4x">
-                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-                      </span>
-                      <h4 class="intro-heading">Using NPM</h4>
-                      <p class="text-muted">
-                        You could also install Jay Jay Components Library with NPM with the following command.
-                      </p>
-                    </div>
+  <section class="page-section" id="components">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Components</h2>
+          <h3 class="section-subheading text-muted">
+            Some Components in Jay Jay Components.
+          </h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 Components-item">
+          <a class="Components-link" data-toggle="modal" href="#ComponentsModal1">
+            <div class="Components-hover">
+              <div class="Components-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
               </div>
             </div>
-          </section>
-<div class="container">
-    <div class="container footer-wrapper"> 
-          <div class="containter"> 
-           <div class="row"> 
-            
-              <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-pull-9 col-lg-pull-9"> 
-               <div class="footer-section-content phone-email-footer"> 
-                <img src="../resources/images/JayJay_logo.png" class="img-responsive"> 
-               </div> 
-              </div> 
-        
-              <div class="col-xs-12 col-sm-12 col-md-2 col-lg-3 col-md-push-3 col-lg-push-3"> 
-               <ul class="footer-section-content">
-                <h3>Quick Links</h3>
-                <li>Home</li>
-                <li>Get Started</li>
-                <li>Team</li>
-                </ul>
-               </div> 
-        
-              <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-push-3 col-lg-push-3"> 
-               <ul class="footer-section-content mid-footer-col">
-                <h3>Docs</h3>
-                 <li>Getting Started</li>
-                 <li>Examples</li>
-                 <li>Components</li>
-                 <li>Release Notes</li>
-                </ul>
-              </div> 
-        
-              <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-push-3 col-lg-push-3 fmcol"> 
-               <ul class="footer-section-content">
-                <h3>FAQ</h3>
-                    <li>How does this work?</li>
-                    <li>Where can I learn more?</li>
-                    <li>Is this another example of an FAQ question?</li>
-                    <li>How do I get started?</li>
-                </ul>
-              </div> 
-        
-         
-           </div> 
-          </div> 
-         </div>    </div>
+            <img id="num-demo" src="../resources/gifs/num_1.gif" alt="" />
+            <img id="num-demo" src="../resources/gifs/num_2.gif" alt="" />
+          </a>
+        </div>
+        <div class="col-md-4 Components-item">
+          <a class="Components-link" data-toggle="modal" href="#ComponentsModal1">
+            <div class="Components-hover">
+              <div class="Components-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img id="slider-demo" src="../resources/gifs/slider_1.gif" alt="" />
+            <img id="slider-demo" src="../resources/gifs/slider_2.gif" alt="" />
+          </a>
+        </div>
+      </div>
+  </section>
 
-  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <section class="page-section bg-light" id="how">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">How to Install</h2>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-12">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="intro-heading">Using NPM</h4>
+          <p class="text-muted">
+            You could install Jay Jay Components Library with NPM.
+          </p>
+        </div>
+        <div class="col-md-12">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="intro-heading">Using CDN</h4>
+          <p class="text-muted">
+            Import any component in Jay Jay Components Library into your library with the CDNs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container footer-wrapper"> 
+        <div class="containter"> 
+         <div class="row"> 
+          
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-pull-9 col-lg-pull-9"> 
+             <div class="footer-section-content phone-email-footer"> 
+              <img src="resources/images/JayJay_logo.png" class="img-responsive"> 
+             </div> 
+            </div> 
+      
+            <div class="col-xs-12 col-sm-12 col-md-2 col-lg-3 col-md-push-3 col-lg-push-3"> 
+             <ul class="footer-section-content">
+              <h3>Quick Links</h3>
+              <li>Home</li>
+              <li>Get Started</li>
+              <li>Team</li>
+              </ul>
+             </div> 
+      
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-push-3 col-lg-push-3"> 
+             <ul class="footer-section-content mid-footer-col">
+              <h3>Docs</h3>
+               <li>Getting Started</li>
+               <li>Examples</li>
+               <li>Components</li>
+               <li>Release Notes</li>
+              </ul>
+            </div> 
+      
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-push-3 col-lg-push-3 fmcol"> 
+             <ul class="footer-section-content">
+              <h3>FAQ</h3>
+                  <li>How does this work?</li>
+                  <li>Where can I learn more?</li>
+                  <li>Is this another example of an FAQ question?</li>
+                  <li>How do I get started?</li>
+              </ul>
+            </div> 
+      
+       
+         </div> 
+        </div> 
+       </div>  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-input-number/jj-input-number.js"></script>
   <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-slider/jj-slider.js"></script>
+  
   <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script
-      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-      crossorigin="anonymous"
-    ></script>
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+  <script>
+    jQuery(window).scroll(function () {
+      //hide left fixed sidebar if current screen reached footer
+      var currentScroll = jQuery(document).height() - jQuery(this).scrollTop() - jQuery(this).height();
+      if (currentScroll > 230) {
+        jQuery('.sidebar-left').css('bottom', '0');
+        jQuery('.sidebar-left').css('top', '0');
+      } else {
+        jQuery('.sidebar-left').css('bottom', '200px');
+        jQuery('.sidebar-left').css('top', '0px');
+      }
+    });
+  
+    //allow right sidebar anchors with base html at the same time.
+    $(document).ready(function () {
+      $().ready(function () {
+        $("a[href^='\#']").each(function () {
+          this.href = location.href.split("#")[0] + '#' + this.href.substr(this.href.indexOf('#') + 1);
+        });
+      });
+    });
+  </script>
+  <!-- Graphs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+</body>
 
-    <!-- Load component .js files from cdn in the future-->
-
-    <!-- Graphs -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-  </body>
 </html>
