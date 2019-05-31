@@ -69,10 +69,10 @@ const jjProgress =
               //this.root.querySelector('.el-tooltip__popper span');
 
           // Bind "this" to functions to reserve context
-          this.getCurrentPosition = this.getCurrentPosition.bind(this);
+        //   this.getCurrentPosition = this.getCurrentPosition.bind(this);
           this.setInitPosition = this.setInitPosition.bind(this);
           this.setPosition = this.setPosition.bind(this);
-          this.onprogressClick = this.onprogressClick.bind(this);
+          //this.onprogressClick = this.onprogressClick.bind(this);
           //this.onButtonHover = this.onButtonHover.bind(this);
           //this.onButtonHoverEnd = this.onButtonHoverEnd.bind(this);
           //this.onButtonDown = this.onButtonDown.bind(this);
@@ -121,17 +121,19 @@ const jjProgress =
         }
 
         // Get the percentage value of button's position on progress runway.
-        getCurrentPosition() {
-          return (this._value - this.min) / (this.max - this.min) * 100 + "%";
-        }
+        // getCurrentPosition() {
+        //   return this.percentage + "%";
+        // }
 
         // Initialization: Set width of progress bar and offset of progress button
         // based on position of current value
         setInitPosition() {
-            const percentage = 1;
+            const percentage = 35;
         //   const percent =
         //       (this._value - this.min) / (this.max - this.min) * 100;
-        //   this.progressBar.style.width = percent + "%";
+            this.progressBar.style.width = percentage;
+            console.log("in setInitPosition", percentage);
+            this.setPosition(percentage);
         //   this.progressBtnWrapper.style.left = percent + "%";
         }
 
@@ -156,8 +158,9 @@ const jjProgress =
           } else if (newPercent < 0) {
             newPercent = 0;
           }
+          console.log("setPosition", newPercent);
           this.progressBar.style.width = newPercent + "%";
-          this.progressBtnWrapper.style.left = newPercent + "%";
+        //   this.progressBtnWrapper.style.left = newPercent + "%";
 
           // Set tooltip display value
         //   this.tooltipSpan.innerHTML = Math.round(this._value);
@@ -171,14 +174,14 @@ const jjProgress =
         // This event handler will be called when the progress runway receives a
         // 'mousedown' signal. Set width of progress bar and offset of progress
         // button based on position of cursor on mousedown.
-        onprogressClick(event) {
-          this.progressSize = this.progressContainer.clientWidth;
-          const progressOffsetLeft =
-              this.progressContainer.getBoundingClientRect().left;
-          this.setPosition((event.clientX - progressOffsetLeft) /
-                           this.progressSize * 100);
-          this.onButtonDown(event);
-        }
+        // onprogressClick(event) {
+        //   this.progressSize = this.progressContainer.clientWidth;
+        //   const progressOffsetLeft =
+        //       this.progressContainer.getBoundingClientRect().left;
+        //   this.setPosition((event.clientX - progressOffsetLeft) /
+        //                    this.progressSize * 100);
+        //   this.onButtonDown(event);
+        // }
 
         // This event handler will be called when the progress button receives a
         // 'mouseover' signal. Set tooltip position on mouseover.
@@ -226,19 +229,19 @@ const jjProgress =
         // This event handler will be called when the window (global scope)
         // receives a 'mousemove' or 'touchmove' signal. Call setPosition() with
         // new position on mousemove.
-        onDragging(event) {
-          if (this.dragging) {
-            this.isClick = false;
-            let diff = 0;
-            if (event.type === 'touchmove') {
-              event.clientX = event.touches[0].clientX;
-            }
-            this.currentX = event.clientX;
-            diff = (this.currentX - this.startX) / this.progressSize * 100;
-            this.newPosition = this.startPosition + diff;
-            this.setPosition(this.newPosition);
-          }
-        }
+        // onDragging(event) {
+        //   if (this.dragging) {
+        //     this.isClick = false;
+        //     let diff = 0;
+        //     if (event.type === 'touchmove') {
+        //       event.clientX = event.touches[0].clientX;
+        //     }
+        //     this.currentX = event.clientX;
+        //     diff = (this.currentX - this.startX) / this.progressSize * 100;
+        //     this.newPosition = this.startPosition + diff;
+        //     this.setPosition(this.newPosition);
+        //   }
+        // }
 
         // This event handler will be called when the window (global scope)
         // receives a 'mouseup', 'touchend', or 'contextmenu' signal. Call
