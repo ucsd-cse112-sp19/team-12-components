@@ -1,27 +1,3 @@
-<<<<<<< HEAD
-language: node_js
-node_js: "stable"
-
-before_install:
-  - stty cols 80
-
-cache:
-  directories:
-    - node_modules
-
-node_js:
-  - node
-
-script:
-  - npm run test
-  - npm run test:chrome-saucelab
-  - npm run test:firefox-saucelab
-  - npm run snapshot # Visual regression tests
-
-notifications:
-  email: false
-  
-=======
 language: node_js
 node_js: "stable"
 
@@ -44,4 +20,3 @@ script:
 notifications:
   email: false
   
->>>>>>> 69c980649fcd6c9bf5da4522234224548bb5ad53
