@@ -1,17 +1,18 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="A web component that is a highly customizable dragging slider within ranges.">
+  <meta name="description"
+    content="A web component with a Customizable number input field with increse and decrease buttons.">
   <meta name="author" content="Jay Jay Web Components">
   <meta name="theme-color" content="#7da3ef">
-  <title>JJ Slider | Web Component Documentation</title>
+  <title>Jay Jay Docs | Web Component Documentation</title>
   <!-- Core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../../resources/css/main.css">
+  <link rel="stylesheet" href="../../resources/css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
   <base href="/docs/">
 </head>
@@ -21,7 +22,7 @@
     <!-- Navbar Partial-->
     <nav class="navbar navbar-dark fixed-top navbar-expand-lg">
       <div class="container">
-        <a class="navbar-brand" href="en/index.html"><img class="site-logo" src="resources/images/JayJay_logo.png"></a>
+        <a class="navbar-brand" href="zh/index.html"><img class="site-logo" src="resources/images/JayJay_logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-nav-menu" aria-controls="top-nav-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,27 +31,27 @@
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
               <a class="topNav nav-link "
-                href="en/docs/overview.html">
-                Get Started
+                href="zh/docs/overview.html">
                 
                 
                 
+                入门
               </a>
             </li>
             <li class="nav-item">
-              <a class="topNav nav-link active" href="en/docs/overview.html">
-                Docs
+              <a class="topNav nav-link active" href="zh/docs/overview.html">
                 
                 
                 
+                文件
               </a>
             </li>
             <li class="nav-item">
               <a class="topNav nav-link " href="team.html">
-                Team
                 
                 
                 
+                团队
               </a>
             </li>
           </ul>
@@ -59,15 +60,15 @@
             <li class="nav-item dropdown">
               <a class="topNav nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                Language
                 
                 
                 
+                语言
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item active" href="en/index.html">English</a>
+                <a class="dropdown-item " href="en/index.html">English</a>
                 <a class="dropdown-item " href="es/index.html">Español</a>
-                <a class="dropdown-item " href="zh/index.html">中文</a>
+                <a class="dropdown-item active" href="zh/index.html">中文</a>
                 <a class="dropdown-item " href="fr/index.html">French</a>
               </div>
             </li>
@@ -84,7 +85,7 @@
         <!-- Left sidebar: -->
         <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
           <button class="navbar-toggler sidebarButton" type="button" data-toggle="collapse" data-target="#left-nav-sidebar" aria-controls="left-nav-sidebar" aria-expanded="false" aria-label="Toggle navigation">
-              jj slider <span class="carrot-down">&#9660;</span> 
+              Tutorials <span class="carrot-down">&#9660;</span> 
               </button>
           <ul class="sidebar-left collapse navbar-collapse" id="left-nav-sidebar">
           
@@ -113,14 +114,14 @@
             </li>
           
             <li class="sideL nav-item">
-              <a class="nav-link " href="en/docs/overview.html">
+              <a class="nav-link " href="zh/docs/overview.html">
                 <span>
                   Overview
                 </span>
               </a>
             </li>
             <li class="sideL nav-item">
-              <a class="nav-link " href="en/docs/tutorials.html">
+              <a class="nav-link active" href="zh/docs/tutorials.html">
                 <span>
                   Tutorials
                 </span>
@@ -135,7 +136,7 @@
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
-                href="en/docs/components/core-hello.html">
+                href="zh/docs/components/core-hello.html">
                 <span>
                   Core Hello 
                 </span>
@@ -143,15 +144,15 @@
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
-                href="en/docs/components/jj-input-number.html">
+                href="zh/docs/components/jj-input-number.html">
                 <span>
                   jj input number 
                 </span>
               </a>
             </li>
             <li class="sideL nav-item">
-              <a class="nav-link sidebar-subHeading active"
-                href="en/docs/components/jj-slider.html">
+              <a class="nav-link sidebar-subHeading "
+                href="zh/docs/components/jj-slider.html">
                 <span>
                   jj slider 
                 </span>
@@ -161,99 +162,93 @@
 
         <!-- Middle Content -->
         <div class="col-md-8 col-sm-12 content">
+          <h1 id='h1'>教程</h1>
+          <p>这里是使用JJ-Slider作为案例的教程</p>
 
-          <h1 id="description">
-            JJ Slider
-          </h1>
+          <h2>安装组件</h2>
           <p>
-            Highly customizable dragging slider within ranges.
+            先找到组件的CDN，然后复制粘贴到html文档的header之中。
           </p>
-          <h2 id="usage">Basic usage</h2>
-          <div class="demo-section">
-            <div class="demo-entry">
-              <p>Default Settings</p>
-              <jj-slider></jj-slider>
-              <pre class="prettyprint"><code class="language-html">&lt;jj-slider>&lt;/jj-slider></code></pre>
-            </div>
-            <div class="demo-entry">
-              <p>Change Range</p>
-              <jj-slider min="0" max="8"></jj-slider>
-              <pre
-                class="prettyprint"><code class="language-html">&lt;jj-slider min="0" max="8">&lt;/jj-slider></code></pre>
-            </div>
-            <div class="demo-entry">
-              <p>Customized initial value</p>
-              <jj-slider min="0" max="8" value="4"></jj-slider>
-              <pre
-                class="prettyprint"><code class="language-html">&lt;jj-slider min="0" max="8" value="4">&lt;/jj-slider></code></pre>
-            </div>
-          </div>
+          <pre
+            class="prettyprint"><code class="language-html">&lt;script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-slider/jj-slider.js">&lt;/script></code></pre>
+          <p>
+            或者使用NPM安装整个库。
+          </p>
+          <pre class="prettyprint"><code class="language-html">npm i jj-components</code></pre>
+          <p>现在组件已经安装完成！</p>
 
-          <h2 id='attributes'>Attributes</h2>
-          <!-- Attribute Table -->
-          <zing-grid caption="JJ Slider Attributes" layout="row" viewport-stop data='[
-          {
-          "Attribute Name": "value / v-model",
-          "Description": "binding valuenumber",
-          "Type": "/",
-          "Accepted Values": "0",
-          "Default": "1"
-          },
-          {
-          "Attribute Name": "min",
-          "Description": "minimum valuenumber",
-          "Type": "/",
-          "Accepted Values": " 0",
-          "Default": "1"
-          },
-          {
-          "Attribute Name": "max",
-          "Description": "maximum valuenumber",
-          "Type": "/",
-          "Accepted Values": "100",
-          "Default": "1"
-          },
-          {
-          "Attribute Name": "disabled",
-          "Description": "whether Slider is disabled",
-          "Type": "boolean",
-          "Accepted Values": "/",
-          "Default": "1"
-          },
-          {
-          "Attribute Name": "",
-          "Description": "",
-          "Type": "",
-          "Accepted Values": "",
-          "Default": ""
-          }
-          ]'>
-          </zing-grid>
+          <h2 id='h2'>Using your first component</h2>
+          <p>
+            来试试使用组件。
+          </p>
+          <p>
+            使用组件和使用各种html元素并没有什么不同。
+          </p>
+          <pre class="prettyprint"><code class="language-html">&lt;jj-slider>&lt;/jj-slider></code></pre>
+          <p>
+            把组件放到任何地方。 应该显示出如下组建：
+          </p>
+          <jj-slider></jj-slider>
+          <p>
+            你成功了！
+          </p>
 
+          <h2 id='h3'>Change Attributes</h2>
+          <p>
+            现在来试试更改组件的设置。
+          </p>
+          <p>
+            所有的设置都在这个文档。
+            <a href="components/jj-slider.html">这里</a>
+          </p>
+          <p>
+          </p>
+          <p>
+            假设你想要如下组建
+          </p>
+          <p>
+            1. 区间0到8
+          </p>
+          <p>
+            2. 初始值为4
+          </p>
+          <p>使用如下设置：</p>
+          <p>
+            1. <b>min</b> 和 <b>max</b> 来设置区间
+          </p>
+          <p>
+            2. <b>value</b> 来设置初始值
+          </p>
+          <p>代码如下</p>
+          <pre
+            class="prettyprint"><code class="language-html">&lt;jj-slider min="0" max="8" value="4">&lt;/jj-slider></code></pre>
+          <p>恭喜！</p>
+
+          <jj-slider min="0" max="8" value="4"></jj-slider>
         </div>
 
         <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
-          <!-- Right Sidebar -->
-          <nav id="contentHeadings" class="sidebar-right">
-            <ul class="nav nav-pills flex-column">
-              <li class="sideR nav-item">
-                <a class="nav-link" href="#description">
-                  Description
-                </a>
-              </li>
-              <li class="sideR nav-item">
-                <a class="nav-link" href="#usage">
-                  Usage
-                </a>
-              </li>
-              <li class="sideR nav-item">
-                <a class="nav-link" href="#attributes">
-                  Attributes
-                </a>
-              </li>
-            </ul>
-          </nav>
-          <!-- End Right Sidebar -->
+         <!-- Right Sidebar -->
+            <nav id="contentHeadings" class="sidebar-right">
+              <ul class="nav nav-pills flex-column">
+                <li class="sideR nav-item">
+                  <a class="nav-link" href="#h1">
+                    安装
+                  </a>
+                </li>
+                <li class="sideR nav-item">
+                  <a class="nav-link" href="#h2">
+                    默认
+                  </a>
+                </li>
+                <li class="sideR nav-item">
+                  <a class="nav-link" href="#h3">
+                    设置
+                  </a>
+                </li>
+              </ul>
+            </nav>
+            <!-- End Right Sidebar -->
         </div>
       </div>
     </div>

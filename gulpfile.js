@@ -59,13 +59,23 @@ const gulp = require('gulp');
                     .pipe(gulp.dest('./docs/' + languages[c] + '/'));
                 }
 
-                //render docs page
+                //render overview page
                 path = './templates/' + languages[c] + '/docs' + '_' + languages[c] + '.handlebars';
                 if (fs.existsSync(path)) {
                     gulp.src(path)
                     //only passing in objects for each handlebar page render
                     .pipe(handlebars(components[0]))
                     .pipe(rename("overview.html"))
+                    .pipe(gulp.dest('./docs/' + languages[c] + '/docs/'));
+                }
+
+                //render tutorials page
+                path = './templates/' + languages[c] + '/tutorials' + '_' + languages[c] + '.handlebars';
+                if (fs.existsSync(path)) {
+                    gulp.src(path)
+                    //only passing in objects for each handlebar page render
+                    .pipe(handlebars(components[0]))
+                    .pipe(rename("tutorials.html"))
                     .pipe(gulp.dest('./docs/' + languages[c] + '/docs/'));
                 }
             }
