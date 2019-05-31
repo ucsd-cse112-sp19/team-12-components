@@ -22,7 +22,6 @@
  * @attribute label, label text,	string,	/,	/
  * @attribute placeholder,	placeholder in input,	string,	/,	/
  *
- *
  */
 
 const jjInputNum =
