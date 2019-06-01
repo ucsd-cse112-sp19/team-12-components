@@ -1,0 +1,11 @@
+{
+  "browsers": [
+    "saucelabs:Firefox@:Windows 10",
+    "saucelabs:Chrome@:Windows 10", 
+    "saucelabs:Firefox@:OS X 10.11",
+    "saucelabs:Chrome@:OS X 10.11",
+    "saucelabs:Safari@:macOS 10.14"
+  ],
+  "src": "packages/*/tests/*_testcafe.js",
+  "skipJsErrors": "true"
+}

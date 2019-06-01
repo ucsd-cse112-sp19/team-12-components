@@ -7,14 +7,14 @@ before_install:
 cache:
   directories:
     - node_modules
+env:
+  - SAUCE_BUILD=$TRAVIS_BUILD_NUMBER
 
 node_js:
   - node
 
 script:
-  - npm run test
-  - npm run test:chrome-saucelab
-  - npm run test:firefox-saucelab
+  - npm run test:travis
   - npm run snapshot # Visual regression tests
 
 notifications:

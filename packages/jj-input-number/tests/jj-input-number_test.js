@@ -13,6 +13,14 @@ function triggerMouseEvent (node, eventType) {
     node.dispatchEvent (clickEvent);
 }
 
+function wait(ms){                                                              
+    var start = new Date().getTime();                                             
+    var end = start;                                                              
+    while(end < start + ms) {                                                     
+        end = new Date().getTime();                                                 
+    }                                                                              
+}  
+
 //----------Unit Tests ------------------
 describe('jj-input-number with defined [min, max, value, precision, step]', function() {
 
@@ -57,13 +65,17 @@ describe('jj-input-number with defined [min, max, value, precision, step]', func
 
     //go into shadow dom of component, find inc button
     //trigger inc click x1
-    document.getElementById('jj1').shadowRoot.getElementById("incrementBtn").click();
+    let incButton = document.getElementById('jj1').shadowRoot.getElementById("incrementBtn");
+    triggerMouseEvent(incButton, 'mousedown');
+    triggerMouseEvent(incButton, 'mouseup');
     //get value in the input textbox
     let compValue = document.getElementById('jj1').shadowRoot.getElementById('jj-inputBoxNum').value; 
     assert.equal(compValue, 1.50);
 
     //trigger inc click x2
-    document.getElementById('jj1').shadowRoot.getElementById("incrementBtn").click();
+    incButton = document.getElementById('jj1').shadowRoot.getElementById("incrementBtn");
+    triggerMouseEvent(incButton, 'mousedown');
+    triggerMouseEvent(incButton, 'mouseup');
     //must recheck the value again in shadowDOM, otherwise it won't update
     compValue = document.getElementById('jj1').shadowRoot.getElementById('jj-inputBoxNum').value;
     assert.equal(compValue, 2.00);
@@ -77,14 +89,16 @@ describe('jj-input-number with defined [min, max, value, precision, step]', func
     //go into shadow dom of component, find dec button
     //trigger dec click x1
     let decButton = document.getElementById('jj1').shadowRoot.getElementById("decrementBtn");
-    triggerMouseEvent(decButton, 'click');
+    triggerMouseEvent(decButton, 'mousedown');
+    triggerMouseEvent(decButton, 'mouseup');
     //get value in the input textbox
     let compValue = compEl.value;
     assert.equal(compValue, 1.50);
 
     //trigger dec click x2
     decButton = document.getElementById('jj1').shadowRoot.getElementById("decrementBtn");
-    triggerMouseEvent(decButton, 'click');
+    triggerMouseEvent(decButton, 'mousedown');
+    triggerMouseEvent(decButton, 'mouseup');
 
     //must recheck the value again in shadowDOM, otherwise it won't update
     compValue = compEl.value;
@@ -93,27 +107,84 @@ describe('jj-input-number with defined [min, max, value, precision, step]', func
     compEl.value = 1.0;
   })
  
-  /*
-  it('tests if we can decrement jj-input-number with "disabled" _boolean attribue_', function() {
-    let savedValue = compEl.getAttribue('disabled');
+  it('tests if we can decrease jj-input-number with "disabled" _boolean attribue_', function() {
+    let savedDisabledValue = compEl.getAttribute('disabled'); // Save disabled value.
     compEl.setAttribute('disabled', ''); // Set the component as disabled.
+
     let oldValue = compEl.value;
-    compEl.shadowRoot.getElementById("decrementBtn").click();
+    let decButton = document.getElementById('jj1').shadowRoot.getElementById("decrementBtn");
+    triggerMouseEvent(decButton, 'mousedown');
+    triggerMouseEvent(decButton, 'mouseup');
+
     assert.equal(compEl.value, oldValue);
-    compEl.setAttribue('disabled', savedValue);
+
+    // reset disable value.
+    if (savedDisabledValue == null) {
+      compEl.removeAttribute('disabled');
+    } else {
+      compEl.setAttribute('disabled', savedDisabledValue);
+    }
   });
 
-  it('tests if we can mutate when jj-input-number using "disabled" attribue', function() {
+  it('tests if we can increase jj-input-number with "disabled" _boolean attribue_', function() {
+    //compEl.removeAttribute('disabled');
+    let savedDisabledValue = compEl.getAttribute('disabled'); // Save disabled value.
+    compEl.setAttribute('disabled', ''); // Set the component as disabled.
+
+    let incButton = document.getElementById('jj1').shadowRoot.getElementById("incrementBtn");
+    let oldValue = compEl.value;
+
+    triggerMouseEvent(incButton, 'mousedown');
+    triggerMouseEvent(incButton, 'mouseup');
+
+    assert.equal(compEl.value, oldValue);
+
+    // reset disable value.
+    if (savedDisabledValue == null) {
+      compEl.removeAttribute('disabled');
+    } else {
+      compEl.setAttribute('disabled', savedDisabledValue);
+    }
+  });
+
+  it('tests if we can decrease when jj-input-number using "disabled" attribue', function() {
+    let savedDisabledValue = compEl.getAttribute('disabled');
+
     compEl.setAttribute('disabled', 'true'); // Set the component as disabled.
     let oldValue = compEl.value;
     
-    // XXX (Nate): Problem with logic. If the button gets an event trigger it
-    // will still decrement. Need to abstract increment/decrement logic away
-    // from button.
-    compEl.shadowRoot.getElementById("decrementBtn").click();
+    let decButton = document.getElementById('jj1').shadowRoot.getElementById("decrementBtn");
+    triggerMouseEvent(decButton, 'mousedown');
+    triggerMouseEvent(decButton,'mouseup');
     assert.equal(compEl.value, oldValue);
+
+    // reset disable value.
+    if (savedDisabledValue == null) {
+      compEl.removeAttribute('disabled');
+    } else {
+      compEl.setAttribute('disabled', savedDisabledValue);
+    }
   });
-  */
-  //etc..
+
+ it('tests if we can increase when jj-input-number using "disabled" attribue', function() {
+   let savedDisabledValue = compEl.getAttribute('disabled');
+
+   compEl.setAttribute("disabled", "true"); // Set the component as disabled.
+
+   let incButton = document.getElementById('jj1').shadowRoot.getElementById("incrementBtn");
+   let oldValue = compEl.value;
+
+   triggerMouseEvent(incButton, 'mousedown');
+   triggerMouseEvent(incButton,'mouseup');
+   assert.equal(compEl.value, oldValue);
+
+   // reset disable value.
+   if (savedDisabledValue == null) {
+       compEl.removeAttribute('disabled');
+   } else {
+       compEl.setAttribute('disabled', savedDisabledValue);
+   }
+ });
+    //etc..
 });
 
