@@ -201,10 +201,8 @@ const jjSwitch = () => {
   
         if (this.hasAttribute('round')) {
           if (this.getAttribute('round') == 'false') {
-            console.log(this.getAttribute('round'));
             this.slider.classList.remove('round');
           } else {
-            console.log("else "+this.getAttribute('round'));
             this.slider.classList.add('round');
           }
         }
@@ -305,7 +303,6 @@ const jjSwitch = () => {
   
           // change the value
           this.value = this.activeValue;
-          console.log("switch click checked "+this.value);
         } else {
           // change the slider color
           this.slider.style.background = this.inactiveColor;
@@ -316,7 +313,6 @@ const jjSwitch = () => {
   
           // change the value
           this.value = this.inactiveValue;
-          console.log("switch click not checked "+this.value);
         }
       }
   
