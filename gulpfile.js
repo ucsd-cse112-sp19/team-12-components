@@ -79,14 +79,14 @@ const gulp = require('gulp');
                     .pipe(gulp.dest('./docs/' + languages[c] + '/docs/'));
                 }
 
-                //render tutorials page
-                path = './templates/' + languages[c] + '/team' + '_' + languages[c] + '.handlebars';
+                //render team page
+                path = './templates/'  + languages[c]  + '/team_' + languages[c] + '.handlebars';
                 if (fs.existsSync(path)) {
                     gulp.src(path)
                     //only passing in objects for each handlebar page render
                     .pipe(handlebars(components[0]))
                     .pipe(rename("team.html"))
-                    .pipe(gulp.dest('./docs/' + languages[c] + '/'));
+                    .pipe(gulp.dest('./docs/'  + languages[c] + '/'));
                 }
             }
             catch(err) {
