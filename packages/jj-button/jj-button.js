@@ -262,7 +262,7 @@ const jjButton = () => {
     }
 
   </style>
-  <button class="btn primary plain"><slot></slot></button> 
+  <button class="btn"><slot></slot></button> 
   `;
 
   class JJButton extends HTMLElement {
@@ -282,15 +282,41 @@ const jjButton = () => {
     }
 
     connectedCallback() {
+      //set the round attribute
+      if (this.hasAttribute('round')) {
+        if (this.getAttribute('round') == 'true') {
+          this.button.classList.add('round');
+        }
+      }
 
+      //set the plain attribute
+      if (this.hasAttribute('plain')) {
+        if (this.getAttribute('plain') == 'true') {
+          this.button.classList.add('plain');
+        }
+      }
+
+      //set the circle attribute
+      if (this.hasAttribute('circle')) {
+        if (this.getAttribute('circle') == 'true') {
+          this.button.classList.add('circle');
+        }
+      }
     }
 
     attributeChangedCallback(attrName, oldValue, newValue) {
 
     }
+
     //Getters
+    get round() {return this.getAttribute('round') == 'true';}
+    get plain() {return this.getAttribute('plain') == 'true';}
+    get circle() {return this.getAttribute('circle') == 'true';}
 
     //Setters
+    set round(newValue) {this.setAttribute('round', newValue);}
+    set plain(newValue) {this.setAttribute('plain', newValue);}
+    set circle(newValue) {this.setAttribute('circle', newValue);}
   }
   customElements.define('jj-button', JJButton);
 }
