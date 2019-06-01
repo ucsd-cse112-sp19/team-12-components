@@ -194,7 +194,7 @@ const jjSlider =
           // Set tooltip position
           let rect = this.sliderBtnWrapper.getBoundingClientRect();
           this.tooltip.style =
-              "transform-origin: center bottom; z-index: 2282; position: absolute; top: " +
+              "transform-origin: center bottom; z-index: 2282; position: fixed; top: " +
               (rect.top - rect.height) + "px; left: " + rect.left + "px;";
         }
 
@@ -215,7 +215,7 @@ const jjSlider =
         onButtonHover(event) {
           let rect = this.sliderBtnWrapper.getBoundingClientRect();
           this.tooltip.style =
-              "transform-origin: center bottom; z-index: 2282; position: absolute; top: " +
+              "transform-origin: center bottom; z-index: 2282; position: fixed; top: " +
               (rect.top - rect.height) + "px; left: " + rect.left + "px;";
         }
 
@@ -223,7 +223,7 @@ const jjSlider =
         // 'mouseout' signal. Hide tooltip on mouseout.
         onButtonHoverEnd(event) {
           this.tooltip.style =
-              "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;";
+              "transform-origin: center bottom; z-index: 2282; position: fixed; display: none;";
         }
 
         // This event handler will be called when the slider button receives a
@@ -280,7 +280,7 @@ const jjSlider =
               if (!this.isClick) {
                 this.setPosition(this.newPosition);
                 this.tooltip.style =
-                    "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;";
+                    "transform-origin: center bottom; z-index: 2282; position: fixed; display: none;";
               }
             }, 0);
             window.removeEventListener('mousemove', this.onDragging);
