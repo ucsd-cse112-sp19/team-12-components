@@ -2,11 +2,33 @@
     {{PageName}} <span class="carrot-down">&#9660;</span> 
     </button>
 <ul class="sidebar-left collapse navbar-collapse" id="left-nav-sidebar">
-
-  <li class="sideL nav-item dropdown">
+  <li class="sideL nav-item">
+    <a class="nav-link {{#ifEquals 'Overview' PageName}}active{{/ifEquals}}" href="{{lang}}/docs/overview.html">
+      <span>
+            {{#ifEquals 'en' lang}}Overview{{/ifEquals}}
+            {{#ifEquals 'es' lang}}Visión general{{/ifEquals}}
+            {{#ifEquals 'fr' lang}}Vue d'ensemble{{/ifEquals}}
+            {{#ifEquals 'zh' lang}}概观{{/ifEquals}}
+      </span>
+    </a>
+  </li>
+  <li class="sideL nav-item">
+    <a class="nav-link {{#ifEquals 'Tutorials' PageName}}active{{/ifEquals}}" href="{{lang}}/docs/tutorials.html">
+      <span>
+            {{#ifEquals 'en' lang}}Tutorials{{/ifEquals}}
+            {{#ifEquals 'es' lang}}Tutoriales{{/ifEquals}}
+            {{#ifEquals 'fr' lang}}Tutoriels{{/ifEquals}}
+            {{#ifEquals 'zh' lang}}教程{{/ifEquals}}
+      </span>
+    </a>
+  </li>
+   <li class="sideL nav-item dropdown">
     <a class="nav-link" data-toggle="collapse" href="#collapseVersions" aria-expanded="false"
       aria-controls="collapseVersions">
-      Releases <span class="carrot-down">&#9660;</span>
+            {{#ifEquals 'en' lang}}Releases{{/ifEquals}}
+            {{#ifEquals 'es' lang}}Lanzamientos{{/ifEquals}}
+            {{#ifEquals 'fr' lang}}Communiqués{{/ifEquals}}
+            {{#ifEquals 'zh' lang}}发布{{/ifEquals}}<span class="carrot-down">&#9660;</span>
     </a>
     <div class="collapse" id="collapseVersions">
       <a class="nav-link sidebar-subHeading {{#ifEquals '0.3.0' Version}}active{{/ifEquals}}" href="#">
@@ -26,25 +48,13 @@
       </a>
     </div>
   </li>
-
-  <li class="sideL nav-item">
-    <a class="nav-link {{#ifEquals 'Overview' PageName}}active{{/ifEquals}}" href="{{lang}}/docs/overview.html">
-      <span>
-        Overview
-      </span>
-    </a>
-  </li>
-  <li class="sideL nav-item">
-    <a class="nav-link {{#ifEquals 'Tutorials' PageName}}active{{/ifEquals}}" href="{{lang}}/docs/tutorials.html">
-      <span>
-        Tutorials
-      </span>
-    </a>
-  </li>
   <li class="sideL nav-item">
     <a class="nav-link {{#ifEquals 'Components' PageName}}active{{/ifEquals}}" href="#">
       <span>
-        Components
+            {{#ifEquals 'en' lang}}Components{{/ifEquals}}
+            {{#ifEquals 'es' lang}}Componentes{{/ifEquals}}
+            {{#ifEquals 'fr' lang}}Composants{{/ifEquals}}
+            {{#ifEquals 'zh' lang}}组件{{/ifEquals}}
       </span>
     </a>
   </li>

@@ -9,11 +9,7 @@
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <a class="topNav nav-link {{#ifEquals 'Get Started' PageName}}active{{/ifEquals}}"
-            href="{{lang}}/docs/overview.html">
-            {{#ifEquals 'en' lang}}Get Started{{/ifEquals}}
-            {{#ifEquals 'es' lang}}Empezar{{/ifEquals}}
-            {{#ifEquals 'fr' lang}}Commencer{{/ifEquals}}
-            {{#ifEquals 'zh' lang}}入门{{/ifEquals}}
+            href="{{lang}}/docs/tutorials.html">{{#ifEquals 'en' lang}}Get Started{{/ifEquals}}{{#ifEquals 'es' lang}}Empezar{{/ifEquals}}{{#ifEquals 'fr' lang}}Commencer{{/ifEquals}}{{#ifEquals 'zh' lang}}入门{{/ifEquals}}
           </a>
         </li>
         <li class="nav-item">
@@ -25,7 +21,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="topNav nav-link {{#ifEquals 'Team' PageName}}active{{/ifEquals}}" href="team.html">
+          <a class="topNav nav-link {{#ifEquals 'Team' PageName}}active{{/ifEquals}}" href="{{lang}}/team.html">
             {{#ifEquals 'en' lang}}Team{{/ifEquals}}
             {{#ifEquals 'es' lang}}Equipo{{/ifEquals}}
             {{#ifEquals 'fr' lang}}Équipe{{/ifEquals}}
