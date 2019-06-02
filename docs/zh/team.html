@@ -346,12 +346,26 @@
       }
     });
   
+  
     //allow right sidebar anchors with base html at the same time.
     $(document).ready(function () {
+      
       $().ready(function () {
         $("a[href^='\#']").each(function () {
           this.href = location.href.split("#")[0] + '#' + this.href.substr(this.href.indexOf('#') + 1);
         });
+  
+      var rightSideBar = $("#contentHeadings");
+      var sidebarItems = rightSideBar.find("a");
+      console.log(typeof(sidebarItems[0].href));
+  
+  
+      
+  
+  
+  
+  
+  
       });
     });
   </script>

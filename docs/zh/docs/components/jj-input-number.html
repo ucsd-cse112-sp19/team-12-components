@@ -105,7 +105,7 @@
               </a>
             </li>
              <li class="sideL nav-item dropdown">
-              <a class="nav-link" data-toggle="collapse" href="#collapseVersions" aria-expanded="false"
+              <a class="nav-link" data-toggle="collapse" href="#collapseVersions" data-target="#collapseVersions" aria-expanded="false"
                 aria-controls="collapseVersions">
                       
                       
@@ -164,6 +164,14 @@
                 </span>
               </a>
             </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
+                href="zh/docs/components/jj-switch.html">
+                <span>
+                  jj switch 
+                </span>
+              </a>
+            </li>
           </ul>        </div>
 
         <!-- Middle Content -->
@@ -208,31 +216,31 @@
           <!-- Attribute Table -->
           <zing-grid caption="JJ Slider Attributes" layout="row" viewport-stop data='[
           {
-          "Attribute Name": "value / v-model",
+          "Attribute Name": "value / v-model	",
           "Description": "binding value",
-          "Type": "number",
-          "Accepted Values": "/",
+          "Type": "	number",
+          "Accepted Values": "	/	",
           "Default": "0"
           },
           {
           "Attribute Name": "min",
-          "Description": "the minimum allowed value",
-          "Type": "number",
+          "Description": "	the minimum allowed value",
+          "Type": "	number",
           "Accepted Values": " /",
           "Default": ""
           },
           {
           "Attribute Name": "max",
-          "Description": "the maximum allowed value",
-          "Type": "number",
-          "Accepted Values": "test",
+          "Description": "	the maximum allowed value",
+          "Type": "	number",
+          "Accepted Values": "	b ",
           "Default": ""
           },
           {
           "Attribute Name": "step",
-          "Description": "incremental step",
+          "Description": "	incremental step",
           "Type": " number",
-          "Accepted Values": "/",
+          "Accepted Values": "	/	",
           "Default": "1"
           },
           {
@@ -244,35 +252,35 @@
           },
           {
           "Attribute Name": "precision",
-          "Description": "precision of input value",
-          "Type": "number",
-          "Accepted Values": "/",
+          "Description": "	precision of input value",
+          "Type": "	number",
+          "Accepted Values": "	/",
           "Default": ""
           },
           {
           "Attribute Name": "size",
-          "Description": "size of the component",
-          "Type": "string",
-          "Accepted Values": "large/small",
-          "Default": "/"
+          "Description": "	size of the component",
+          "Type": "	string",
+          "Accepted Values": "	large/small",
+          "Default": "	/"
           },
           {
           "Attribute Name": "disabled",
-          "Description": "whether the component is disabled",
-          "Type": "boolean",
+          "Description": "	whether the component is disabled",
+          "Type": "	boolean",
           "Accepted Values": "",
           "Default": ""
           },
           {
           "Attribute Name": "controls",
-          "Description": "whether to enable the control buttons",
-          "Type": "boolean",
+          "Description": "	whether to enable the control buttons",
+          "Type": "	boolean",
           "Accepted Values": "",
           "Default": ""
           },
           {
           "Attribute Name": "controls-position",
-          "Description": "position of the control buttonsstring",
+          "Description": "	position of the control buttons	string",
           "Type": "",
           "Accepted Values": "",
           "Default": ""
@@ -280,23 +288,23 @@
           {
           "Attribute Name": "name",
           "Description": " same as name in native input",
-          "Type": "string",
-          "Accepted Values": "/",
-          "Default": "/"
+          "Type": "	string",
+          "Accepted Values": "	/",
+          "Default": "	/"
           },
           {
           "Attribute Name": "label",
           "Description": " label text",
-          "Type": "string",
-          "Accepted Values": "/",
-          "Default": "/"
+          "Type": "	string",
+          "Accepted Values": "	/",
+          "Default": "	/"
           },
           {
           "Attribute Name": "placeholder",
-          "Description": "placeholder in input",
-          "Type": "string",
-          "Accepted Values": "/",
-          "Default": "/"
+          "Description": "	placeholder in input",
+          "Type": "	string",
+          "Accepted Values": "	/",
+          "Default": "	/"
           },
           {
           "Attribute Name": "",
@@ -315,17 +323,17 @@
           <nav id="contentHeadings" class="sidebar-right">
             <ul class="nav nav-pills flex-column">
               <li class="sideR nav-item">
-                <a class="nav-link" href="#description">
+                <a class="nav-link" href="#description" data-target="#description">
                   描述
                 </a>
               </li>
               <li class="sideR nav-item">
-                <a class="nav-link" href="#usage">
+                <a class="nav-link" href="#usage" data-target="#usage">
                   使用
                 </a>
               </li>
               <li class="sideR nav-item">
-                <a class="nav-link" href="#attributes">
+                <a class="nav-link" href="#attributes" data-target="#attributes">
                   属性
                 </a>
               </li>
@@ -408,12 +416,26 @@
         }
       });
     
+    
       //allow right sidebar anchors with base html at the same time.
       $(document).ready(function () {
+        
         $().ready(function () {
           $("a[href^='\#']").each(function () {
             this.href = location.href.split("#")[0] + '#' + this.href.substr(this.href.indexOf('#') + 1);
           });
+    
+        var rightSideBar = $("#contentHeadings");
+        var sidebarItems = rightSideBar.find("a");
+        console.log(typeof(sidebarItems[0].href));
+    
+    
+        
+    
+    
+    
+    
+    
         });
       });
     </script>

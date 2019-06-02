@@ -104,7 +104,7 @@
               </a>
             </li>
              <li class="sideL nav-item dropdown">
-              <a class="nav-link" data-toggle="collapse" href="#collapseVersions" aria-expanded="false"
+              <a class="nav-link" data-toggle="collapse" href="#collapseVersions" data-target="#collapseVersions" aria-expanded="false"
                 aria-controls="collapseVersions">
                       
                       
@@ -163,6 +163,14 @@
                 </span>
               </a>
             </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
+                href="zh/docs/components/jj-switch.html">
+                <span>
+                  jj switch 
+                </span>
+              </a>
+            </li>
           </ul>        </div>
 
         <!-- Middle Content -->
@@ -199,31 +207,129 @@
           <zing-grid caption="JJ Slider Attributes" layout="row" viewport-stop data='[
           {
           "Attribute Name": "value / v-model",
-          "Description": "binding valuenumber",
-          "Type": "/",
-          "Accepted Values": "0",
-          "Default": "1"
+          "Description": "	binding value	number",
+          "Type": "	/",
+          "Accepted Values": "	0",
+          "Default": ""
           },
           {
           "Attribute Name": "min",
-          "Description": "minimum valuenumber",
-          "Type": "/",
+          "Description": "	minimum value	number",
+          "Type": "	/",
           "Accepted Values": " 0",
-          "Default": "1"
+          "Default": ""
           },
           {
           "Attribute Name": "max",
-          "Description": "maximum valuenumber",
-          "Type": "/",
-          "Accepted Values": "100",
-          "Default": "1"
+          "Description": "	maximum value	number",
+          "Type": "	/",
+          "Accepted Values": "	100",
+          "Default": ""
           },
           {
           "Attribute Name": "disabled",
-          "Description": "whether Slider is disabled",
-          "Type": "boolean",
-          "Accepted Values": "/",
-          "Default": "1"
+          "Description": "	whether Slider is disabled",
+          "Type": "	boolean",
+          "Accepted Values": "	/",
+          "Default": ""
+          },
+          {
+          "Attribute Name": "step",
+          "Description": "	step size	number",
+          "Type": "	/",
+          "Accepted Values": "	1",
+          "Default": ""
+          },
+          {
+          "Attribute Name": "show-input",
+          "Description": "	whether to display an input box",
+          "Type": " works when",
+          "Accepted Values": "",
+          "Default": ""
+          },
+          {
+          "Attribute Name": "show-input-controls",
+          "Description": "	whether to display control buttons when",
+          "Type": "",
+          "Accepted Values": "",
+          "Default": ""
+          },
+          {
+          "Attribute Name": "input-size",
+          "Description": "	size of the input box",
+          "Type": "	string",
+          "Accepted Values": "	large / medium /",
+          "Default": ""
+          },
+          {
+          "Attribute Name": "show-stops",
+          "Description": "	whether to display breakpoints",
+          "Type": "	boolean",
+          "Accepted Values": "",
+          "Default": ""
+          },
+          {
+          "Attribute Name": "show-tooltip",
+          "Description": "	whether to display tooltip value",
+          "Type": "	boolean",
+          "Accepted Values": "",
+          "Default": ""
+          },
+          {
+          "Attribute Name": "format-tooltip",
+          "Description": "	format to display tooltip value",
+          "Type": "",
+          "Accepted Values": "",
+          "Default": ""
+          },
+          {
+          "Attribute Name": "range",
+          "Description": "	whether to select a range",
+          "Type": "	boolean",
+          "Accepted Values": "	/",
+          "Default": ""
+          },
+          {
+          "Attribute Name": "vertical",
+          "Description": "	vertical mode	boolean",
+          "Type": "	/",
+          "Accepted Values": "	false",
+          "Default": ""
+          },
+          {
+          "Attribute Name": "height",
+          "Description": "	Slider height",
+          "Type": " required in vertical mode",
+          "Accepted Values": " string",
+          "Default": ""
+          },
+          {
+          "Attribute Name": "label",
+          "Description": "	label for screen reader",
+          "Type": "	string",
+          "Accepted Values": " /",
+          "Default": " /"
+          },
+          {
+          "Attribute Name": "debounce",
+          "Description": "	debounce delay when typing... in milliseconds...works",
+          "Type": "",
+          "Accepted Values": "",
+          "Default": ""
+          },
+          {
+          "Attribute Name": "tooltip-class",
+          "Description": "	custom class name for the tooltip",
+          "Type": " string",
+          "Accepted Values": "",
+          "Default": ""
+          },
+          {
+          "Attribute Name": "marks	marks",
+          "Description": " type of key must be number and must in closed",
+          "Type": "",
+          "Accepted Values": "",
+          "Default": ""
           },
           {
           "Attribute Name": "",
@@ -242,17 +348,17 @@
           <nav id="contentHeadings" class="sidebar-right">
             <ul class="nav nav-pills flex-column">
               <li class="sideR nav-item">
-                <a class="nav-link" href="#description">
+                <a class="nav-link" href="#description" data-target="#description">
                   描述
                 </a>
               </li>
               <li class="sideR nav-item">
-                <a class="nav-link" href="#usage">
+                <a class="nav-link" href="#usage" data-target="#usage">
                   使用
                 </a>
               </li>
               <li class="sideR nav-item">
-                <a class="nav-link" href="#attributes">
+                <a class="nav-link" href="#attributes" data-target="#attributes">
                   属性
                 </a>
               </li>
@@ -335,12 +441,26 @@
         }
       });
     
+    
       //allow right sidebar anchors with base html at the same time.
       $(document).ready(function () {
+        
         $().ready(function () {
           $("a[href^='\#']").each(function () {
             this.href = location.href.split("#")[0] + '#' + this.href.substr(this.href.indexOf('#') + 1);
           });
+    
+        var rightSideBar = $("#contentHeadings");
+        var sidebarItems = rightSideBar.find("a");
+        console.log(typeof(sidebarItems[0].href));
+    
+    
+        
+    
+    
+    
+    
+    
         });
       });
     </script>
