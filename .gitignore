@@ -94,3 +94,5 @@ typings/
 /docs/components.json
 
 package-lock.json
+
+/templates/components.json

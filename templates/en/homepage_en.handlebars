@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+
+  <title>Jay Jay - Open Source Web Component Library</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="../resources/css/main.css" />
+  <link href="../resources/css/index.css" rel="stylesheet" />
+  <base href="{{#getUrlBase}}{{/getUrlBase}}">
+</head>
+
+<body id="homepage">
+
+  {{> navbar lang='en' PageName='Home'}}
+
+  <section class="page-section bg-light " id="intro">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase" id="head">
+            Jay Jay Web Components
+          </h2>
+          <h3 class="section-subheading text-muted">
+            A Web Component Library Written in Vanilla JavaSript
+          </h3>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="intro-heading">Performance</h4>
+          <p class="text-muted">
+            Vanilla JavaScript Offers the Best Performance Avaliabe. Just Like
+            Vanilla Ice Cream Always Taste the Best.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="intro-heading">Compatibility</h4>
+          <p class="text-muted">
+            Compatible with React, Vue and More Framworks of Your Choice.
+            Simply use CDN or NPM, and Components Will Be Ready.
+          </p>
+        </div>
+        <div class="col-md-4">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="intro-heading">Reliability</h4>
+          <p class="text-muted">
+            Made By a Robust Code Factory Formed by Web Component Experts Who
+            Are Passionate About Web Development Just Like You.
+          </p>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-4">
+          <img id="framework" src="resources/images/JS_logo.png" />
+        </div>
+        <div class="col-md-4">
+          <img id="framework" src="resources/images/react_logo.png" />
+        </div>
+        <div class="col-md-4">
+          <img id="framework" src="resources/images/vue_logo.png" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="page-section" id="components">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">Components</h2>
+          <h3 class="section-subheading text-muted">
+            Some Components in Jay Jay Components.
+          </h3>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 Components-item">
+          <a class="Components-link" data-toggle="modal" href="#ComponentsModal1">
+            <div class="Components-hover">
+              <div class="Components-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img id="num-demo" src="resources/gifs/num_1.gif" alt="" />
+            <img id="num-demo" src="resources/gifs/num_2.gif" alt="" />
+          </a>
+        </div>
+        <div class="col-md-4 Components-item">
+          <a class="Components-link" data-toggle="modal" href="#ComponentsModal1">
+            <div class="Components-hover">
+              <div class="Components-hover-content">
+                <i class="fas fa-plus fa-3x"></i>
+              </div>
+            </div>
+            <img id="slider-demo" src="resources/gifs/slider_1.gif" alt="" />
+            <img id="slider-demo" src="resources/gifs/slider_2.gif" alt="" />
+          </a>
+        </div>
+      </div>
+  </section>
+
+  <section class="page-section bg-light" id="how">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 text-center">
+          <h2 class="section-heading text-uppercase">How to Install</h2>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-12">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="intro-heading">Using NPM</h4>
+          <p class="text-muted">
+            You could install Jay Jay Components Library with NPM.
+          </p>
+        </div>
+        <div class="col-md-12">
+          <span class="fa-stack fa-4x">
+            <i class="fas fa-circle fa-stack-2x text-primary"></i>
+            <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+          </span>
+          <h4 class="intro-heading">Using CDN</h4>
+          <p class="text-muted">
+            Import any component in Jay Jay Components Library into your library with the CDNs.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {{> footer lang='en'}}
+  {{> scripts }}
+
+  <!-- Graphs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+</body>
+
+</html>

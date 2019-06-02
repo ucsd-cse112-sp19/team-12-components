@@ -22,7 +22,6 @@
  * @attribute label, label text,	string,	/,	/
  * @attribute placeholder,	placeholder in input,	string,	/,	/
  *
- *
  */
 
 const jjInputNum =
@@ -162,12 +161,12 @@ const jjInputNum =
       class JJInputNum extends HTMLElement {
         set value(value) {
           if (this.inputDiv.classList.contains('disabled'))
-            return; 
-            if (value === '') {
-              this._value = this.trans('');
-              this.valueElement.value = '';
-              return;
-            }
+            return;
+          if (value === '') {
+            this._value = this.trans('');
+            this.valueElement.value = '';
+            return;
+          }
 
           if (this.trans(value) >= this.valueElement.max) {
             value = this.valueElement.max;
