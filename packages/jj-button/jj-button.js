@@ -75,7 +75,6 @@ const jjButton = () => {
     .btn.medium {
       padding:10px 20px;
       font-size:14px;
-      border-radius:4px
     }
     .btn.medium.round {
       padding:10px 20px
@@ -86,7 +85,6 @@ const jjButton = () => {
     .btn.small {
       padding:9px 15px;
       font-size:12px;
-      border-radius:3px
     }
     .btn.small.round {
       padding:9px 15px
@@ -97,13 +95,28 @@ const jjButton = () => {
     .btn.mini {
       padding:7px 15px;
       font-size:12px;
-      border-radius:3px
     }
     .btn.mini.round {
       padding:7px 15px
     }
     .btn.mini.circle {
       padding:7px
+    }
+
+    .btn.loading {
+      position:relative;
+      pointer-events:none
+    }
+    .btn.loading:before {
+      pointer-events:none;
+      content:"";
+      position:absolute;
+      left:-1px;
+      top:-1px;
+      right:-1px;
+      bottom:-1px;
+      border-radius:inherit;
+      background-color:hsla(0,0%,100%,.35)
     }
 
     .primary {
@@ -302,21 +315,67 @@ const jjButton = () => {
           this.button.classList.add('circle');
         }
       }
+
+      if (this.hasAttribute('size')) {
+        this.size = this.getAttribute('size');
+        this.button.classList.add(this.size);
+      }
+
+      if (this.hasAttribute('type')) {
+        this.type = this.getAttribute('type');
+        this.button.classList.add(this.type);
+      }
+
+      if (this.hasAttribute('disabled')) {
+        if (this.getAttribute('disabled') == 'true') {
+          this.disabled = true;
+          this.button.classList.add('disabled')
+        } else {
+          this.disabled = false;
+        }
+      }
+
+
     }
 
     attributeChangedCallback(attrName, oldValue, newValue) {
-
+      switch (attrName) {
+        case 'size':
+          this.size = newValue;
+          break;
+        case 'type':
+          this.type = newValue;
+          break;
+        case 'disabled':
+          this.disabled = newValue;
+          break;
+        case 'circle':
+          this.circle = newValue;
+          break;
+        case 'plain':
+          this.plain = newValue;
+          break;
+        case 'round':
+          this.round = newValue;
+          break;
+      }
     }
 
     //Getters
     get round() {return this.getAttribute('round') == 'true';}
     get plain() {return this.getAttribute('plain') == 'true';}
     get circle() {return this.getAttribute('circle') == 'true';}
+    get size() {return this.getAttribute('size');}
+    get disabled() {return this.getAttribute('disabled');}
+    get type() {return this.getAttribute('type');}
 
     //Setters
     set round(newValue) {this.setAttribute('round', newValue);}
     set plain(newValue) {this.setAttribute('plain', newValue);}
     set circle(newValue) {this.setAttribute('circle', newValue);}
+    set size(newValue) {this.setAttribute('size', newValue);}
+    set disabled(newValue) {this.setAttribute('disabled', newValue);}
+    set type(newValue) {this.setAttribute('type', newValue);}
   }
   customElements.define('jj-button', JJButton);
 }
