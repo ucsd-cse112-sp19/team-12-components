@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-input-number/jj-input-number.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  </head>
+  <body>
+    <h1>
+      JJ Input Number
+    </h1>
+    <p>
+      Customizable number input field with increse and decrease buttons.
+    </p>
+    <h2>Basic usage</h2>
+    <div class="demo-section">
+      <div class="demo-entry">
+        <p>Change range</p>
+        <jj-input-number min="0" max="8"></jj-input-number>
+        <pre
+          class="prettyprint"
+        ><code class="language-html">&lt;jj-input-number min="0" max="8">&lt;/jj-input-number></code></pre>
+      </div>
+      <div class="demo-entry">
+        <p>Customized initial value</p>
+        <jj-input-number min="0" max="8" value="4"></jj-input-number>
+        <pre
+          class="prettyprint"
+        ><code class="language-html">&lt;jj-input-number min="0" max="8" value="4">&lt;/jj-input-number></code></pre>
+      </div>
+      <div class="demo-entry">
+        <p>Change step</p>
+        <jj-input-number min="0" max="8" step="2"></jj-input-number>
+        <pre
+          class="prettyprint"
+        ><code class="language-html">&lt;jj-input-number min="0" max="8" step="2">&lt;/jj-input-number></code></pre>
+      </div>
+      <div class="demo-entry">
+          <p>Change presition</p>
+          <jj-input-number min="0" max="8" value="1" precision="2" step="0.5"></jj-input-number>
+          <pre
+            class="prettyprint"
+          ><code class="language-html">&lt;min="0" max="8" value="1" precision="2" step="0.5">&lt;/jj-input-number></code></pre>
+        </div>
+    </div>
+  </body>
+</html>
