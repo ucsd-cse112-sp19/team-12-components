@@ -124,7 +124,8 @@ const jjSlider =
                                                  this.onButtonHoverEnd);
           this.sliderBtnWrapper.addEventListener('mousedown',
                                                  this.onButtonDown);
-          this.sliderBtnWrapper.addEventListener('touchstart', this.onButtonDown);
+          this.sliderBtnWrapper.addEventListener('touchstart',
+                                                 this.onButtonDown);
 
           // Get attribute values and set default values if not provided
           if (this.hasAttribute('value')) {
