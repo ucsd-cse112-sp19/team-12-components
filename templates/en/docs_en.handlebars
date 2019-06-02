@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description"
+    content="A web component with a Customizable number input field with increse and decrease buttons.">
+  <meta name="author" content="Jay Jay Web Components">
+  <meta name="theme-color" content="#7da3ef">
+  <title>Jay Jay Docs | Web Component Documentation</title>
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../resources/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
+  <base href="{{#getUrlBase}}{{/getUrlBase}}">
+</head>
+
+<body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
+  <div class="container">
+    <!-- Navbar Partial-->
+    {{> navbar lang='en' PageName='Docs'}}
+
+    <div class="container page">
+      <div class="row">
+        <!-- Left sidebar: -->
+        <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
+          {{> left_sidebar lang='en' PageName='Overview' }}
+        </div>
+
+        <!-- Middle Content -->
+        <div class="col-md-8 col-sm-12 content">
+          <h1 id="welcome">Welcome to JJ Components</h1>
+          <p>
+            This is the version 1.0.0 of Jay Jay Components web components
+            library. New components included in this release includes:
+          </p>
+
+          <p>JJ Input Number</p>
+          <p>
+            <jj-input-number min="0" max="8" value="1" precision="2" step="0.5"></jj-input-number>
+          </p>
+          <p>
+            JJ Slider<jj-slider style="padding: 100px" min="0" max="8" value="4"></jj-slider>
+          </p>
+
+          <p>
+            More components will be coming out soon. Stay tuned for updates.
+            You can find our GitHub repo
+            <a href="https://github.com/ucsd-cse112/team-12-components">here</a>
+          </p>
+
+          <h2 id="npm">NPM</h2>
+          <p>
+            Run the following NPM command in terminal at your project's root
+            directory to install JJ Components Library. All components would
+            be included.
+          </p>
+          <pre class="prettyprint"><code class="language-html">npm i jj-components</code></pre>
+          <h2 id="cdn">CDN</h2>
+          <p>
+            Copy the following code into your html header section to import
+            the components you want
+          </p>
+          <h5>JJ Input Number</h5>
+          <pre
+            class="prettyprint"><code class="language-html">&lt;script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-input-number/jj-input-number.js">&lt;/script></code></pre>
+          <h5>JJ Slider</h5>
+          <pre
+            class="prettyprint"><code class="language-html">&lt;script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-slider/jj-slider.js">&lt;/script></code></pre>
+        </div>
+
+        <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
+          <!-- Right Sidebar -->
+          <nav id="contentHeadings" class="sidebar-right">
+            <ul class="nav nav-pills flex-column">
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#welcome">
+                  Intro
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#npm">
+                  NPM
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#cdn">
+                  CDN
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Right Sidebar -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    {{> footer lang='en'}}
+
+    <!-- JS files at bottom of page -->
+    {{> scripts}}
+
+  </div>
+</body>
+
+</html>
