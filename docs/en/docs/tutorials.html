@@ -261,7 +261,7 @@
         <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
           <!-- Right Sidebar -->
           <nav id="contentHeadings" class="sidebar-right">
-            <ul class="nav nav-pills flex-column" id="rS">
+            <ul class="nav nav-pills flex-column">
               <li class="sideR nav-item">
                 <a class="nav-link" href="#h1" data-target="#h1">
                   Importing
@@ -364,19 +364,8 @@
           $("a[href^='\#']").each(function () {
             this.href = location.href.split("#")[0] + '#' + this.href.substr(this.href.indexOf('#') + 1);
           });
-    
-        var rightSideBar = $("#contentHeadings");
-        var sidebarItems = rightSideBar.find("a");
-        console.log(typeof(sidebarItems[0].href));
-    
-    
-        
-    
-    
-    
-    
-    
         });
+        
       });
     </script>
   </div>
