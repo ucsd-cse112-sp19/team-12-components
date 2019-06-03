@@ -360,7 +360,6 @@ const jjButton = () => {
       } else {
         this.type = "default";
       }
-
       // set the disabled attribute
       if (this.hasAttribute('disabled')) {
         if (this.getAttribute('disabled') == 'true') {
