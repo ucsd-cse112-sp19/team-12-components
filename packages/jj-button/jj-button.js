@@ -1,3 +1,19 @@
+/**
+ * @attribute_name jj button
+ * @attribute_desc A simple button with various attributes and styling.
+ * @attribute size, button size, string, medium/small/mini, /
+ * @attribute type, button type, string, primary/success/warning/danger/info/ text, /
+ * @attribute plain, determine whether it's a plain button, boolean, /, false
+ * @attribute round, determine whether it's a round button, boolean, /, false
+ * @attribute circle, determine whether it's a circle button, boolean, /, false
+ * @attribute loading, determine whether it's loading, boolean, /, false
+ * @attribute disabled, disable the button, boolean, /, false
+ * @attribute icon, icon class name, string, /, /
+ * @attribute autofocus, same as native button's autofocus, boolean, /, false
+ * @attribute native-type, same as native button's type, string, button/submit/reset, button
+ * 
+ */
+
 //define the css for this component
 const jjButton = () => {
   const template = document.createElement('template');
