@@ -1,37 +1,39 @@
-<button class="navbar-toggler sidebarButton" type="button" data-toggle="collapse" data-target="#left-nav-sidebar" aria-controls="left-nav-sidebar" aria-expanded="false" aria-label="Toggle navigation">
-    {{PageName}} <span class="carrot-down">&#9660;</span> 
-    </button>
+<button class="navbar-toggler sidebarButton" type="button" data-toggle="collapse" data-target="#left-nav-sidebar"
+  aria-controls="left-nav-sidebar" aria-expanded="false" aria-label="Toggle navigation">
+  {{PageName}} <span class="carrot-down">&#9660;</span>
+</button>
 <ul class="sidebar-left collapse navbar-collapse" id="left-nav-sidebar">
   <li class="sideL nav-item">
     <a class="nav-link {{#ifEquals 'Overview' PageName}}active{{/ifEquals}}" href="{{lang}}/docs/overview.html">
       <span>
-            {{#ifEquals 'en' lang}}Overview{{/ifEquals}}
-            {{#ifEquals 'es' lang}}Visión general{{/ifEquals}}
-            {{#ifEquals 'fr' lang}}Vue d'ensemble{{/ifEquals}}
-            {{#ifEquals 'zh' lang}}概观{{/ifEquals}}
+        {{#ifEquals 'en' lang}}Overview{{/ifEquals}}
+        {{#ifEquals 'es' lang}}Visión general{{/ifEquals}}
+        {{#ifEquals 'fr' lang}}Vue d'ensemble{{/ifEquals}}
+        {{#ifEquals 'zh' lang}}概观{{/ifEquals}}
       </span>
     </a>
   </li>
   <li class="sideL nav-item">
     <a class="nav-link {{#ifEquals 'Tutorials' PageName}}active{{/ifEquals}}" href="{{lang}}/docs/tutorials.html">
       <span>
-            {{#ifEquals 'en' lang}}Tutorials{{/ifEquals}}
-            {{#ifEquals 'es' lang}}Tutoriales{{/ifEquals}}
-            {{#ifEquals 'fr' lang}}Tutoriels{{/ifEquals}}
-            {{#ifEquals 'zh' lang}}教程{{/ifEquals}}
+        {{#ifEquals 'en' lang}}Tutorials{{/ifEquals}}
+        {{#ifEquals 'es' lang}}Tutoriales{{/ifEquals}}
+        {{#ifEquals 'fr' lang}}Tutoriels{{/ifEquals}}
+        {{#ifEquals 'zh' lang}}教程{{/ifEquals}}
       </span>
     </a>
   </li>
-   <li class="sideL nav-item dropdown">
-    <a class="nav-link {{#ifEquals 'Releases' PageName}}active{{/ifEquals}}" data-toggle="collapse" href="#collapseVersions" data-target="#collapseVersions" aria-expanded="false"
-      aria-controls="collapseVersions">
-            {{#ifEquals 'en' lang}}Releases{{/ifEquals}}
-            {{#ifEquals 'es' lang}}Lanzamientos{{/ifEquals}}
-            {{#ifEquals 'fr' lang}}Communiqués{{/ifEquals}}
-            {{#ifEquals 'zh' lang}}发布{{/ifEquals}}
+  <li class="sideL nav-item dropdown">
+    <a class="nav-link {{#ifEquals 'Releases' PageName}}active{{/ifEquals}}" data-toggle="collapse"
+      href="#collapseVersions" data-target="#collapseVersions" aria-expanded="false" aria-controls="collapseVersions">
+      {{#ifEquals 'en' lang}}Releases{{/ifEquals}}
+      {{#ifEquals 'es' lang}}Lanzamientos{{/ifEquals}}
+      {{#ifEquals 'fr' lang}}Communiqués{{/ifEquals}}
+      {{#ifEquals 'zh' lang}}发布{{/ifEquals}}
     </a>
     <div class="collapse" id="collapseVersions">
-      <a class="nav-link sidebar-subHeading {{#ifEquals '0.1.0' Version}}active{{/ifEquals}}" href="{{lang}}/docs/releases.html#1.0.0">
+      <a class="nav-link sidebar-subHeading {{#ifEquals '0.1.0' Version}}active{{/ifEquals}}"
+        href="{{lang}}/docs/releases.html#1.0.0">
         <span>
           1.0.0
         </span>
@@ -41,10 +43,10 @@
   <li class="sideL nav-item">
     <a class="nav-link {{#ifEquals 'Components' PageName}}active{{/ifEquals}}" href="#">
       <span>
-            {{#ifEquals 'en' lang}}Components{{/ifEquals}}
-            {{#ifEquals 'es' lang}}Componentes{{/ifEquals}}
-            {{#ifEquals 'fr' lang}}Composants{{/ifEquals}}
-            {{#ifEquals 'zh' lang}}组件{{/ifEquals}}
+        {{#ifEquals 'en' lang}}Components{{/ifEquals}}
+        {{#ifEquals 'es' lang}}Componentes{{/ifEquals}}
+        {{#ifEquals 'fr' lang}}Composants{{/ifEquals}}
+        {{#ifEquals 'zh' lang}}组件{{/ifEquals}}
       </span>
     </a>
   </li>
@@ -53,7 +55,7 @@
     <a class="nav-link sidebar-subHeading {{#ifEquals this.[0] ../PageName}}active{{/ifEquals}}"
       href="{{../lang}}/docs/components/{{this.[1]}}.html">
       <span>
-        {{this.[0]}} 
+        {{this.[0]}}
       </span>
     </a>
   </li>

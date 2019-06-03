@@ -204,7 +204,12 @@ li.sideR.nav-item {
     color: #717a81;
 }
 
-
+/* account for fixed header anchor offset */
+.anchor {
+    padding-top: 75px !important;
+    margin-top: -75px !important;
+    z-index: -1000000;
+}
 
 
 
@@ -213,8 +218,12 @@ li.sideR.nav-item {
     font-weight: 100;
 }
 
-.content > h1, .content > h2, .content > h3, .content > h4, .content > h5 {
-    padding-top: 25px;
+h2 {
+    font-size: 1.65rem;
+}
+
+.content > h1, .content > h2 {
+    padding-top: 47px;
 }
 
 .content p {
@@ -338,7 +347,7 @@ zing-grid {
         color: #7da3ef;
         border-color: #7da3ef;
         padding: 0px;
-        margin-right: 35px;
+        margin-right: 60px;
         margin-bottom: 5px;
         width: 45px;
         background-color: #8daef0;
@@ -354,6 +363,7 @@ zing-grid {
     }
     .navbar-collapse {
         background-color: white;
+        border-bottom: 1px solid #c3c3c3;
     }
     .navbar-dark a.topNav.nav-link.active {
         color: #3478f5;
@@ -386,6 +396,9 @@ zing-grid {
     }
     .navbar{
         box-shadow: none;
+    }
+    button.navbar-toggler:focus {
+        outline: none;
     }
 
  } 
