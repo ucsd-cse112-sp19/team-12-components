@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/2.2.10/webcomponents-bundle.js"></script>
+    <script src='../jj-progress.js'></script>
+    <title>Slider</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <style>
+        jj-progress {
+            --bar-outer-color: var(--primary); 
+            --text-font: var(--font-family-sans-serif);
+            --progress-width: 70%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container" style="margin-top: 100px; text-align: center;">
+        <jj-progress id="jj" min=0 max=100 percentage=90 color="#f56c6c" stroke-width=5 type=line></jj-progress>
+    </div>
+</body>
+
+</html>

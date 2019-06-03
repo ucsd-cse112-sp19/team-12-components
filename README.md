@@ -22,7 +22,6 @@ browsers. To do so run
 
 `npm run build`
 
-
 ## Contribute
 We use clang-format for linting. If you are going to contribute please install clang-format. Below are some steps you can follow to install.
 
@@ -32,13 +31,19 @@ MacOS (install Homebrew):
 
 Windows please follow this [guide](https://github.com/google/closure-library/wiki/Formatting-.js-with-clang-format)
 
-## Unit Testing <a name="unit_test"></a>
-**To run all tests:**  
-npm run test
+## Generate Minify Files
+Manually generate minify scripts by going to the root repo directory and
+running
 
-## Doc Generation <a name="doc"></a>
-**To generate docs:**  
-npm run doc
+`$./script/minify.sh`
+
+This will generate minified `packages/*/*.js` files into `src/*.min.js` 
+
+## Unit Test <a name="unit_test"></a>
+**To run all tests:**  
+This will run all unit and functional tests locally. You will need to have
+_Chrome_ installed in order to run the functional tests.
+`$npm run test`
 
 ## Acknowledgement <a name="ack"></a>
-We would like to thank [SauceLabs](https://saucelabs.com) for their support of open source projects like ours.
+Thanks to [SauceLabs](https://saucelabs.com) for supporting open source projects like ours.
