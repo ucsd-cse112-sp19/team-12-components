@@ -12,7 +12,7 @@ function wait(ms){
 //----------Unit Tests ------------------
 describe('jj-button Component Unit Tests', () => {
     //place component into DOM, get the element by id
-    let compHTML = `<jj-button id="btn" plain="true" round="true" type"primary" native-type="submit" autofocus="true"></jj-slider>`;
+    let compHTML = `<jj-button id="btn" plain="true" round="true" type"primary" native-type="submit" autofocus="true" size="medium"></jj-slider>`;
     document.body.insertAdjacentHTML('afterbegin',compHTML);
     let compEl = document.getElementById('btn');
 
@@ -23,12 +23,12 @@ describe('jj-button Component Unit Tests', () => {
 
   it('tests assigned round', async () => {
     let compRound = compEl.round;
-    assert.equal(compRound, "true");
+    assert.equal(compRound, true);
   });
 
   it('tests assigned plain', async () => {
     let compPlain = compEl.plain;
-    assert.equal(compPlain, "true");
+    assert.equal(compPlain, true);
   });
 
   it('tests assigned disabled', async () => {
@@ -38,7 +38,7 @@ describe('jj-button Component Unit Tests', () => {
 
   it('tests assigned circle', async () => {
     let compCircle = compEl.circle;
-    assert.equal(compCircle, "false");
+    assert.equal(compCircle, false);
   });
 
   it('tests assigned native-type', async () => {
@@ -49,6 +49,11 @@ describe('jj-button Component Unit Tests', () => {
   it('tests assigned autofocus', async () => {
     let compAutofocus = compEl.autofocus;
     assert.equal(compAutofocus, "true");
+  });
+
+  it('tests assigned size', async () => {
+    let compSize = compEl.size;
+    assert.equal(compSize, "medium");
   });
   //etc..
 });

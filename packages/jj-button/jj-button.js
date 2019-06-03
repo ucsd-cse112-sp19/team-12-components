@@ -314,22 +314,37 @@ const jjButton = () => {
       //set the round attribute
       if (this.hasAttribute('round')) {
         if (this.getAttribute('round') == 'true') {
+          this.round = "true";
           this.button.classList.add('round');
+        } else {
+          this.round = "false";
         }
+      } else {
+        this.round = "false";
       }
 
       //set the plain attribute
       if (this.hasAttribute('plain')) {
         if (this.getAttribute('plain') == 'true') {
+          this.plain = "true";
           this.button.classList.add('plain');
+        } else {
+          this.plain = "false";
         }
+      } else {
+        this.plain = "false";
       }
 
       //set the circle attribute
       if (this.hasAttribute('circle')) {
         if (this.getAttribute('circle') == 'true') {
           this.button.classList.add('circle');
+          this.circle = "true";
+        } else {
+          this.cicle = "false";
         }
+      } else {
+        this.circle = "false";
       }
 
       // set the size attribute
@@ -342,6 +357,8 @@ const jjButton = () => {
       if (this.hasAttribute('type')) {
         this.type = this.getAttribute('type');
         this.button.classList.add(this.type);
+      } else {
+        this.type = "default";
       }
 
       // set the disabled attribute
@@ -352,18 +369,24 @@ const jjButton = () => {
         } else {
           this.disabled = false;
         }
+      } else {
+        this.disabled = false;
       }
 
       // set the native type attribute
       if (this.hasAttribute('native-type')) {
         this.native_type = this.getAttribute('native-type');
         this.button.setAttribute('type', this.getAttribute('native-type'));
+      } else {
+        this.native_type="button";
       }
 
       // set the autofocus attribute
       if (this.hasAttribute('autofocus')) {
         this.autofocus = this.getAttribute('autofocus');
         this.button.setAttribute('autofocus', this.getAttribute('autofocus'));
+      } else {
+        this.autofocus="false";
       }
     }
 
