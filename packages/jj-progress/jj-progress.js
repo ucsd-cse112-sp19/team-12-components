@@ -5,8 +5,10 @@
  * @attribute percentage, percentage required, 0-100, 0
  * @attribute type, the type of progress bar, line/circle/dashboard, line
  * @attribute stroke-width, the width of progress bar, /, 6
- * @attribute text-inside, whether to place the percentage inside progress bar, /, false
- * @attribute status, the current status of progress bar, success/exception/warning, /
+ * @attribute text-inside, whether to place the percentage inside progress bar,
+ * /, false
+ * @attribute status, the current status of progress bar,
+ * success/exception/warning, /
  * @attribute color, background color of progress bar, /, ''
  * @attribute width, the canvas width of circle progress bar, /, 126
  * @attribute show-text, whether to show percentage, /, true
@@ -60,36 +62,37 @@ const jjProgress =
           this.progressContainer = this.root.querySelector('.el-progress');
           this.progressRunway = this.root.querySelector('.el-progress__runway');
           this.progressBar = this.root.querySelector('.el-progress__bar');
-        //   this.progressBtnWrapper =
-        //       this.root.querySelector('.el-progress__button-wrapper');
-        //   this.progressBtn =
-        //       this.root.querySelector('.el-tooltip.el-progress__button');
-          //this.tooltip = this.root.querySelector('.el-tooltip__popper');
-          //this.tooltipSpan =
-              //this.root.querySelector('.el-tooltip__popper span');
+          //   this.progressBtnWrapper =
+          //       this.root.querySelector('.el-progress__button-wrapper');
+          //   this.progressBtn =
+          //       this.root.querySelector('.el-tooltip.el-progress__button');
+          // this.tooltip = this.root.querySelector('.el-tooltip__popper');
+          // this.tooltipSpan =
+          // this.root.querySelector('.el-tooltip__popper span');
 
           // Bind "this" to functions to reserve context
-        //   this.getCurrentPosition = this.getCurrentPosition.bind(this);
+          //   this.getCurrentPosition = this.getCurrentPosition.bind(this);
           this.setInitPosition = this.setInitPosition.bind(this);
           this.setPosition = this.setPosition.bind(this);
-          //this.onprogressClick = this.onprogressClick.bind(this);
-          //this.onButtonHover = this.onButtonHover.bind(this);
-          //this.onButtonHoverEnd = this.onButtonHoverEnd.bind(this);
-          //this.onButtonDown = this.onButtonDown.bind(this);
-          //this.onDragStart = this.onDragStart.bind(this);
-          //this.onDragging = this.onDragging.bind(this);
-          //this.onDragEnd = this.onDragEnd.bind(this);
+          // this.onprogressClick = this.onprogressClick.bind(this);
+          // this.onButtonHover = this.onButtonHover.bind(this);
+          // this.onButtonHoverEnd = this.onButtonHoverEnd.bind(this);
+          // this.onButtonDown = this.onButtonDown.bind(this);
+          // this.onDragStart = this.onDragStart.bind(this);
+          // this.onDragging = this.onDragging.bind(this);
+          // this.onDragEnd = this.onDragEnd.bind(this);
         }
 
         connectedCallback() {
           // Bind event listener to progress elements
-          //this.progressRunway.addEventListener('mousedown', this.onprogressClick);
-        //   this.progressBtnWrapper.addEventListener('mouseover',
-        //                                          this.onButtonHover);
-        //   this.progressBtnWrapper.addEventListener('mouseout',
-        //                                          this.onButtonHoverEnd);
-        //   this.progressBtnWrapper.addEventListener('mousedown',
-        //                                          this.onButtonDown);
+          // this.progressRunway.addEventListener('mousedown',
+          // this.onprogressClick);
+          //   this.progressBtnWrapper.addEventListener('mouseover',
+          //                                          this.onButtonHover);
+          //   this.progressBtnWrapper.addEventListener('mouseout',
+          //                                          this.onButtonHoverEnd);
+          //   this.progressBtnWrapper.addEventListener('mousedown',
+          //                                          this.onButtonDown);
           // Set default for min and max
           this.min = 0;
           this.max = 100;
@@ -114,10 +117,11 @@ const jjProgress =
           // Initialize positions
           this.setInitPosition();
           // Set tooltip display value
-          //this.tooltipSpan.innerHTML = Math.round(this._value);
+          // this.tooltipSpan.innerHTML = Math.round(this._value);
           // Hide tooltip at initialization
-          //this.tooltip.style =
-            //   "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;";
+          // this.tooltip.style =
+          //   "transform-origin: center bottom; z-index: 2282; position:
+          //   absolute; display: none;";
         }
 
         // Get the percentage value of button's position on progress runway.
@@ -125,16 +129,16 @@ const jjProgress =
         //   return this.percentage + "%";
         // }
 
-        // Initialization: Set width of progress bar and offset of progress button
-        // based on position of current value
+        // Initialization: Set width of progress bar and offset of progress
+        // button based on position of current value
         setInitPosition() {
-            const percentage = 35;
-        //   const percent =
-        //       (this._value - this.min) / (this.max - this.min) * 100;
-            this.progressBar.style.width = percentage;
-            console.log("in setInitPosition", percentage);
-            this.setPosition(percentage);
-        //   this.progressBtnWrapper.style.left = percent + "%";
+          const percentage = 35;
+          //   const percent =
+          //       (this._value - this.min) / (this.max - this.min) * 100;
+          this.progressBar.style.width = percentage;
+          console.log("in setInitPosition", percentage);
+          this.setPosition(percentage);
+          //   this.progressBtnWrapper.style.left = percent + "%";
         }
 
         // Calculate target value based on percentage and set width of progress
@@ -160,15 +164,16 @@ const jjProgress =
           }
           console.log("setPosition", newPercent);
           this.progressBar.style.width = newPercent + "%";
-        //   this.progressBtnWrapper.style.left = newPercent + "%";
+          //   this.progressBtnWrapper.style.left = newPercent + "%";
 
           // Set tooltip display value
-        //   this.tooltipSpan.innerHTML = Math.round(this._value);
-        //   // Set tooltip position
-        //   let rect = this.progressBtnWrapper.getBoundingClientRect();
-        //   this.tooltip.style =
-        //       "transform-origin: center bottom; z-index: 2282; position: absolute; top: " +
-        //       (rect.top - rect.height) + "px; left: " + rect.left + "px;";
+          //   this.tooltipSpan.innerHTML = Math.round(this._value);
+          //   // Set tooltip position
+          //   let rect = this.progressBtnWrapper.getBoundingClientRect();
+          //   this.tooltip.style =
+          //       "transform-origin: center bottom; z-index: 2282; position:
+          //       absolute; top: " + (rect.top - rect.height) + "px; left: " +
+          //       rect.left + "px;";
         }
 
         // This event handler will be called when the progress runway receives a
@@ -188,15 +193,17 @@ const jjProgress =
         // onButtonHover(event) {
         //   let rect = this.progressBtnWrapper.getBoundingClientRect();
         //   this.tooltip.style =
-        //       "transform-origin: center bottom; z-index: 2282; position: absolute; top: " +
-        //       (rect.top - rect.height) + "px; left: " + rect.left + "px;";
+        //       "transform-origin: center bottom; z-index: 2282; position:
+        //       absolute; top: " + (rect.top - rect.height) + "px; left: " +
+        //       rect.left + "px;";
         //}
 
         // This event handler will be called when the progress button receives a
         // 'mouseout' signal. Hide tooltip on mouseout.
         // onButtonHoverEnd(event) {
         //   this.tooltip.style =
-        //       "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;";
+        //       "transform-origin: center bottom; z-index: 2282; position:
+        //       absolute; display: none;";
         // }
 
         // This event handler will be called when the progress button receives a
@@ -253,7 +260,8 @@ const jjProgress =
         //       if (!this.isClick) {
         //         this.setPosition(this.newPosition);
         //         this.tooltip.style =
-        //             "transform-origin: center bottom; z-index: 2282; position: absolute; display: none;";
+        //             "transform-origin: center bottom; z-index: 2282;
+        //             position: absolute; display: none;";
         //       }
         //     }, 0);
         //     window.removeEventListener('mousemove', this.onDragging);
@@ -265,7 +273,9 @@ const jjProgress =
         // }
 
         // Observe only the array of attribute names
-        static get observedAttributes() { return [ 'percentage', 'type', 'stroke-width' ]; }
+        static get observedAttributes() {
+          return [ 'percentage', 'type', 'stroke-width' ];
+        }
 
         // Listen for changed attributes
         attributeChangedCallback(name, oldValue, newValue) {
@@ -290,7 +300,9 @@ const jjProgress =
         // Setters
         set percentage(newValue) { this.setAttribute('percentage', newValue); }
         set type(newValue) { this.setAttribute('type', newValue); }
-        set strokeWidth(newValue) { this.setAttribute('stroke-width', newValue); }
+        set strokeWidth(newValue) {
+          this.setAttribute('stroke-width', newValue);
+        }
       }
 
       customElements.define('jj-progress', JJProgress);
