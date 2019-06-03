@@ -25,12 +25,15 @@
     }
   });
 
+
   //allow right sidebar anchors with base html at the same time.
   $(document).ready(function () {
+    
     $().ready(function () {
       $("a[href^='\#']").each(function () {
         this.href = location.href.split("#")[0] + '#' + this.href.substr(this.href.indexOf('#') + 1);
       });
     });
+    
   });
 </script>

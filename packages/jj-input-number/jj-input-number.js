@@ -2,18 +2,14 @@
  * @component_name jj input number
  * @component_desc Input numerical values with a customizable range.
  * @attribute value / v-model	,binding value,	number,	/	,0
- * @attribute min,	the minimum allowed value,	number, /
- * ,-Infinity
- * @attribute max,	the maximum allowed value,	number,	—
- * ,Infinity
- * @attribute step,	incremental step, number,	/	,1
+ * @attribute min,the minimum allowed value,	number, /,-Infinity
+ * @attribute max,the maximum allowed value,	number,	/,Infinity
+ * @attribute step,incremental step, number,/	,1
  * @attribute step-strictly,whether input value can only be multiple of
  * step,number,/,false
- * @attribute precision,	precision of input value,	number,	/,
- * /
+ * @attribute precision,	precision of input value,	number,	/,/
  * @attribute size,	size of the component,	string,	large/small,	/
- * @attribute disabled,	whether the component is disabled,	boolean,
- * /,	false
+ * @attribute disabled,	whether the component is disabled,boolean,/,false
  * @attribute controls,	whether to enable the control buttons,	boolean,
  * /,	true
  * @attribute controls-position,	position of the control buttons	string,

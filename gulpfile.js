@@ -88,6 +88,16 @@ const gulp = require('gulp');
                     .pipe(rename("team.html"))
                     .pipe(gulp.dest('./docs/'  + languages[c] + '/'));
                 }
+
+                //render releases page
+                path = './templates/'  + languages[c]  + '/releases_' + languages[c] + '.handlebars';
+                if (fs.existsSync(path)) {
+                    gulp.src(path)
+                    //only passing in objects for each handlebar page render
+                    .pipe(handlebars(components[0]))
+                    .pipe(rename("releases.html"))
+                    .pipe(gulp.dest('./docs/'  + languages[c] + '/docs/'));
+                }
             }
             catch(err) {
                 console.error(err)

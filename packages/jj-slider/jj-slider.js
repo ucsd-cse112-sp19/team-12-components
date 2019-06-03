@@ -1,12 +1,11 @@
 /**
  * @component_name jj slider
  * @component_desc Drag the slider within a fixed range.
- * @attribute value / v-model,	binding value	number,	/,	0
- * @attribute min,	minimum value	number,	/, 0
- * @attribute max,	maximum value	number,	/,	100
- * @attribute disabled,	whether Slider is disabled,	boolean,	/,
- * false
- * @attribute step,	step size	number,	/,	1
+ * @attribute value / v-model,	binding value	number, number,	/,	0
+ * @attribute min,	minimum value, number,	/, 0
+ * @attribute max,	maximum value, number,	/,	100
+ * @attribute disabled,	whether Slider is disabled,	boolean,	/,false
+ * @attribute step,	step size,	number,	/,	1
  * @attribute show-input,	whether to display an input box, works when
  * range is false,	boolean,	/,	false
  * @attribute show-input-controls,	whether to display control buttons when
@@ -14,14 +13,14 @@
  * @attribute input-size,	size of the input box,	string,	large / medium /
  * small / mini,	small
  * @attribute show-stops,	whether to display breakpoints,	boolean,
- * /,	false
+ *  /,	false
  * @attribute show-tooltip,	whether to display tooltip value,	boolean,
  * /,	true
  * @attribute format-tooltip,	format to display tooltip value,
  * function(value),	/,	/
  * @attribute range,	whether to select a range,	boolean,	/,
  * false
- * @attribute vertical,	vertical mode	boolean,	/,	false
+ * @attribute vertical,	vertical mode,	boolean,	/,	false
  * @attribute height,	Slider height, required in vertical mode, string,
  * /,	/
  * @attribute label,	label for screen reader,	string, /, /

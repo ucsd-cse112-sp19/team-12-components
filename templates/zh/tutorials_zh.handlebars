@@ -10,11 +10,15 @@
   <meta name="theme-color" content="#7da3ef">
   <title>Jay Jay Docs | Web Component Documentation</title>
   <!-- Core CSS -->
+   <base href="{{#getUrlBase}}{{/getUrlBase}}">
+   <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
+  <link rel="icon" href="resources/images/JJ_favicon_16.png" type="png" sizes="16x16">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../resources/css/main.css">
+  <link rel="stylesheet" href="resources/css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
-  <base href="{{#getUrlBase}}{{/getUrlBase}}">
+ 
 </head>
 
 <body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
@@ -31,7 +35,8 @@
 
         <!-- Middle Content -->
         <div class="col-md-8 col-sm-12 content">
-          <h1 id='h1'>教程</h1>
+          <div class="anchor" id="jj-slider"></div>
+          <h1>教程</h1>
           <p>这里是使用JJ-Slider作为案例的教程</p>
 
           <h2>安装组件</h2>
@@ -45,8 +50,8 @@
           </p>
           <pre class="prettyprint"><code class="language-html">npm i jj-components</code></pre>
           <p>现在组件已经安装完成！</p>
-
-          <h2 id='h2'>Using your first component</h2>
+          <div class="anchor" id="first-component"></div>
+          <h2>Using your first component</h2>
           <p>
             来试试使用组件。
           </p>
@@ -61,8 +66,8 @@
           <p>
             你成功了！
           </p>
-
-          <h2 id='h3'>Change Attributes</h2>
+          <div class="anchor" id="attributes"></div>
+          <h2>Change Attributes</h2>
           <p>
             现在来试试更改组件的设置。
           </p>
@@ -101,17 +106,17 @@
             <nav id="contentHeadings" class="sidebar-right">
               <ul class="nav nav-pills flex-column">
                 <li class="sideR nav-item">
-                  <a class="nav-link" href="#h1">
+                  <a class="nav-link" href="#jj-slider" data-target="#jj-slider">
                     安装
                   </a>
                 </li>
                 <li class="sideR nav-item">
-                  <a class="nav-link" href="#h2">
+                  <a class="nav-link" href="#first-component" data-target="#first-component">
                     默认
                   </a>
                 </li>
                 <li class="sideR nav-item">
-                  <a class="nav-link" href="#h3">
+                  <a class="nav-link" href="#attributes" data-target="#attributes">
                     设置
                   </a>
                 </li>
