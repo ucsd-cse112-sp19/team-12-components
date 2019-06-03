@@ -308,6 +308,7 @@ zg-caption {
 
 zing-grid {
     --zg-control-bar-background: #cfddf9;
+    overflow-x: scroll;
   }
 
 @media (min-width: 1200px){
