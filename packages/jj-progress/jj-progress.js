@@ -55,67 +55,76 @@ const jjProgress =
     }
 
     </style>
-    <div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-orientation="horizontal" class="el-progress el-progress--line" aria-valuetext="0" aria-label="progress between 0 and 100">
+    <div role="progressbar" aria-valuemin="0" aria-valuemax="100" 
+        aria-orientation="horizontal" class="el-progress el-progress--line" 
+        aria-valuetext="0" aria-label="progress between 0 and 100">
+
       <div class="el-progress-bar">
         <div class="el-progress-bar__outer" style="height: 6px;">
           <div class="el-progress-bar__inner" style="width: 10%"></div>
         </div>
       </div>
-      <div class="el-progress__text" style="font-size: 14.4px">50%</div>
+      <div class="el-progress__text" style="font-size: 14.4px"></div>
     </div> 
   `;
 
       class JJProgress extends HTMLElement {
         constructor() {
           super();
+
+          // Define constants here
+          this.DEFAULT_PERCENTAGE = 50;
+          this.DEFAULT_MIN = 0;
+          this.DEFAULT_MAX = 100;
+          this.DEFAULT_STROKE_WIDTH = 6;
+
+          this._min = this.DEFAULT_MIN;
+          this._max = this.DEFAULT_MAX;
+
           this.root = this.attachShadow({mode : 'open'});
           this.root.appendChild(template.content.cloneNode(true));
 
           // Target elements with querySelector
           this.progressContainer = this.root.querySelector('.el-progress');
           this.progressBar = this.root.querySelector('.el-progress-bar');
-          this.progressBarOuter = this.root.querySelector('.el-progress-bar__outer');
-          this.progressBarInner = this.root.querySelector('.el-progress-bar__inner');
-
+          this.progressBarOuter =
+              this.root.querySelector('.el-progress-bar__outer');
+          this.progressBarInner =
+              this.root.querySelector('.el-progress-bar__inner');
+          this.progressBarText =
+              this.root.querySelector('.el-progress__text');
           // Bind "this" to functions to reserve context
           this.getCurrentPosition = this.getCurrentPosition.bind(this);
-          this.setInitPosition = this.setInitPosition.bind(this);
         }
 
+        /*
+         * Invoked each time the custom element is appended into a
+         * document-connected element.
+         */
         connectedCallback() {
-          // Get attribute values and set default values if not provided
+          console.debug("in connectedCallback");
+
           if (this.hasAttribute('percentage')) {
-            this.percentage = this.getAttribute('percentage');
+            this._percentage = this.percentage;
+            console.log("this._percentage", this._percentage);
           } else {
-            this.percentage = 50;
+            console.log("setting default percentage to", DEFAULT_PERCENTAGE);
+            this._percentage = DEFAULT_PERCENTAGE;
           }
-          if (this.hasAttribute('value')) {
-            this._value = this.getAttribute('value');
-          } else {
-            this._value = 0;
-          }
-          if (this.hasAttribute('min')) {
-            this.min = this.getAttribute('min');
-          } else {
-            this.min = 0;
-          }
-          if (this.hasAttribute('max')) {
-            this.max = this.getAttribute('max');
-          } else {
-            this.max = 100;
-          }
+
+
           if (this.hasAttribute('color')) {
-            this.progressBarInner.style.backgroundColor = this.getAttribute('color');
-            this.progressBarInner.style.borderColor = this.getAttribute('color');
+            this.progressBarInner.style.backgroundColor =
+                this.getAttribute('color');
+            this.progressBarInner.style.borderColor =
+                this.getAttribute('color');
           } else {
             this.color = "#409EFF";
           }
 
-          // NEEDS IMPLEMENTATION
-          if (this.hasAttribute('stroke-width')) {
-            this.strokeWidth = this.getAttribute('stroke-width');
-          } else {
-            this.strokeWidth = 6;
+          // TODO: NEEDS IMPLEMENTATION
+          if (!this.hasAttribute('stroke-width')) {
+            this.strokeWidth = DEFAULT_STROKE_WIDTH;
           }
 
           if (this.hasAttribute('type')) {
@@ -125,56 +134,74 @@ const jjProgress =
           }
 
           // Initialize positions
-          this.setInitPosition();
+          this.updateProgressPosition();
+          this.updatePercentageText();
+        }
+
+        /*
+         * Update the percentage text based on current percentage.
+         */
+        updatePercentageText() {
+          console.debug("in updatePercentageText");
+          let text = "" + this._percentage + "%";
+          console.debug("Updating percentage text to",  text);
+          this.progressBarText.innerText = text;
         }
 
         // Get the percentage value of the progress position on runway
         getCurrentPosition() {
-          return (this.percentage - this.min) / (this.max - this.min) * 100 + "%";
+            return (this._percentage - this._min) / (this._max - this._min) *
+                100 + "%";
         }
 
-        // Initialization: Set width of progress bar based on position of 
+        // Initialization: Set position of progress bar based on position of
         // current percentage
-        setInitPosition() {
-          const percent = (this.percentage - this.min)/ (this.max - this.min) * 100;
+        updateProgressPosition() {
+          console.debug("in updateProgressPosition");
+          const percent =
+              (this._percentage - this._min) / (this._max - this._min) * 100;
           this.progressBarInner.style.width = percent + "%";
         }
 
-        // // Observe only the array of attribute names
-        // static get observedAttributes() { return [ 'percentage', 'value', 'min', 'max', 'color' ]; }
+        // holds the list of attributes the component has.
+        static get observedAttributes() { 
+          return [ 'percentage', 'stroke-width', 'type', 'color' ]; 
+        }
 
-        // // Listen for changed attributes
-        // attributeChangedCallback(name, oldValue, newValue) {
-        //   switch (name) {
-        //   case 'percentage':
-        //     break;
-        //   case 'value':
-        //     // console.log(`Initial value: ${newValue}`);
-        //     break;
-        //   case 'min':
-        //     // console.log(`Minimum value: ${newValue}`);
-        //     break;
-        //   case 'max':
-        //     // console.log(`Maximum value: ${newValue}`);
-        //     break;
-        //   case 'color':
-        //     break;
-        //   }
-        // }
+        /*
+         *invoked when one of the custom element's attributes is added, removed, or changed.
+         */
+        attributeChangedCallback(name, oldValue, newValue) {
+          console.debug("in attributeChangedCallback for", name);
+          switch (name) {
+            case 'percentage':
+              // When the percentage change update the progress bar and the text.
+              if (this.percentage < 0) {
+                this._percentage = 0;
+                console.debug("bad percentage, using", this._percentage);
+              } else if (this.percentage > 100) {
+                this._percentage = 100;
+                console.debug("bad percentage, using", this._percentage);
+              }
+              this.updateProgressPosition();
+              this.updatePercentageText();
+              break;
+            case 'type':
+              break;
+            case 'stroke-width':
+              break;
+            case 'color':
+              break;
+          }
+        }
 
-        // // Getters
-        // get percentage() { return this.getAttribute('percentage'); }
-        // get value() { return this.getAttribute('value'); }
-        // get min() { return this.getAttribute('min'); }
-        // get max() { return this.getAttribute('max'); }
-        // get color() { return this.getAttribute('color'); }
+        // Getters
+        get percentage() { return this.getAttribute('percentage'); }
+        get color() { return this.getAttribute('color'); }
 
-        // // Setters
-        // set percentage(newValue) { this.setAttribute('percentage', newValue); }
-        // set value(newValue) { this.setAttribute('value', newValue); }
-        // set min(newValue) { this.setAttribute('min', newValue); }
-        // set max(newValue) { this.setAttribute('max', newValue); }
-        // set color(newValue) { this.setAttribute('color', newValue); }
+        // Setters
+        set percentage(newValue) { this.percentage = newValue; } 
+        set color(newValue) { this.color = newValue; }
       }
 
       customElements.define('jj-progress', JJProgress);
