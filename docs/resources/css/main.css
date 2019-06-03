@@ -221,6 +221,11 @@ li.sideR.nav-item {
     padding: 8px 0px 6px 0px;
 }
 
+pre.prettyprint.prettyprinted span {
+    font-size: 17px;
+    font-family: 'Open Sans', sans-serif;
+}
+
 .attributeTable{
     padding:10px;
 }
@@ -253,12 +258,20 @@ li.sideR.nav-item {
     list-style: none;
 }
 
+.footer-section-content li a {
+    color: #6a6a6a;
+}
+
+.footer-section-content li {
+    padding-top: 6px;
+}
+
 
 /* Syntax Highlighting - Prettify*/
 pre.prettyprint.prettyprinted {
     border: none;
     background-color: #f8f8f8;
-    padding: 20px 40px 20px 30px;
+    padding: 20px 35px 20px 20px;
 }
 
 span.tag {

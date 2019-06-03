@@ -1,43 +1,98 @@
-<div class="container footer-wrapper"> 
-      <div class="containter"> 
-       <div class="row"> 
-        
-          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-pull-9 col-lg-pull-9"> 
-           <div class="footer-section-content phone-email-footer"> 
-            <img src="resources/images/JayJay_logo.png" class="img-responsive"> 
-           </div> 
-          </div> 
-    
-          <div class="col-xs-12 col-sm-12 col-md-2 col-lg-3 col-md-push-3 col-lg-push-3"> 
-           <ul class="footer-section-content">
-            <h3>Quick Links</h3>
-            <li>Home</li>
-            <li>Get Started</li>
-            <li>Team</li>
-            </ul>
-           </div> 
-    
-          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-push-3 col-lg-push-3"> 
-           <ul class="footer-section-content mid-footer-col">
-            <h3>Docs</h3>
-             <li>Getting Started</li>
-             <li>Examples</li>
-             <li>Components</li>
-             <li>Release Notes</li>
-            </ul>
-          </div> 
-    
-          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-push-3 col-lg-push-3 fmcol"> 
-           <ul class="footer-section-content">
-            <h3>FAQ</h3>
-                <li>How does this work?</li>
-                <li>Where can I learn more?</li>
-                <li>Is this another example of an FAQ question?</li>
-                <li>How do I get started?</li>
-            </ul>
-          </div> 
-    
-     
-       </div> 
-      </div> 
-     </div>
+<div class="container footer-wrapper">
+  <div class="containter">
+    <div class="row">
+
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-pull-9 col-lg-pull-9">
+        <div class="footer-section-content phone-email-footer">
+          <img src="resources/images/JayJay_logo.png" class="img-responsive">
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-2 col-lg-3 col-md-push-3 col-lg-push-3">
+        <ul class="footer-section-content">
+          <h3>Quick Links</h3>
+          <li><a href="{{lang}}/index.html">
+              {{#ifEquals 'en' lang}}Home{{/ifEquals}}
+              {{#ifEquals 'es' lang}}Home{{/ifEquals}}
+              {{#ifEquals 'fr' lang}}Home{{/ifEquals}}
+              {{#ifEquals 'zh' lang}}Home{{/ifEquals}}
+            </a></li>
+            <li><a href="{{lang}}/docs/tutorials.html">
+              {{#ifEquals 'en' lang}}Get Started{{/ifEquals}}
+              {{#ifEquals 'es' lang}}Empezar{{/ifEquals}}
+              {{#ifEquals 'fr' lang}}Commencer{{/ifEquals}}
+              {{#ifEquals 'zh' lang}}入门{{/ifEquals}}
+            </a></li>
+            <li><a href="{{lang}}/team.html">
+              {{#ifEquals 'en' lang}}Team{{/ifEquals}}
+              {{#ifEquals 'es' lang}}Equipo{{/ifEquals}}
+              {{#ifEquals 'fr' lang}}Équipe{{/ifEquals}}
+              {{#ifEquals 'zh' lang}}团队{{/ifEquals}}
+            </a></li>
+        </ul>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-push-3 col-lg-push-3">
+        <ul class="footer-section-content mid-footer-col">
+          <h3>Docs</h3>
+            <li><a href="{{lang}}/docs/tutorials.html">
+              {{#ifEquals 'en' lang}}Get Started{{/ifEquals}}
+              {{#ifEquals 'es' lang}}Empezar{{/ifEquals}}
+              {{#ifEquals 'fr' lang}}Commencer{{/ifEquals}}
+              {{#ifEquals 'zh' lang}}入门{{/ifEquals}}
+            </a></li>
+            <li><a href="{{lang}}/docs/overview.html">
+              {{#ifEquals 'en' lang}}Docs{{/ifEquals}}
+              {{#ifEquals 'es' lang}}Get Started{{/ifEquals}}
+              {{#ifEquals 'fr' lang}}Get Started{{/ifEquals}}
+              {{#ifEquals 'zh' lang}}Get Started{{/ifEquals}}
+            </a></li>
+            <li><a href="{{lang}}/docs/.html">
+              {{#ifEquals 'en' lang}}Releases{{/ifEquals}}
+              {{#ifEquals 'es' lang}}Get Started{{/ifEquals}}
+              {{#ifEquals 'fr' lang}}Get Started{{/ifEquals}}
+              {{#ifEquals 'zh' lang}}Get Started{{/ifEquals}}
+            </a></li>
+            <li><a href="{{lang}}/docs/.html">
+              {{#ifEquals 'en' lang}}FAQ{{/ifEquals}}
+              {{#ifEquals 'es' lang}}Get Started{{/ifEquals}}
+              {{#ifEquals 'fr' lang}}Get Started{{/ifEquals}}
+              {{#ifEquals 'zh' lang}}Get Started{{/ifEquals}}
+            </a></li>
+        </ul>
+      </div>
+
+      <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-push-3 col-lg-push-3 fmcol">
+        <ul class="footer-section-content">
+          <h3>Components</h3>
+          <li><a href="{{lang}}/docs/.html">
+              {{#ifEquals 'en' lang}}JJ Input Number{{/ifEquals}}
+              {{#ifEquals 'es' lang}}JJ Input Number{{/ifEquals}}
+              {{#ifEquals 'fr' lang}}JJ Input Number{{/ifEquals}}
+              {{#ifEquals 'zh' lang}}JJ Input Number{{/ifEquals}}
+            </a></li>
+            <li><a href="{{lang}}/docs/.html">
+              {{#ifEquals 'en' lang}}JJ Slider{{/ifEquals}}
+              {{#ifEquals 'es' lang}}JJ Slider{{/ifEquals}}
+              {{#ifEquals 'fr' lang}}JJ Slider{{/ifEquals}}
+              {{#ifEquals 'zh' lang}}JJ Slider{{/ifEquals}}
+            </a></li>
+            <li><a href="{{lang}}/docs/.html">
+              {{#ifEquals 'en' lang}}JJ Switch{{/ifEquals}}
+              {{#ifEquals 'es' lang}}JJ Switch{{/ifEquals}}
+              {{#ifEquals 'fr' lang}}JJ Switch{{/ifEquals}}
+              {{#ifEquals 'zh' lang}}JJ Switch{{/ifEquals}}
+            </a></li>
+            <li><a href="{{lang}}/docs/.html">
+              {{#ifEquals 'en' lang}}View All{{/ifEquals}}
+              {{#ifEquals 'es' lang}}View All{{/ifEquals}}
+              {{#ifEquals 'fr' lang}}JJ Switch{{/ifEquals}}
+              {{#ifEquals 'zh' lang}}JJ Switch{{/ifEquals}}
+            </a></li>
+        </ul>
+      </div>
+
+
+    </div>
+  </div>
+</div>
