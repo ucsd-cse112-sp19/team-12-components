@@ -332,16 +332,19 @@ const jjButton = () => {
         }
       }
 
+      // set the size attribute
       if (this.hasAttribute('size')) {
         this.size = this.getAttribute('size');
         this.button.classList.add(this.size);
       }
 
+      // set the type attribute
       if (this.hasAttribute('type')) {
         this.type = this.getAttribute('type');
         this.button.classList.add(this.type);
       }
 
+      // set the disabled attribute
       if (this.hasAttribute('disabled')) {
         if (this.getAttribute('disabled') == 'true') {
           this.disabled = true;
@@ -351,7 +354,17 @@ const jjButton = () => {
         }
       }
 
+      // set the native type attribute
+      if (this.hasAttribute('native-type')) {
+        this.native_type = this.getAttribute('native-type');
+        this.button.setAttribute('type', this.getAttribute('native-type'));
+      }
 
+      // set the autofocus attribute
+      if (this.hasAttribute('autofocus')) {
+        this.autofocus = this.getAttribute('autofocus');
+        this.button.setAttribute('autofocus', this.getAttribute('autofocus'));
+      }
     }
 
     attributeChangedCallback(attrName, oldValue, newValue) {
@@ -392,6 +405,11 @@ const jjButton = () => {
             this.button.classList.add('round');
           }
           break;
+        case 'autofocus':
+          this.button.setAttribute('autofocus', newValue);
+          break;
+        case 'native-type':
+          this.button.setAttribute('type', newValue);
       }
     }
 
@@ -402,6 +420,8 @@ const jjButton = () => {
     get size() {return this.getAttribute('size');}
     get disabled() {return this.getAttribute('disabled');}
     get type() {return this.getAttribute('type');}
+    get native_type() {return this.getAttribute('native-type');}
+    get autofocus() {return this.getAttribute('autofocus');}
 
     //Setters
     set round(newValue) {this.setAttribute('round', newValue);}
@@ -410,6 +430,8 @@ const jjButton = () => {
     set size(newValue) {this.setAttribute('size', newValue);}
     set disabled(newValue) {this.setAttribute('disabled', newValue);}
     set type(newValue) {this.setAttribute('type', newValue);}
+    set native_type(newValue) {this.setAttribute('native-type', newValue);}
+    set autofocus(newValue) {this.setAttribute('autofocus', newValue);}
   }
   customElements.define('jj-button', JJButton);
 }

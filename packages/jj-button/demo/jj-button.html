@@ -10,7 +10,12 @@
 
 <body>
   <div class="test" style="margin: 50px;">
-    <jj-button plain="true" round="true" type="warning">Primary</jj-button>
+    <jj-button id="btn" plain="true" round="true" type="warning" native-type="submit" autofocus="true">Primary</jj-button>
   </div>
 </body>
+<script>
+  var b = document.getElementById('btn');
+  console.log(b.autofocus);
+  console.log(b.native_type);
+</script>
 </html>
