@@ -23,7 +23,7 @@
     </a>
   </li>
    <li class="sideL nav-item dropdown">
-    <a class="nav-link" data-toggle="collapse" href="#collapseVersions" data-target="#collapseVersions" aria-expanded="false"
+    <a class="nav-link {{#ifEquals 'Releases' PageName}}active{{/ifEquals}}" data-toggle="collapse" href="#collapseVersions" data-target="#collapseVersions" aria-expanded="false"
       aria-controls="collapseVersions">
             {{#ifEquals 'en' lang}}Releases{{/ifEquals}}
             {{#ifEquals 'es' lang}}Lanzamientos{{/ifEquals}}
@@ -31,19 +31,9 @@
             {{#ifEquals 'zh' lang}}发布{{/ifEquals}}
     </a>
     <div class="collapse" id="collapseVersions">
-      <a class="nav-link sidebar-subHeading {{#ifEquals '0.3.0' Version}}active{{/ifEquals}}" href="#">
+      <a class="nav-link sidebar-subHeading {{#ifEquals '0.1.0' Version}}active{{/ifEquals}}" href="{{lang}}/docs/releases.html#1.0.0">
         <span>
-          0.3.0
-        </span>
-      </a>
-      <a class="nav-link sidebar-subHeading {{#ifEquals '0.2.0' Version}}active{{/ifEquals}}" href="#">
-        <span>
-          0.2.0
-        </span>
-      </a>
-      <a class="nav-link sidebar-subHeading {{#ifEquals '0.1.0' Version}}active{{/ifEquals}}" href="#">
-        <span>
-          0.1.0
+          1.0.0
         </span>
       </a>
     </div>
