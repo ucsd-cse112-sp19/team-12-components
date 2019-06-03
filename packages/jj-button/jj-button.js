@@ -341,22 +341,40 @@ const jjButton = () => {
     attributeChangedCallback(attrName, oldValue, newValue) {
       switch (attrName) {
         case 'size':
-          this.size = newValue;
+          this.button.classList.remove(oldValue);
+          this.button.classList.add(newValue);
           break;
         case 'type':
-          this.type = newValue;
+          this.button.classList.remove(oldValue);
+          this.button.classList.add(newValue);
           break;
         case 'disabled':
-          this.disabled = newValue;
+          if (newValue == "false") {
+            this.button.classList.remove('disabled');
+          } else {
+            this.button.classList.add('disabled');
+          }
           break;
         case 'circle':
-          this.circle = newValue;
+          if (newValue == "false") {
+            this.button.classList.remove('circle');
+          } else {
+            this.button.classList.add('circle');
+          }
           break;
         case 'plain':
-          this.plain = newValue;
+          if (newValue == "false") {
+            this.button.classList.remove('plain');
+          } else {
+            this.button.classList.add('plain');
+          }
           break;
         case 'round':
-          this.round = newValue;
+          if (newValue == "false") {
+            this.button.classList.remove('round');
+          } else {
+            this.button.classList.add('round');
+          }
           break;
       }
     }
