@@ -8,8 +8,6 @@
  * @attribute step,	step size,	number,	/,	1
  * @attribute show-input,	whether to display an input box, works when
  * range is false,	boolean,	/,	false
- * @attribute show-input-controls,	whether to display control buttons when
- * show-input is true,	boolean,	/,	true
  * @attribute input-size,	size of the input box,	string,	large / medium /
  * small / mini,	small
  * @attribute show-stops,	whether to display breakpoints,	boolean,
@@ -24,14 +22,11 @@
  * @attribute height,	Slider height, required in vertical mode, string,
  * /,	/
  * @attribute label,	label for screen reader,	string, /, /
- * @attribute debounce,	debounce delay when typing... in milliseconds...works
- * when show-input is true,	number,	/,	300
  * @attribute tooltip-class,	custom class name for the tooltip, string,
  * /,	/
- * @attribute marks	marks, type of key must be number and must in closed
- * interval [min max] each mark can custom style,	object, /,	/
- * @attribute --bar-color, changes the color of the bar, /, /, /
- * @attribute --runway-color, changes the color of the runway, /, /, /
+ * @attribute --bar-color, changes the color of the bar, string/hex/RGB, /, /
+ * @attribute --runway-color, changes the color of the runway, string/hex/RGB,
+ * /, /
  * @attribute --slider-width, width of the slider, /, /, /
  */
 
