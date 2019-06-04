@@ -30,7 +30,9 @@
  * /,	/
  * @attribute marks	marks, type of key must be number and must in closed
  * interval [min max] each mark can custom style,	object, /,	/
- *
+ * @attribute --bar-color, changes the color of the bar, /, /, /
+ * @attribute --runway-color, changes the color of the runway, /, /, /
+ * @attribute --slider-width, width of the slider, /, /, /
  */
 
 const jjSlider =
