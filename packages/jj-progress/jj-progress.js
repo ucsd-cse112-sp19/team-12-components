@@ -91,8 +91,7 @@ const jjProgress =
               this.root.querySelector('.el-progress-bar__outer');
           this.progressBarInner =
               this.root.querySelector('.el-progress-bar__inner');
-          this.progressBarText =
-              this.root.querySelector('.el-progress__text');
+          this.progressBarText = this.root.querySelector('.el-progress__text');
           // Bind "this" to functions to reserve context
           this.getCurrentPosition = this.getCurrentPosition.bind(this);
         }
@@ -112,7 +111,6 @@ const jjProgress =
             this._percentage = DEFAULT_PERCENTAGE;
           }
 
-
           if (this.hasAttribute('color')) {
             this.progressBarInner.style.backgroundColor =
                 this.getAttribute('color');
@@ -122,10 +120,14 @@ const jjProgress =
             this.color = "#409EFF";
           }
 
-          // TODO: NEEDS IMPLEMENTATION
+          // DONE: NEEDS IMPLEMENTATION
           if (!this.hasAttribute('stroke-width')) {
             this.strokeWidth = DEFAULT_STROKE_WIDTH;
+          }  else {
+            this.strokeWidth = this.getAttribute('stroke-width');
           }
+          console.debug("Setting strokeWidth to ", this.strokeWidth);
+          this.progressBarOuter.style.height = this.strokeWidth + "px";
 
           if (this.hasAttribute('type')) {
             this.type = this.getAttribute('type');
@@ -144,14 +146,15 @@ const jjProgress =
         updatePercentageText() {
           console.debug("in updatePercentageText");
           let text = "" + this._percentage + "%";
-          console.debug("Updating percentage text to",  text);
+          console.debug("Updating percentage text to", text);
           this.progressBarText.innerText = text;
         }
 
         // Get the percentage value of the progress position on runway
         getCurrentPosition() {
-            return (this._percentage - this._min) / (this._max - this._min) *
-                100 + "%";
+          return (this._percentage - this._min) / (this._max - this._min) *
+                     100 +
+                 "%";
         }
 
         // Initialization: Set position of progress bar based on position of
@@ -164,34 +167,37 @@ const jjProgress =
         }
 
         // holds the list of attributes the component has.
-        static get observedAttributes() { 
-          return [ 'percentage', 'stroke-width', 'type', 'color' ]; 
+        static get observedAttributes() {
+          return [ 'percentage', 'stroke-width', 'type', 'color' ];
         }
 
         /*
-         *invoked when one of the custom element's attributes is added, removed, or changed.
+         *invoked when one of the custom element's attributes is added, removed,
+         *or changed.
          */
         attributeChangedCallback(name, oldValue, newValue) {
           console.debug("in attributeChangedCallback for", name);
           switch (name) {
-            case 'percentage':
-              // When the percentage change update the progress bar and the text.
-              if (this.percentage < 0) {
-                this._percentage = 0;
-                console.debug("bad percentage, using", this._percentage);
-              } else if (this.percentage > 100) {
-                this._percentage = 100;
-                console.debug("bad percentage, using", this._percentage);
-              }
-              this.updateProgressPosition();
-              this.updatePercentageText();
-              break;
-            case 'type':
-              break;
-            case 'stroke-width':
-              break;
-            case 'color':
-              break;
+          case 'percentage':
+            // When the percentage change update the progress bar and the text.
+            if (this.percentage < 0) {
+              this._percentage = 0;
+              console.debug("bad percentage, using", this._percentage);
+            } else if (this.percentage > 100) {
+              this._percentage = 100;
+              console.debug("bad percentage, using", this._percentage);
+            }
+            this.updateProgressPosition();
+            this.updatePercentageText();
+            break;
+          case 'type':
+            break;
+          case 'stroke-width':
+            this.strokeWidth = this.getAttribute('stroke-width');
+            this.progressBarOuter.style.height = this.strokeWidth + "px";
+            break;
+          case 'color':
+            break;
           }
         }
 
@@ -200,7 +206,7 @@ const jjProgress =
         get color() { return this.getAttribute('color'); }
 
         // Setters
-        set percentage(newValue) { this.percentage = newValue; } 
+        set percentage(newValue) { this.percentage = newValue; }
         set color(newValue) { this.color = newValue; }
       }
 
