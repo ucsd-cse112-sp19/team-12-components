@@ -107,8 +107,8 @@ const jjProgress =
             this._percentage = this.percentage;
             console.log("this._percentage", this._percentage);
           } else {
-            console.log("setting default percentage to", DEFAULT_PERCENTAGE);
-            this._percentage = DEFAULT_PERCENTAGE;
+            console.log("setting default percentage to", this.DEFAULT_PERCENTAGE);
+            this._percentage = this.DEFAULT_PERCENTAGE;
           }
 
           if (this.hasAttribute('color')) {
@@ -117,16 +117,17 @@ const jjProgress =
             this.progressBarInner.style.borderColor =
                 this.getAttribute('color');
           } else {
-            this.color = "#409EFF";
+            //this.color = "#409EFF";
           }
 
           // DONE: NEEDS IMPLEMENTATION
           if (!this.hasAttribute('stroke-width')) {
-            this.strokeWidth = DEFAULT_STROKE_WIDTH;
-          }  else {
+            this.strokeWidth = this.DEFAULT_STROKE_WIDTH;
+          } else {
             this.strokeWidth = this.getAttribute('stroke-width');
           }
           console.debug("Setting strokeWidth to ", this.strokeWidth);
+          // Set the width of the progress bar.
           this.progressBarOuter.style.height = this.strokeWidth + "px";
 
           if (this.hasAttribute('type')) {
@@ -166,7 +167,7 @@ const jjProgress =
           this.progressBarInner.style.width = percent + "%";
         }
 
-        // holds the list of attributes the component has.
+        // holds the list of attributes the component can have.
         static get observedAttributes() {
           return [ 'percentage', 'stroke-width', 'type', 'color' ];
         }
@@ -207,7 +208,7 @@ const jjProgress =
 
         // Setters
         set percentage(newValue) { this.percentage = newValue; }
-        set color(newValue) { this.color = newValue; }
+        //set color(newValue) { this.color = newValue; }
       }
 
       customElements.define('jj-progress', JJProgress);
