@@ -2,7 +2,41 @@ import {expect, assert} from 'chai';
 import '../../../src/jj-progress.min.js';
 
 //----------Unit Tests ------------------
-describe('jj-progress Component Unit Tests', () => {
+describe('jj-progress; percentage; color', () => {
+
+    let compHTML = `<jj-progress percentage=40 color="#8595ad"></jj-progress>`;
+    document.body.insertAdjacentHTML('afterbegin',compHTML);
+    let comp = document.getElementById('inputNum');
+
+    it('tests the percentage attribute is set and retrievable', async () => {
+        // TODO: implement
+    });
+
+    it('tests the color value is set and retrievable', async () => {
+        // TODO: implement
+    });
+
+    it('tests the percentage value range > 100', async () => {
+        // TODO: implement.
+    });
+
+    it('tests the percentage value range < 0', async () => {
+        // TODO: implement.
+    });
+
+});
+
+
+
+
+
+
+
+
+
+
+
+
 
     //place component into DOM, get the element by id
 //  let compHTML = `<jj-slider id="inputNum" value=35 min=0 max=50></jj-slider>`;
@@ -45,4 +79,3 @@ describe('jj-progress Component Unit Tests', () => {
 //    assert.isBelow(newValue, oldValue);
 //  });
   //etc..
-});
