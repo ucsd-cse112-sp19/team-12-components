@@ -96,3 +96,6 @@ typings/
 package-lock.json
 
 /templates/components.json
+
+
+.vscode/
