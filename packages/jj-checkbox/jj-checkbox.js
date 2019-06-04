@@ -2,6 +2,29 @@ const template = document.createElement('template');
 template.innerHTML = `
 <style>
     @import url("https://unpkg.com/element-ui/lib/theme-chalk/checkbox.css");
+
+    .el-checkbox {
+      font-family: var(--label-font, Helvetica, Arial, sans-serif);
+      color: var(--label-color, #606266);
+    }
+
+    .el-checkbox__input.is-checked+.el-checkbox__label {
+      color: var(--label-color-checked, #409EFF)
+    }
+
+    .el-checkbox__input.is-checked .el-checkbox__inner, .el-checkbox__input.is-indeterminate .el-checkbox__inner {
+      background-color: var(--box-color-checked, #409EFF);
+      border-color: var(--box-border-color-checked, #409EFF);
+    }
+
+    .el-checkbox__inner {
+      background-color: var(--box-color, #FFFFFF);
+      border: 1px solid var(--box-border-color, #DCDFE6);
+    }
+
+    .el-checkbox__inner:hover {
+      border-color: var(--box-border-color-hover, #409EFF);
+    }
 </style>
 
 <div>
@@ -68,7 +91,7 @@ class JJCheckbox extends HTMLElement {
   onCheckboxClick(event) {
     if (!this.disabled) {
       this.checked = !this.checked;
-      console.log(this.checked ? "Checked" : "Not Checked");
+      console.log(this.checked ? "Checked " + this._value : "Unchecked " + this._value);
       if (this.checked) {
         this.setAttribute("checked", "");
         this.checkboxContainer.classList.add("is-checked");
