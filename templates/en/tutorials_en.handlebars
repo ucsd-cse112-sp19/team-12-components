@@ -10,11 +10,14 @@
   <meta name="theme-color" content="#7da3ef">
   <title>Jay Jay Docs | Web Component Documentation</title>
   <!-- Core CSS -->
+  <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
+  <link rel="icon" href="resources/images/JJ_favicon_16.png" type="png" sizes="16x16">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../resources/css/main.css">
+  <link rel="stylesheet" href="resources/css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
-  <base href="{{#getUrlBase}}{{/getUrlBase}}">
 </head>
 
 <body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
@@ -31,7 +34,8 @@
 
         <!-- Middle Content -->
         <div class="col-md-8 col-sm-12 content">
-          <h1 id='h1'>Tutorials</h1>
+          <div class="anchor" id="jj-slider"></div>
+          <h1>Tutorials</h1>
           <p>Here is a step by step tutorial with an example of JJ-Slider.</p>
 
           <h2>Importing the component</h2>
@@ -48,8 +52,8 @@
           </p>
           <pre class="prettyprint"><code class="language-html">npm i jj-components</code></pre>
           <p>Now you have the components imported and you are ready to go!</p>
-
-          <h2 id='h2'>Using your first component</h2>
+          <div class="anchor" id="first-component"></div>
+          <h2>Using your first component</h2>
           <p>
             Now, let's get the component going and display it in your web page
             or web app!
@@ -71,8 +75,8 @@
             You just successfully used your first JJ Component for the first
             time!
           </p>
-
-          <h2 id='h3'>Change Attributes</h2>
+          <div class="anchor" id="attributes"></div>
+          <h2>Change Attributes</h2>
           <p>
             Now, let's try to change the attributes of the component and
             customize it for your need.
@@ -118,17 +122,17 @@
           <nav id="contentHeadings" class="sidebar-right">
             <ul class="nav nav-pills flex-column">
               <li class="sideR nav-item">
-                <a class="nav-link" href="#h1">
+                <a class="nav-link" href="#jj-slider" data-target="#jj-slider">
                   Importing
                 </a>
               </li>
               <li class="sideR nav-item">
-                <a class="nav-link" href="#h2">
+                <a class="nav-link" href="#first-component" data-target="#first-component">
                   Default
                 </a>
               </li>
               <li class="sideR nav-item">
-                <a class="nav-link" href="#h3">
+                <a class="nav-link" href="#attributes" data-target="#attributes">
                   Attributes
                 </a>
               </li>

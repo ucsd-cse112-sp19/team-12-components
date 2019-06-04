@@ -15,6 +15,9 @@
   <link rel="stylesheet" href="../../resources/css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
   <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
+  <link rel="icon" href="resources/images/JJ_favicon_16.png" type="png" sizes="16x16">
 </head>
 
 <body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
@@ -31,7 +34,8 @@
 
         <!-- Middle Content -->
         <div class="col-md-8 col-sm-12 content">
-          <h1 id="welcome">Welcome to JJ Components</h1>
+          <div class="anchor" id="welcome"></div>
+          <h1>Welcome to JJ Components</h1>
           <p>
             This is the version 1.0.0 of Jay Jay Components web components
             library. New components included in this release includes:
@@ -51,14 +55,17 @@
             <a href="https://github.com/ucsd-cse112/team-12-components">here</a>
           </p>
 
-          <h2 id="npm">NPM</h2>
+          <div class="anchor" id="npm"></div>
+          <h2>NPM</h2>
           <p>
             Run the following NPM command in terminal at your project's root
             directory to install JJ Components Library. All components would
             be included.
           </p>
+
+          <div class="anchor" id="cdn"></div>
+          <h2>CDN</h2>
           <pre class="prettyprint"><code class="language-html">npm i jj-components</code></pre>
-          <h2 id="cdn">CDN</h2>
           <p>
             Copy the following code into your html header section to import
             the components you want
@@ -76,17 +83,17 @@
           <nav id="contentHeadings" class="sidebar-right">
             <ul class="nav nav-pills flex-column">
               <li class="sideR nav-item">
-                <a class="nav-link" href="#welcome">
+                <a class="nav-link" href="#welcome" data-target="#welcome">
                   Intro
                 </a>
               </li>
               <li class="sideR nav-item">
-                <a class="nav-link" href="#npm">
+                <a class="nav-link" href="#npm" data-target="#npm">
                   NPM
                 </a>
               </li>
               <li class="sideR nav-item">
-                <a class="nav-link" href="#cdn">
+                <a class="nav-link" href="#cdn" data-target="#cdn">
                   CDN
                 </a>
               </li>
