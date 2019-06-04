@@ -22,4 +22,4 @@ storiesOf('jj-progress', module)
       '<br/>' +
       '<jj-progress percentage=40 stroke-width=60 color="magenta"></jj-progress>' + 
       '<br/>' +
-      '<jj-progress stroke-width=80 type=line color="purple"></jj-progress>');
+      '<jj-progress percetnage=80 stroke-width=80 type=line color="purple"></jj-progress>');
