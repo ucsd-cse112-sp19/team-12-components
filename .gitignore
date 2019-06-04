@@ -4,6 +4,8 @@
 
 storybook-static
 
+.*.swp
+
 # Logs
 logs
 *.log
