@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="A web component that is a highly customizable dragging slider within ranges.">
+  <meta name="author" content="Jay Jay Web Components">
+  <meta name="theme-color" content="#7da3ef">
+  <title>JJ Slider | Web Component Documentation</title>
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../../resources/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
+  <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
+  <link rel="icon" href="resources/images/JJ_favicon_16.png" type="png" sizes="16x16">
+</head>
+
+<body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
+  <div class="container">
+    <!-- Navbar Partial-->
+    {{> navbar lang='en' PageName='Docs'}}
+
+    <div class="container page">
+      <div class="row">
+        <!-- Left sidebar: -->
+        <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
+          {{> left_sidebar lang='en' PageName='jj slider' }}
+        </div>
+
+        <!-- Middle Content -->
+        <div class="col-md-8 col-sm-12 content">
+          <div class="anchor" id="description"></div>
+          <h1>
+            JJ Progress
+          </h1>
+          <p>
+            Highly customizable progress bar.
+          </p>
+          <div class="anchor" id="usage"></div>
+          <h2>Basic usage</h2>
+          <div class="demo-section">
+            <div class="demo-entry">
+              <p>Default Settings</p>
+              <jj-progress></jj-progress>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-slider>&lt;/jj-slider></code></pre>
+            </div>
+            <div class="demo-entry">
+              <p>Change Percentage</p>
+              <jj-slider percentage=20></jj-slider>
+              <jj-slider percentage=40></jj-slider>
+              <jj-slider percentage=60></jj-slider>
+              <jj-slider percentage=80></jj-slider>
+              <jj-slider percentage=100></jj-slider>
+              <pre
+                class="prettyprint"><code class="language-html">&lt;jj-slider min="0" max="8">&lt;/jj-slider></code></pre>
+            </div>
+            <div class="demo-entry">
+              <p>Customized colors</p>
+              <jj-slider percentage=20 color="pink"></jj-slider>
+              <jj-slider percentage=40></jj-slider>
+              <jj-slider percentage=60></jj-slider>
+              <jj-slider percentage=80></jj-slider>
+              <jj-slider percentage=100></jj-slider>
+              <pre
+                class="prettyprint"><code class="language-html">&lt;jj-slider min="0" max="8" value="4">&lt;/jj-slider></code></pre>
+            </div>
+          </div>
+          <div class="anchor" id="attributes"></div>
+          <h2>Attributes</h2>
+          <!-- Attribute Table -->
+          <zing-grid caption="JJ Slider Attributes" layout="row" viewport-stop data='[
+           {{#each Attributes}} 
+          {
+          "Attribute Name": "{{this.AttributeName}}",
+          "Description": "{{this.AttributeDescription}}",
+          "Type": "{{this.AttributeType}}",
+          "Accepted Values": "{{this.AttributeAcceptedValues}}",
+          "Default": "{{this.AttributeDefault}}"
+          },
+           {{/each}}
+          {
+          "Attribute Name": "",
+          "Description": "",
+          "Type": "",
+          "Accepted Values": "",
+          "Default": ""
+          }
+          ]'>
+          </zing-grid>
+
+        </div>
+
+        <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
+          <!-- Right Sidebar -->
+          <nav id="contentHeadings" class="sidebar-right">
+            <ul class="nav nav-pills flex-column">
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#description" data-target="#description">
+                  Description
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#usage" data-target="#usage">
+                  Usage
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#attributes" data-target="#attributes">
+                  Attributes
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Right Sidebar -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    {{> footer lang='en'}}
+
+    <!-- JS files at bottom of page -->
+    {{> scripts}}
+
+  </div>
+</body>
+
+</html>
