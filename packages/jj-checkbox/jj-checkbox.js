@@ -91,7 +91,8 @@ class JJCheckbox extends HTMLElement {
   onCheckboxClick(event) {
     if (!this.disabled) {
       this.checked = !this.checked;
-      console.log(this.checked ? "Checked " + this._value : "Unchecked " + this._value);
+      console.log(this.checked ? "Checked " + this._value
+                               : "Unchecked " + this._value);
       if (this.checked) {
         this.setAttribute("checked", "");
         this.checkboxContainer.classList.add("is-checked");
