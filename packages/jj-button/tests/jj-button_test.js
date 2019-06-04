@@ -12,7 +12,7 @@ function wait(ms){
 //----------Unit Tests ------------------
 describe('jj-button Component Unit Tests', () => {
     //place component into DOM, get the element by id
-    let compHTML = `<jj-button id="btn" plain="true" round="true" type="primary" native-type="submit" autofocus="true" size="medium"></jj-slider>`;
+    let compHTML = `<jj-button id="btn" plain="true" round="true" type="primary" native-type="submit" autofocus="true" size="medium"></jj-button>`;
     document.body.insertAdjacentHTML('afterbegin',compHTML);
     let compEl = document.getElementById('btn');
 
