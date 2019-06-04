@@ -376,5 +376,4 @@ const jjSwitch = () => {
     set name(newValue) { this.setAttribute('name', newValue); }
   }
   customElements.define('jj-switch', JJSwitch);
-}
-jjSwitch();
+} jjSwitch();
