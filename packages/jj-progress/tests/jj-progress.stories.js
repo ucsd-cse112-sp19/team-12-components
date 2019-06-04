@@ -16,10 +16,10 @@ storiesOf('jj-progress', module)
     '<jj-progress percentage=100 color=#b71b54></jj-progress>'
   )
   .add('stroke-width', () => 
-      '<jj-progress percentage=15 type=line></jj-progress>' +
+      '<jj-progress percentage=15 type=line color="lime"></jj-progress>' +
       '<br/>' +
-      '<jj-progress percentage=30 stroke-width=20 type=line></jj-progress>' +
+      '<jj-progress percentage=30 stroke-width=20 color="pink"></jj-progress>' +
       '<br/>' +
-      '<jj-progress percentage=40 stroke-width=60 type=line></jj-progress>' + 
+      '<jj-progress percentage=40 stroke-width=60 color="magenta"></jj-progress>' + 
       '<br/>' +
-      '<jj-progress stroke-width=80 type=line></jj-progress>');
+      '<jj-progress stroke-width=80 type=line color="purple"></jj-progress>');
