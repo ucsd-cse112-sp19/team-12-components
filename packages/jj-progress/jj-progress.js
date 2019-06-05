@@ -38,7 +38,7 @@ const jjProgress =
       left: 0;
       top: 0;
       height: 100%;
-      background-color: var(--bar-color, #409EFF);
+      background-color: #409EFF;
       text-align: right;
       border-radius: 100px;
       line-height: 1;
@@ -111,7 +111,7 @@ const jjProgress =
           }
 
           if (!this.hasAttribute('color')) {
-            this.color = DEFAULT_PROGRESS_COLOR;
+            this.color = this.DEFAULT_PROGRESS_COLOR;
           }
 
           if (!this.hasAttribute('stroke-width')) {
@@ -179,9 +179,9 @@ const jjProgress =
           case 'percentage':
             // When the percentage change update the progress bar and the text.
             if (this.percentage < 0) {
-              this.percentage = 0;
+              this.percentage = this._min;
             } else if (this.percentage > 100) {
-              this.percentage = 100;
+              this.percentage = this._max;
             }
             this.updateProgressPosition();
             this.updatePercentageText();

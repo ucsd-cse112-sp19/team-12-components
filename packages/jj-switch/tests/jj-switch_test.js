@@ -1,5 +1,5 @@
 import {expect, assert} from 'chai';
-import '../jj-slider.js';
+import '../jj-switch.js';
 
 function wait(ms){
   var start = new Date().getTime();

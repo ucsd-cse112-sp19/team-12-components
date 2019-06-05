@@ -4,21 +4,34 @@ import '../../../src/jj-progress.min.js';
 //----------Unit Tests ------------------
 describe('jj-progress; percentage; color', () => {
 
-    let compHTML = `<jj-progress id="progress1" percentage=40 color="#8595ad" stroke-width=4 type=line></jj-progress>`;
+    let compHTML;
+    let compEl1;
+    let compEl2;
+    let compEl3;
+
+    before(function() {
+        
+    compHTML = `<jj-progress id="progress1" percentage=40 color="#8595ad" stroke-width=4 type=line></jj-progress>`;
     document.body.insertAdjacentHTML('afterbegin',compHTML);
-    let compEl1 = document.getElementById('progress1');
+    compEl1 = document.getElementById('progress1');
 
     compHTML = `<jj-progress id="progress2" percentage=200></jj-progress>`;
     document.body.insertAdjacentHTML('afterbegin',compHTML);
-    let compEl2 = document.getElementById('progress2');
+    compEl2 = document.getElementById('progress2');
 
     compHTML = `<jj-progress id="progress3" percentage=-20></jj-progress>`;
     document.body.insertAdjacentHTML('afterbegin',compHTML);
-    let compEl3 = document.getElementById('progress3');
+    compEl3 = document.getElementById('progress3');
+    });
 
     it('tests the percentage attribute is set and retrievable', async () => {
         let compPercentage = compEl1.percentage;
         assert.equal(compPercentage, 40);
+    });
+
+    it('tests the default colors', function () {
+        let compColorDefault = compEl2.color;
+        assert.equal(compColorDefault, "#409EFF");
     });
 
     it('tests the color value is set and retrievable', async () => {
@@ -36,12 +49,8 @@ describe('jj-progress; percentage; color', () => {
         assert.equal(compPercentage, 0);
     });
     
-    it('tests colors', async () => {
-        // TODO: implement.
-    });
-
     it('tests the stroke-width value is set and retrievable', async () => {
-        let compStrokeWidth = compEl1.stroke-width;
+        let compStrokeWidth = compEl1.strokeWidth;
         assert.equal(compStrokeWidth, 4);
     });
 
