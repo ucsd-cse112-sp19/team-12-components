@@ -14,6 +14,9 @@
   <link rel="stylesheet" href="../../../resources/css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
   <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
+  <link rel="icon" href="resources/images/JJ_favicon_16.png" type="png" sizes="16x16">
 </head>
 
 <body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
@@ -30,14 +33,15 @@
 
         <!-- Middle Content -->
         <div class="col-md-8 col-sm-12 content">
-
-          <h1 id="description">
+          <div class="anchor" id="description"></div>
+          <h1>
             JJ Slider
           </h1>
           <p>
             Highly customizable dragging slider within ranges.
           </p>
-          <h2 id="usage">Basic usage</h2>
+          <div class="anchor" id="usage"></div>
+          <h2>Basic usage</h2>
           <div class="demo-section">
             <div class="demo-entry">
               <p>Default Settings</p>
@@ -57,8 +61,8 @@
                 class="prettyprint"><code class="language-html">&lt;jj-slider min="0" max="8" value="4">&lt;/jj-slider></code></pre>
             </div>
           </div>
-
-          <h2 id='attributes'>Attributes</h2>
+          <div class="anchor" id="attributes"></div>
+          <h2>Attributes</h2>
           <!-- Attribute Table -->
           <zing-grid caption="JJ Slider Attributes" layout="row" viewport-stop data='[
            {{#each Attributes}} 
@@ -87,17 +91,17 @@
           <nav id="contentHeadings" class="sidebar-right">
             <ul class="nav nav-pills flex-column">
               <li class="sideR nav-item">
-                <a class="nav-link" href="#description">
+                <a class="nav-link" href="#description" data-target="#description">
                   Description
                 </a>
               </li>
               <li class="sideR nav-item">
-                <a class="nav-link" href="#usage">
+                <a class="nav-link" href="#usage" data-target="#usage">
                   Usage
                 </a>
               </li>
               <li class="sideR nav-item">
-                <a class="nav-link" href="#attributes">
+                <a class="nav-link" href="#attributes" data-target="#attributes">
                   Attributes
                 </a>
               </li>

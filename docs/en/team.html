@@ -9,8 +9,8 @@
     <title>Jay Jay - Open Source Web Component Library</title>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
     <meta name="theme-color" content="#7da3ef">
-    <base href="{{#getUrlBase}}{{/getUrlBase}}">
-    <base href="{{#getUrlBase}}{{/getUrlBase}}">
+    <base href="https://ucsd-cse112.github.io/team-12-components/">
+    <base href="https://ucsd-cse112.github.io/team-12-components/">
   <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
   <link rel="icon" href="resources/images/JJ_favicon_16.png" type="png" sizes="16x16">
     <!-- Bootstrap core CSS -->
@@ -23,8 +23,62 @@
 </head>
 
 <body id="homepage">
-    {{> navbar lang='en' PageName='Team'}}
-    <div class="flex-container" id="members">
+    <nav class="navbar navbar-dark fixed-top navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="en/index.html"><img class="site-logo" src="resources/images/JayJay_logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-nav-menu" aria-controls="top-nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="top-nav-menu" >
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="topNav nav-link "
+                href="en/docs/tutorials.html">Get Started
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="topNav nav-link " href="en/docs/overview.html">
+                Docs
+                
+                
+                
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="topNav nav-link active" href="en/team.html">
+                Team
+                
+                
+                
+              </a>
+            </li>
+          </ul>
+    
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="topNav nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Language
+                
+                
+                
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item active" href="en/index.html">English</a>
+                <a class="dropdown-item " href="es/index.html">Español</a>
+                <a class="dropdown-item " href="zh/index.html">中文</a>
+                <a class="dropdown-item " href="fr/index.html">French</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://github.com/ucsd-cse112/team-12-components"><img
+                src="resources/images/github_logo.png"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>    <div class="flex-container" id="members">
 
 
         <section class="section4" id="section4">
@@ -227,9 +281,144 @@
         </section>
     </div>
 
-  {{> footer lang='en'}}
-  {{> scripts }}
-
+  <div class="container footer-wrapper">
+    <div class="containter">
+      <div class="row">
+  
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-pull-9 col-lg-pull-9">
+          <div class="footer-section-content phone-email-footer">
+            <a href='en/index.html'>
+              <img src="resources/images/JayJay_logo.png" class="img-responsive">
+            </a>
+          </div>
+        </div>
+  
+        <div class="col-xs-12 col-sm-12 col-md-2 col-lg-3 col-md-push-3 col-lg-push-3">
+          <ul class="footer-section-content">
+            <h3>Quick Links</h3>
+            <li><a href="en/index.html">
+                Home
+                
+                
+                
+              </a></li>
+            <li><a href="en/docs/tutorials.html">
+                Get Started
+                
+                
+                
+              </a></li>
+            <li><a href="en/team.html">
+                Team
+                
+                
+                
+              </a></li>
+          </ul>
+        </div>
+  
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-push-3 col-lg-push-3">
+          <ul class="footer-section-content mid-footer-col">
+            <h3>Docs</h3>
+            <li><a href="en/docs/tutorials.html">
+                Get Started
+                
+                
+                
+              </a></li>
+            <li><a href="en/docs/overview.html">
+                Docs
+                
+                
+                
+              </a></li>
+            <li><a href="en/docs/releases.html">
+                Releases
+                
+                
+                
+              </a></li>
+            <li><a href="en/docs/.html">
+                FAQ
+                
+                
+                
+              </a></li>
+          </ul>
+        </div>
+  
+        <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-push-3 col-lg-push-3 fmcol">
+          <ul class="footer-section-content">
+            <h3>Components</h3>
+            <li><a href="en/docs/components/jj-input-number.html">
+                JJ Input Number
+                
+                
+                
+              </a></li>
+            <li><a href="en/docs/components/jj-slider.html">
+                JJ Slider
+                
+                
+                
+              </a></li>
+            <li><a href="en/docs/components/jj-switch.html">
+                JJ Switch
+                
+                
+                
+              </a></li>
+            <li><a href="en/docs/overview.html">
+                View All
+                
+                
+                
+              </a></li>
+          </ul>
+        </div>
+  
+  
+      </div>
+    </div>
+  </div>  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-input-number/jj-input-number.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-slider/jj-slider.js"></script>
+  
+  <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
+  
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  
+  <script>
+    jQuery(window).scroll(function () {
+      //hide left fixed sidebar if current screen reached footer
+      var currentScroll = jQuery(document).height() - jQuery(this).scrollTop() - jQuery(this).height();
+      if (currentScroll > 230) {
+        jQuery('.sidebar-left').css('bottom', '0');
+        jQuery('.sidebar-left').css('top', '0');
+      } else {
+        jQuery('.sidebar-left').css('bottom', '200px');
+        jQuery('.sidebar-left').css('top', '0px');
+      }
+    });
+  
+  
+    //allow right sidebar anchors with base html at the same time.
+    $(document).ready(function () {
+      
+      $().ready(function () {
+        $("a[href^='\#']").each(function () {
+          this.href = location.href.split("#")[0] + '#' + this.href.substr(this.href.indexOf('#') + 1);
+        });
+      });
+      
+    });
+  </script>
   <!-- Graphs -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
 
