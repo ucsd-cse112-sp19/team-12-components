@@ -18,12 +18,11 @@ test("jj-checkbox", async t => {
     document
       .querySelector("#cb1")
   );
-  const checkbox_body = await Selector(() =>
+  const checkboxContainer = await Selector(() =>
     document
     .querySelector("#cb0")
-    .shadowRoot.querySelector("#checkbox_body")
+    .shadowRoot.querySelector("label.el-checkbox")
   );
-
   // TEST 1: test if the checkbox value is correct
   await t.expect(checkbox.value).eql("fruit");
   await t.expect(checkbox.hasAttribute("checked")).eql(false);
@@ -32,11 +31,8 @@ test("jj-checkbox", async t => {
 
 
   // TEST 2: test if the checkbox is clickable and click it
-  await t.click(checkbox_body);
+  await t.click(checkboxContainer);
 
   // TEST 3: test if the checkbox is checked after clicking it
   await t.expect(checkbox.hasAttribute("checked")).eql(true);
-
-  // Test 4: assert the checkbox linking funcionality is working
-  await t.expect(checkbox_sub.hasAttribute("disabled")).eql(false);
 });
