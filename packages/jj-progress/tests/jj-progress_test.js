@@ -1,5 +1,5 @@
 import {expect, assert} from 'chai';
-import '../../../src/jj-progress.min.js';
+import '../jj-progress.js';
 
 //----------Unit Tests ------------------
 describe('jj-progress; percentage; color', () => {
