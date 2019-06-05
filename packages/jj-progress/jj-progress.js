@@ -14,7 +14,6 @@
  * @attribute show-text, whether to show percentage, boolean, /, true
  *
  */
- * @attribute value / v-model,	binding value	number, number,	/,	0
 
 const jjProgress =
     () => {
