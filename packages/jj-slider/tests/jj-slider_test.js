@@ -12,9 +12,9 @@ function wait(ms){
 //----------Unit Tests ------------------
 describe('jj-slider Component Unit Tests', () => {
     //place component into DOM, get the element by id
-    let compHTML = `<jj-slider id="inputNum" value=35 min=0 max=50></jj-slider>`;
+    let compHTML = `<jj-slider id="slider" value=35 min=0 max=50></jj-slider>`;
     document.body.insertAdjacentHTML('afterbegin',compHTML);
-    let compEl = document.getElementById('inputNum');
+    let compEl = document.getElementById('slider');
 
   it('tests assigned value', async () => {
     let compValue = compEl.value;
@@ -51,5 +51,5 @@ describe('jj-slider Component Unit Tests', () => {
     let newValue = parseInt(compEl.getAttribute('value'));
     assert.isBelow(newValue, oldValue);
   });
-  //etc..
+
 });

@@ -111,12 +111,12 @@ const jjProgress =
           }
 
           if (!this.hasAttribute('color')) {
-              this.color = DEFAULT_PROGRESS_COLOR;
+            this.color = DEFAULT_PROGRESS_COLOR;
           }
 
           if (!this.hasAttribute('stroke-width')) {
             this.strokeWidth = this.DEFAULT_STROKE_WIDTH;
-          } 
+          }
 
           console.debug("Setting strokeWidth to ", this.strokeWidth);
           // Set the width of the progress bar.
@@ -147,8 +147,8 @@ const jjProgress =
          * Get the percentage value of the progress position on runway
          */
         getCurrentPosition() {
-          return (this.percentage - this._min) / (this._max - this._min) *
-                     100 + "%";
+          return (this.percentage - this._min) / (this._max - this._min) * 100 +
+                 "%";
         }
 
         /*
@@ -170,8 +170,8 @@ const jjProgress =
         }
 
         /*
-         * Invoked when one of the custom element's attributes is added, removed,
-         * or changed.
+         * Invoked when one of the custom element's attributes is added,
+         * removed, or changed.
          */
         attributeChangedCallback(name, oldValue, newValue) {
           console.debug("in attributeChangedCallback for", name);
@@ -189,15 +189,15 @@ const jjProgress =
           case 'type':
             break;
           case 'stroke-width':
-            //this.strokeWidth = this.getAttribute('stroke-width');
+            // this.strokeWidth = this.getAttribute('stroke-width');
             this.progressBarOuter.style.height = this.strokeWidth + "px";
             break;
           case 'color':
             this.progressBarInner.style.backgroundColor = this.color;
             this.progressBarInner.style.borderColor = this.color;
             break;
+          }
         }
-      }
 
         // Getters
         get percentage() { return this.getAttribute('percentage'); }
@@ -207,7 +207,9 @@ const jjProgress =
         // Setters
         set percentage(newValue) { this.setAttribute('percentage', newValue); }
         set color(newValue) { this.setAttribute('color', newValue); }
-        set strokeWidth(newValue) { this.setAttribute('stroke-width', newValue); }
+        set strokeWidth(newValue) {
+          this.setAttribute('stroke-width', newValue);
+        }
       }
 
       customElements.define('jj-progress', JJProgress);

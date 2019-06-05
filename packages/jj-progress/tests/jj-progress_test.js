@@ -4,85 +4,45 @@ import '../../../src/jj-progress.min.js';
 //----------Unit Tests ------------------
 describe('jj-progress; percentage; color', () => {
 
-    let compHTML = `<jj-progress id="jj-prog" percentage=40 color="#8595ad"></jj-progress>`;
+    let compHTML = `<jj-progress id="progress1" percentage=40 color="#8595ad" stroke-width=4 type=line></jj-progress>`;
     document.body.insertAdjacentHTML('afterbegin',compHTML);
-    let comp = document.getElementById('jj-prog');
+    let compEl1 = document.getElementById('progress1');
+
+    compHTML = `<jj-progress id="progress2" percentage=200></jj-progress>`;
+    document.body.insertAdjacentHTML('afterbegin',compHTML);
+    let compEl2 = document.getElementById('progress2');
+
+    compHTML = `<jj-progress id="progress3" percentage=-20></jj-progress>`;
+    document.body.insertAdjacentHTML('afterbegin',compHTML);
+    let compEl3 = document.getElementById('progress3');
 
     it('tests the percentage attribute is set and retrievable', async () => {
-        // TODO: implement
+        let compPercentage = compEl1.percentage;
+        assert.equal(compPercentage, 40);
     });
 
     it('tests the color value is set and retrievable', async () => {
-        // TODO: implement
+        let compColor = compEl1.color;
+        assert.equal(compColor, "#8595ad");
     });
 
     it('tests the percentage value range > 100', async () => {
-        // TODO: implement.
+        let compPercentage = compEl2.percentage;
+        assert.equal(compPercentage, 100);
     });
 
     it('tests the percentage value range < 0', async () => {
-        // TODO: implement.
+        let compPercentage = compEl3.percentage;
+        assert.equal(compPercentage, 0);
     });
     
     it('tests colors', async () => {
         // TODO: implement.
     });
 
-    it('tests stroke-width', async () => {
-        // TODO: implement.
+    it('tests the stroke-width value is set and retrievable', async () => {
+        let compStrokeWidth = compEl1.stroke-width;
+        assert.equal(compStrokeWidth, 4);
     });
+
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //place component into DOM, get the element by id
-//  let compHTML = `<jj-slider id="inputNum" value=35 min=0 max=50></jj-slider>`;
-//  document.body.insertAdjacentHTML('afterbegin',compHTML);
-//  let compEl = document.getElementById('inputNum');
-//
-//  it('tests assigned value', async () => {
-//    let compValue = compEl.value;
-//    assert.equal(compValue, 35);
-//  });
-//
-//  it('tests assigned min value', async () => {
-//    let compMin = compEl.min;
-//    assert.equal(compMin, 0);
-//  });
-//
-//  it('tests assigned max value', async () => {
-//    let compMax = compEl.max;
-//    assert.equal(compMax, 50);
-//  });
-//
-//  it('Test click on runway to the right of the button', () => {
-//    let mouseDown = new MouseEvent('mousedown', {clientX: 1000});
-//    let mouseUp = new MouseEvent('mouseup');
-//    let oldValue = parseInt(compEl.getAttribute('value'));
-//    compEl.shadowRoot.getElementById('runway').dispatchEvent(mouseDown);
-//    compEl.shadowRoot.getElementById('runway').dispatchEvent(mouseUp);
-//    let newValue = parseInt(compEl.getAttribute('value'));
-//    assert.isAbove(newValue, oldValue);
-//  });
-//
-//  
-//  it('Test click on runway to the left of the button', () => {
-//    let mouseDown = new MouseEvent('mousedown');
-//    let mouseUp = new MouseEvent('mouseup');
-//    let oldValue = parseInt(compEl.getAttribute('value'));
-//    compEl.shadowRoot.getElementById('runway').dispatchEvent(mouseDown);
-//    compEl.shadowRoot.getElementById('runway').dispatchEvent(mouseUp);
-//    let newValue = parseInt(compEl.getAttribute('value'));
-//    assert.isBelow(newValue, oldValue);
-//  });
-  //etc..
