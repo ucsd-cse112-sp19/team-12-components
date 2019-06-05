@@ -4,10 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="A web component that is a highly customizable dragging slider within ranges.">
+  <meta name="description" content="A web component that is a highly customizable to show progress.">
   <meta name="author" content="Jay Jay Web Components">
   <meta name="theme-color" content="#7da3ef">
-  <title>JJ Slider | Web Component Documentation</title>
+  <title>JJ Progress | Web Component Documentation</title>
   <!-- Core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -28,7 +28,7 @@
       <div class="row">
         <!-- Left sidebar: -->
         <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
-          {{> left_sidebar lang='en' PageName='jj slider' }}
+          {{> left_sidebar lang='en' PageName='jj progress' }}
         </div>
 
         <!-- Middle Content -->
@@ -46,33 +46,48 @@
             <div class="demo-entry">
               <p>Default Settings</p>
               <jj-progress></jj-progress>
-              <pre class="prettyprint"><code class="language-html">&lt;jj-slider>&lt;/jj-slider></code></pre>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-progress>&lt;/jj-progress></code></pre>
             </div>
             <div class="demo-entry">
-              <p>Change Percentage</p>
-              <jj-slider percentage=20></jj-slider>
-              <jj-slider percentage=40></jj-slider>
-              <jj-slider percentage=60></jj-slider>
-              <jj-slider percentage=80></jj-slider>
-              <jj-slider percentage=100></jj-slider>
-              <pre
-                class="prettyprint"><code class="language-html">&lt;jj-slider min="0" max="8">&lt;/jj-slider></code></pre>
+              <p>Custom Percentage</p>
+              <jj-progress percentage=20></jj-progress>
+              <jj-progress percentage=40></jj-progress>
+              <jj-progress percentage=60></jj-progress>
+              <jj-progress percentage=80></jj-progress>
+              <jj-progress percentage=100></jj-progress>
+              <pre class="prettyprint"><code class="language-html">
+&lt;jj-progress percentage=20>&lt;/jj-slider>
+&lt;jj-progress percentage=40>&lt;/jj-slider>
+&lt;jj-progress percentage=60>&lt;/jj-slider>
+&lt;jj-progress percentage=80>&lt;/jj-slider>
+&lt;jj-progress percentage=100>&lt;/jj-slider>
+                </code></pre>
             </div>
             <div class="demo-entry">
-              <p>Customized colors</p>
-              <jj-slider percentage=20 color="pink"></jj-slider>
-              <jj-slider percentage=40></jj-slider>
-              <jj-slider percentage=60></jj-slider>
-              <jj-slider percentage=80></jj-slider>
-              <jj-slider percentage=100></jj-slider>
+              <p>Customized Colors</p>
+              <jj-progress percentage=20 color="pink"></jj-slider>
+              <jj-progress percentage=40></jj-progress>
+              <jj-progress percentage=60></jj-progress>
+              <jj-progress percentage=80></jj-progress>
+              <jj-progress percentage=100></jj-progress>
               <pre
-                class="prettyprint"><code class="language-html">&lt;jj-slider min="0" max="8" value="4">&lt;/jj-slider></code></pre>
+                class="prettyprint"><code class="language-html">&lt;jj-progress min="0" max="8" value="4">&lt;/jj-progress></code></pre>
+            </div>
+            <div class="demo-entry">
+              <p>Customized Stroke Width</p>
+              <jj-progress percentage=20 color="pink"></jj-slider>
+              <jj-progress percentage=40></jj-progress>
+              <jj-progress percentage=60></jj-progress>
+              <jj-progress percentage=80></jj-progress>
+              <jj-progress percentage=100></jj-progress>
+              <pre
+                class="prettyprint"><code class="language-html">&lt;jj-progress min="0" max="8" value="4">&lt;/jj-progress></code></pre>
             </div>
           </div>
           <div class="anchor" id="attributes"></div>
           <h2>Attributes</h2>
           <!-- Attribute Table -->
-          <zing-grid caption="JJ Slider Attributes" layout="row" viewport-stop data='[
+          <zing-grid caption="JJ Progress Attributes" layout="row" viewport-stop data='[
            {{#each Attributes}} 
           {
           "Attribute Name": "{{this.AttributeName}}",

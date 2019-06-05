@@ -2,18 +2,19 @@
  * @component_name jj progress
  * @component_desc Progress is used to show the progress of current operation
  * and inform the user the current status.
- * @attribute percentage, percentage required, 0-100, 0
- * @attribute type, the type of progress bar, line/circle/dashboard, line
- * @attribute stroke-width, the width of progress bar, /, 6
+ * @attribute percentage, percentage required, number, 0-100, 0
+ * @attribute type, the type of progress bar, string,line/circle/dashboard, line
+ * @attribute stroke-width, the width of progress bar, number, /, 6
  * @attribute text-inside, whether to place the percentage inside progress bar,
- * /, false
- * @attribute status, the current status of progress bar,
+ * string, /, false
+ * @attribute status, the current status of progress bar, string,
  * success/exception/warning, /
- * @attribute color, background color of progress bar, /, ''
- * @attribute width, the canvas width of circle progress bar, /, 126
- * @attribute show-text, whether to show percentage, /, true
+ * @attribute color, background color of progress bar, string, /, ''
+ * @attribute width, the canvas width of circle progress bar, number, /, 126
+ * @attribute show-text, whether to show percentage, boolean, /, true
  *
  */
+ * @attribute value / v-model,	binding value	number, number,	/,	0
 
 const jjProgress =
     () => {

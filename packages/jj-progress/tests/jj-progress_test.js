@@ -4,9 +4,9 @@ import '../../../src/jj-progress.min.js';
 //----------Unit Tests ------------------
 describe('jj-progress; percentage; color', () => {
 
-    let compHTML = `<jj-progress percentage=40 color="#8595ad"></jj-progress>`;
+    let compHTML = `<jj-progress id="jj-prog" percentage=40 color="#8595ad"></jj-progress>`;
     document.body.insertAdjacentHTML('afterbegin',compHTML);
-    let comp = document.getElementById('inputNum');
+    let comp = document.getElementById('jj-prog');
 
     it('tests the percentage attribute is set and retrievable', async () => {
         // TODO: implement
@@ -23,7 +23,14 @@ describe('jj-progress; percentage; color', () => {
     it('tests the percentage value range < 0', async () => {
         // TODO: implement.
     });
+    
+    it('tests colors', async () => {
+        // TODO: implement.
+    });
 
+    it('tests stroke-width', async () => {
+        // TODO: implement.
+    });
 });
 
 
