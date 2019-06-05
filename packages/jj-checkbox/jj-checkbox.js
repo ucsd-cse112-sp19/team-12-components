@@ -30,7 +30,7 @@ const JJCheckbox =
       </style>
 
       <div>
-        <label role="checkbox" aria-checked="true" class="el-checkbox">
+        <label role="checkbox" aria-checked="true" class="el-checkbox" id="checkbox_body">
             <span aria-checked="mixed" class="el-checkbox__input">
               <span class="el-checkbox__inner"></span>
               <input type="checkbox" aria-hidden="true" class="el-checkbox__original" value="">

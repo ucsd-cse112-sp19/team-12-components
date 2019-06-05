@@ -6,6 +6,7 @@
   "scripts": {
     "build": "./node_modules/.bin/babel --presets es2015 ./packages/*/ --out-dir ./src/",
     "precommit": "./node_modules/.bin/check-clang-format \"yarn format\"",
+    "unittest": "karma start",
     "test": "karma start && npm run test:chrome",
     "test:travis": "karma start && testcafe",
     "test:chrome": "testcafe --skip-js-errors Chrome packages/*/tests/*_testcafe.js",
