@@ -21,7 +21,26 @@
 <body>
     <div class="container" style="margin-top: 100px; text-align: center;">
         <jj-progress id="jj" percentage=20 color="#f56c6c" stroke-width=10 type=line></jj-progress>
+        <br/>
+        <button id="decBtn">-</button>
+        <button id="incBtn">+</button>
     </div>
+
+  <script>
+    document.getElementById("decBtn").addEventListener("click", function(){
+      console.log("in dec button");
+      let el = document.getElementById('jj');
+      console.log(el.getAttribute('percentage'));
+      el.setAttribute('percentage', el.getAttribute('percentage') - 10);
+    });
+
+    document.getElementById("incBtn").addEventListener("click", function(){
+      console.log("in inc button");
+      let el = document.getElementById('jj');
+      console.log(el.getAttribute('percentage'));
+      el.setAttribute('percentage', Number(el.getAttribute('percentage')) + 10);
+    });
+  </script>
 </body>
 
 </html>

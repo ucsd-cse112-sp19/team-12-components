@@ -107,7 +107,8 @@ const jjProgress =
             this._percentage = this.percentage;
             console.log("this._percentage", this._percentage);
           } else {
-            console.log("setting default percentage to", this.DEFAULT_PERCENTAGE);
+            console.log("setting default percentage to",
+                        this.DEFAULT_PERCENTAGE);
             this._percentage = this.DEFAULT_PERCENTAGE;
           }
 
@@ -117,7 +118,7 @@ const jjProgress =
             this.progressBarInner.style.borderColor =
                 this.getAttribute('color');
           } else {
-            //this.color = "#409EFF";
+            // this.color = "#409EFF";
           }
 
           // DONE: NEEDS IMPLEMENTATION
@@ -187,6 +188,8 @@ const jjProgress =
             } else if (this.percentage > 100) {
               this._percentage = 100;
               console.debug("bad percentage, using", this._percentage);
+            } else {
+              this._percentage = this.percentage;
             }
             this.updateProgressPosition();
             this.updatePercentageText();
@@ -208,7 +211,7 @@ const jjProgress =
 
         // Setters
         set percentage(newValue) { this.percentage = newValue; }
-        //set color(newValue) { this.color = newValue; }
+        // set color(newValue) { this.color = newValue; }
       }
 
       customElements.define('jj-progress', JJProgress);
