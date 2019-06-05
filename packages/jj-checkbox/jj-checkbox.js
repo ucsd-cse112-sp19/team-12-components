@@ -1,3 +1,12 @@
+/**
+ * @component_name jj checkbox
+ * @component_desc Checkbox which could interact with each others.
+ * @attribute value, the value of the checkbox,	string,	/, Option 
+ * @attribute label, label for checkbox, string, /, Option
+ * @attribute checked, check the box if set, /, /, /
+ * @attribute disabled, disable the box if set, /, /, /
+ */
+
 const JJCheckbox =
     () => {
       const template = document.createElement('template');
