@@ -10,36 +10,43 @@
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     
     <style>
-        jj-progress {
-            --bar-outer-color: var(--primary); 
-            --text-font: var(--font-family-sans-serif);
-            --progress-width: 80%;
-        }
+       #jj2 {
+           --bar-outer-color: var(--primary); 
+           --text-font: var(--font-family-sans-serif);
+           --progress-width: 80%;
+       }
+
     </style>
 </head>
 
 <body>
     <div class="container" style="margin-top: 100px; text-align: center;">
-        <jj-progress id="jj" percentage=20 color="#f56c6c" stroke-width=10 type=line></jj-progress>
+        <jj-progress id="jj2" stroke-width=20 type=line></jj-progress>
         <br/>
+        <jj-progress id="jj1" percentage=20  stroke-width=10 type=line></jj-progress>
+        <br/>
+
+        <p> Adjust progress </p>
         <button id="decBtn">-</button>
         <button id="incBtn">+</button>
     </div>
 
   <script>
+    // Add progress button functionality
     document.getElementById("decBtn").addEventListener("click", function(){
       console.log("in dec button");
-      let el = document.getElementById('jj');
+      let el = document.getElementById('jj1');
       console.log(el.getAttribute('percentage'));
       el.setAttribute('percentage', el.getAttribute('percentage') - 10);
     });
 
     document.getElementById("incBtn").addEventListener("click", function(){
       console.log("in inc button");
-      let el = document.getElementById('jj');
+      let el = document.getElementById('jj1');
       console.log(el.getAttribute('percentage'));
       el.setAttribute('percentage', Number(el.getAttribute('percentage')) + 10);
     });
+
   </script>
 </body>
 

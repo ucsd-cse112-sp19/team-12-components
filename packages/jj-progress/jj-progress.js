@@ -12,7 +12,7 @@
  * @attribute color, background color of progress bar, string, /, ''
  * @attribute width, the canvas width of circle progress bar, number, /, 126
  * @attribute show-text, whether to show percentage, boolean, /, true
- *
+ * // TODO(Nate): Add css-variable details.
  */
 
 const jjProgress =
@@ -77,6 +77,7 @@ const jjProgress =
           this.DEFAULT_MIN = 0;
           this.DEFAULT_MAX = 100;
           this.DEFAULT_STROKE_WIDTH = 6;
+          this.DEFAULT_PROGRESS_COLOR = "#409EFF";
 
           this._min = this.DEFAULT_MIN;
           this._max = this.DEFAULT_MAX;
@@ -102,31 +103,21 @@ const jjProgress =
          */
         connectedCallback() {
           console.debug("in connectedCallback");
+          // Assigns default values for attributes.
 
-          if (this.hasAttribute('percentage')) {
-            this._percentage = this.percentage;
-            console.log("this._percentage", this._percentage);
-          } else {
-            console.log("setting default percentage to",
-                        this.DEFAULT_PERCENTAGE);
-            this._percentage = this.DEFAULT_PERCENTAGE;
+          if (!this.hasAttribute('percentage')) {
+            console.log("setting default percentage:", this.DEFAULT_PERCENTAGE);
+            this.percentage = this.DEFAULT_PERCENTAGE;
           }
 
-          if (this.hasAttribute('color')) {
-            this.progressBarInner.style.backgroundColor =
-                this.getAttribute('color');
-            this.progressBarInner.style.borderColor =
-                this.getAttribute('color');
-          } else {
-            // this.color = "#409EFF";
+          if (!this.hasAttribute('color')) {
+              this.color = DEFAULT_PROGRESS_COLOR;
           }
 
-          // DONE: NEEDS IMPLEMENTATION
           if (!this.hasAttribute('stroke-width')) {
             this.strokeWidth = this.DEFAULT_STROKE_WIDTH;
-          } else {
-            this.strokeWidth = this.getAttribute('stroke-width');
-          }
+          } 
+
           console.debug("Setting strokeWidth to ", this.strokeWidth);
           // Set the width of the progress bar.
           this.progressBarOuter.style.height = this.strokeWidth + "px";
@@ -147,35 +138,40 @@ const jjProgress =
          */
         updatePercentageText() {
           console.debug("in updatePercentageText");
-          let text = "" + this._percentage + "%";
+          let text = "" + this.percentage + "%";
           console.debug("Updating percentage text to", text);
           this.progressBarText.innerText = text;
         }
 
-        // Get the percentage value of the progress position on runway
+        /*
+         * Get the percentage value of the progress position on runway
+         */
         getCurrentPosition() {
-          return (this._percentage - this._min) / (this._max - this._min) *
-                     100 +
-                 "%";
+          return (this.percentage - this._min) / (this._max - this._min) *
+                     100 + "%";
         }
 
-        // Initialization: Set position of progress bar based on position of
-        // current percentage
+        /*
+          Initialization: Set position of progress bar based on position of
+         * current percentage
+         */
         updateProgressPosition() {
           console.debug("in updateProgressPosition");
           const percent =
-              (this._percentage - this._min) / (this._max - this._min) * 100;
+              (this.percentage - this._min) / (this._max - this._min) * 100;
           this.progressBarInner.style.width = percent + "%";
         }
 
-        // holds the list of attributes the component can have.
+        /*
+         * Holds the list of attributes the component can have.
+         */
         static get observedAttributes() {
           return [ 'percentage', 'stroke-width', 'type', 'color' ];
         }
 
         /*
-         *invoked when one of the custom element's attributes is added, removed,
-         *or changed.
+         * Invoked when one of the custom element's attributes is added, removed,
+         * or changed.
          */
         attributeChangedCallback(name, oldValue, newValue) {
           console.debug("in attributeChangedCallback for", name);
@@ -183,13 +179,9 @@ const jjProgress =
           case 'percentage':
             // When the percentage change update the progress bar and the text.
             if (this.percentage < 0) {
-              this._percentage = 0;
-              console.debug("bad percentage, using", this._percentage);
+              this.percentage = 0;
             } else if (this.percentage > 100) {
-              this._percentage = 100;
-              console.debug("bad percentage, using", this._percentage);
-            } else {
-              this._percentage = this.percentage;
+              this.percentage = 100;
             }
             this.updateProgressPosition();
             this.updatePercentageText();
@@ -197,21 +189,25 @@ const jjProgress =
           case 'type':
             break;
           case 'stroke-width':
-            this.strokeWidth = this.getAttribute('stroke-width');
+            //this.strokeWidth = this.getAttribute('stroke-width');
             this.progressBarOuter.style.height = this.strokeWidth + "px";
             break;
           case 'color':
+            this.progressBarInner.style.backgroundColor = this.color;
+            this.progressBarInner.style.borderColor = this.color;
             break;
-          }
         }
+      }
 
         // Getters
         get percentage() { return this.getAttribute('percentage'); }
         get color() { return this.getAttribute('color'); }
+        get strokeWidth() { return this.getAttribute('stroke-width'); }
 
         // Setters
-        set percentage(newValue) { this.percentage = newValue; }
-        // set color(newValue) { this.color = newValue; }
+        set percentage(newValue) { this.setAttribute('percentage', newValue); }
+        set color(newValue) { this.setAttribute('color', newValue); }
+        set strokeWidth(newValue) { this.setAttribute('stroke-width', newValue); }
       }
 
       customElements.define('jj-progress', JJProgress);
