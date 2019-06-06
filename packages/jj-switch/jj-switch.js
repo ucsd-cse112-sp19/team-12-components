@@ -156,6 +156,10 @@ const jjSwitch = () => {
 
     constructor() {
       super();
+
+      // Define constants
+      this.DEFAULT_TOGGLE = true;
+
       this.root = this.attachShadow({mode : 'open'});
       this.root.appendChild(template.content.cloneNode(true));
 
@@ -357,6 +361,7 @@ const jjSwitch = () => {
     get active_color() { return this.getAttribute('active-color'); }
     get inactive_color() { return this.getAttribute('inactive-color'); }
     get size() { return this.getAttribute('size'); }
+    get disabled() { return this.getAttribute('disabled'); }
 
     // Setters
     set value(newValue) { this.setAttribute('value', newValue); }
@@ -374,7 +379,9 @@ const jjSwitch = () => {
     }
     set size(newValue) { this.setAttribute('size', newValue); }
     set name(newValue) { this.setAttribute('name', newValue); }
+    set disabled(newValue) { this.setAttribute('disabled', newValue); }
+    }
+    customElements.define('jj-switch', JJSwitch);
   }
-  customElements.define('jj-switch', JJSwitch);
-} 
+
 jjSwitch();
