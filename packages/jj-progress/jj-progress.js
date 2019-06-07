@@ -61,7 +61,7 @@ const jjProgress =
 
       <div class="el-progress-bar">
         <div class="el-progress-bar__outer" style="height: 6px;">
-          <div class="el-progress-bar__inner" style="width: 10%"></div>
+          <div class="el-progress-bar__inner" style="height:6px; width: 10%"></div>
         </div>
       </div>
       <div class="el-progress__text" style="font-size: 14.4px"></div>

@@ -6,103 +6,108 @@ import { Selector } from "testcafe";
 fixture`Test jj-progress` .page`../demo/jj-progress.html`;
 
 
-//test("increase slider value", async t => {
-//
-//  // SELECT the slider
-//  const slider = Selector(() => document .querySelector("jj-slider"));
-//
-//  // SELECT the input box
-//  const sliderButton = await Selector(() =>
-//      document
-//      .querySelector("jj-slider")
-//      .shadowRoot.querySelector(".el-slider__button-wrapper")
-//  );
-//
-//  let compSelector = Selector("#jj");
-//  let currentValue = parseInt(await compSelector.value);
-//
-//  await t
-//    .hover(sliderButton, {speed: 0.9})
-//    .click(sliderButton)
-//    .drag(sliderButton, 200, 50, {speed: 0.9});
-//
-//  // Need to break up execution by first assuring the first await is executed
-//  // and completed. Then we can do our check of value. If we don't we cannot 
-//  // guarantee the slider will be moved.
-//  await t.expect(parseInt(await compSelector.value)).gt(currentValue);
-//
-//});
-//
-//test("decrease slider value", async t => {
-//
-//  // SELECT the slider
-//  const slider = Selector(() => document .querySelector("jj-slider"));
-//
-//  // SELECT the input box
-//  const sliderButton = await Selector(() =>
-//      document
-//      .querySelector("jj-slider")
-//      .shadowRoot.querySelector(".el-slider__button-wrapper")
-//  );
-//
-//  let compSelector = Selector("#jj");
-//  let currentValue = parseInt(await compSelector.value);
-//
-//  await t
-//    .hover(sliderButton, {speed: 0.9})
-//    .click(sliderButton)
-//    .drag(sliderButton, -200, 50, {speed: 0.9});
-//
-//  // Need to break up execution by first assuring the first await is executed
-//  // and completed. Then we can do our check of value. If we don't we cannot 
-//  // guarantee the slider will be moved.
-//  await t.expect(parseInt(await compSelector.value)).lt(currentValue);
-//});
-//
-//test("decrease to min limit", async t => {
-//  // SELECT the slider
-//  const slider = Selector(() => document .querySelector("jj-slider"));
-//
-//  // SELECT the input box
-//  const sliderButton = await Selector(() =>
-//      document
-//      .querySelector("jj-slider")
-//      .shadowRoot.querySelector(".el-slider__button-wrapper")
-//  );
-//
-//  let compSelector = Selector("#jj");
-//  let currentValue = parseInt(await compSelector.value);
-//
-//  await t
-//    .hover(sliderButton, {speed: 0.9})
-//    .click(sliderButton)
-//    .drag(sliderButton, -10000, 50, {speed: 0.9});
-//
-//  await t.expect(parseInt(await compSelector.value)).eql(0);
-//});
-//
-//test("increase to max limit", async t => {
-//  // SELECT the slider
-//  const slider = Selector(() => document .querySelector("jj-slider"));
-//
-//  // SELECT the input box
-//  const sliderButton = await Selector(() =>
-//      document
-//      .querySelector("jj-slider")
-//      .shadowRoot.querySelector(".el-slider__button-wrapper")
-//  );
-//
-//  let compSelector = Selector("#jj");
-//  let currentValue = parseInt(await compSelector.value);
-//
-//  await t
-//    .hover(sliderButton, {speed: 0.9})
-//    .click(sliderButton)
-//    .drag(sliderButton, 10000, 50, {speed: 0.9});
-//
-//  await t.expect(parseInt(await compSelector.value)).eql(50);
-//});
-//
-//test("tooltip shows on hover", async t => {
-//    // TODO(Nate): complete this test.
-//});
+test("increase progress value", async t => {
+
+  // SELECT the input box
+  const incProgressBtn = await Selector(() => document.querySelector("#incBtn"));
+
+  // Get the component.
+  let compSelector = Selector("#jj1");
+  // Get the components percentage
+  let currPercentage = parseInt(await compSelector.getAttribute('percentage'));
+
+  await t
+    .click(incProgressBtn)
+    .click(incProgressBtn)
+    .click(incProgressBtn);
+
+  // Need to break up action and assert to ensure completion.
+  await t
+    .expect(parseInt(await compSelector.getAttribute('percentage')))
+    .eql(50);
+});
+
+
+test("decrease progress value", async t => {
+
+  // SELECT the input box
+  const decProgressBtn = await Selector(() => document.querySelector("#decBtn"));
+
+  // Get the component.
+  let compSelector = Selector("#jj1");
+  // Get the components percentage
+  let currPercentage = parseInt(await compSelector.getAttribute('percentage'));
+
+  await t
+    .click(decProgressBtn);
+  await t
+    .expect(parseInt(await compSelector.getAttribute('percentage')))
+    .eql(10);
+});
+
+test("percentage when increment past 100%", async t => {
+
+  // SELECT the input box
+  const incProgressBtn = await Selector(() => document.querySelector("#incBtn"));
+
+  // Get the component.
+  let compSelector = Selector("#jj1");
+  // Get the components percentage
+  let currPercentage = parseInt(await compSelector.getAttribute('percentage'));
+
+  await t
+    .click(incProgressBtn)
+    .click(incProgressBtn)
+    .click(incProgressBtn)
+    .click(incProgressBtn)
+    .click(incProgressBtn)
+    .click(incProgressBtn)
+    .click(incProgressBtn)
+    .click(incProgressBtn) // at 100% after this click.
+    .click(incProgressBtn)
+    .click(incProgressBtn)
+    .click(incProgressBtn);
+  await t
+    .expect(parseInt(await compSelector.getAttribute('percentage')))
+    .eql(100);
+});
+
+test("percentage when decrement past 0%", async t => {
+
+  // SELECT the input box
+  const decProgressBtn = await Selector(() => document.querySelector("#decBtn"));
+
+  // Get the component.
+  let compSelector = Selector("#jj1");
+  // Get the components percentage
+  let currPercentage = parseInt(await compSelector.getAttribute('percentage'));
+
+  await t
+    .click(decProgressBtn)
+    .click(decProgressBtn)
+    .click(decProgressBtn) // at 0% after this click.
+    .click(decProgressBtn)
+    .click(decProgressBtn);
+  await t
+    .expect(parseInt(await compSelector.getAttribute('percentage')))
+    .eql(0);
+});
+
+test("increment then decrement gives same inital point.", async t => {
+  const incProgressBtn = await Selector(() => document.querySelector("#incBtn"));
+  const decProgressBtn = await Selector(() => document.querySelector("#decBtn"));
+  let compSelector = Selector("#jj1");
+  let currPercentage = parseInt(await compSelector.getAttribute('percentage'));
+
+  await t
+    .click(decProgressBtn)
+    .click(incProgressBtn)
+    .expect(parseInt(await compSelector.getAttribute('percentage')))
+    .eql(currPercentage);
+
+  await t
+    .click(incProgressBtn) 
+    .click(decProgressBtn)
+    .expect(parseInt(await compSelector.getAttribute('percentage')))
+    .eql(currPercentage);
+});
