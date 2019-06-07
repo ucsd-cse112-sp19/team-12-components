@@ -291,7 +291,7 @@ const jjButton = () => {
     }
 
   </style>
-  <button class="btn"><slot></slot></button> 
+  <button id="jj-button" class="btn"><slot></slot></button> 
   `;
 
   class JJButton extends HTMLElement {
