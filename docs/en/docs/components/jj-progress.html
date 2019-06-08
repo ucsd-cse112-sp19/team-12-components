@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="A web component that is a highly customizable to show progress.">
+  <meta name="author" content="Jay Jay Web Components">
+  <meta name="theme-color" content="#7da3ef">
+  <title>JJ Progress | Web Component Documentation</title>
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../../resources/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
+  <base href="https://ucsd-cse112.github.io/team-12-components/">
+  <base href="https://ucsd-cse112.github.io/team-12-components/">
+  <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
+  <link rel="icon" href="resources/images/JJ_favicon_16.png" type="png" sizes="16x16">
+  <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-progress/jj-progress.js"></script>
+</head>
+
+<body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
+  <div class="container">
+    <!-- Navbar Partial-->
+    <nav class="navbar navbar-dark fixed-top navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="en/index.html"><img class="site-logo" src="resources/images/JayJay_logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-nav-menu" aria-controls="top-nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="top-nav-menu" >
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="topNav nav-link "
+                href="en/docs/tutorials.html">Get Started
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="topNav nav-link active" href="en/docs/overview.html">
+                Docs
+                
+                
+                
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="topNav nav-link " href="en/team.html">
+                Team
+                
+                
+                
+              </a>
+            </li>
+          </ul>
+    
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="topNav nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Language
+                
+                
+                
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item active" href="en/index.html">English</a>
+                <a class="dropdown-item " href="es/index.html">Español</a>
+                <a class="dropdown-item " href="zh/index.html">中文</a>
+                <a class="dropdown-item " href="fr/index.html">French</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://github.com/ucsd-cse112/team-12-components"><img
+                src="resources/images/github_logo.png"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container page">
+      <div class="row">
+        <!-- Left sidebar: -->
+        <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
+          <button class="navbar-toggler sidebarButton" type="button" data-toggle="collapse" data-target="#left-nav-sidebar"
+            aria-controls="left-nav-sidebar" aria-expanded="false" aria-label="Toggle navigation">
+            jj progress <span class="carrot-down">&#9660;</span>
+          </button>
+          <ul class="sidebar-left collapse navbar-collapse" id="left-nav-sidebar">
+            <li class="sideL nav-item">
+              <a class="nav-link " href="en/docs/overview.html">
+                <span>
+                  Overview
+                  
+                  
+                  
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link " href="en/docs/tutorials.html">
+                <span>
+                  Tutorials
+                  
+                  
+                  
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item dropdown">
+              <a class="nav-link " data-toggle="collapse"
+                href="#collapseVersions" data-target="#collapseVersions" aria-expanded="false" aria-controls="collapseVersions">
+                Releases
+                
+                
+                
+              </a>
+              <div class="collapse" id="collapseVersions">
+                <a class="nav-link sidebar-subHeading "
+                  href="en/docs/releases.html#1.0.0">
+                  <span>
+                    1.0.0
+                  </span>
+                </a>
+              </div>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link " href="#">
+                <span>
+                  Components
+                  
+                  
+                  
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
+                href="en/docs/components/core-hello.html">
+                <span>
+                  Core Hello
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
+                href="en/docs/components/jj-checkbox.html">
+                <span>
+                  jj checkbox
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
+                href="en/docs/components/jj-input-number.html">
+                <span>
+                  jj input number
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading active"
+                href="en/docs/components/jj-progress.html">
+                <span>
+                  jj progress
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
+                href="en/docs/components/jj-slider.html">
+                <span>
+                  jj slider
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
+                href="en/docs/components/jj-switch.html">
+                <span>
+                  jj switch
+                </span>
+              </a>
+            </li>
+          </ul>        </div>
+
+        <!-- Middle Content -->
+        <div class="col-md-8 col-sm-12 content">
+          <div class="anchor" id="description"></div>
+          <h1>
+            JJ Progress
+          </h1>
+          <p>
+            Highly customizable progress bar.
+          </p>
+          <div class="anchor" id="usage"></div>
+          <h2>Basic usage</h2>
+          <div class="demo-section">
+            <div class="demo-entry">
+              <p>Default Settings</p>
+              <jj-progress></jj-progress>
+              <br/>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-progress>&lt;/jj-progress></code></pre>
+            </div>
+            <div class="demo-entry">
+              <p>Customized Percentage, Stroke-width, and Colors</p>
+              <jj-progress percentage=20 color="#909398"></jj-progress>
+              <br/>
+              <jj-progress percentage=40 stroke-width=12 color="#7ebe50"	></jj-progress>
+              <br/>
+              <jj-progress percentage=60 stroke-width=18 color="#dda450"></jj-progress>
+              <br/>
+              <jj-progress percentage=80 stroke-width=24 color="#e57470"></jj-progress>
+              <br/>
+              <jj-progress percentage=100 stroke-width=30></jj-progress>
+              <br/>
+              <pre class="prettyprint"><code class="language-html">
+&lt;jj-progress percentage=20  stroke-width=6  color="#909398">&lt;/jj-progress>
+&lt;jj-progress percentage=40  stroke-width=12 color="#7ebe50">&lt;/jj-progress>
+&lt;jj-progress percentage=60  stroke-width=18 color="#dda450">&lt;/jj-progress>
+&lt;jj-progress percentage=80  stroke-width=24 color="#e57470">&lt;/jj-progress>
+&lt;jj-progress percentage=100 stroke-width=30>&lt;/jj-progress>
+                </code></pre>
+                <br/>
+            </div>
+            <div class="demo-entry">
+              <p>Update Percentage</p>
+              <jj-progress id="jj1"></jj-progress>
+              <button id="decBtn" class="btn btn-outline-primary">-</button>
+              <button id="incBtn" class="btn btn-outline-primary">+</button>
+              <br/>
+              <br/>
+              <script>
+                document.getElementById("decBtn").addEventListener("click", function(){
+                  console.log("in dec button");
+                  let el = document.getElementById('jj1');
+                  console.log(el.getAttribute('percentage'));
+                  el.setAttribute('percentage', el.getAttribute('percentage') - 10);
+                });
+
+                document.getElementById("incBtn").addEventListener("click", function(){
+                  console.log("in inc button");
+                  let el = document.getElementById('jj1');
+                  console.log(el.getAttribute('percentage'));
+                  el.setAttribute('percentage', Number(el.getAttribute('percentage')) + 10);
+                });
+              </script>
+              <pre class="prettyprint"><code class="language-html">
+&lt;jj-progress id="jj1">&lt;jj-progress>
+&lt;button id="decBtn" class="btn btn-light">-&lt;button>
+&lt;button id="incBtn" class="btn btn-light">+&lt;button>
+&lt;script>
+    document.getElementById("decBtn").addEventListener("click", function(){
+        console.log("in dec button");
+        let el = document.getElementById('jj1');
+        console.log(el.getAttribute('percentage'));
+        el.setAttribute('percentage', el.getAttribute('percentage') - 10);
+    });
+    document.getElementById("incBtn").addEventListener("click", function(){
+        console.log("in inc button");
+        let el = document.getElementById('jj1');
+        console.log(el.getAttribute('percentage'));
+        el.setAttribute('percentage', Number(el.getAttribute('percentage')) + 10);
+    });
+&lt;/script>
+              </code></pre>
+            </div>
+          </div>
+          <div class="anchor" id="attributes"></div>
+          <h2>Attributes</h2>
+          <!-- Attribute Table -->
+          <zing-grid caption="JJ Progress Attributes" layout="row" viewport-stop data='[
+          {
+          "Attribute Name": "percentage",
+          "Description": " percentage required",
+          "Type": " number",
+          "Accepted Values": " 0-100",
+          "Default": " 0"
+          },
+          {
+          "Attribute Name": "type",
+          "Description": " the type of progress bar",
+          "Type": " string",
+          "Accepted Values": "line/circle/dashboard",
+          "Default": " line"
+          },
+          {
+          "Attribute Name": "stroke-width",
+          "Description": " the width of progress bar",
+          "Type": " number",
+          "Accepted Values": " /",
+          "Default": " 6"
+          },
+          {
+          "Attribute Name": "text-inside",
+          "Description": " whether to place the percentage inside progress bar",
+          "Type": "string",
+          "Accepted Values": " /",
+          "Default": " false"
+          },
+          {
+          "Attribute Name": "status",
+          "Description": " the current status of progress bar",
+          "Type": " string",
+          "Accepted Values": "success/exception/warning",
+          "Default": " /"
+          },
+          {
+          "Attribute Name": "color",
+          "Description": " background color of progress bar",
+          "Type": " string",
+          "Accepted Values": " /",
+          "Default": " &#x27;&#x27;"
+          },
+          {
+          "Attribute Name": "width",
+          "Description": " the canvas width of circle progress bar",
+          "Type": " number",
+          "Accepted Values": " /",
+          "Default": " 126"
+          },
+          {
+          "Attribute Name": "show-text",
+          "Description": " whether to show percentage",
+          "Type": " boolean",
+          "Accepted Values": " /",
+          "Default": " true"
+          },
+          {
+          "Attribute Name": "",
+          "Description": "",
+          "Type": "",
+          "Accepted Values": "",
+          "Default": ""
+          }
+          ]'>
+          </zing-grid>
+
+        </div>
+
+        <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
+          <!-- Right Sidebar -->
+          <nav id="contentHeadings" class="sidebar-right">
+            <ul class="nav nav-pills flex-column">
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#description" data-target="#description">
+                  Description
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#usage" data-target="#usage">
+                  Usage
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#attributes" data-target="#attributes">
+                  Attributes
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Right Sidebar -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container footer-wrapper">
+      <div class="containter">
+        <div class="row">
+    
+          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-pull-9 col-lg-pull-9">
+            <div class="footer-section-content phone-email-footer">
+              <a href='en/index.html'>
+                <img src="resources/images/JayJay_logo.png" class="img-responsive">
+              </a>
+            </div>
+          </div>
+    
+          <div class="col-xs-12 col-sm-12 col-md-2 col-lg-3 col-md-push-3 col-lg-push-3">
+            <ul class="footer-section-content">
+              <h3>Quick Links</h3>
+              <li><a href="en/index.html">
+                  Home
+                  
+                  
+                  
+                </a></li>
+              <li><a href="en/docs/tutorials.html">
+                  Get Started
+                  
+                  
+                  
+                </a></li>
+              <li><a href="en/team.html">
+                  Team
+                  
+                  
+                  
+                </a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-push-3 col-lg-push-3">
+            <ul class="footer-section-content mid-footer-col">
+              <h3>Docs</h3>
+              <li><a href="en/docs/tutorials.html">
+                  Get Started
+                  
+                  
+                  
+                </a></li>
+              <li><a href="en/docs/overview.html">
+                  Docs
+                  
+                  
+                  
+                </a></li>
+              <li><a href="en/docs/releases.html">
+                  Releases
+                  
+                  
+                  
+                </a></li>
+              <li><a href="en/docs/.html">
+                  FAQ
+                  
+                  
+                  
+                </a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-push-3 col-lg-push-3 fmcol">
+            <ul class="footer-section-content">
+              <h3>Components</h3>
+              <li><a href="en/docs/components/jj-input-number.html">
+                  JJ Input Number
+                  
+                  
+                  
+                </a></li>
+              <li><a href="en/docs/components/jj-slider.html">
+                  JJ Slider
+                  
+                  
+                  
+                </a></li>
+              <li><a href="en/docs/components/jj-switch.html">
+                  JJ Switch
+                  
+                  
+                  
+                </a></li>
+              <li><a href="en/docs/overview.html">
+                  View All
+                  
+                  
+                  
+                </a></li>
+            </ul>
+          </div>
+    
+    
+        </div>
+      </div>
+    </div>
+    <!-- JS files at bottom of page -->
+    <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-input-number/jj-input-number.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-slider/jj-slider.js"></script>
+    
+    <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+    <script>
+      jQuery(window).scroll(function () {
+        //hide left fixed sidebar if current screen reached footer
+        var currentScroll = jQuery(document).height() - jQuery(this).scrollTop() - jQuery(this).height();
+        if (currentScroll > 230) {
+          jQuery('.sidebar-left').css('bottom', '0');
+          jQuery('.sidebar-left').css('top', '0');
+        } else {
+          jQuery('.sidebar-left').css('bottom', '200px');
+          jQuery('.sidebar-left').css('top', '0px');
+        }
+      });
+    
+    
+      //allow right sidebar anchors with base html at the same time.
+      $(document).ready(function () {
+        
+        $().ready(function () {
+          $("a[href^='\#']").each(function () {
+            this.href = location.href.split("#")[0] + '#' + this.href.substr(this.href.indexOf('#') + 1);
+          });
+        });
+        
+      });
+    </script>
+  </div>
+</body>
+
+</html>

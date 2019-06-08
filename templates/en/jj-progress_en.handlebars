@@ -17,6 +17,7 @@
   <base href="{{#getUrlBase}}{{/getUrlBase}}">
   <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
   <link rel="icon" href="resources/images/JJ_favicon_16.png" type="png" sizes="16x16">
+  <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-progress/jj-progress.js"></script>
 </head>
 
 <body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
@@ -46,42 +47,71 @@
             <div class="demo-entry">
               <p>Default Settings</p>
               <jj-progress></jj-progress>
+              <br/>
               <pre class="prettyprint"><code class="language-html">&lt;jj-progress>&lt;/jj-progress></code></pre>
             </div>
             <div class="demo-entry">
-              <p>Custom Percentage</p>
-              <jj-progress percentage=20></jj-progress>
-              <jj-progress percentage=40></jj-progress>
-              <jj-progress percentage=60></jj-progress>
-              <jj-progress percentage=80></jj-progress>
-              <jj-progress percentage=100></jj-progress>
+              <p>Customized Percentage, Stroke-width, and Colors</p>
+              <jj-progress percentage=20 color="#909398"></jj-progress>
+              <br/>
+              <jj-progress percentage=40 stroke-width=12 color="#7ebe50"	></jj-progress>
+              <br/>
+              <jj-progress percentage=60 stroke-width=18 color="#dda450"></jj-progress>
+              <br/>
+              <jj-progress percentage=80 stroke-width=24 color="#e57470"></jj-progress>
+              <br/>
+              <jj-progress percentage=100 stroke-width=30></jj-progress>
+              <br/>
               <pre class="prettyprint"><code class="language-html">
-&lt;jj-progress percentage=20>&lt;/jj-slider>
-&lt;jj-progress percentage=40>&lt;/jj-slider>
-&lt;jj-progress percentage=60>&lt;/jj-slider>
-&lt;jj-progress percentage=80>&lt;/jj-slider>
-&lt;jj-progress percentage=100>&lt;/jj-slider>
+&lt;jj-progress percentage=20  stroke-width=6  color="#909398">&lt;/jj-progress>
+&lt;jj-progress percentage=40  stroke-width=12 color="#7ebe50">&lt;/jj-progress>
+&lt;jj-progress percentage=60  stroke-width=18 color="#dda450">&lt;/jj-progress>
+&lt;jj-progress percentage=80  stroke-width=24 color="#e57470">&lt;/jj-progress>
+&lt;jj-progress percentage=100 stroke-width=30>&lt;/jj-progress>
                 </code></pre>
+                <br/>
             </div>
             <div class="demo-entry">
-              <p>Customized Colors</p>
-              <jj-progress percentage=20 color="pink"></jj-slider>
-              <jj-progress percentage=40></jj-progress>
-              <jj-progress percentage=60></jj-progress>
-              <jj-progress percentage=80></jj-progress>
-              <jj-progress percentage=100></jj-progress>
-              <pre
-                class="prettyprint"><code class="language-html">&lt;jj-progress min="0" max="8" value="4">&lt;/jj-progress></code></pre>
-            </div>
-            <div class="demo-entry">
-              <p>Customized Stroke Width</p>
-              <jj-progress percentage=20 color="pink"></jj-slider>
-              <jj-progress percentage=40></jj-progress>
-              <jj-progress percentage=60></jj-progress>
-              <jj-progress percentage=80></jj-progress>
-              <jj-progress percentage=100></jj-progress>
-              <pre
-                class="prettyprint"><code class="language-html">&lt;jj-progress min="0" max="8" value="4">&lt;/jj-progress></code></pre>
+              <p>Update Percentage</p>
+              <jj-progress id="jj1"></jj-progress>
+              <button id="decBtn" class="btn btn-outline-primary">-</button>
+              <button id="incBtn" class="btn btn-outline-primary">+</button>
+              <br/>
+              <br/>
+              <script>
+                document.getElementById("decBtn").addEventListener("click", function(){
+                  console.log("in dec button");
+                  let el = document.getElementById('jj1');
+                  console.log(el.getAttribute('percentage'));
+                  el.setAttribute('percentage', el.getAttribute('percentage') - 10);
+                });
+
+                document.getElementById("incBtn").addEventListener("click", function(){
+                  console.log("in inc button");
+                  let el = document.getElementById('jj1');
+                  console.log(el.getAttribute('percentage'));
+                  el.setAttribute('percentage', Number(el.getAttribute('percentage')) + 10);
+                });
+              </script>
+              <pre class="prettyprint"><code class="language-html">
+&lt;jj-progress id="jj1">&lt;jj-progress>
+&lt;button id="decBtn" class="btn btn-light">-&lt;button>
+&lt;button id="incBtn" class="btn btn-light">+&lt;button>
+&lt;script>
+    document.getElementById("decBtn").addEventListener("click", function(){
+        console.log("in dec button");
+        let el = document.getElementById('jj1');
+        console.log(el.getAttribute('percentage'));
+        el.setAttribute('percentage', el.getAttribute('percentage') - 10);
+    });
+    document.getElementById("incBtn").addEventListener("click", function(){
+        console.log("in inc button");
+        let el = document.getElementById('jj1');
+        console.log(el.getAttribute('percentage'));
+        el.setAttribute('percentage', Number(el.getAttribute('percentage')) + 10);
+    });
+&lt;/script>
+              </code></pre>
             </div>
           </div>
           <div class="anchor" id="attributes"></div>

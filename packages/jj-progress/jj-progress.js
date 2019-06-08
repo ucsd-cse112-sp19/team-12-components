@@ -121,6 +121,7 @@ const jjProgress =
           console.debug("Setting strokeWidth to ", this.strokeWidth);
           // Set the width of the progress bar.
           this.progressBarOuter.style.height = this.strokeWidth + "px";
+          this.progressBarInner.style.height = this.strokeWidth + "px";
 
           if (this.hasAttribute('type')) {
             this.type = this.getAttribute('type');
@@ -191,6 +192,7 @@ const jjProgress =
           case 'stroke-width':
             // this.strokeWidth = this.getAttribute('stroke-width');
             this.progressBarOuter.style.height = this.strokeWidth + "px";
+            this.progressBarInner.style.height = this.strokeWidth + "px";
             break;
           case 'color':
             this.progressBarInner.style.backgroundColor = this.color;
