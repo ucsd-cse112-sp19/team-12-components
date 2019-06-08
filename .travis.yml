@@ -20,7 +20,7 @@ before_script:
 
 script:
   - npm run test:travis
-  - npm run snapshot # Visual regression tests
+  - #npm run snapshot # Visual regression tests
 
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
