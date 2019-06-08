@@ -8,15 +8,16 @@ module.exports = config => {
         files : [
           config.grep ? config.grep : 'packages/**/tests/*_test.js',
         ],
-        preprocessors : {'packages/**/tests/*_test.js' : [ 'webpack', 'sourcemap' ]},
-        failOnEmptyTestSuite : false,
-        reporters: ['progress', 'coverage-instanbul'],
-        coverageIstanbulReporter: {
-          reports: ['html', 'lcovonly', 'text-summary'],
-          fixWebpackSourcePaths: true
+        preprocessors : {
+          'packages/**/tests/*_test.js' : [ 'webpack', 'sourcemap' ],
+          'packages/**/*.js': ['coverage']
         },
-
-        // you can overwrite/extend the config further
+        failOnEmptyTestSuite : false,
+        reporters: ['coverage'],
+        coverageReporter: {
+          type: 'lcov',
+          dir: 'coverage'
+        },
       }),
   );
   return config;
