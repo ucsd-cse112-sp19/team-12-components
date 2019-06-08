@@ -25,4 +25,3 @@ node $ROOT_DIR/node_modules/babel-minify/bin/minify.js $CAT_FILE --out-file $CAT
 # Add all our new files to be commited
 echo "git add $ROOT_DIR/src/"
 git add $ROOT_DIR/src/
-
