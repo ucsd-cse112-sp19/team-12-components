@@ -9,7 +9,7 @@ module.exports = config => {
           config.grep ? config.grep : 'packages/**/tests/*_test.js',
         ],
         preprocessors : {
-          'packages/**/*.js': ['webpack', 'sourcemap', 'coverage'],
+          'packages/**/*.js': 'coverage',
           'packages/**/tests/*_test.js' : [ 'webpack', 'sourcemap' ]
         },
         failOnEmptyTestSuite : false,
