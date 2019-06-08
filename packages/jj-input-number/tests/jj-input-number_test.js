@@ -185,6 +185,6 @@ describe('jj-input-number with defined [min, max, value, precision, step]', func
        compEl.setAttribute('disabled', savedDisabledValue);
    }
  });
-    //etc..
+ 
 });
 

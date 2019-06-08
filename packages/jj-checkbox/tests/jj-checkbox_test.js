@@ -31,7 +31,8 @@ describe("jj-checkbox", function() {
   before(function() {
     // runs before all tests in this block
     //place component into DOM, get the element by id
-    compHTML = `<jj-checkbox id="jj1" value="testingV" label="testingL"></jj-checkbox> <jj-checkbox id="jj2" value="testingV" label="testingL" disabled></jj-checkbox>`;
+    compHTML = `<jj-checkbox id="jj1" value="testingV" label="testingL"></jj-checkbox>
+    <jj-checkbox id="jj2" value="testingV" label="testingL" disabled></jj-checkbox>`;
     document.body.insertAdjacentHTML("afterbegin", compHTML);
     compEl = document.getElementById("jj1");
     compEl2 = document.getElementById("jj2");
