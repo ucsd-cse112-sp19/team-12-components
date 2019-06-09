@@ -16,17 +16,15 @@ module.exports = config => {
         coverageIstanbulReporter: {
           reports: ['lcovonly'],
           thresholds: {
-            emitWarning: true, // set to `true` to not fail the test command when thresholds are not met
-            // thresholds for all files
+            emitWarning: true, // not fail test command when thresholds not met
             global: {
-              statements: 70,
-              lines: 70,
-              branches: 70,
-              functions: 70
+              statements: 75,
+              lines: 75,
+              branches: 75,
+              functions: 75
             },
           }
         }
-        // you can overwrite/extend the config further
       }),
   );
   return config;
