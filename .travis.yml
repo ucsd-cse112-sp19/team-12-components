@@ -23,7 +23,7 @@ script:
   - #npm run snapshot # Visual regression tests
 
 after_script:
-  - ./cc-test-reporter format-coverage -t lcov "./coverage/HeadlessChrome 74.0.3729 (Mac OS X 10.14.5)/lcov.info"
+  - ./cc-test-reporter format-coverage -t lcov "./coverage/lcov.info"
   - ./cc-test-reporter upload-coverage
 
 notifications:
