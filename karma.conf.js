@@ -17,9 +17,6 @@ module.exports = config => {
           'packages/**/tests/*_test.js' : ['webpack', 'sourcemap'],
           'packages/**/*.js': 'coverage'
         },
-        failOnEmptyTestSuite : false,
-
-        // you can overwrite/extend the config further
       }),
   );
   return config;
