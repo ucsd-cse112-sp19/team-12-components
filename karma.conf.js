@@ -6,18 +6,25 @@ module.exports = config => {
   config.set(
       merge(createDefaultConfig(config), {
         files : [
-          // runs all files ending with .test in the test folder,
-          // can be overwritten by passing a --grep flag. examples:
-          //
-          // npm run test -- --grep test/foo/bar.test.js
-          // npm run test -- --grep test/bar/*
-          // config.grep ? config.grep : 'test/*.js',
           config.grep ? config.grep : 'packages/**/tests/*_test.js',
         ],
-        preprocessors : {'packages/**/tests/*_test.js' : [ 'webpack', 'sourcemap' ]},
+        preprocessors : {
+          'packages/**/tests/*_test.js' : [ 'webpack', 'sourcemap' ],
+          'packages/**/*.js': ['coverage']
+        },
         failOnEmptyTestSuite : false,
-
-        // you can overwrite/extend the config further
+        coverageIstanbulReporter: {
+          reports: ['lcovonly'],
+          thresholds: {
+            emitWarning: true, // not fail test command when thresholds not met
+            global: {
+              statements: 75,
+              lines: 75,
+              branches: 75,
+              functions: 75
+            },
+          }
+        }
       }),
   );
   return config;
