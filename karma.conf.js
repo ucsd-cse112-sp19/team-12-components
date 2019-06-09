@@ -8,15 +8,25 @@ module.exports = config => {
         files : [
           config.grep ? config.grep : 'packages/**/tests/*_test.js',
         ],
-        reporters: ['coverage'],
-        coverageReporter: {
-          type : 'lcov',
-          dir : 'coverage/'
-        },
         preprocessors : {
-          'packages/**/tests/*_test.js' : ['webpack', 'sourcemap'],
-          'packages/**/*.js': 'coverage'
+          'packages/**/tests/*_test.js' : [ 'webpack', 'sourcemap' ],
+          'packages/**/*.js': ['coverage']
         },
+        failOnEmptyTestSuite : false,
+        coverageIstanbulReporter: {
+          reports: ['lcovonly'],
+          thresholds: {
+            emitWarning: true, // set to `true` to not fail the test command when thresholds are not met
+            // thresholds for all files
+            global: {
+              statements: 70,
+              lines: 70,
+              branches: 70,
+              functions: 70
+            },
+          }
+        }
+        // you can overwrite/extend the config further
       }),
   );
   return config;
