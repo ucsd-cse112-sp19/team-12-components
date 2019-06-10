@@ -118,30 +118,12 @@ const jjProgress =
             this.strokeWidth = this.DEFAULT_STROKE_WIDTH;
           }
 
-          console.debug("Setting strokeWidth to ", this.strokeWidth);
-          // Set the width of the progress bar.
-          this.progressBarOuter.style.height = this.strokeWidth + "px";
-          this.progressBarInner.style.height = this.strokeWidth + "px";
-
-          if (this.hasAttribute('type')) {
-            this.type = this.getAttribute('type');
-          } else {
+          if (!this.hasAttribute('type')) {
             this.type = "line";
           }
 
-          // Initialize positions
-          this.updateProgressPosition();
-          this.updatePercentageText();
-        }
-
-        /*
-         * Update the percentage text based on current percentage.
-         */
-        updatePercentageText() {
-          console.debug("in updatePercentageText");
-          let text = "" + this.percentage + "%";
-          console.debug("Updating percentage text to", text);
-          this.progressBarText.innerText = text;
+          // Initialize positions of progress bar and set percentage text.
+          this.updateProgressBar();
         }
 
         /*
@@ -153,14 +135,17 @@ const jjProgress =
         }
 
         /*
-          Initialization: Set position of progress bar based on position of
-         * current percentage
+         * Updates position of progress bar based on current percentage
+         * updates progress text as well.
          */
-        updateProgressPosition() {
-          console.debug("in updateProgressPosition");
+        updateProgressBar() {
+          console.debug("in updateProgressBar");
           const percent =
               (this.percentage - this._min) / (this._max - this._min) * 100;
           this.progressBarInner.style.width = percent + "%";
+
+          let text = "" + this.percentage + "%";
+          this.progressBarText.innerText = text;
         }
 
         /*
@@ -169,6 +154,8 @@ const jjProgress =
         static get observedAttributes() {
           return [ 'percentage', 'stroke-width', 'type', 'color' ];
         }
+
+
 
         /*
          * Invoked when one of the custom element's attributes is added,
@@ -184,21 +171,27 @@ const jjProgress =
             } else if (this.percentage > 100) {
               this.percentage = this._max;
             }
-            this.updateProgressPosition();
-            this.updatePercentageText();
+            this.updateProgressBar();
             break;
           case 'type':
             break;
           case 'stroke-width':
             // this.strokeWidth = this.getAttribute('stroke-width');
-            this.progressBarOuter.style.height = this.strokeWidth + "px";
-            this.progressBarInner.style.height = this.strokeWidth + "px";
+            this.updateWidthOfProgressBars();
             break;
           case 'color':
             this.progressBarInner.style.backgroundColor = this.color;
             this.progressBarInner.style.borderColor = this.color;
             break;
           }
+        }
+
+        /*
+         * Force udpate the width of progress bar based on strokeWidth.
+         */
+        updateWidthOfProgressBars() {
+            this.progressBarOuter.style.height = this.strokeWidth + "px";
+            this.progressBarInner.style.height = this.strokeWidth + "px";
         }
 
         // Getters
@@ -213,7 +206,6 @@ const jjProgress =
           this.setAttribute('stroke-width', newValue);
         }
       }
-
       customElements.define('jj-progress', JJProgress);
     }
 
