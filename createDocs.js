@@ -43,7 +43,44 @@ function searchFilesInDirectory(dir, ext) {
             }
             if(line.includes('@attribute')){
                 var attribute = line.replace('* @attribute','').trim();
-                var attributeItems = attribute.split(',');
+                var attributeItems = attribute.replace(/\t/g, '').split(',');
+                //if last item in array is empty, delete
+                if(attributeItems[attributeItems.length - 1] ==''){
+                    attributeItems.pop()
+                }
+                //if total length of array is not five, investigate
+                if(attributeItems.length != 5){
+                    //get next line
+                    current = liner.next();
+                    line = current.toString('ascii');
+                    //if new attribute is found, we must be missing a comma, throw error
+                    if (line.search('@attribute') != -1){
+                        console.log('Error, less than 5 objects for attribute in file: ', file);
+                        console.log('On line: ', attributeItems);
+                    }
+                    //else, needs cleaning
+                    else{
+                    //clean next line
+                    var attNextLine = line.replace('*','').trim(); 
+                    var attNextLineItems = attNextLine.replace(/\t/g, '').split(',');
+
+                    //check last char if not complete attribute
+                    f = attribute;
+                    a = attNextLine;
+                    //check if last char in first line was a ','
+                    var lastCharFirst = f[f.length -1].charAt(f[f.length - 1].length -1)
+                    //check if first char in next line is a ','
+                    var firstCharNext = a[0].charAt(a[0][0])
+                    //if not one was a ',' = concat strings
+                    if(firstCharNext != ',' && lastCharFirst != ','){
+                        attributeItems[attributeItems.length - 1] = attributeItems[attributeItems.length - 1] + ' ' + attNextLineItems[0];
+                        //deleted from latter array
+                        attNextLineItems.shift();
+                    } 
+                    //merge both arrays
+                    attributeItems = attributeItems.concat(attNextLineItems);
+                    }
+                }
                 attributeArray.push({
                     AttributeName: attributeItems[0],
                     AttributeDescription: attributeItems[1],
@@ -75,9 +112,9 @@ function searchFilesInDirectory(dir, ext) {
                 }
                 //console.log(componentsList);
                 var json = JSON.stringify(componentsList);
-                fs.writeFile("./docs/components.json", json, (err) => {
+                fs.writeFile("./templates/components.json", json, (err) => {
                     if (err) {  console.error(err);  return; };
-                    console.log("File: './docs/components.json' has been created");
+                    console.log("File: './templates/components.json' has been created");
                 });
             }
         }
@@ -102,26 +139,17 @@ function getFilesInDirectory(dir, ext) {
             const nestedFiles = getFilesInDirectory(filePath, ext);
             files = files.concat(nestedFiles);
         } else {
-            if(path.basename(file).includes('_test') == false){
+            //make sure file is not a test or stories file
+            if(path.basename(file).includes('_test') == false && path.basename(file).includes('.stories') == false && path.basename(file).includes('_uitest') == false){
                 //get all js files for building json
                 //copy js files to docs/js for website
                 if (path.extname(file) === ext) {
                     files.push(filePath);
-                    //console.log(path.dirname(file) + path.basename(file));
-                    //console.log(filePath);
-                    const destinationJS = './docs/js/' + path.basename(file);
-                    fs.copyFile(filePath, destinationJS, (err) => {
-                        if (err) throw err;
-                        console.log('The File: ', filePath, ' was successfuly copied to: ./docs/js/', path.basename(file));
-                      });
-                }
-                //copy css files to docs/css for website
-                else if(path.extname(file) === '.css'){
-                    const destinationCSS = './docs/css/' + path.basename(file);
-                    fs.copyFile(filePath, destinationCSS, (err) => {
-                        if (err) throw err;
-                        console.log('The File: ', filePath, ' was successfuly copied to: ./docs/css/', path.basename(file));
-                      });
+                    //const destinationJS = './docs/resources/js/' + path.basename(file);
+                    //fs.copyFile(filePath, destinationJS, (err) => {
+                    //    if (err) throw err;
+                    //    console.log('The File: ', filePath, ' was successfuly copied to: ./resources/js/', path.basename(file));
+                    //  });
                 }
             }
         }

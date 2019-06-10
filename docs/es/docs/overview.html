@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="Jay Jay Web Components">
+  <meta name="theme-color" content="#7da3ef">
+  <!-- TODO: Need to add a custom function to use variables in header with handlebars-->
+  <title>Web Component Documentation</title>
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../resources/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-input-number/jj-input-number.js"></script>
+</head>
+
+<body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
+  <div class="container">
+    <!-- Navbar Partial-->
+    <nav class="navbar navbar-dark fixed-top navbar-expand-lg">
+      <div class="container">
+        <a class="navbar-brand" href="en/index.html"><img class="site-logo" src="resources/images/JayJay_logo.png"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-nav-menu" aria-controls="top-nav-menu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse" id="top-nav-menu" >
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+              <a class="topNav nav-link "
+                href="en/docs/tutorials.html">Get Started
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="topNav nav-link active" href="en/docs/overview.html">
+                Docs
+                
+                
+                
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="topNav nav-link " href="en/team.html">
+                Team
+                
+                
+                
+              </a>
+            </li>
+          </ul>
+    
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a class="topNav nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false">
+                Language
+                
+                
+                
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item active" href="en/index.html">English</a>
+                <a class="dropdown-item " href="es/index.html">Español</a>
+                <a class="dropdown-item " href="zh/index.html">中文</a>
+                <a class="dropdown-item " href="fr/index.html">French</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" href="https://github.com/ucsd-cse112/team-12-components"><img
+                src="resources/images/github_logo.png"></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="container page">
+      <div class="row">
+        <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
+          <!-- Pass in the page name for highlighting-->
+          <button class="navbar-toggler sidebarButton" type="button" data-toggle="collapse" data-target="#left-nav-sidebar"
+            aria-controls="left-nav-sidebar" aria-expanded="false" aria-label="Toggle navigation">
+            Overview <span class="carrot-down">&#9660;</span>
+          </button>
+          <ul class="sidebar-left collapse navbar-collapse" id="left-nav-sidebar">
+            <li class="sideL nav-item">
+              <a class="nav-link active" href="/docs/overview.html">
+                <span>
+                  
+                  
+                  
+                  
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link " href="/docs/tutorials.html">
+                <span>
+                  
+                  
+                  
+                  
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item dropdown">
+              <a class="nav-link " data-toggle="collapse"
+                href="#collapseVersions" data-target="#collapseVersions" aria-expanded="false" aria-controls="collapseVersions">
+                
+                
+                
+                
+              </a>
+              <div class="collapse" id="collapseVersions">
+                <a class="nav-link sidebar-subHeading active"
+                  href="/docs/releases.html#1.0.0">
+                  <span>
+                    1.0.0
+                  </span>
+                </a>
+              </div>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link " href="#">
+                <span>
+                  
+                  
+                  
+                  
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
+                href="/docs/components/core-hello.html">
+                <span>
+                  Core Hello
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
+                href="/docs/components/jj-checkbox.html">
+                <span>
+                  jj checkbox
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
+                href="/docs/components/jj-input-number.html">
+                <span>
+                  jj input number
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
+                href="/docs/components/jj-progress.html">
+                <span>
+                  jj progress
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
+                href="/docs/components/jj-slider.html">
+                <span>
+                  jj slider
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
+                href="/docs/components/jj-switch.html">
+                <span>
+                  jj switch
+                </span>
+              </a>
+            </li>
+          </ul>        </div>
+        <div class="col-md-8 col-sm-12 content">
+          <h1 id="h1">Getting Started</h1>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+            Aldus
+            PageMaker including versions of Lorem Ipsum.</p>
+
+            <jj-input-number min=0 max=8 value=1 precision=2 step=0.5></jj-input-number>
+
+          <pre
+            class="prettyprint"><code class="language-html">&lt;jj-input-number min=0 max=8 value=1 precision=2 step=0.5>&lt;/jj-input-number></code></pre>
+
+          
+
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+            Aldus
+            PageMaker including versions of Lorem Ipsum.</p>
+          <h2 id="h2">Subheading2</h2>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+            Aldus
+            PageMaker including versions of Lorem Ipsum.</p>
+          <h3 id="h3">Subheading3</h3>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+            Aldus
+            PageMaker including versions of Lorem Ipsum.</p>
+          <h4>Subheading4</h4>
+          <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+            industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+            scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into
+            electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of
+            Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like
+            Aldus
+            PageMaker including versions of Lorem Ipsum.</p>
+        </div>
+        <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
+
+          <!-- Right Sidebar -->
+          <nav id="contentHeadings" class="sidebar-right">
+            <ul class="nav nav-pills flex-column">
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#h1">
+                  Heading1
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#h2">
+                  Heading2
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#h3">
+                  Heading3
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Right Sidebar -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container footer-wrapper">
+      <div class="containter">
+        <div class="row">
+    
+          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-pull-9 col-lg-pull-9">
+            <div class="footer-section-content phone-email-footer">
+              <a href='/index.html'>
+                <img src="resources/images/JayJay_logo.png" class="img-responsive">
+              </a>
+            </div>
+          </div>
+    
+          <div class="col-xs-12 col-sm-12 col-md-2 col-lg-3 col-md-push-3 col-lg-push-3">
+            <ul class="footer-section-content">
+              <h3>Quick Links</h3>
+              <li><a href="/index.html">
+                  
+                  
+                  
+                  
+                </a></li>
+              <li><a href="/docs/tutorials.html">
+                  
+                  
+                  
+                  
+                </a></li>
+              <li><a href="/team.html">
+                  
+                  
+                  
+                  
+                </a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-push-3 col-lg-push-3">
+            <ul class="footer-section-content mid-footer-col">
+              <h3>Docs</h3>
+              <li><a href="/docs/tutorials.html">
+                  
+                  
+                  
+                  
+                </a></li>
+              <li><a href="/docs/overview.html">
+                  
+                  
+                  
+                  
+                </a></li>
+              <li><a href="/docs/releases.html">
+                  
+                  
+                  
+                  
+                </a></li>
+              <li><a href="/docs/.html">
+                  
+                  
+                  
+                  
+                </a></li>
+            </ul>
+          </div>
+    
+          <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-push-3 col-lg-push-3 fmcol">
+            <ul class="footer-section-content">
+              <h3>Components</h3>
+              <li><a href="/docs/components/jj-input-number.html">
+                  
+                  
+                  
+                  
+                </a></li>
+              <li><a href="/docs/components/jj-slider.html">
+                  
+                  
+                  
+                  
+                </a></li>
+              <li><a href="/docs/components/jj-switch.html">
+                  
+                  
+                  
+                  
+                </a></li>
+              <li><a href="/docs/overview.html">
+                  
+                  
+                  
+                  
+                </a></li>
+            </ul>
+          </div>
+    
+    
+        </div>
+      </div>
+    </div>
+    <!-- JS files at bottom of page -->
+    <!-- Bootstrap core JavaScript-->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"></script>
+    <script>
+
+
+      jQuery(window).scroll(function () {
+        //hide left fixed sidebar if current screen reached footer
+        var currentScroll = jQuery(document).height() - jQuery(this).scrollTop() - jQuery(this).height();
+        if (currentScroll > 230) {
+          jQuery('.sidebar-left').css('bottom', '0');
+          jQuery('.sidebar-left').css('top', '0');
+        } else {
+          jQuery('.sidebar-left').css('bottom', '200px');
+          jQuery('.sidebar-left').css('top', '0px');
+        }
+      });
+    </script>
+  </div>
+</body>
+
+</html>

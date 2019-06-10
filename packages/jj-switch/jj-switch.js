@@ -31,6 +31,7 @@ const jjSwitch = () => {
   template.innerHTML = `
   <style>
   @import url("https://unpkg.com/element-ui/lib/theme-chalk/switch.css");
+
     .switch {
       position: relative;
       display: inline-block;
@@ -102,27 +103,33 @@ const jjSwitch = () => {
     .text-active {
       color: var(--active-text-color, #409eff);
     }
+
     .slider.small {
       width: 40px;
       height: 18px;
     }
+
     .slider.small:before {
       width: 13px;
       height: 13px;
     }
+
     input:checked + .slider.small:before {
       -webkit-transform: translateX(21px);
       -ms-transform: translateX(21px);
       transform: translateX(21px);
     }
+
     .slider.large {
       width: 70px;
       height: 32px;
     }
+
     .slider.large:before {
       width: 26px;
       height: 26px;
     }
+
     input:checked + .slider.large:before {
       -webkit-transform: translateX(38px);
       -ms-transform: translateX(38px);
@@ -369,5 +376,4 @@ const jjSwitch = () => {
     set name(newValue) { this.setAttribute('name', newValue); }
   }
   customElements.define('jj-switch', JJSwitch);
-} 
-jjSwitch();
+} jjSwitch();

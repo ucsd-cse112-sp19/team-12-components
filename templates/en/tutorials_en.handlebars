@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description"
+    content="A web component with a Customizable number input field with increse and decrease buttons.">
+  <meta name="author" content="Jay Jay Web Components">
+  <meta name="theme-color" content="#7da3ef">
+  <title>Jay Jay Docs | Web Component Documentation</title>
+  <!-- Core CSS -->
+  <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
+  <link rel="icon" href="resources/images/JJ_favicon_16.png" type="png" sizes="16x16">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="resources/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
+</head>
+
+<body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
+  <div class="container">
+    <!-- Navbar Partial-->
+    {{> navbar lang='en' PageName='Get Started'}}
+
+    <div class="container page">
+      <div class="row">
+        <!-- Left sidebar: -->
+        <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
+          {{> left_sidebar lang='en' PageName='Tutorials' }}
+        </div>
+
+        <!-- Middle Content -->
+        <div class="col-md-8 col-sm-12 content">
+          <div class="anchor" id="jj-slider"></div>
+          <h1>Tutorials</h1>
+          <p>Here is a step by step tutorial with an example of JJ-Slider.</p>
+
+          <h2>Importing the component</h2>
+          <p>
+            Find, copy and paste the CDN of the component to your html header
+            section:
+          </p>
+          <pre
+            class="prettyprint"><code class="language-html">&lt;script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-slider/jj-slider.js">&lt;/script></code></pre>
+          <p>
+            Or, you could also install the whole library to your project by
+            running the following command in terminal at your project's root
+            directory:
+          </p>
+          <pre class="prettyprint"><code class="language-html">npm i jj-components</code></pre>
+          <p>Now you have the components imported and you are ready to go!</p>
+          <div class="anchor" id="first-component"></div>
+          <h2>Using your first component</h2>
+          <p>
+            Now, let's get the component going and display it in your web page
+            or web app!
+          </p>
+          <p>
+            Generally you use web components just like any other html tags.
+            For example in this case you could use the JJ-Slider with the
+            following html tags:
+          </p>
+          <pre class="prettyprint"><code class="language-html">&lt;jj-slider>&lt;/jj-slider></code></pre>
+          <p>
+            You could place the component to any place you want! After you
+            place the tags in your html page, you could open the page up and
+            check the component out! You should see JJ-Slider with all default
+            attributes just like the following:
+          </p>
+          <jj-slider></jj-slider>
+          <p>
+            You just successfully used your first JJ Component for the first
+            time!
+          </p>
+          <div class="anchor" id="attributes"></div>
+          <h2>Change Attributes</h2>
+          <p>
+            Now, let's try to change the attributes of the component and
+            customize it for your need.
+          </p>
+          <p>
+            You could check our what are the attributes in their documentation
+            pages. In this case the documentation for the JJ Slider is
+            <a href="components/jj-slider.html">here</a>
+          </p>
+          <p>
+            Let's say you are selling t-shirts. One customer could only purchase 8 of them at a time. You want to set
+            the default to 4 t-shirts, right in the middle, so customers would not need to move their cursor to far
+            every time.
+          </p>
+          <p>
+            So the slider should have the following properties:
+          </p>
+          <p>
+            1. Range from 0 to 8
+          </p>
+          <p>
+            2. Initial value is 4
+          </p>
+          <p>
+            JJ Slider gets you covered with the following attributes:
+          </p>
+          <p>
+            1. <b>min</b> and <b>max</b> for the range
+          </p>
+          <p>
+            2. <b>value</b> for the initial value
+          </p>
+          <p>You could achieve that by writing out the attributes like this:</p>
+          <pre
+            class="prettyprint"><code class="language-html">&lt;jj-slider min="0" max="8" value="4">&lt;/jj-slider></code></pre>
+          <p>And you get the following slider you want!</p>
+
+          <jj-slider min="0" max="8" value="4"></jj-slider>
+        </div>
+
+        <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
+          <!-- Right Sidebar -->
+          <nav id="contentHeadings" class="sidebar-right">
+            <ul class="nav nav-pills flex-column">
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#jj-slider" data-target="#jj-slider">
+                  Importing
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#first-component" data-target="#first-component">
+                  Default
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#attributes" data-target="#attributes">
+                  Attributes
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Right Sidebar -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    {{> footer lang='en'}}
+
+    <!-- JS files at bottom of page -->
+    {{> scripts}}
+
+  </div>
+</body>
+
+</html>

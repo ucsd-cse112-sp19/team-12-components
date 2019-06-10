@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+
+  <title>Jay Jay - Open Source Web Component Library</title>
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
+  <meta name="theme-color" content="#7da3ef">
+  <!-- Bootstrap core CSS -->
+    <base href="{{#getUrlBase}}{{/getUrlBase}}">
+    <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
+  <link rel="icon" href="resources/images/JJ_favicon_16.png" type="png" sizes="16x16">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="resources/css/main.css" />
+  <link href="resources/css/index.css" rel="stylesheet" />
+ 
+</head>
+
+<body id="homepage">
+
+  {{> navbar lang='zh' PageName='Home'}}
+   <section class="page-section bg-light " id="intro">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase" id="head">
+              Jay Jay 网络组件
+            </h2>
+            <h3 class="section-subheading text-muted">
+              一个完全使用纯粹JavaScript的开源组件库
+            </h3>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-4">
+            <span class="fa-stack fa-4x">
+              <i class="fas fa-circle fa-stack-2x text-primary"></i>
+              <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+            </span>
+            <h4 class="intro-heading">性能</h4>
+            <p class="text-muted">
+              纯粹的JS提供纯粹的性能
+            </p>
+          </div>
+          <div class="col-md-4">
+            <span class="fa-stack fa-4x">
+              <i class="fas fa-circle fa-stack-2x text-primary"></i>
+              <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+            </span>
+            <h4 class="intro-heading">兼容性</h4>
+            <p class="text-muted">
+              与React，Vue以及其他开发框架兼容
+            </p>
+          </div>
+          <div class="col-md-4">
+            <span class="fa-stack fa-4x">
+              <i class="fas fa-circle fa-stack-2x text-primary"></i>
+              <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
+            </span>
+            <h4 class="intro-heading">可靠性</h4>
+            <p class="text-muted">
+              网络开发专家开发，稳定性有所保证
+            </p>
+          </div>
+        </div>
+        <div class="row text-center">
+          <div class="col-md-4">
+            <img id="framework" src="resources/images/JS_logo.png" />
+          </div>
+          <div class="col-md-4">
+            <img id="framework" src="resources/images/react_logo.png" />
+          </div>
+          <div class="col-md-4">
+            <img id="framework" src="resources/images/vue_logo.png" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page-section" id="components">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12 text-center">
+            <h2 class="section-heading text-uppercase">组件</h2>
+            <h3 class="section-subheading text-muted">
+              一些组件展示
+            </h3>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 Components-item">
+            <a
+              class="Components-link"
+              data-toggle="modal"
+              href="#ComponentsModal1"
+            >
+              <div class="Components-hover">
+                <div class="Components-hover-content">
+                  <i class="fas fa-plus fa-3x"></i>
+                </div>
+              </div>
+              <img
+                id="num-demo"
+                src="resources/gifs/num_1.gif"
+                alt=""
+              />
+              <img
+                id="num-demo"
+                src="resources/gifs/num_2.gif"
+                alt=""
+              />
+            </a>
+          </div>
+          <div class="col-md-4 Components-item">
+            <a
+              class="Components-link"
+              data-toggle="modal"
+              href="#ComponentsModal1"
+            >
+              <div class="Components-hover">
+                <div class="Components-hover-content">
+                  <i class="fas fa-plus fa-3x"></i>
+                </div>
+              </div>
+              <img
+                id="slider-demo"
+                src="resources/gifs/slider_1.gif"
+                alt=""
+              />
+              <img
+                id="slider-demo"
+                src="resources/gifs/slider_2.gif"
+                alt=""
+              />
+            </a>
+          </div>
+      </div>
+    </section>
+
+    <section class="page-section bg-light" id="how">
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-12 text-center">
+                  <h2 class="section-heading text-uppercase">如何安装</h2>
+                </div>
+              </div>
+              <div class="row text-center">
+                    <div class="col-md-12">
+                      <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
+                      </span>
+                      <h4 class="intro-heading">使用 NPM</h4>
+                      <p class="text-muted">
+                        可以使用NPM安装整个库.
+                      </p>
+                    </div>
+                    <div class="col-md-12">
+                      <span class="fa-stack fa-4x">
+                        <i class="fas fa-circle fa-stack-2x text-primary"></i>
+                        <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
+                      </span>
+                      <h4 class="intro-heading">使用 CDN</h4>
+                      <p class="text-muted">
+                        可以使用CDN来安装单个组件.
+                      </p>
+                    </div>
+              </div>
+            </div>
+          </section>
+  
+
+  {{> footer lang='zh'}}
+  {{> scripts }}
+
+  <!-- Graphs -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+</body>
+
+</html>
