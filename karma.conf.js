@@ -24,6 +24,9 @@ module.exports = config => {
               functions: 75
             },
           }
+        },
+        client: {
+          captureConsole: false // Turn off component logs.
         }
       }),
   );
