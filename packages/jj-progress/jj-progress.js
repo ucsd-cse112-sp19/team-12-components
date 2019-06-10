@@ -93,8 +93,6 @@ const jjProgress =
           this.progressBarInner =
               this.root.querySelector('.el-progress-bar__inner');
           this.progressBarText = this.root.querySelector('.el-progress__text');
-          // Bind "this" to functions to reserve context
-          this.getCurrentPosition = this.getCurrentPosition.bind(this);
         }
 
         /*
@@ -106,15 +104,18 @@ const jjProgress =
           // Assigns default values for attributes.
 
           if (!this.hasAttribute('percentage')) {
-            console.log("setting default percentage:", this.DEFAULT_PERCENTAGE);
+            console.debug("setting default percentage:", this.DEFAULT_PERCENTAGE);
             this.percentage = this.DEFAULT_PERCENTAGE;
           }
 
           if (!this.hasAttribute('color')) {
+            console.debug("setting default color:", this.DEFAULT_PROGRESS_COLOR);
             this.color = this.DEFAULT_PROGRESS_COLOR;
           }
 
           if (!this.hasAttribute('stroke-width')) {
+            console.debug("setting defualt stroke-width:", 
+                this.DEFAULT_STROKE_WIDTH);
             this.strokeWidth = this.DEFAULT_STROKE_WIDTH;
           }
 
@@ -127,16 +128,8 @@ const jjProgress =
         }
 
         /*
-         * Get the percentage value of the progress position on runway
-         */
-        getCurrentPosition() {
-          return (this.percentage - this._min) / (this._max - this._min) * 100 +
-                 "%";
-        }
-
-        /*
          * Updates position of progress bar based on current percentage
-         * updates progress text as well.
+         * attribute; updates progress text as well.
          */
         updateProgressBar() {
           console.debug("in updateProgressBar");
@@ -154,8 +147,6 @@ const jjProgress =
         static get observedAttributes() {
           return [ 'percentage', 'stroke-width', 'type', 'color' ];
         }
-
-
 
         /*
          * Invoked when one of the custom element's attributes is added,
@@ -190,8 +181,8 @@ const jjProgress =
          * Force udpate the width of progress bar based on strokeWidth.
          */
         updateWidthOfProgressBars() {
-            this.progressBarOuter.style.height = this.strokeWidth + "px";
-            this.progressBarInner.style.height = this.strokeWidth + "px";
+          this.progressBarOuter.style.height = this.strokeWidth + "px";
+          this.progressBarInner.style.height = this.strokeWidth + "px";
         }
 
         // Getters
@@ -200,11 +191,9 @@ const jjProgress =
         get strokeWidth() { return this.getAttribute('stroke-width'); }
 
         // Setters
-        set percentage(newValue) { this.setAttribute('percentage', newValue); }
-        set color(newValue) { this.setAttribute('color', newValue); }
-        set strokeWidth(newValue) {
-          this.setAttribute('stroke-width', newValue);
-        }
+        set percentage(newVal) { this.setAttribute('percentage', newVal); }
+        set color(newVal) { this.setAttribute('color', newVal); }
+        set strokeWidth(newVal) { this.setAttribute('stroke-width', newVal); }
       }
       customElements.define('jj-progress', JJProgress);
     }
