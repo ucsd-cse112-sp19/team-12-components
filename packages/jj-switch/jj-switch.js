@@ -271,10 +271,18 @@ const jjSwitch =
             }
           }
 
+          if (this.hasAttribute('checked')) {
+            this.checked = true;
+            this.switchContainer.classList.add("is-checked");
+          } else {
+            this.checked = false;
+          }
+
           // add event listeners
           this.input.addEventListener('click', this.onSwitchClick);
         }
 
+        // Listen for changed attributes
         attributeChangedCallback(attrName, oldValue, newValue) {
           switch (attrName) {
 
@@ -329,7 +337,7 @@ const jjSwitch =
           }
         }
 
-        onSwitchClick() {
+        onSwitchClick() {            
           if (this.input.checked) {
             // change the slider color
             this.slider.style.background = this.activeColor;
@@ -367,7 +375,7 @@ const jjSwitch =
         }
 
         // Getters
-        get value() { return (this.getAttribute('value') == 'true'); }
+        get value() { return (this.getAttribute('value')); }
         get active_value() { return this.getAttribute('active-value'); }
         get inactive_value() { return this.getAttribute('inactive-value'); }
         get active_text() { return this.getAttribute('active-text'); }

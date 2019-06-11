@@ -31,8 +31,8 @@ describe("jj-checkbox", function() {
   before(function() {
     // runs before all tests in this block
     //place component into DOM, get the element by id
-    compHTML = `<jj-checkbox id="jj1" value="testingV" label="testingL"></jj-checkbox>
-    <jj-checkbox id="jj2" value="testingV" label="testingL" disabled></jj-checkbox>`;
+    compHTML = `<jj-checkbox id="jj1" value="true" label="testingL"></jj-checkbox>
+    <jj-checkbox id="jj2" value="false" label="testingL" disabled></jj-checkbox>`;
     document.body.insertAdjacentHTML("afterbegin", compHTML);
     compEl = document.getElementById("jj1");
     compEl2 = document.getElementById("jj2");
@@ -40,7 +40,7 @@ describe("jj-checkbox", function() {
 
   it("tests correct init value", function() {
     let compVal = compEl.getAttribute("value");
-    assert.equal(compVal, "testingV");
+    assert.equal(compVal, "true");
   });
 
   it("tests correct label", function() {
@@ -60,23 +60,23 @@ describe("jj-checkbox", function() {
 
   it("tests checking the check box with clicking", function() {
     //currently no checked
-    let compValue = document.getElementById("jj1").hasAttribute("checked");
+    let compValue = compEl.hasAttribute("checked");
     assert.equal(compValue, false);
 
     let checkbox_body = compEl.shadowRoot.querySelector("#checkbox_body");
     triggerMouseEvent(checkbox_body, "mousedown");
     triggerMouseEvent(checkbox_body, "mouseup");
 
-    compValue = document.getElementById("jj1").hasAttribute("checked");
+    compValue = compEl.hasAttribute("checked");
     assert.equal(compValue, true);
   });
 
   it("tests checking the disabled check box with clicking", function() {
     //currently no checked
-    let compValue = document.getElementById("jj2").hasAttribute("checked");
+    let compValue = compEl2.hasAttribute("checked");
     assert.equal(compValue, false);
 
-    compValue = document.getElementById("jj2").hasAttribute("disabled");
+    compValue = compEl2.hasAttribute("disabled");
     assert.equal(compValue, true);
 
     let checkbox_body = compEl.shadowRoot.querySelector("#checkbox_body");
