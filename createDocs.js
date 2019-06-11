@@ -3,6 +3,17 @@ const path = require('path');
 const fs = require('fs');
 const lineByLine = require('n-readlines');
 
+
+
+//defines all the guides. To add your guide into the guide list the sidebar
+//name and the filename
+const guides = [
+    ['Getting-started', 'tut_getting_started'],
+    ['For Vue Developers', 'tut_vue']
+]
+
+
+
 //find all files in directory, read them line by line
 //then if comments, place into array and convert to json
 function searchFilesInDirectory(dir, ext) {
@@ -98,6 +109,7 @@ function searchFilesInDirectory(dir, ext) {
                 Description: description,
                 Attributes: attributeArray,
                 AllComponents: [],
+                AllGuides: guides,
             });
 
             //clear temp array
