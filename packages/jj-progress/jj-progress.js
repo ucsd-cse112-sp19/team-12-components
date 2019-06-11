@@ -104,18 +104,20 @@ const jjProgress =
           // Assigns default values for attributes.
 
           if (!this.hasAttribute('percentage')) {
-            console.debug("setting default percentage:", this.DEFAULT_PERCENTAGE);
+            console.debug("setting default percentage:",
+                          this.DEFAULT_PERCENTAGE);
             this.percentage = this.DEFAULT_PERCENTAGE;
           }
 
           if (!this.hasAttribute('color')) {
-            console.debug("setting default color:", this.DEFAULT_PROGRESS_COLOR);
+            console.debug("setting default color:",
+                          this.DEFAULT_PROGRESS_COLOR);
             this.color = this.DEFAULT_PROGRESS_COLOR;
           }
 
           if (!this.hasAttribute('stroke-width')) {
-            console.debug("setting defualt stroke-width:", 
-                this.DEFAULT_STROKE_WIDTH);
+            console.debug("setting defualt stroke-width:",
+                          this.DEFAULT_STROKE_WIDTH);
             this.strokeWidth = this.DEFAULT_STROKE_WIDTH;
           }
 

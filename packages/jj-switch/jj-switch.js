@@ -337,7 +337,7 @@ const jjSwitch =
           }
         }
 
-        onSwitchClick() {            
+        onSwitchClick() {
           if (this.input.checked) {
             // change the slider color
             this.slider.style.background = this.activeColor;
