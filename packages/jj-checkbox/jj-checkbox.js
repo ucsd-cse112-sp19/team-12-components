@@ -7,8 +7,8 @@
  * @attribute disabled, disable the box if set, /, /, /
  */
 
-const template = document.createElement('template');
-template.innerHTML = `
+const jjCheckboxTemplate = document.createElement('template');
+jjCheckboxTemplate.innerHTML = `
   <style>
       @import url("https://unpkg.com/element-ui/lib/theme-chalk/checkbox.css");
 
@@ -51,7 +51,7 @@ class JJCheckbox extends HTMLElement {
   constructor() {
     super();
     this.root = this.attachShadow({ mode: 'open' });
-    this.root.appendChild(template.content.cloneNode(true));
+    this.root.appendChild(jjCheckboxTemplate.content.cloneNode(true));
 
     // target elements with querySelector
     this.checkboxContainer = this.root.querySelector("label.el-checkbox");
