@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -10,14 +10,14 @@
   <meta name="theme-color" content="#7da3ef">
   <title>Jay Jay Docs | Web Component Documentation</title>
   <!-- Core CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-  <link rel="stylesheet" href="../../resources/css/main.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
   <base href="https://ucsd-cse112.github.io/team-12-components/">
   <base href="https://ucsd-cse112.github.io/team-12-components/">
   <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
   <link rel="icon" href="resources/images/JJ_favicon_16.png" type="png" sizes="16x16">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="resources/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
 </head>
 
 <body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
@@ -25,7 +25,7 @@
     <!-- Navbar Partial-->
     <nav class="navbar navbar-dark fixed-top navbar-expand-lg">
       <div class="container">
-        <a class="navbar-brand" href="zh/index.html"><img class="site-logo" src="resources/images/JayJay_logo.png"></a>
+        <a class="navbar-brand" href="en/index.html"><img class="site-logo" src="resources/images/JayJay_logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-nav-menu" aria-controls="top-nav-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,24 +33,24 @@
         <div class="collapse navbar-collapse" id="top-nav-menu" >
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-              <a class="topNav nav-link "
-                href="zh/docs/guides/tut_getting_started.html">入门
+              <a class="topNav nav-link active"
+                href="en/docs/guides/tut_getting_started.html">Get Started
               </a>
             </li>
             <li class="nav-item">
-              <a class="topNav nav-link active" href="zh/docs/overview.html">
+              <a class="topNav nav-link " href="en/docs/overview.html">
+                Docs
                 
                 
                 
-                文件
               </a>
             </li>
             <li class="nav-item">
-              <a class="topNav nav-link " href="zh/team.html">
+              <a class="topNav nav-link " href="en/team.html">
+                Team
                 
                 
                 
-                团队
               </a>
             </li>
           </ul>
@@ -59,15 +59,15 @@
             <li class="nav-item dropdown">
               <a class="topNav nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
+                Language
                 
                 
                 
-                语言
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item " href="en/index.html">English</a>
+                <a class="dropdown-item active" href="en/index.html">English</a>
                 <a class="dropdown-item " href="es/index.html">Español</a>
-                <a class="dropdown-item active" href="zh/index.html">中文</a>
+                <a class="dropdown-item " href="zh/index.html">中文</a>
                 <a class="dropdown-item " href="fr/index.html">French</a>
               </div>
             </li>
@@ -85,40 +85,40 @@
         <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
           <button class="navbar-toggler sidebarButton" type="button" data-toggle="collapse" data-target="#left-nav-sidebar"
             aria-controls="left-nav-sidebar" aria-expanded="false" aria-label="Toggle navigation">
-            Overview <span class="carrot-down">&#9660;</span>
+            For Vue Developers <span class="carrot-down">&#9660;</span>
           </button>
           <ul class="sidebar-left collapse navbar-collapse" id="left-nav-sidebar">
             <li class="sideL nav-item">
-              <a class="nav-link" href="zh/docs/overview.html">
+              <a class="nav-link" href="en/docs/overview.html">
                 <span>
+                  Overview
                   
                   
                   
-                  概观
                 </span>
               </a>
             </li>
             <li class="sideL nav-item">
               <a class="nav-link " >
                 <span>
+                  Tutorials
                   
                   
                   
-                  教程
                 </span>
               </a>
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
-                href="zh/docs/guides/tut_getting_started.html">
+                href="en/docs/guides/tut_getting_started.html">
                 <span>
                   Getting-started
                 </span>
               </a>
             </li>
             <li class="sideL nav-item">
-              <a class="nav-link sidebar-subHeading "
-                href="zh/docs/guides/tut_vue.html">
+              <a class="nav-link sidebar-subHeading active"
+                href="en/docs/guides/tut_vue.html">
                 <span>
                   For Vue Developers
                 </span>
@@ -127,14 +127,14 @@
             <li class="sideL nav-item dropdown">
               <a class="nav-link " data-toggle="collapse"
                 href="#collapseVersions" data-target="#collapseVersions" aria-expanded="false" aria-controls="collapseVersions">
+                Releases
                 
                 
                 
-                发布
               </a>
               <div class="collapse" id="collapseVersions">
                 <a class="nav-link sidebar-subHeading "
-                  href="zh/docs/releases.html#1.0.0">
+                  href="en/docs/releases.html#1.0.0">
                   <span>
                     1.0.0
                   </span>
@@ -144,16 +144,16 @@
             <li class="sideL nav-item">
               <a class="nav-link " href="#">
                 <span>
+                  Components
                   
                   
                   
-                  组件
                 </span>
               </a>
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
-                href="zh/docs/components/core-hello.html">
+                href="en/docs/components/core-hello.html">
                 <span>
                   Core Hello
                 </span>
@@ -161,7 +161,7 @@
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
-                href="zh/docs/components/jj-button.html">
+                href="en/docs/components/jj-button.html">
                 <span>
                   jj button
                 </span>
@@ -169,7 +169,7 @@
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
-                href="zh/docs/components/jj-checkbox.html">
+                href="en/docs/components/jj-checkbox.html">
                 <span>
                   jj checkbox
                 </span>
@@ -177,7 +177,7 @@
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
-                href="zh/docs/components/jj-input-number.html">
+                href="en/docs/components/jj-input-number.html">
                 <span>
                   jj input number
                 </span>
@@ -185,7 +185,7 @@
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
-                href="zh/docs/components/jj-slider.html">
+                href="en/docs/components/jj-slider.html">
                 <span>
                   jj slider
                 </span>
@@ -193,7 +193,7 @@
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
-                href="zh/docs/components/jj-switch.html">
+                href="en/docs/components/jj-switch.html">
                 <span>
                   jj switch
                 </span>
@@ -203,64 +203,53 @@
 
         <!-- Middle Content -->
         <div class="col-md-8 col-sm-12 content">
-          <div class="anchor" id="intro"></div>
-          <h1>欢迎使用 JJ Components</h1>
+          <div class="anchor" id="jj-slider"></div>
+          <h1>Getting Started for Vue developers</h1>
           <p>
-            这是JJ 网络组件库版本1.0.0。 最新组件包括：
+            Using our components in your existing Vue application is very
+            easy. All you need to do is to enable our components either
+            through our npm package or simply use one of our CDN links.
           </p>
+          <p> 
+            If you would like to see our components in an existing Vue
+            application we have created a demo Vue project which uses
+            JJ-components below.
+          </p>
+          <a href="https://github.com/yiy142/jayjay-vue">https://github.com/yiy142/jayjay-vue</a>.
+          <h2>
+            Demo
+          </h2>
+          <p>
+            The main points to recognize is that in out demo Vue project we
+            use our CDN. In <code>jayjay-vue/public/index.html</code> we
+            include the CDN to the JJ-components we wanted to import. This
+            enables the entire application to use our components which can be
+            seen in <code> jayjay-vue/src/components/HelloWorld.vue </code>
+          </p>
+      </div>
 
-          <p>JJ Input Number</p>
-          <p>
-            <jj-input-number min="0" max="8" value="1" precision="2" step="0.5"></jj-input-number>
-          </p>
-          <p>
-            JJ Slider<jj-slider style="padding: 100px" min="0" max="8" value="4"></jj-slider>
-          </p>
-
-          <p>
-            更多组件即将推出。点击<a href="https://github.com/ucsd-cse112/team-12-components">这里</a>前往GitHub代码库。
-          </p>
-          <div class="anchor" id="npm"></div>
-          <h2>NPM</h2>
-          <p>
-            在项目根目录使用NPM安装库。 包含所有组件。
-          </p>
-          <pre class="prettyprint"><code class="language-html">npm i jj-components</code></pre>
-          <div class="anchor" id="cdn"></div>
-          <h2>CDN</h2>
-          <p>
-            如果想要使用某些组件，也可以使用CDN来安装。
-          </p>
-          <h5>JJ Input Number</h5>
-          <pre
-            class="prettyprint"><code class="language-html">&lt;script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-input-number/jj-input-number.js">&lt;/script></code></pre>
-          <h5>JJ Slider</h5>
-          <pre
-            class="prettyprint"><code class="language-html">&lt;script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-slider/jj-slider.js">&lt;/script></code></pre>
-        </div>
-
-        <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
-          <!-- Right Sidebar -->
-            <nav id="contentHeadings" class="sidebar-right">
-              <ul class="nav nav-pills flex-column">
-                <li class="sideR nav-item">
-                  <a class="nav-link" href="#intro" data-target="#intro">
-                    介绍
-                  </a>
-                </li>
-                <li class="sideR nav-item">
-                  <a class="nav-link" href="#npm" data-target="#npm">
-                    NPM
-                  </a>
-                </li>
-                <li class="sideR nav-item">
-                  <a class="nav-link" href="#cdn" data-target="#cdn">
-                    CDN
-                  </a>
-                </li>
-              </ul>
-            </nav>
-            <!-- End Right Sidebar -->
+      <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
+        <!-- Right Sidebar -->
+        <nav id="contentHeadings" class="sidebar-right">
+          <ul class="nav nav-pills flex-column">
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#jj-slider" data-target="#jj-slider">
+                  Importing
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#first-component" data-target="#first-component">
+                  Default
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#attributes" data-target="#attributes">
+                  Attributes
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Right Sidebar -->
         </div>
       </div>
     </div>
@@ -272,7 +261,7 @@
     
           <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-pull-9 col-lg-pull-9">
             <div class="footer-section-content phone-email-footer">
-              <a href='zh/index.html'>
+              <a href='en/index.html'>
                 <img src="resources/images/JayJay_logo.png" class="img-responsive">
               </a>
             </div>
@@ -281,23 +270,23 @@
           <div class="col-xs-12 col-sm-12 col-md-2 col-lg-3 col-md-push-3 col-lg-push-3">
             <ul class="footer-section-content">
               <h3>Quick Links</h3>
-              <li><a href="zh/index.html">
-                  
-                  
-                  
+              <li><a href="en/index.html">
                   Home
+                  
+                  
+                  
                 </a></li>
-              <li><a href="zh/docs/tutorials.html">
+              <li><a href="en/docs/tutorials.html">
+                  Get Started
                   
                   
                   
-                  入门
                 </a></li>
-              <li><a href="zh/team.html">
+              <li><a href="en/team.html">
+                  Team
                   
                   
                   
-                  团队
                 </a></li>
             </ul>
           </div>
@@ -305,29 +294,29 @@
           <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-push-3 col-lg-push-3">
             <ul class="footer-section-content mid-footer-col">
               <h3>Docs</h3>
-              <li><a href="zh/docs/tutorials.html">
-                  
-                  
-                  
-                  入门
-                </a></li>
-              <li><a href="zh/docs/overview.html">
-                  
-                  
-                  
+              <li><a href="en/docs/tutorials.html">
                   Get Started
+                  
+                  
+                  
                 </a></li>
-              <li><a href="zh/docs/releases.html">
+              <li><a href="en/docs/overview.html">
+                  Docs
                   
                   
                   
-                  Get Started
                 </a></li>
-              <li><a href="zh/docs/.html">
+              <li><a href="en/docs/releases.html">
+                  Releases
                   
                   
                   
-                  Get Started
+                </a></li>
+              <li><a href="en/docs/.html">
+                  FAQ
+                  
+                  
+                  
                 </a></li>
             </ul>
           </div>
@@ -335,29 +324,29 @@
           <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-push-3 col-lg-push-3 fmcol">
             <ul class="footer-section-content">
               <h3>Components</h3>
-              <li><a href="zh/docs/components/jj-input-number.html">
-                  
-                  
-                  
+              <li><a href="en/docs/components/jj-input-number.html">
                   JJ Input Number
+                  
+                  
+                  
                 </a></li>
-              <li><a href="zh/docs/components/jj-slider.html">
-                  
-                  
-                  
+              <li><a href="en/docs/components/jj-slider.html">
                   JJ Slider
+                  
+                  
+                  
                 </a></li>
-              <li><a href="zh/docs/components/jj-switch.html">
-                  
-                  
-                  
+              <li><a href="en/docs/components/jj-switch.html">
                   JJ Switch
+                  
+                  
+                  
                 </a></li>
-              <li><a href="zh/docs/overview.html">
-                  
-                  
-                  
+              <li><a href="en/docs/overview.html">
                   View All
+                  
+                  
+                  
                 </a></li>
             </ul>
           </div>
