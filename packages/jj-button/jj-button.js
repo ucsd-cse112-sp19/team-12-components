@@ -1,6 +1,6 @@
 /**
- * @attribute_name jj button
- * @attribute_desc A simple button with various attributes and styling.
+ * @component_name jj button
+ * @component_desc A simple button with various attributes and styling.
  * @attribute size, button size, string, medium/small/mini, /
  * @attribute type, button type, string, primary/success/warning/danger/info/
  * text, /
@@ -458,4 +458,5 @@ const jjButton = () => {
     set autofocus(newValue) { this.setAttribute('autofocus', newValue); }
   }
   customElements.define('jj-button', JJButton);
-} jjButton();
+};
+jjButton();
