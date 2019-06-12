@@ -76,11 +76,11 @@ template.innerHTML = `
 // define the css for this component
 class JJLink extends HTMLElement {
   static get observedAttributes() {
-    return [ 'href', 'type', 'disabled', 'icon' ];
+    return ['href', 'type', 'disabled', 'icon'];
   }
   constructor() {
     super();
-    this.root = this.attachShadow({mode : 'open'});
+    this.root = this.attachShadow({ mode: 'open' });
     this.root.appendChild(template.content.cloneNode(true));
 
     // define the elements of this component
@@ -97,31 +97,19 @@ class JJLink extends HTMLElement {
     }
     // set the href attribute
     if (this.hasAttribute('href')) {
-      this.href = this.getAttribute('href');
-      this.link.setAttribute('href', this.href);
-    } else {
-      this.href = 'https://www.google.com';
-      this.link.setAttribute('href', this.href);
+      this.link.setAttribute('href', this.getAttribute('href'));
     }
     // set the disabled attribute
-    if (this.hasAttribute('disabled')) {
-      if (this.getAttribute('disabled') == 'true') {
-        this.disabled = true;
-        this.link.classList.add('disabled')
-      } else {
-        this.disabled = false;
-      }
+    if (this.getAttribute('disabled') == 'true') {
+      this.disabled = true;
+      this.link.classList.add('disabled')
     } else {
       this.disabled = false;
     }
     // set the underline attribute
-    if (this.hasAttribute('underline')) {
-      if (this.getAttribute('underline') == 'true') {
-        this.underline = true;
-        this.link.classList.add('underline')
-      } else {
-        this.underline = false;
-      }
+    if (this.getAttribute('underline') == 'true') {
+      this.underline = true;
+      this.link.classList.add('underline')
     } else {
       this.underline = false;
     }
@@ -129,24 +117,24 @@ class JJLink extends HTMLElement {
 
   attributeChangedCallback(attrName, oldValue, newValue) {
     switch (attrName) {
-    case 'type':
-      this.link.classList.remove(oldValue);
-      this.link.classList.add(newValue);
-      break;
-    case 'disabled':
-      if (newValue == "false") {
-        this.link.classList.remove('disabled');
-      } else {
-        this.link.classList.add('disabled');
-      }
-      break;
-    case 'underline':
-      if (newValue == "false") {
-        this.link.classList.remove('underline');
-      } else {
-        this.link.classList.add('underline');
-      }
-      break;
+      case 'type':
+        this.link.classList.remove(oldValue);
+        this.link.classList.add(newValue);
+        break;
+      case 'disabled':
+        if (newValue == "false") {
+          this.link.classList.remove('disabled');
+        } else {
+          this.link.classList.add('disabled');
+        }
+        break;
+      case 'underline':
+        if (newValue == "false") {
+          this.link.classList.remove('underline');
+        } else {
+          this.link.classList.add('underline');
+        }
+        break;
     }
   }
 
