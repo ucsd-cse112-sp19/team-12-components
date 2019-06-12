@@ -25,7 +25,7 @@ describe('jj-switch Component Unit Tests', () => {
 
   // Place component into DOM, get the element by id
   before(function() {
-    compHTML = `<jj-switch id="switch" inactive-text="Pay by the year" active-text="Pay by the month" inactive-color="#dcdfe6" active-color="#409eff" size="large" disabled="true" value="true"></jj-slider>`;
+    compHTML = `<jj-switch id="switch" inactive-text="Pay by the year" active-text="Pay by the month" inactive-color="#dcdfe6" active-color="#409eff" size="large" disabled="true"></jj-slider>`;
     document.body.insertAdjacentHTML('afterbegin', compHTML);
     compEl = document.getElementById('switch');
   });

@@ -458,4 +458,5 @@ const jjButton = () => {
     set autofocus(newValue) { this.setAttribute('autofocus', newValue); }
   }
   customElements.define('jj-button', JJButton);
-} jjButton();
+};
+jjButton();
