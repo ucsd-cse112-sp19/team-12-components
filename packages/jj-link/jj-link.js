@@ -76,11 +76,11 @@ template.innerHTML = `
 // define the css for this component
 class JJLink extends HTMLElement {
   static get observedAttributes() {
-    return ['href', 'type', 'disabled', 'icon'];
+    return [ 'href', 'type', 'disabled', 'icon' ];
   }
   constructor() {
     super();
-    this.root = this.attachShadow({ mode: 'open' });
+    this.root = this.attachShadow({mode : 'open'});
     this.root.appendChild(template.content.cloneNode(true));
 
     // define the elements of this component
@@ -129,24 +129,24 @@ class JJLink extends HTMLElement {
 
   attributeChangedCallback(attrName, oldValue, newValue) {
     switch (attrName) {
-      case 'type':
-        this.link.classList.remove(oldValue);
-        this.link.classList.add(newValue);
-        break;
-      case 'disabled':
-        if (newValue == "false") {
-          this.link.classList.remove('disabled');
-        } else {
-          this.link.classList.add('disabled');
-        }
-        break;
-      case 'underline':
-        if (newValue == "false") {
-          this.link.classList.remove('underline');
-        } else {
-          this.link.classList.add('underline');
-        }
-        break;
+    case 'type':
+      this.link.classList.remove(oldValue);
+      this.link.classList.add(newValue);
+      break;
+    case 'disabled':
+      if (newValue == "false") {
+        this.link.classList.remove('disabled');
+      } else {
+        this.link.classList.add('disabled');
+      }
+      break;
+    case 'underline':
+      if (newValue == "false") {
+        this.link.classList.remove('underline');
+      } else {
+        this.link.classList.add('underline');
+      }
+      break;
     }
   }
 

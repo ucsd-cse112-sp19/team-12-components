@@ -6,8 +6,8 @@
  * @attribute max,	maximum value, number,	/,	100
  * @attribute disabled,	whether Slider is disabled,	boolean,	/,false
  * @attribute step,	step size,	number,	/,	1
- * @attribute show-input,	whether to display an input box, works when range
- * is false,	boolean,	/,	false
+ * @attribute show-input,	whether to display an input box, works when
+ * range is false,	boolean,	/,	false
  * @attribute input-size,	size of the input box,	string,	large / medium /
  * small / mini,	small
  * @attribute show-stops,	whether to display breakpoints,	boolean, /,
