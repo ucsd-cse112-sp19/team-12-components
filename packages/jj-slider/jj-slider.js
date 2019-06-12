@@ -6,18 +6,26 @@
  * @attribute max,	maximum value, number,	/,	100
  * @attribute disabled,	whether Slider is disabled,	boolean,	/,false
  * @attribute step,	step size,	number,	/,	1
- * @attribute show-input,	whether to display an input box, works when range is false,	boolean,	/,	false
- * @attribute input-size,	size of the input box,	string,	large / medium / small / mini,	small
- * @attribute show-stops,	whether to display breakpoints,	boolean, /,	false
- * @attribute show-tooltip,	whether to display tooltip value,	boolean, /,	true
- * @attribute format-tooltip,	format to display tooltip value, function(value),	/,	/
+ * @attribute show-input,	whether to display an input box, works when
+ * range is false,	boolean,	/,	false
+ * @attribute input-size,	size of the input box,	string,	large / medium /
+ * small / mini,	small
+ * @attribute show-stops,	whether to display breakpoints,	boolean, /,
+ * false
+ * @attribute show-tooltip,	whether to display tooltip value,	boolean,
+ * /,	true
+ * @attribute format-tooltip,	format to display tooltip value,
+ * function(value),	/,	/
  * @attribute range,	whether to select a range,	boolean,	/, false
  * @attribute vertical,	vertical mode,	boolean,	/,	false
- * @attribute height,	Slider height, required in vertical mode, string, /,	/
+ * @attribute height,	Slider height, required in vertical mode, string, /,
+ * /
  * @attribute label,	label for screen reader,	string, /, /
- * @attribute tooltip-class,	custom class name for the tooltip, string, /,	/
+ * @attribute tooltip-class,	custom class name for the tooltip, string, /,
+ * /
  * @attribute --bar-color, changes the color of the bar, string/hex/RGB, /, /
- * @attribute --runway-color, changes the color of the runway, string/hex/RGB, /, /
+ * @attribute --runway-color, changes the color of the runway, string/hex/RGB,
+ * /, /
  * @attribute --slider-width, width of the slider, /, /, /
  */
 
@@ -72,14 +80,15 @@ jjSliderTemplate.innerHTML = `
 class JJSlider extends HTMLElement {
   constructor() {
     super();
-    this.root = this.attachShadow({ mode: 'open' });
+    this.root = this.attachShadow({mode : 'open'});
     this.root.appendChild(jjSliderTemplate.content.cloneNode(true));
 
     // Target elements with querySelector
     this.sliderContainer = this.root.querySelector('.el-slider');
     this.sliderRunway = this.root.querySelector('.el-slider__runway');
     this.sliderBar = this.root.querySelector('.el-slider__bar');
-    this.sliderBtnWrapper = this.root.querySelector('.el-slider__button-wrapper');
+    this.sliderBtnWrapper =
+        this.root.querySelector('.el-slider__button-wrapper');
     this.sliderBtn = this.root.querySelector('.el-tooltip.el-slider__button');
     this.tooltip = this.root.querySelector('.el-tooltip__popper');
     this.tooltipSpan = this.root.querySelector('.el-tooltip__popper span');
@@ -100,7 +109,8 @@ class JJSlider extends HTMLElement {
   connectedCallback() {
     // Bind event listener to slider elements
     this.sliderRunway.addEventListener('mousedown', this.onSliderClick);
-    this.sliderBtnWrapper.addEventListener('mouseover', this.setTooltipPosition);
+    this.sliderBtnWrapper.addEventListener('mouseover',
+                                           this.setTooltipPosition);
     this.sliderBtnWrapper.addEventListener('mouseout', this.hideTooltip);
     this.sliderBtnWrapper.addEventListener('mousedown', this.onButtonDown);
 
@@ -146,7 +156,8 @@ class JJSlider extends HTMLElement {
   // bar and offset of slider button
   setPosition(percent) {
     // Calculate target value based on percentage
-    let targetValue = parseInt(this.min) + percent * (this.max - this.min) / 100;
+    let targetValue =
+        parseInt(this.min) + percent * (this.max - this.min) / 100;
     if (targetValue > this.max) {
       targetValue = this.max;
     } else if (targetValue < this.min) {
@@ -170,19 +181,20 @@ class JJSlider extends HTMLElement {
     this.setTooltipPosition();
   }
 
-  // Set tooltip position. This function will be called when the slider button 
+  // Set tooltip position. This function will be called when the slider button
   // receives a 'mouseover' signal.
   setTooltipPosition() {
     let rect = this.sliderBtnWrapper.getBoundingClientRect();
     this.tooltip.style =
-      "transform-origin: center bottom; z-index: 2282; position: fixed; top: " +
-      (rect.top - rect.height) + "px; left: " + rect.left + "px;";
+        "transform-origin: center bottom; z-index: 2282; position: fixed; top: " +
+        (rect.top - rect.height) + "px; left: " + rect.left + "px;";
   }
 
   // Hide tooltip. This event handler will be called when the slider button
-  // receives a 'mouseout' signal. 
+  // receives a 'mouseout' signal.
   hideTooltip() {
-    this.tooltip.style = "transform-origin: center bottom; z-index: 2282; position: fixed; display: none;";
+    this.tooltip.style =
+        "transform-origin: center bottom; z-index: 2282; position: fixed; display: none;";
   }
 
   // This event handler will be called when the slider runway receives a
@@ -191,7 +203,8 @@ class JJSlider extends HTMLElement {
   onSliderClick(event) {
     this.sliderSize = this.sliderContainer.clientWidth;
     const sliderOffsetLeft = this.sliderContainer.getBoundingClientRect().left;
-    this.setPosition((event.clientX - sliderOffsetLeft) / this.sliderSize * 100);
+    this.setPosition((event.clientX - sliderOffsetLeft) / this.sliderSize *
+                     100);
     this.onButtonDown(event);
   }
 
@@ -199,7 +212,8 @@ class JJSlider extends HTMLElement {
   // 'mousedown' signal. Trigger onDragStart() and add event listeners to
   // onDragging() and onDragEnd().
   onButtonDown(event) {
-    if (this.disabled) return;
+    if (this.disabled)
+      return;
     event.preventDefault();
     this.onDragStart(event);
     window.addEventListener('mousemove', this.onDragging);
@@ -259,20 +273,20 @@ class JJSlider extends HTMLElement {
   }
 
   // Observe only the array of attribute names
-  static get observedAttributes() { return ['value', 'min', 'max']; }
+  static get observedAttributes() { return [ 'value', 'min', 'max' ]; }
 
   // Listen for changed attributes
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
-      case 'value':
-        // console.log(`Initial value: ${newValue}`);
-        break;
-      case 'min':
-        // console.log(`Minimum value: ${newValue}`);
-        break;
-      case 'max':
-        // console.log(`Maximum value: ${newValue}`);
-        break;
+    case 'value':
+      // console.log(`Initial value: ${newValue}`);
+      break;
+    case 'min':
+      // console.log(`Minimum value: ${newValue}`);
+      break;
+    case 'max':
+      // console.log(`Maximum value: ${newValue}`);
+      break;
     }
   }
 

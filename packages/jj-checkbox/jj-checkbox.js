@@ -50,7 +50,7 @@ jjCheckboxTemplate.innerHTML = `
 class JJCheckbox extends HTMLElement {
   constructor() {
     super();
-    this.root = this.attachShadow({ mode: 'open' });
+    this.root = this.attachShadow({mode : 'open'});
     this.root.appendChild(jjCheckboxTemplate.content.cloneNode(true));
 
     // target elements with querySelector
@@ -116,9 +116,11 @@ class JJCheckbox extends HTMLElement {
   }
 
   onCheckboxClick(event) {
-    if (this.disabled) return;
+    if (this.disabled)
+      return;
     this.checked = !this.checked;
-    console.log(this.checked ? "Checked " + this._value : "Unchecked " + this._value);
+    console.log(this.checked ? "Checked " + this._value
+                             : "Unchecked " + this._value);
     if (this.checked) {
       this.setAttribute('checked', '');
       this.addClasses('checked');
@@ -129,22 +131,20 @@ class JJCheckbox extends HTMLElement {
   }
 
   // Observe only the array of attribute names
-  static get observedAttributes() {
-    return ['label', 'checked', 'disabled'];
-  }
+  static get observedAttributes() { return [ 'label', 'checked', 'disabled' ]; }
 
   // Listen for changed attributes
   attributeChangedCallback(name, oldValue, newValue) {
     switch (name) {
-      case 'label':
-        this.labelSpan.innerHTML = newValue;
-        break;
-      case 'checked':
-        this.classNameSwitch(name, newValue);
-        break;
-      case 'disabled':
-        this.classNameSwitch(name, newValue);
-        break;
+    case 'label':
+      this.labelSpan.innerHTML = newValue;
+      break;
+    case 'checked':
+      this.classNameSwitch(name, newValue);
+      break;
+    case 'disabled':
+      this.classNameSwitch(name, newValue);
+      break;
     }
   }
 
