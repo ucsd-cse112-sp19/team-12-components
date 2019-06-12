@@ -144,9 +144,25 @@
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
+                href="en/docs/components/jj-checkbox.html">
+                <span>
+                  jj checkbox
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
                 href="en/docs/components/jj-input-number.html">
                 <span>
                   jj input number
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
+                href="en/docs/components/jj-progress.html">
+                <span>
+                  jj progress
                 </span>
               </a>
             </li>
@@ -245,13 +261,6 @@
           "Default": "/"
           },
           {
-          "Attribute Name": "show-input-controls",
-          "Description": "whether to display control buttons when show-input is true",
-          "Type": "boolean",
-          "Accepted Values": "/",
-          "Default": "true"
-          },
-          {
           "Attribute Name": "input-size",
           "Description": "size of the input box",
           "Type": "string",
@@ -308,13 +317,6 @@
           "Default": " /"
           },
           {
-          "Attribute Name": "debounce",
-          "Description": "debounce delay when typing... in milliseconds...works when show-input is true",
-          "Type": "number",
-          "Accepted Values": "/",
-          "Default": "300"
-          },
-          {
           "Attribute Name": "tooltip-class",
           "Description": "custom class name for the tooltip",
           "Type": " string",
@@ -322,11 +324,25 @@
           "Default": "/"
           },
           {
-          "Attribute Name": "marksmarks",
-          "Description": " type of key must be number and must in closed interval [min max] each mark can custom style",
-          "Type": "object",
+          "Attribute Name": "--bar-color",
+          "Description": " changes the color of the bar",
+          "Type": " string/hex/RGB",
           "Accepted Values": " /",
-          "Default": "/"
+          "Default": " /"
+          },
+          {
+          "Attribute Name": "--runway-color",
+          "Description": " changes the color of the runway",
+          "Type": " string/hex/RGB",
+          "Accepted Values": "/",
+          "Default": " /"
+          },
+          {
+          "Attribute Name": "--slider-width",
+          "Description": " width of the slider",
+          "Type": " /",
+          "Accepted Values": " /",
+          "Default": " /"
           },
           {
           "Attribute Name": "",
@@ -470,8 +486,8 @@
     <!-- JS files at bottom of page -->
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
     <script
-      src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-input-number/jj-input-number.js"></script>
-    <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components/packages/jj-slider/jj-slider.js"></script>
+      src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-input-number/jj-input-number.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-slider/jj-slider.js"></script>
     
     <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
     

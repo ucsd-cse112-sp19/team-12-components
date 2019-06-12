@@ -1,6 +1,9 @@
 language: node_js
 node_js: "stable"
 
+node_js:
+  - node
+
 before_install:
   - stty cols 80
 
@@ -10,12 +13,18 @@ cache:
 env:
   - SAUCE_BUILD=$TRAVIS_BUILD_NUMBER
 
-node_js:
-  - node
+before_script:
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
 script:
   - npm run test:travis
-  - npm run snapshot # Visual regression tests
+  - #npm run snapshot # Visual regression tests
+
+after_script:
+  - ./cc-test-reporter format-coverage -t lcov "./coverage/lcov.info"
+  - ./cc-test-reporter upload-coverage
 
 notifications:
   email: false

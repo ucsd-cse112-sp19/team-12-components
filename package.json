@@ -6,8 +6,8 @@
   "scripts": {
     "build": "./node_modules/.bin/babel --presets es2015 ./packages/*/ --out-dir ./src/",
     "precommit": "./node_modules/.bin/check-clang-format \"yarn format\"",
-    "test": "karma start && npm run test:chrome",
-    "test:travis": "karma start && testcafe",
+    "test": "karma start --coverage && npm run test:chrome",
+    "test:travis": "karma start --coverage && testcafe",
     "test:chrome": "testcafe --skip-js-errors Chrome packages/*/tests/*_testcafe.js",
     "test:firefox": "testcafe --skip-js-errors Firefox packages/*/tests/*_testcafe.js",
     "test:watch": "karma start --auto-watch=true --single-run=false",
@@ -22,7 +22,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "clang-format -i -style=llvm packages/*/*.js && ROOT=`git rev-parse --show-toplevel` && $ROOT/scripts/minify.sh"
+      "pre-commit": "clang-format -i -style=llvm packages/*/*.js"
     }
   },
   "repository": {
@@ -62,6 +62,9 @@
     "gulp-rename": "^1.4.0",
     "handlebars": "^4.1.2",
     "husky": "^2.1.0",
+    "karma": "^4.1.0",
+    "karma-coverage": "^1.1.2",
+    "karma-coverage-istanbul-reporter": "^2.0.5",
     "lit-html": "^1.0.0",
     "mocha": "^6.1.4",
     "n-readlines": "^1.0.0",
