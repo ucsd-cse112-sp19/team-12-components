@@ -1,5 +1,5 @@
 /**
- * @attribute_name jj link
+ * @component_name jj link
  * @attribute href, string, the address of our link to, /
  * @attribute type, link type, string, default/primary/success/warning/danger, /
  * @attribute underline, underline the link text, /, false
@@ -103,7 +103,7 @@ class JJLink extends HTMLElement {
     if (this.getAttribute('disabled') == 'true') {
       this.disabled = true;
       this.link.classList.add('disabled')
-    } 
+    }
     // set the underline attribute
     this.underline = false;
     if (this.getAttribute('underline') == 'true') {
@@ -122,12 +122,12 @@ class JJLink extends HTMLElement {
       this.changeDisableUnderline('disabled', newValue);
       break;
     case 'underline':
-      this.changeDisableUnderline('underline',newValue);
+      this.changeDisableUnderline('underline', newValue);
       break;
     }
   }
 
-  changeDisableUnderline(attribute, newValue){
+  changeDisableUnderline(attribute, newValue) {
     if (newValue == "false") {
       this.link.classList.remove(attribute);
     } else {
