@@ -143,7 +143,7 @@ jjSwitchTemplate.innerHTML = `
   <div role="switch" aria-checked="true" class="el-switch">
     <span id="inactiveText" class='text'></span>
       <label class="switch">
-      <input type="checkbox" checked>
+      <input id="myinput" type="checkbox" checked>
       <span id="slider" class="slider round"></span>
       </label>
     <span id="activeText" class='text'></span>
@@ -160,9 +160,6 @@ class JJSwitch extends HTMLElement {
 
   constructor() {
     super();
-
-    // Define constants
-    this.DEFAULT_TOGGLE = true;
 
     this.root = this.attachShadow({mode : 'open'});
     this.root.appendChild(jjSwitchTemplate.content.cloneNode(true));
@@ -190,6 +187,12 @@ class JJSwitch extends HTMLElement {
       this.slider.style.background = this.inactive_color;
       this.activeText.classList.remove('text-active');
       this.inactiveText.classList.add('text-active');
+    }
+  }
+
+  updateSwitch() {
+    if (this.value == 'true') {
+    } else {
     }
   }
 
@@ -232,6 +235,15 @@ class JJSwitch extends HTMLElement {
 
     if (!this.hasAttribute('value')) {
       this.value = true;
+    } else {
+      if (this.getAttribute('value') == 'true') {
+        this.switchContainer.classList.add('is-checked');
+        this.switchContainer.setAttribute("aria-checked", true)
+      } else {
+        this.input.removeAttribute('checked');
+        this.switchContainer.classList.remove('is-checked');
+        this.switchContainer.setAttribute("aria-checked", false)
+      }
     }
 
     if (!this.hasAttribute('size')) {
@@ -293,6 +305,7 @@ class JJSwitch extends HTMLElement {
 
     case 'value':
       this.updateColors();
+      this.updateSwitch();
       break;
 
     case 'size':
@@ -326,10 +339,11 @@ class JJSwitch extends HTMLElement {
       // change the value
       this.value = this.activeValue;
 
-      // Add is-checked to the class name
+      // Add is-checked to the class name and set aria-checked to true
       this.switchContainer.classList.add('is-checked');
-
       this.switchContainer.setAttribute("aria-checked", true);
+
+      this.input.setAttribute('checked', "");
 
     } else {
 
@@ -343,10 +357,11 @@ class JJSwitch extends HTMLElement {
       // change the value
       this.value = this.inactiveValue;
 
-      // Remove is-checked to the class name
+      // Remove is-checked from the class name and set aria-checked to false
       this.switchContainer.classList.remove('is-checked');
-
       this.switchContainer.setAttribute("aria-checked", false);
+
+      this.input.removeAttribute('checked');
     }
   }
 

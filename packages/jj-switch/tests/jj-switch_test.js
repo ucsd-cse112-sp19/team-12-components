@@ -70,4 +70,19 @@ describe('jj-switch Component Unit Tests', () => {
     assert.equal(compChecked, "true");
   });
 
+  // it("tests clicking on the switch", function() {
+  //   //currently no checked
+  //   let compValue = compEl.shadowRoot.querySelector("#myinput").hasAttribute("checked");
+  //   assert.equal(compValue, true);
+
+  //   let switchContainer = compEl.shadowRoot.querySelector(".el-switch");
+  //   triggerMouseEvent(switchContainer, "mousedown");
+  //   triggerMouseEvent(switchContainer, "mouseup");
+
+  //   // should not be checked since it is disabled 
+  //   //compValue = document.getAttribute("value").hasAttribute("checked");
+  //   compValue = compEl.shadowRoot.querySelector("#myinput").hasAttribute("checked");
+  //   assert.equal(compValue, false);
+  // });
+
 });
