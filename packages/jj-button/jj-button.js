@@ -16,7 +16,7 @@
  *
  */
 
-//define the css for this component
+// define the css for this component
 const jjButtonTemplate = document.createElement('template');
 jjButtonTemplate.innerHTML = `
   <style>
@@ -268,15 +268,16 @@ jjButtonTemplate.innerHTML = `
 class JJButton extends HTMLElement {
   static get observedAttributes() {
     return [
-      'size', 'type', 'round', 'plain', 'circle', 'loading', 'disabled', 'icon', 'autofocus', 'native-type'
+      'size', 'type', 'round', 'plain', 'circle', 'loading', 'disabled', 'icon',
+      'autofocus', 'native-type'
     ];
   }
   constructor() {
     super();
-    this.root = this.attachShadow({ mode: 'open' });
+    this.root = this.attachShadow({mode : 'open'});
     this.root.appendChild(jjButtonTemplate.content.cloneNode(true));
 
-    //define the elements of this component
+    // define the elements of this component
     this.button = this.root.querySelector('.btn');
 
     // Bind "this" to functions to reserve context
@@ -356,36 +357,36 @@ class JJButton extends HTMLElement {
 
   attributeChangedCallback(attrName, oldValue, newValue) {
     switch (attrName) {
-      case 'size':
-        this.button.classList.remove(oldValue);
-        this.button.classList.add(newValue);
-        break;
-      case 'type':
-        this.button.classList.remove(oldValue);
-        this.button.classList.add(newValue);
-        break;
-      case 'disabled':
-        this.classNameSwitch('disabled', newValue);
-        break;
-      case 'circle':
-        this.classNameSwitch('circle', newValue);
-        break;
-      case 'plain':
-        this.classNameSwitch('plain', newValue);
-        break;
-      case 'round':
-        this.classNameSwitch('round', newValue);
-        break;
-      case 'autofocus':
-        this.button.setAttribute('autofocus', newValue);
-        break;
-      case 'native-type':
-        this.button.setAttribute('type', newValue);
-        break;
+    case 'size':
+      this.button.classList.remove(oldValue);
+      this.button.classList.add(newValue);
+      break;
+    case 'type':
+      this.button.classList.remove(oldValue);
+      this.button.classList.add(newValue);
+      break;
+    case 'disabled':
+      this.classNameSwitch('disabled', newValue);
+      break;
+    case 'circle':
+      this.classNameSwitch('circle', newValue);
+      break;
+    case 'plain':
+      this.classNameSwitch('plain', newValue);
+      break;
+    case 'round':
+      this.classNameSwitch('round', newValue);
+      break;
+    case 'autofocus':
+      this.button.setAttribute('autofocus', newValue);
+      break;
+    case 'native-type':
+      this.button.setAttribute('type', newValue);
+      break;
     }
   }
 
-  //Getters
+  // Getters
   get round() { return this.getAttribute('round') == 'true'; }
   get plain() { return this.getAttribute('plain') == 'true'; }
   get circle() { return this.getAttribute('circle') == 'true'; }
@@ -395,7 +396,7 @@ class JJButton extends HTMLElement {
   get native_type() { return this.getAttribute('native-type'); }
   get autofocus() { return this.getAttribute('autofocus'); }
 
-  //Setters
+  // Setters
   set round(newValue) { this.setAttribute('round', newValue); }
   set plain(newValue) { this.setAttribute('plain', newValue); }
   set circle(newValue) { this.setAttribute('circle', newValue); }

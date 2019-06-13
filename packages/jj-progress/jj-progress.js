@@ -71,8 +71,8 @@ class JJProgress extends HTMLElement {
     super();
     // done
     // Define constants here
-        this.DEFAULT_PERCENTAGE = 50;
-        this.DEFAULT_MIN = 0;
+    this.DEFAULT_PERCENTAGE = 50;
+    this.DEFAULT_MIN = 0;
     this.DEFAULT_MAX = 100;
     this.DEFAULT_STROKE_WIDTH = 6;
     this.DEFAULT_PROGRESS_COLOR = "#409EFF";
