@@ -299,8 +299,8 @@ class JJButton extends HTMLElement {
   }
   initNativeAutofocus(attr) {
     let newAttr = attr.replace(/-/g, "_");
-    this[newAttr] = this.getAttribute(newAttr);
-    this.button.setAttribute(newAttr, this.getAttribute(newAttr));
+    this[newAttr] = this.getAttribute(attr);
+    this.button.setAttribute(attr, this.getAttribute(attr));
   }
 
   // Helper function for attributeChangedCallback
