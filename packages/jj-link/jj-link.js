@@ -93,7 +93,7 @@ class JJLink extends HTMLElement {
       this.type = this.getAttribute('type');
       this.link.classList.add(this.getAttribute('type'));
     }
-    
+
     // set the href attribute
     if (this.hasAttribute('href')) {
       this.link.setAttribute('href', this.getAttribute('href'));
