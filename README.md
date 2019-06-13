@@ -9,6 +9,9 @@
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/nonguyen.svg)](https://saucelabs.com/u/nonguyen)
 
+
+[Documentation Website](https://ucsd-cse112.github.io/team-12-components/)
+
 [Unit Testing](#unit_test)  
 [Doc generation](#doc)  
 [Support Testing](#ack)  
@@ -24,6 +27,7 @@ browsers. To do so run
 
 `npm run build`
 
+[Having issues?](https://www.google.com)
 
 ## Contribute
 We use clang-format for linting. If you are going to contribute please install clang-format. Below are some steps you can follow to install.
@@ -44,3 +48,5 @@ npm run doc
 
 ## Acknowledgement <a name="ack"></a>
 We would like to thank [SauceLabs](https://saucelabs.com) for their support of open source projects like ours.
+
+
