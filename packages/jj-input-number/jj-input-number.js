@@ -175,12 +175,8 @@ class JJInputNum extends HTMLElement {
     }
 
     this._value = this.trans(value);
-    if (isNaN(this._value)) {
-      this._value = this.trans('');
-      this.valueElement.value = '';
-    } else
-      this.valueElement.value =
-        parseFloat(this._value).toFixed(this.precision);
+    this.valueElement.value =
+      parseFloat(this._value).toFixed(this.precision);
   }
 
   get value() { return this._value; }
@@ -197,9 +193,9 @@ class JJInputNum extends HTMLElement {
   set precision(prec) { this._precision = prec; }
   get precision() { return this._precision; }
 
-  set inputDiv(div){ this._inputDiv = div};
-  get inputDiv() { return this._inputDiv};
-  
+  set inputDiv(div) { this._inputDiv = div };
+  get inputDiv() { return this._inputDiv };
+
   static get observedAttributes() {
     return [
       'controls', 'min', 'max', 'step', 'size', 'disabled', 'placeholder',
@@ -208,23 +204,29 @@ class JJInputNum extends HTMLElement {
   }
 
   connectedCallback() {
-    if (!this.hasAttribute('min'))
-      this.valueElement.min = Number.NEGATIVE_INFINITY;
+    if (this.hasAttribute('min'))
+      this.valueElement.min = this.getAttribute('min');
+    else this.valueElement.min = Number.NEGATIVE_INFINITY;
 
-    if (!this.hasAttribute('max'))
-      this.valueElement.max = Number.POSITIVE_INFINITY;
+    if (this.hasAttribute('max'))
+      this.valueElement.max = this.getAttribute('max');
+    else this.valueElement.max = Number.POSITIVE_INFINITY;
 
-    if (!this.hasAttribute('step'))
-      this.step = 1;
+    if (this.hasAttribute('step'))
+      this.step = this.getAttribute('step');
+    else this.step = 1;
 
-    if (!this.hasAttribute('size'))
-      this.inputDiv.className += ' small';
+    if (this.hasAttribute('size'))
+      this.inputDiv.className += ' large'
+    else this.inputDiv.className += ' small';
 
-    if (!this.hasAttribute('value'))
-      this.value = this.valueElement.min;
+    if (this.hasAttribute('value'))
+      this.value = this.getAttribute('value');
+    else this.value = this.valueElement.min;
 
-    if (!this.hasAttribute('precision'))
-      this.precision = 0;
+    if (this.hasAttribute('precision'))
+      this.precision = this.getAttribute('precision');
+    else this.precision = 0;
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {
@@ -232,17 +234,6 @@ class JJInputNum extends HTMLElement {
       this.load();
 
     switch (attrName) {
-      case 'min':
-        this.valueElement.min = this.trans(newValue);
-        this.value = this.value;
-        break;
-      case 'max':
-        this.valueElement.max = this.trans(newValue);
-        this.value = this.value;
-        break;
-      case 'step':
-        this.step = this.trans(newValue);
-        break;
       case 'size':
         this.inputDiv.classList.remove(oldValue);
         this.inputDiv.classList.add(newValue);
@@ -252,9 +243,6 @@ class JJInputNum extends HTMLElement {
           this.inputDiv.classList.add('disabled');
         else
           this.inputDiv.classList.remove('disabled');
-        break;
-      case 'placeholder':
-        this.valueElement.setAttribute('placeholder', newValue);
         break;
       case 'value':
         this.value = this.trans(newValue);
@@ -271,7 +259,6 @@ class JJInputNum extends HTMLElement {
         this.decrementButton.style.display = display;
         this.valueElement.style.width = width;
         break;
-
       case 'precision':
         if (parseInt(newValue) >= 0) {
           this.precision = parseInt(newValue);
@@ -279,6 +266,7 @@ class JJInputNum extends HTMLElement {
         }
         break;
     }
+
     this.position = 'done';
   }
 
@@ -380,19 +368,19 @@ class JJInputNum extends HTMLElement {
     this.valueElement.addEventListener('mouseout', this.inputEvent.bind(this));
   }
 
-  increBtnEvent (e) {
+  increBtnEvent(e) {
     this.inputDiv.classList.add("border-blue");
     if (e.type === 'mouseover')
       this.incrementButton.classList.add("color-blue");
     else this.incrementButton.classList.remove("color-blue");
   }
-  decreBtnEvent (e) {
+  decreBtnEvent(e) {
     this.inputDiv.classList.add("border-blue");
     if (e.type === 'mouseover')
       this.decrementButton.classList.add("color-blue");
     else this.decrementButton.classList.remove("color-blue");
   }
-  inputEvent (e) {
+  inputEvent(e) {
     this.value = e.srcElement.value;
     this.setAttribute("value", this.value);
     if (e.type === 'mouseover')
