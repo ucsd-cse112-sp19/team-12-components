@@ -17,7 +17,9 @@
   <base href="{{#getUrlBase}}{{/getUrlBase}}">
   <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
   <link rel="icon" href="resources/images/JJ_favicon_16.png" type="png" sizes="16x16">
-  <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-switch/jj-switch.js"></script>
+  <script
+    src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-switch/jj-switch.js"></script>
+  <script src="../../packages/jj-switch/jj-switch.js"></script>
 
 </head>
 
@@ -51,10 +53,13 @@
           <div class="demo-section">
             <div class="demo-entry">
               <p>Default Settings</p>
-               <jj-switch></jj-switch>
-               <br/>
-               <jj-switch inactive-color="#ff4949" active-color="#13ce66"></jj-switch>
-              <pre class="prettyprint"><code class="language-html"> &lt;jj-switch>&lt;/jj-switch> &lt;jj-switch inactive-color="#ff4949" active-color="#13ce66">&lt;/jj-switch> </code></pre>
+              <jj-switch></jj-switch>
+              <br />
+              <jj-switch inactive-color="#ff4949" active-color="#13ce66"></jj-switch>
+          
+              <pre style="margin-top:10px" class="prettyprint"><code class="language-html"> &lt;jj-switch>&lt;/jj-switch>
+ &lt;br />
+ &lt;jj-switch inactive-color="#ff4949" active-color="#13ce66">&lt;/jj-switch></code></pre>
             </div>
           </div>
 
@@ -62,11 +67,15 @@
           <h2>Basic usage</h2>
           <div class="demo-section">
             <div class="demo-entry">
-              <p>Text description</p>
-               <jj-switch active-text="Pay by month" inactive-text="Pay by year"></jj-switch>
-               <br/>
-               <jj-switch inactive-color="#ff4949" active-color="#13ce66" active-text="Pay by month" inactive-text="Pay by year"></jj-switch>
-              <pre class="prettyprint"><code class="language-html">&lt;jj-switch>&lt;/jj-switch> </code></pre>
+              <p>Change the Labels</p>
+              <jj-switch active-text="Pay by month" inactive-text="Pay by year"></jj-switch>
+              <br />
+              <jj-switch inactive-color="#ff4949" active-color="#13ce66" active-text="Pay by month"
+                inactive-text="Pay by year"></jj-switch>
+              <pre style="margin-top:10px" class="prettyprint"><code class="language-html">&lt;jj-switch active-text="Pay by month" inactive-text="Pay by year">&lt;/jj-switch>
+&lt;br />
+&lt;jj-switch inactive-color="#ff4949" active-color="#13ce66" active-text="Pay by month"
+inactive-text="Pay by year">&lt;/jj-switch></code></pre>
             </div>
           </div>
 
@@ -74,11 +83,15 @@
           <h2>Basic usage</h2>
           <div class="demo-section">
             <div class="demo-entry">
-              <p>Set value</p>
-               <jj-switch active-text="Pay by month" inactive-text="Pay by year" disabled></jj-switch>
-               <br/>
-               <jj-switch inactive-color="#ff4949" value="false" active-color="13ce66" active-text="Pay by month" inactive-text="Pay by year" disabled></jj-switch>
-              <pre class="prettyprint"><code class="language-html">&lt;jj-switch>&lt;/jj-switch> </code></pre>
+              <p>Disable the Switches</p>
+              <jj-switch active-text="Pay by month" inactive-text="Pay by year" disabled></jj-switch>
+              <br />
+              <jj-switch inactive-color="#ff4949" value="false" active-color="13ce66" active-text="Pay by month"
+                inactive-text="Pay by year" disabled></jj-switch>
+              <pre style="margin-top:10px" class="prettyprint"><code class="language-html">&lt;jj-switch active-text="Pay by month" inactive-text="Pay by year" disabled>&lt;/jj-switch>
+&lt;br />
+&lt;jj-switch inactive-color="#ff4949" value="false" active-color="13ce66" active-text="Pay by month"
+inactive-text="Pay by year" disabled>&lt;/jj-switch></code></pre>
             </div>
           </div>
 

@@ -4,11 +4,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description"
-    content="A web component with a Customizable number input field with increse and decrease buttons.">
+  <meta name="description" content="A web component that is a highly customizable dragging switch within ranges.">
   <meta name="author" content="Jay Jay Web Components">
   <meta name="theme-color" content="#7da3ef">
-  <title>JJ Input Number | Web Component Documentation</title>
+  <title>JJ Switch | Web Component Documentation</title>
   <!-- Core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -18,6 +17,10 @@
   <base href="/docs/">
   <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
   <link rel="icon" href="resources/images/JJ_favicon_16.png" type="png" sizes="16x16">
+  <script
+    src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-switch/jj-switch.js"></script>
+  <script src="../../packages/jj-switch/jj-switch.js"></script>
+
 </head>
 
 <body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
@@ -85,7 +88,7 @@
         <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
           <button class="navbar-toggler sidebarButton" type="button" data-toggle="collapse" data-target="#left-nav-sidebar"
             aria-controls="left-nav-sidebar" aria-expanded="false" aria-label="Toggle navigation">
-            jj input number <span class="carrot-down">&#9660;</span>
+            jj switch <span class="carrot-down">&#9660;</span>
           </button>
           <ul class="sidebar-left collapse navbar-collapse" id="left-nav-sidebar">
             <li class="sideL nav-item">
@@ -160,7 +163,7 @@
               </a>
             </li>
             <li class="sideL nav-item">
-              <a class="nav-link sidebar-subHeading active"
+              <a class="nav-link sidebar-subHeading "
                 href="en/docs/components/jj-input-number.html">
                 <span>
                   jj input number
@@ -192,7 +195,7 @@
               </a>
             </li>
             <li class="sideL nav-item">
-              <a class="nav-link sidebar-subHeading "
+              <a class="nav-link sidebar-subHeading active"
                 href="en/docs/components/jj-switch.html">
                 <span>
                   jj switch
@@ -205,133 +208,156 @@
         <div class="col-md-8 col-sm-12 content">
           <div class="anchor" id="description"></div>
           <h1>
-            JJ Input Number
+            JJ Switch
           </h1>
           <p>
-            Customizable number input field with increse and decrease buttons.
+            Highly customizable switch component.
           </p>
+
+
+
+
           <div class="anchor" id="usage"></div>
           <h2>Basic usage</h2>
           <div class="demo-section">
             <div class="demo-entry">
-              <p>Change range</p>
-              <jj-input-number min="0" max="8"></jj-input-number>
-              <pre
-                class="prettyprint"><code class="language-html">&lt;jj-input-number min="0" max="8">&lt;/jj-input-number></code></pre>
-            </div>
-            <div class="demo-entry">
-              <p>Customized initial value</p>
-              <jj-input-number min="0" max="8" value="4"></jj-input-number>
-              <pre
-                class="prettyprint"><code class="language-html">&lt;jj-input-number min="0" max="8" value="4">&lt;/jj-input-number></code></pre>
-            </div>
-            <div class="demo-entry">
-              <p>Change step</p>
-              <jj-input-number min="0" max="8" step="2"></jj-input-number>
-              <pre
-                class="prettyprint"><code class="language-html">&lt;jj-input-number min="0" max="8" step="2">&lt;/jj-input-number></code></pre>
-            </div>
-            <div class="demo-entry">
-              <p>Change presition</p>
-              <jj-input-number min="0" max="8" value="1" precision="2" step="0.5"></jj-input-number>
-              <pre
-                class="prettyprint"><code class="language-html">&lt;min="0" max="8" value="1" precision="2" step="0.5">&lt;/jj-input-number></code></pre>
+              <p>Default Settings</p>
+              <jj-switch></jj-switch>
+              <br />
+              <jj-switch inactive-color="#ff4949" active-color="#13ce66"></jj-switch>
+          
+              <pre style="margin-top:10px" class="prettyprint"><code class="language-html"> &lt;jj-switch>&lt;/jj-switch>
+ &lt;br />
+ &lt;jj-switch inactive-color="#ff4949" active-color="#13ce66">&lt;/jj-switch></code></pre>
             </div>
           </div>
+
+          <div class="anchor" id="usage"></div>
+          <h2>Basic usage</h2>
+          <div class="demo-section">
+            <div class="demo-entry">
+              <p>Change the Labels</p>
+              <jj-switch active-text="Pay by month" inactive-text="Pay by year"></jj-switch>
+              <br />
+              <jj-switch inactive-color="#ff4949" active-color="#13ce66" active-text="Pay by month"
+                inactive-text="Pay by year"></jj-switch>
+              <pre style="margin-top:10px" class="prettyprint"><code class="language-html">&lt;jj-switch active-text="Pay by month" inactive-text="Pay by year">&lt;/jj-switch>
+&lt;br />
+&lt;jj-switch inactive-color="#ff4949" active-color="#13ce66" active-text="Pay by month"
+inactive-text="Pay by year">&lt;/jj-switch></code></pre>
+            </div>
+          </div>
+
+          <div class="anchor" id="usage"></div>
+          <h2>Basic usage</h2>
+          <div class="demo-section">
+            <div class="demo-entry">
+              <p>Disable the Switches</p>
+              <jj-switch active-text="Pay by month" inactive-text="Pay by year" disabled></jj-switch>
+              <br />
+              <jj-switch inactive-color="#ff4949" value="false" active-color="13ce66" active-text="Pay by month"
+                inactive-text="Pay by year" disabled></jj-switch>
+              <pre style="margin-top:10px" class="prettyprint"><code class="language-html">&lt;jj-switch active-text="Pay by month" inactive-text="Pay by year" disabled>&lt;/jj-switch>
+&lt;br />
+&lt;jj-switch inactive-color="#ff4949" value="false" active-color="13ce66" active-text="Pay by month"
+inactive-text="Pay by year" disabled>&lt;/jj-switch></code></pre>
+            </div>
+          </div>
+
           <div class="anchor" id="attributes"></div>
           <h2>Attributes</h2>
           <!-- Attribute Table -->
           <zing-grid caption="JJ Slider Attributes" layout="row" viewport-stop data='[
           {
           "Attribute Name": "value / v-model",
-          "Description": "binding value",
-          "Type": "number",
+          "Description": " binding valuenumber",
+          "Type": "boolean/ string/ number",
           "Accepted Values": "/",
-          "Default": "0"
-          },
-          {
-          "Attribute Name": "min",
-          "Description": "the minimum allowed value",
-          "Type": "number",
-          "Accepted Values": " /",
-          "Default": "-Infinity"
-          },
-          {
-          "Attribute Name": "max",
-          "Description": "the maximum allowed value",
-          "Type": "number",
-          "Accepted Values": "/",
-          "Default": "Infinity"
-          },
-          {
-          "Attribute Name": "step",
-          "Description": "incremental step",
-          "Type": " number",
-          "Accepted Values": "/",
-          "Default": "1"
-          },
-          {
-          "Attribute Name": "step-strictly",
-          "Description": "whether input value can only be multiple of step",
-          "Type": "number",
-          "Accepted Values": "/",
-          "Default": "false"
-          },
-          {
-          "Attribute Name": "precision",
-          "Description": "precision of input value",
-          "Type": "number",
-          "Accepted Values": "/",
-          "Default": "/"
-          },
-          {
-          "Attribute Name": "size",
-          "Description": "size of the component",
-          "Type": "string",
-          "Accepted Values": "large/small",
-          "Default": "/"
+          "Default": " /"
           },
           {
           "Attribute Name": "disabled",
-          "Description": "whether the component is disabled",
+          "Description": "whether switch is disabled",
           "Type": "boolean",
-          "Accepted Values": "/",
-          "Default": "false"
+          "Accepted Values": " /",
+          "Default": " false"
           },
           {
-          "Attribute Name": "controls",
-          "Description": "whether to enable the control buttons",
-          "Type": "boolean",
-          "Accepted Values": "/",
-          "Default": "true"
+          "Attribute Name": "width",
+          "Description": " width of Switch number",
+          "Type": " /",
+          "Accepted Values": " /",
+          "Default": " 40"
           },
           {
-          "Attribute Name": "controls-position",
-          "Description": "position of the control buttonsstring",
-          "Type": "right",
-          "Accepted Values": "/",
-          "Default": ""
+          "Attribute Name": "active-icon-class",
+          "Description": " class name of the icon displayed when in on state overrides active-text",
+          "Type": " string",
+          "Accepted Values": " /",
+          "Default": " /"
+          },
+          {
+          "Attribute Name": "inactive-icon-class",
+          "Description": " class name of the icon displayed when in off state overrides inactive-text",
+          "Type": " string",
+          "Accepted Values": " /",
+          "Default": " /"
+          },
+          {
+          "Attribute Name": "active-text",
+          "Description": " text displayed when in on state",
+          "Type": " string",
+          "Accepted Values": " /",
+          "Default": " /"
+          },
+          {
+          "Attribute Name": "inactive-text",
+          "Description": " text displayed when in off state",
+          "Type": " string",
+          "Accepted Values": " /",
+          "Default": " /"
+          },
+          {
+          "Attribute Name": "active-value",
+          "Description": " switch value when in on state",
+          "Type": "boolean/ string/ number",
+          "Accepted Values": " /",
+          "Default": " true"
+          },
+          {
+          "Attribute Name": "inactive-value",
+          "Description": " switch value when in off state",
+          "Type": "boolean/ string/ number",
+          "Accepted Values": " /",
+          "Default": " false"
+          },
+          {
+          "Attribute Name": "active-color",
+          "Description": " background color when in on state",
+          "Type": " string",
+          "Accepted Values": " /",
+          "Default": "#409EFF"
+          },
+          {
+          "Attribute Name": "inactive-color",
+          "Description": " background color when in off state",
+          "Type": " string",
+          "Accepted Values": " /",
+          "Default": "#C0CCDA"
           },
           {
           "Attribute Name": "name",
-          "Description": " same as name in native input",
-          "Type": "string",
-          "Accepted Values": "/",
-          "Default": "/"
+          "Description": " input name of Switch",
+          "Type": " string",
+          "Accepted Values": " /",
+          "Default": " /"
           },
           {
-          "Attribute Name": "label",
-          "Description": " label text",
-          "Type": "string",
-          "Accepted Values": "/",
-          "Default": "/"
-          },
-          {
-          "Attribute Name": "placeholder",
-          "Description": "placeholder in input",
-          "Type": "string",
-          "Accepted Values": "/",
-          "Default": "/"
+          "Attribute Name": "validate-event",
+          "Description": " whether to trigger form validation",
+          "Type": " boolean",
+          "Accepted Values": " /",
+          "Default": "true"
           },
           {
           "Attribute Name": "",
@@ -342,6 +368,7 @@
           }
           ]'>
           </zing-grid>
+
         </div>
 
         <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
