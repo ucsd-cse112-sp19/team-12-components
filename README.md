@@ -9,6 +9,9 @@
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/nonguyen.svg)](https://saucelabs.com/u/nonguyen)
 
+
+[Documentation Website](https://ucsd-cse112.github.io/team-12-components/)
+
 [Unit Testing](#unit_test)  
 [Doc generation](#doc)  
 [Support Testing](#ack)  
@@ -32,6 +35,7 @@ Windows please follow this [guide](https://github.com/google/closure-library/wik
 
 `npm run build`
 
+[Having issues?](https://www.google.com)
 
 ## Contribute
 In order to contribute follow these steps:
