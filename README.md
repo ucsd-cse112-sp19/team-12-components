@@ -32,6 +32,7 @@ Windows please follow this [guide](https://github.com/google/closure-library/wik
 
 `npm run build`
 
+[Having issues?](https://www.google.com)
 
 ## Contribute
 In order to contribute follow these steps:
@@ -65,3 +66,5 @@ npm run doc
 
 ## Acknowledgement <a name="ack"></a>
 We would like to thank [SauceLabs](https://saucelabs.com) for their support of open source projects like ours.
+
+
