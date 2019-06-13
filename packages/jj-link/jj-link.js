@@ -89,23 +89,21 @@ class JJLink extends HTMLElement {
 
   connectedCallback() {
     // set the type attribute
-    this.type = "default";
     if (this.hasAttribute('type')) {
       this.type = this.getAttribute('type');
       this.link.classList.add(this.getAttribute('type'));
     }
+    
     // set the href attribute
     if (this.hasAttribute('href')) {
       this.link.setAttribute('href', this.getAttribute('href'));
     }
     // set the disabled attribute
-    this.disabled = false;
     if (this.getAttribute('disabled') == 'true') {
       this.disabled = true;
       this.link.classList.add('disabled')
     }
     // set the underline attribute
-    this.underline = false;
     if (this.getAttribute('underline') == 'true') {
       this.underline = true;
       this.link.classList.add('underline')
