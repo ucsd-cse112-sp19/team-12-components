@@ -36,10 +36,9 @@ Windows please follow this [guide](https://github.com/google/closure-library/wik
 ## Contribute
 In order to contribute follow these steps:
 1. Create a branch with a descriptive name.
-2. On clubhouse mark the ticket you are working on.
-3. Once finished with the ticket, push the commits to the branch.
-4. Once all checks pass, create a pull request on github.
-5. Once at least 2 people review and approve, squash and merge.
+2. Once finished with the ticket, push the commits to the branch.
+3. Once all checks pass, create a pull request on github.
+4. Once at least 2 people review and approve, squash and merge.
 
 for a more information please read this [guide](https://docs.google.com/document/d/11Kemah4oEdHVMSQywa47FK737wfIK8SfjOFM9jGRG4k/edit?usp=sharing)
 
