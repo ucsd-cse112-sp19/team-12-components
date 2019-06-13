@@ -22,10 +22,6 @@ Once you have installed all the dependencies, you may want to transpile our
 webcomponents into es5 so that these component can be supported in older
 browsers. To do so run
 
-`npm run build`
-
-
-## Contribute
 We use clang-format for linting. If you are going to contribute please install clang-format. Below are some steps you can follow to install.
 
 MacOS (install Homebrew):  
@@ -33,6 +29,31 @@ MacOS (install Homebrew):
 `$brew install clang-format`
 
 Windows please follow this [guide](https://github.com/google/closure-library/wiki/Formatting-.js-with-clang-format)
+
+`npm run build`
+
+
+## Contribute
+In order to contribute follow these steps:
+1. Create a branch with a descriptive name. if you are working on a component name it and the branch "jj-{component name}"
+2. Once finished with the ticket, push the commits to the branch.
+3. Once all checks pass, create a pull request on github.
+4. Once at least 2 people review and approve, squash and merge.
+
+for a more information please read this [guide](https://docs.google.com/document/d/11Kemah4oEdHVMSQywa47FK737wfIK8SfjOFM9jGRG4k/edit?usp=sharing)
+
+## File Structure
+The main code for all the components are in the 'packages' folder. 
+All components contain:
+1. demo folder, which holds the html that demos the component.
+2. test folder, which holds a testcafe and unit tests.
+3. a js file, which contains the core of the component.
+
+The docs folder contains all of the documentation websites resources which includes the html, images, logos, js, css, etc.
+
+The src folder contains minified version of our js files which the CDN points to.
+
+The templates folder contains files that generate the website html files.
 
 ## Unit Testing <a name="unit_test"></a>
 **To run all tests:**  
