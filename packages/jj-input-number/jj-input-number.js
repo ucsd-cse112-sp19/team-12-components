@@ -161,18 +161,17 @@ class JJInputNum extends HTMLElement {
       return;
     }
 
-    if (this.trans(value) >= this.valueElement.max) {
+    if (this.trans(value) < this.valueElement.max && this.trans(value) > this.valueElement.min) {
+      this.incrementButton.classList.remove('disabled');
+      this.decrementButton.classList.remove('disabled');
+    }
+    else if (this.trans(value) >= this.valueElement.max) {
       value = this.valueElement.max;
       this.incrementButton.classList.add('disabled');
-    } else {
-      this.incrementButton.classList.remove('disabled');
     }
-
-    if (this.trans(value) <= this.valueElement.min) {
+    else {
       value = this.valueElement.min;
       this.decrementButton.classList.add('disabled');
-    } else {
-      this.decrementButton.classList.remove('disabled');
     }
 
     this._value = this.trans(value);
@@ -259,15 +258,15 @@ class JJInputNum extends HTMLElement {
         break;
 
       case 'controls':
+        var display = 'inline-block';
+        var width = '59%';
         if (newValue === 'false') {
-          this.incrementButton.style.display = 'none';
-          this.decrementButton.style.display = 'none';
-          this.valueElement.style.width = '99%';
-        } else {
-          this.incrementButton.style.display = 'inline-block';
-          this.decrementButton.style.display = 'inline-block';
-          this.valueElement.style.width = '59%';
+          display = 'none';
+          width = '99%';
         }
+        this.incrementButton.style.display = display;
+        this.decrementButton.style.display = display;
+        this.valueElement.style.width = width;
         break;
 
       case 'precision':
@@ -355,25 +354,23 @@ class JJInputNum extends HTMLElement {
     this.valueElement.addEventListener('keyup', (e) => this.value =
                                                     this.valueElement.value);
     */
-
-    this.decrementButton.addEventListener('mouseover', (e) => {
+    var decreBtnEvent = function (e) {
       this.inputDiv.classList.add("border-blue");
-      this.decrementButton.classList.add("color-blue");
-    });
-    this.decrementButton.addEventListener('mouseout', (e) => {
-      this.inputDiv.classList.remove("border-blue");
-      this.incrementButton.classList.remove("color-blue");
-    });
+      if (e.type === 'mouseover')
+        this.decrementButton.classList.add("color-blue");
+      else this.decrementButton.classList.remove("color-blue");
+    }
+    this.decrementButton.addEventListener('mouseover', decreBtnEvent);
+    this.decrementButton.addEventListener('mouseout', decreBtnEvent);
 
-    this.incrementButton.addEventListener('mouseover', (e) => {
+    var increBtnEvent = function (e) {
       this.inputDiv.classList.add("border-blue");
-      this.incrementButton.classList.add("color-blue");
-      ;
-    });
-    this.incrementButton.addEventListener('mouseout', (e) => {
-      this.inputDiv.classList.remove("border-blue");
-      this.incrementButton.classList.remove("color-blue");
-    });
+      if (e.type === 'mouseover')
+        this.incrementButton.classList.add("color-blue");
+      else this.incrementButton.classList.remove("color-blue");
+    }
+    this.decrementButton.addEventListener('mouseover', increBtnEvent);
+    this.decrementButton.addEventListener('mouseout', increBtnEvent);
 
     this.valueElement.addEventListener('keydown', (e) => {
       const key = e.key;
@@ -391,16 +388,16 @@ class JJInputNum extends HTMLElement {
         this.setAttribute("value", this.value);
       }
     });
-    this.valueElement.addEventListener('mouseover', (e) => {
+
+    var inputEvent = function (e) {
       this.value = e.srcElement.value;
       this.setAttribute("value", this.value);
-      this.inputDiv.classList.add("border-blue");
-    });
-    this.valueElement.addEventListener('mouseout', (e) => {
-      this.value = e.srcElement.value;
-      this.setAttribute("value", this.value);
-      this.inputDiv.classList.remove("border-blue");
-    });
+      if (e.type === 'mouseover')
+        this.inputDiv.classList.add("border-blue");
+      else this.inputDiv.classList.remove("border-blue");
+    };
+    this.valueElement.addEventListener('mouseover', inputEvent);
+    this.valueElement.addEventListener('mouseout', inputEvent);
   }
 }
 customElements.define('jj-input-number', JJInputNum);
