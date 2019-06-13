@@ -20,9 +20,9 @@
  *
  */
 
-const template1 = document.createElement('template');
-const styles = `
-<style>
+const jjInputNum =
+    () => {
+      let styles = `<style>
     button, p {
         display: inline-block;
     }
@@ -93,7 +93,6 @@ const styles = `
         border-radius: 5px;
         text-align: center;
         padding: 0px;
-        background-color: var(--increment-color);
     }
 
     .decrement-btn-2{
@@ -105,7 +104,6 @@ const styles = `
         border-radius: 5px;
         text-align: center;
         padding: 0px;
-        background-color: var(--increment-color);
     }
     
     .input-field {
@@ -133,7 +131,10 @@ const styles = `
         height: 55px;
     }
   </style>`;
-template1.innerHTML = styles + `
+
+      // This is the template for the Position default.
+      const template = document.createElement('template');
+      template.innerHTML = styles + `
   <div class="jj-input-number">
     <button aria-label="decrement" class="decrement-btn" id="decrementBtn">-</button><!--
     --><input id="jj-inputBoxNum" type = "text" class="input-field"></input><!--
@@ -141,9 +142,9 @@ template1.innerHTML = styles + `
   </div>
 `;
 
-// This is the template for Position right
-const template2 = document.createElement('template');
-template2.innerHTML = styles + `
+      // This is the template for Position right
+      const template2 = document.createElement('template');
+      template2.innerHTML = styles + `
   <div class="jj-input-number">
     <input id="jj-inputBoxNum" type = "text" class="input-field"></input>
     <div class = "button-container">
@@ -153,251 +154,271 @@ template2.innerHTML = styles + `
   </div>
 `;
 
-class JJInputNum extends HTMLElement {
-  set value(value) {
-    if (this.inputDiv.classList.contains('disabled'))
-      return;
-    if (value === '') {
-      this._value = this.trans('');
-      this.valueElement.value = '';
-      return;
-    }
+      class JJInputNum extends HTMLElement {
+        set value(value) {
+          if (this.inputDiv.classList.contains('disabled'))
+            return;
+          if (value === '') {
+            this._value = this.trans('');
+            this.valueElement.value = '';
+            return;
+          }
 
-    if (this.trans(value) == this.valueElement.max) {
-      this.incrementButton.classList.add('disabled');
-      this.decrementButton.classList.remove('disabled');
-    }
-    else if (this.trans(value) == this.valueElement.min) {
-      this.decrementButton.classList.add('disabled');
-      this.incrementButton.classList.remove('disabled');
-    }
+          if (this.trans(value) >= this.valueElement.max) {
+            value = this.valueElement.max;
+            this.incrementButton.classList.add('disabled');
+          } else {
+            this.incrementButton.classList.remove('disabled');
+          }
 
-    this._value = this.trans(value);
-    this.valueElement.value =
-      parseFloat(this._value).toFixed(this.precision);
-  }
+          if (this.trans(value) <= this.valueElement.min) {
+            value = this.valueElement.min;
+            this.decrementButton.classList.add('disabled');
+          } else {
+            this.decrementButton.classList.remove('disabled');
+          }
 
-  get value() { return this._value; }
-
-  set size(sizeValue) { this._size = this.trans(sizeValue); }
-  get size() { return this._size; }
-
-  set step(stepValue) { this._step = this.trans(stepValue); }
-  get step() { return this._step; }
-
-  set position(new_p) { this._position = new_p; }
-  get position() { return this._position; }
-
-  set precision(prec) { this._precision = prec; }
-  get precision() { return this._precision; }
-
-  static get observedAttributes() {
-    return [
-      'controls', 'min', 'max', 'step', 'size', 'disabled', 'placeholder',
-      'value', 'controls-position', 'precision'
-    ];
-  }
-
-  connectedCallback() {
-    if (this.hasAttribute('min'))
-      this.valueElement.min = this.getAttribute('min');
-    else this.valueElement.min = Number.NEGATIVE_INFINITY;
-
-    if (this.hasAttribute('max'))
-      this.valueElement.max = this.getAttribute('max');
-    else this.valueElement.max = Number.POSITIVE_INFINITY;
-
-    if (this.hasAttribute('step'))
-      this.step = this.getAttribute('step');
-    else this.step = 1;
-
-    if (this.hasAttribute('size'))
-      this.inputDiv.className += ' large'
-    else this.inputDiv.className += ' small';
-
-    if (this.hasAttribute('value'))
-      this.value = this.getAttribute('value');
-    else this.value = this.valueElement.min;
-
-    if (this.hasAttribute('precision'))
-      this.precision = this.getAttribute('precision');
-    else this.precision = 0;
-  }
-
-  attributeChangedCallback(attrName, oldValue, newValue) {
-    if (this.position !== 'done')
-      this.load();
-
-    switch (attrName) {
-      case 'min':
-        this.valueElement.min = this.trans(newValue);
-        this.value = this.value;
-        break;
-      case 'max':
-        this.valueElement.max = this.trans(newValue);
-        this.value = this.value;
-        break;
-      case 'step':
-        this.step = this.trans(newValue);
-        break;
-      case 'size':
-        this.inputDiv.classList.remove(oldValue);
-        this.inputDiv.classList.add(newValue);
-        break;
-      case 'disabled':
-        if (newValue == "" || newValue == "true")
-          this.inputDiv.classList.add('disabled');
-        else
-          this.inputDiv.classList.remove('disabled');
-        break;
-      case 'placeholder':
-        this.valueElement.setAttribute('placeholder', newValue);
-        break;
-      case 'value':
-        this.value = this.trans(newValue);
-        break;
-
-      case 'controls':
-        var display = 'inline-block';
-        var width = '59%';
-        if (newValue === 'false') {
-          display = 'none';
-          width = '99%';
+          this._value = this.trans(value);
+          if (isNaN(this._value)) {
+            this._value = this.trans('');
+            this.valueElement.value = '';
+          } else
+            this.valueElement.value =
+                parseFloat(this._value).toFixed(this.precision);
         }
-        this.incrementButton.style.display = display;
-        this.decrementButton.style.display = display;
-        this.valueElement.style.width = width;
-        break;
 
-      case 'precision':
-        if (parseInt(newValue) >= 0) {
-          this.precision = parseInt(newValue);
-          this.value = this.trans(this.value);
+        get value() { return this._value; }
+
+        set size(sizeValue) { this._size = this.trans(sizeValue); }
+        get size() { return this._size; }
+
+        set step(stepValue) { this._step = this.trans(stepValue); }
+        get step() { return this._step; }
+
+        set position(new_p) { this._position = new_p; }
+        get position() { return this._position; }
+
+        set precision(prec) { this._precision = prec; }
+        get precision() { return this._precision; }
+
+        static get observedAttributes() {
+          return [
+            'controls', 'min', 'max', 'step', 'size', 'disabled', 'placeholder',
+            'value', 'controls-position', 'precision'
+          ];
         }
-        break;
-    }
-    this.position = 'done';
-  }
 
-  constructor() {
-    super();
-    this.root = this.attachShadow({ mode: 'open' });
-  }
+        connectedCallback() {
+          if (!this.hasAttribute('min'))
+            this.valueElement.min = Number.NEGATIVE_INFINITY;
 
-  trans(value) {
-    if (parseFloat(parseFloat(value).toFixed(this.precision)) >= this.max) {
-      return this.max;
-    }
-    if (parseFloat(parseFloat(value).toFixed(this.precision)) <= this.max) {
-      return this.max;
-    }
-    return parseFloat(parseFloat(value).toFixed(this.precision));
-  }
+          if (!this.hasAttribute('max'))
+            this.valueElement.max = Number.POSITIVE_INFINITY;
 
-  load() {
-    // This timer is used for the click and hold functionality.
-    var timer;
-    var template = template1;
-    if (this.getAttribute('controls-position') === 'right') {
-      template = template2;
-    }
-    this.root.appendChild(template.content.cloneNode(true));
-    this.inputDiv = this.root.querySelector(".jj-input-number");
-    this.valueElement = this.root.querySelector('input');
-    this.incrementButton = this.root.querySelector("#incrementBtn");
-    this.decrementButton = this.root.querySelector("#decrementBtn");
+          if (!this.hasAttribute('step'))
+            this.step = 1;
 
-    // Logic for the increment button getting clicked
-    this.incrementButton.addEventListener('mousedown', (e) => {
-      if (this.valueElement.max >= this.value + this.step) {
-        this.value = (this.value) + (this.step);
-        this.setAttribute("value", this.value);
+          if (!this.hasAttribute('size'))
+            this.inputDiv.className += ' small';
 
-        // Click and hold functionality.
-        let _this = this; // reserve 'this' context
-        timer = setInterval(function () {
-          _this.value = (_this.value) + (_this.step);
-          _this.setAttribute("value", _this.value);
-        }, 400);
+          if (!this.hasAttribute('value'))
+            this.value = this.valueElement.min;
 
-        this.decrementButton.classList.remove('disabled');
-        if ((this.valueElement.max) <= (this.value))
-          this.incrementButton.classList.add('disabled');
-      }
-    });
+          if (!this.hasAttribute('precision'))
+            this.precision = 0;
+        }
 
-    this.incrementButton.addEventListener(
-      'mouseleave', function () { clearInterval(timer); });
+        attributeChangedCallback(attrName, oldValue, newValue) {
+          if (this.position !== 'done')
+            this.load();
 
-    this.incrementButton.addEventListener(
-      'mouseup', function () { clearInterval(timer); });
+          let curPre = 0;
+          if (this.precision !== 'undefined') {
+            curPre = this.precision;
+          }
 
-    // Logic for the decrement button getting clicked
-    this.decrementButton.addEventListener('mousedown', (e) => {
-      if (this.valueElement.min <= this.value - this.step) {
-        this.value = (this.value) - (this.step);
-        this.setAttribute("value", this.value);
+          switch (attrName) {
+          case 'min':
+            this.valueElement.min = this.trans(newValue);
+            this.value = this.value;
+            break;
+          case 'max':
+            this.valueElement.max = this.trans(newValue);
+            this.value = this.value;
+            break;
+          case 'step':
+            this.step = this.trans(newValue);
+            break;
+          case 'size':
+            this.inputDiv.classList.remove(oldValue);
+            this.inputDiv.classList.add(newValue);
+            break;
+          case 'disabled':
+            if (newValue == "" || newValue == "true")
+              this.inputDiv.classList.add('disabled');
+            else
+              this.inputDiv.classList.remove('disabled');
+            break;
+          case 'placeholder':
+            this.valueElement.setAttribute('placeholder', newValue);
+            break;
+          case 'value':
+            this.value = this.trans(newValue);
+            break;
 
-        let _this = this;
-        timer = setInterval(function () {
-          _this.value = (_this.value) - (_this.step);
-          _this.setAttribute("value", _this.value);
-        }, 400);
+          case 'controls':
+            if (newValue === 'false') {
+              this.incrementButton.style.display = 'none';
+              this.decrementButton.style.display = 'none';
+              this.valueElement.style.width = '99%';
+            } else {
+              this.incrementButton.style.display = 'inline-block';
+              this.decrementButton.style.display = 'inline-block';
+              this.valueElement.style.width = '59%';
+            }
+            break;
 
-        this.incrementButton.classList.remove('disabled');
-        if ((this.valueElement.min) >= (this.value))
-          this.decrementButton.classList.add('disabled');
-      }
-    });
+          case 'precision':
+            if (parseInt(newValue) >= 0) {
+              this.precision = parseInt(newValue);
+              this.value = this.trans(this.value);
+            }
+            break;
+          }
+          this.position = 'done';
+        }
 
-    this.decrementButton.addEventListener(
-      'mouseleave', function () { clearInterval(timer); });
+        constructor() {
+          super();
+          this.root = this.attachShadow({mode : 'open'});
+        }
 
-    this.decrementButton.addEventListener(
-      'mouseup', function () { clearInterval(timer); });
+        trans(value) {
+          return parseFloat(parseFloat(value).toFixed(this.precision));
+        }
 
-    this.valueElement.addEventListener('keydown', (e) => {
-      const key = e.key;
-      let string = this.valueElement.value;
-      if (key === "Backspace" || key === "Delete") {
-        if (string.length == 1 || string.length == 0) {
-          this.value = '';
-        } else {
-          this.valueElement.value = string.substring(0, string.length);
-          return;
+        load() {
+          // This timer is used for the click and hold functionality.
+          var timer;
+
+          // Check if where the position is and render the buttons accordingly.
+          if (this.getAttribute('controls-position') === 'right') {
+            this.root.appendChild(template2.content.cloneNode(true));
+            this.inputDiv = this.root.querySelector('div');
+            this.valueElement = this.root.querySelector('input');
+            this.incrementButton = this.root.querySelectorAll('button')[0];
+            this.decrementButton = this.root.querySelectorAll('button')[1];
+          } else {
+            this.root.appendChild(template.content.cloneNode(true));
+
+            this.inputDiv = this.root.querySelector('div');
+            this.valueElement = this.root.querySelector('input');
+            this.incrementButton = this.root.querySelectorAll('button')[1];
+            this.decrementButton = this.root.querySelectorAll('button')[0];
+          }
+
+          // Logic for the increment button getting clicked
+          this.incrementButton.addEventListener('mousedown', (e) => {
+            if (this.valueElement.max >= this.value + this.step) {
+              this.value = (this.value) + (this.step);
+              this.setAttribute("value", this.value);
+
+              // Click and hold functionality.
+              let _this = this; // reserve 'this' context
+              timer = setInterval(function() {
+                _this.value = (_this.value) + (_this.step);
+                _this.setAttribute("value", _this.value);
+              }, 400);
+
+              this.decrementButton.classList.remove('disabled');
+              if ((this.valueElement.max) <= (this.value))
+                this.incrementButton.classList.add('disabled');
+            }
+          });
+
+          this.incrementButton.addEventListener(
+              'mouseleave', function() { clearInterval(timer); });
+
+          this.incrementButton.addEventListener(
+              'mouseup', function() { clearInterval(timer); });
+
+          // Logic for the decrement button getting clicked
+          this.decrementButton.addEventListener('mousedown', (e) => {
+            if (this.valueElement.min <= this.value - this.step) {
+              this.value = (this.value) - (this.step);
+              this.setAttribute("value", this.value);
+
+              let _this = this;
+              timer = setInterval(function() {
+                _this.value = (_this.value) - (_this.step);
+                _this.setAttribute("value", _this.value);
+              }, 400);
+
+              this.incrementButton.classList.remove('disabled');
+              if ((this.valueElement.min) >= (this.value))
+                this.decrementButton.classList.add('disabled');
+            }
+          });
+
+          this.decrementButton.addEventListener(
+              'mouseleave', function() { clearInterval(timer); });
+
+          this.decrementButton.addEventListener(
+              'mouseup', function() { clearInterval(timer); });
+
+          /* This two lines give us too much pain!!!!!
+          this.valueElement.addEventListener('keyup', (e) => this.value =
+                                                          this.valueElement.value);
+          */
+
+          this.decrementButton.addEventListener('mouseover', (e) => {
+            this.inputDiv.classList.add("border-blue");
+            this.decrementButton.classList.add("color-blue");
+          });
+          this.decrementButton.addEventListener('mouseout', (e) => {
+            this.inputDiv.classList.remove("border-blue");
+            this.incrementButton.classList.remove("color-blue");
+          });
+
+          this.incrementButton.addEventListener('mouseover', (e) => {
+            this.inputDiv.classList.add("border-blue");
+            this.incrementButton.classList.add("color-blue");
+            ;
+          });
+          this.incrementButton.addEventListener('mouseout', (e) => {
+            this.inputDiv.classList.remove("border-blue");
+            this.incrementButton.classList.remove("color-blue");
+          });
+
+          this.valueElement.addEventListener('keydown', (e) => {
+            const key = e.key;
+            let string = this.valueElement.value;
+            if (key === "Backspace" || key === "Delete") {
+              if (string.length == 1 || string.length == 0) {
+                this.value = '';
+              } else {
+                this.valueElement.value = string.substring(0, string.length);
+                return;
+              }
+            }
+            if (key === "Enter") {
+              this.value = e.srcElement.value;
+              this.setAttribute("value", this.value);
+            }
+          });
+          this.valueElement.addEventListener('mouseover', (e) => {
+            this.value = e.srcElement.value;
+            this.setAttribute("value", this.value);
+            this.inputDiv.classList.add("border-blue");
+          });
+          this.valueElement.addEventListener('mouseout', (e) => {
+            this.value = e.srcElement.value;
+            this.setAttribute("value", this.value);
+            this.inputDiv.classList.remove("border-blue");
+          });
         }
       }
-      if (key === "Enter") {
-        this.value = e.srcElement.value;
-        this.setAttribute("value", this.value);
-      }
-    });
-
-    this.decrementButton.addEventListener('mouseover', (e) => { this.buttonEvent(e, 'dec'); });
-    this.incrementButton.addEventListener('mouseover', (e) => { this.buttonEvent(e, 'inc'); });
-
-    this.valueElement.addEventListener('mouseover', this.inputEvent.bind(this));
-    this.valueElement.addEventListener('mouseout', this.inputEvent.bind(this));
-  }
-
-  buttonEvent(e, type) {
-    this.inputDiv.classList.add("border-blue");
-    let incBut =  this.incrementButton;
-    let decBut = this.decrementButton;
-    if (type === 'dec') {
-      incBut = this.decrementButton;
-      decBut = this.incrementButton;
+      customElements.define('jj-input-number', JJInputNum);
     }
-    incBut.classList.add("color-blue");
-    decBut.classList.remove("color-blue");
-  }
-  
-  inputEvent(e) {
-    this.value = e.srcElement.value;
-    this.setAttribute("value", this.value);
-    if (e.type === 'mouseover')
-      this.inputDiv.classList.add("border-blue");
-    else this.inputDiv.classList.remove("border-blue");
-  }
-}
-customElements.define('jj-input-number', JJInputNum);
+
+jjInputNum();
