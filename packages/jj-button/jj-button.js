@@ -17,9 +17,9 @@
  */
 
 // define the css for this component
-const jjButton = () => {
-  const template = document.createElement('template');
-  template.innerHTML = `
+
+  const JJButtonTemplate = document.createElement('template');
+  JJButtonTemplate.innerHTML = `
   <style>
     .btn {
       display: inline-block;
@@ -306,7 +306,7 @@ const jjButton = () => {
     constructor() {
       super();
       this.root = this.attachShadow({mode : 'open'});
-      this.root.appendChild(template.content.cloneNode(true));
+      this.root.appendChild(JJButtonTemplate.content.cloneNode(true));
 
       // define the elements of this component
       this.button = this.root.querySelector('.btn');
@@ -458,5 +458,4 @@ const jjButton = () => {
     set autofocus(newValue) { this.setAttribute('autofocus', newValue); }
   }
   customElements.define('jj-button', JJButton);
-};
-jjButton();
+
