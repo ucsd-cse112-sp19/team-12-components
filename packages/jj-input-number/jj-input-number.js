@@ -193,9 +193,6 @@ class JJInputNum extends HTMLElement {
   set precision(prec) { this._precision = prec; }
   get precision() { return this._precision; }
 
-  set inputDiv(div) { this._inputDiv = div };
-  get inputDiv() { return this._inputDiv };
-
   static get observedAttributes() {
     return [
       'controls', 'min', 'max', 'step', 'size', 'disabled', 'placeholder',
@@ -230,10 +227,9 @@ class JJInputNum extends HTMLElement {
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {
-    if (this.position !== 'done')
-      this.load();
-
     switch (attrName) {
+      default:
+        this.position = 'done';
       case 'size':
         this.inputDiv.classList.remove(oldValue);
         this.inputDiv.classList.add(newValue);
@@ -266,8 +262,8 @@ class JJInputNum extends HTMLElement {
         }
         break;
     }
-
-    this.position = 'done';
+    if (this.position !== 'done')
+      this.load();
   }
 
   constructor() {
