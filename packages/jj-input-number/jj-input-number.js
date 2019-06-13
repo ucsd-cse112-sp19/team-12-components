@@ -202,28 +202,33 @@ class JJInputNum extends HTMLElement {
 
   connectedCallback() {
     if (this.hasAttribute('min'))
-      this.valueElement.min = this.getAttribute('min');
-    else this.valueElement.min = Number.NEGATIVE_INFINITY;
+      {this.valueElement.min = this.getAttribute('min');}
+    else {this.valueElement.min = Number.NEGATIVE_INFINITY;}
 
     if (this.hasAttribute('max'))
-      this.valueElement.max = this.getAttribute('max');
-    else this.valueElement.max = Number.POSITIVE_INFINITY;
+      {this.valueElement.max = this.getAttribute('max');}
+    else {this.valueElement.max = Number.POSITIVE_INFINITY;}
 
     if (this.hasAttribute('step'))
-      this.step = this.getAttribute('step');
-    else this.step = 1;
+      {this.step = this.getAttribute('step');}
+    else {this.step = 1;}
 
-    if (this.hasAttribute('size'))
-      this.inputDiv.className += ' large'
-    else this.inputDiv.className += ' small';
+    if (this.hasAttribute('size')){
+      this.inputDiv.className += ' large';}
+    else{this.inputDiv.className += ' small';}
 
-    if (this.hasAttribute('value'))
+    if (this.hasAttribute('value')){
       this.value = this.getAttribute('value');
-    else this.value = this.valueElement.min;
-
-    if (this.hasAttribute('precision'))
+    }
+    else{
+      this.value = this.valueElement.min;
+    }
+    if (this.hasAttribute('precision')){
       this.precision = this.getAttribute('precision');
-    else this.precision = 0;
+    }
+    else{
+      this.precision = 0;
+    }
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {
