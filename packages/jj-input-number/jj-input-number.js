@@ -160,23 +160,18 @@ class JJInputNum extends HTMLElement {
       this.valueElement.value = '';
       return;
     }
-
-    if (this.trans(value) < this.valueElement.max && this.trans(value) > this.valueElement.min) {
+    var transVal = this.trans(value);
+    if (transVal == this.valueElement.max || transVal == this.valueElement.min) {
       this.incrementButton.classList.remove('disabled');
       this.decrementButton.classList.remove('disabled');
     }
-    else if (this.trans(value) >= this.valueElement.max) {
-      value = this.valueElement.max;
+    else if (transVal >= this.valueElement.max) 
       this.incrementButton.classList.add('disabled');
-    }
-    else {
-      value = this.valueElement.min;
+    else 
       this.decrementButton.classList.add('disabled');
-    }
 
-    this._value = this.trans(value);
-    this.valueElement.value =
-      parseFloat(this._value).toFixed(this.precision);
+    this._value = transVal;
+    this.valueElement.value = parseFloat(this._value).toFixed(this.precision);
   }
 
   get value() { return this._value; }
@@ -193,6 +188,7 @@ class JJInputNum extends HTMLElement {
   set precision(prec) { this._precision = prec; }
   get precision() { return this._precision; }
 
+
   static get observedAttributes() {
     return [
       'controls', 'min', 'max', 'step', 'size', 'disabled', 'placeholder',
@@ -202,33 +198,24 @@ class JJInputNum extends HTMLElement {
 
   connectedCallback() {
     if (this.hasAttribute('min'))
-      {this.valueElement.min = this.getAttribute('min');}
-    else {this.valueElement.min = Number.NEGATIVE_INFINITY;}
+      this.valueElement.min = this.getAttribute('min');
+    else this.valueElement.min = Number.NEGATIVE_INFINITY;
 
     if (this.hasAttribute('max'))
-      {this.valueElement.max = this.getAttribute('max');}
-    else {this.valueElement.max = Number.POSITIVE_INFINITY;}
+      this.valueElement.max = this.getAttribute('max');
+    else this.valueElement.max = Number.POSITIVE_INFINITY;
 
     if (this.hasAttribute('step'))
-      {this.step = this.getAttribute('step');}
-    else {this.step = 1;}
+      this.step = this.getAttribute('step');
+    else this.step = 1;
 
-    if (this.hasAttribute('size')){
-      this.inputDiv.className += ' large';}
-    else{this.inputDiv.className += ' small';}
-
-    if (this.hasAttribute('value')){
+    if (this.hasAttribute('value'))
       this.value = this.getAttribute('value');
-    }
-    else{
-      this.value = this.valueElement.min;
-    }
-    if (this.hasAttribute('precision')){
+    else this.value = this.valueElement.min;
+
+    if (this.hasAttribute('precision'))
       this.precision = this.getAttribute('precision');
-    }
-    else{
-      this.precision = 0;
-    }
+    else this.precision = 0;
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {
@@ -277,6 +264,12 @@ class JJInputNum extends HTMLElement {
   }
 
   trans(value) {
+    if (parseFloat(parseFloat(value).toFixed(this.precision)) >= this.max){
+      return this.max;
+    }
+    if (parseFloat(parseFloat(value).toFixed(this.precision)) <= this.min){
+      return this.min;
+    }
     return parseFloat(parseFloat(value).toFixed(this.precision));
   }
 
