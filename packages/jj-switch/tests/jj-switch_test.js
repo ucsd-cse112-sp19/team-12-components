@@ -25,7 +25,7 @@ describe('jj-switch Component Unit Tests', () => {
 
   // Place component into DOM, get the element by id
   before(function() {
-    compHTML = `<jj-switch id="switch" inactive-text="Pay by the year" active-text="Pay by the month" inactive-color="#dcdfe6" active-color="#409eff" size="large" disabled="true"></jj-slider>`;
+    compHTML = `<jj-switch id="switch" inactive-text="Pay by the year" active-text="Pay by the month" inactive-color="#dcdfe6" active-color="#409eff" size="large" disabled="true" value="true"></jj-slider>`;
     document.body.insertAdjacentHTML('afterbegin', compHTML);
     compEl = document.getElementById('switch');
   });
@@ -68,43 +68,6 @@ describe('jj-switch Component Unit Tests', () => {
   it('tests that the aria-checked is set and retrievable', async () => {
     let compChecked = compEl.shadowRoot.querySelector('.el-switch').getAttribute("aria-checked");
     assert.equal(compChecked, "true");
-  });
-
-  it('tests that the value is updated on mouse event', async () => {
-    // Checks the current value of the attribute "value"
-    let compValue = compEl.getAttribute("value");
-    assert.equal(compValue, "true");
-
-    let switchContainer = compEl.shadowRoot.querySelector(".el-switch");
-    triggerMouseEvent(switchContainer, "click");
-
-    // let click = new MouseEvent('click');
-    // compEl.shadowRoot.querySelector('.el-switch').dispatchEvent(click);
-    
-    compValue = compEl.getAttribute("value");
-    assert.equal(compValue, "false");
-  });
-
-  it('tests that the aria-checked changes witch mouse event', async () => {
-    // Check that the default aria-checked is set to "true"
-    let compChecked = compEl.shadowRoot.querySelector('.el-switch').getAttribute("aria-checked");
-    assert.equal(compChecked, "true");
-
-    //console.log("compCheckedNo1 " + compChecked);
-    //alert(compChecked);
-
-    let click = new MouseEvent('click');
-    compEl.shadowRoot.querySelector('.el-switch').dispatchEvent(click);
-
-    // let switchContainer = compEl.shadowRoot.querySelector(".el-switch");
-    // triggerMouseEvent(switchContainer, "click");
-
-    console.log("compChecked " + compChecked);
-    alert(compChecked);
-
-    compChecked = compEl.shadowRoot.querySelector('.el-switch').getAttribute("aria-checked");
-    assert.equal(compChecked, "false");
-
   });
 
 });
