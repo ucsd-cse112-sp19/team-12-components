@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="A web component that is a highly customizable dragging switch within ranges.">
+  <meta name="author" content="Jay Jay Web Components">
+  <meta name="theme-color" content="#7da3ef">
+  <title>JJ Switch | Web Component Documentation</title>
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../../resources/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
+  <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
+  <link rel="icon" href="resources/images/JJ_favicon_16.png" type="png" sizes="16x16">
+  <!--<script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-switch/jj-switch.js"></script>-->
+  <script src="../../../../packages/jj-switch/jj-switch.js"></script>
+
+</head>
+
+<body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
+  <div class="container">
+    <!-- Navbar Partial-->
+    {{> navbar lang='en' PageName='Docs'}}
+
+    <div class="container page">
+      <div class="row">
+        <!-- Left sidebar: -->
+        <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
+          {{> left_sidebar lang='en' PageName='jj switch' }}
+        </div>
+
+        <!-- Middle Content -->
+        <div class="col-md-8 col-sm-12 content">
+          <div class="anchor" id="description"></div>
+          <h1>
+            JJ Switch
+          </h1>
+          <p>
+            Highly customizable switch component.
+          </p>
+
+
+
+
+          <div class="anchor" id="usage"></div>
+          <h2>Basic usage</h2>
+          <div class="demo-section">
+            <div class="demo-entry">
+              <p>Default Settings</p>
+               <jj-switch></jj-switch>
+               <jj-switch inactive-color="#ff4949" active-color="13ce66"></jj-switch>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-switch>&lt;/jj-switch> </code></pre>
+            </div>
+          </div>
+
+          <div class="anchor" id="usage"></div>
+          <h2>Basic usage</h2>
+          <div class="demo-section">
+            <div class="demo-entry">
+              <p>Text description</p>
+               <jj-switch active-text="Pay by month" inactive-text="Pay by year"></jj-switch>
+               <jj-switch inactive-color="#ff4949" active-color="13ce66" active-text="Pay by month" inactive-text="Pay by year"></jj-switch>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-switch>&lt;/jj-switch> </code></pre>
+            </div>
+          </div>
+
+          <div class="anchor" id="usage"></div>
+          <h2>Basic usage</h2>
+          <div class="demo-section">
+            <div class="demo-entry">
+              <p>Set value</p>
+               <jj-switch active-text="Pay by month" inactive-text="Pay by year" disabled></jj-switch>
+               <jj-switch inactive-color="#ff4949" value="false" active-color="13ce66" active-text="Pay by month" inactive-text="Pay by year" disabled></jj-switch>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-switch>&lt;/jj-switch> </code></pre>
+            </div>
+          </div>
+
+          <div class="anchor" id="usage"></div>
+          <h2>Advanced usage</h2>
+          <div class="demo-section">
+            <div class="demo-entry">
+              <p>Using  Settings</p>
+               <jj-switch inactive-text="Pay by the year" active-text="Pay by the month" inactive-color="#dcdfe6" active-color="#409eff" size="large" value="true"></jj-switch>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-switch inactive-text="Pay by the year" active-text="Pay by the month" inactive-color="#dcdfe6" active-color="#409eff" size="large" value="true">&lt;/jj-switch> </code></pre>
+            </div>
+          </div>
+
+
+
+          <div class="anchor" id="attributes"></div>
+          <h2>Attributes</h2>
+          <!-- Attribute Table -->
+          <zing-grid caption="JJ Slider Attributes" layout="row" viewport-stop data='[
+           {{#each Attributes}} 
+          {
+          "Attribute Name": "{{this.AttributeName}}",
+          "Description": "{{this.AttributeDescription}}",
+          "Type": "{{this.AttributeType}}",
+          "Accepted Values": "{{this.AttributeAcceptedValues}}",
+          "Default": "{{this.AttributeDefault}}"
+          },
+           {{/each}}
+          {
+          "Attribute Name": "",
+          "Description": "",
+          "Type": "",
+          "Accepted Values": "",
+          "Default": ""
+          }
+          ]'>
+          </zing-grid>
+
+        </div>
+
+        <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
+          <!-- Right Sidebar -->
+          <nav id="contentHeadings" class="sidebar-right">
+            <ul class="nav nav-pills flex-column">
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#description" data-target="#description">
+                  Description
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#usage" data-target="#usage">
+                  Usage
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#attributes" data-target="#attributes">
+                  Attributes
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Right Sidebar -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    {{> footer lang='en'}}
+
+    <!-- JS files at bottom of page -->
+    {{> scripts}}
+
+  </div>
+</body>
+
+</html>
