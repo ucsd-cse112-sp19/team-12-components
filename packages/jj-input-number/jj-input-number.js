@@ -172,7 +172,7 @@ class JJInputNum extends HTMLElement {
 
     this._value = this.trans(value);
     this.valueElement.value =
-        parseFloat(this._value).toFixed(this.precision);
+      parseFloat(this._value).toFixed(this.precision);
   }
 
   get value() { return this._value; }
@@ -188,7 +188,7 @@ class JJInputNum extends HTMLElement {
 
   set precision(prec) { this._precision = prec; }
   get precision() { return this._precision; }
-  
+
   static get observedAttributes() {
     return [
       'controls', 'min', 'max', 'step', 'size', 'disabled', 'placeholder',
@@ -219,7 +219,7 @@ class JJInputNum extends HTMLElement {
 
     if (this.hasAttribute('precision'))
       this.precision = this.getAttribute('precision');
-    else  this.precision = 0;
+    else this.precision = 0;
   }
 
   attributeChangedCallback(attrName, oldValue, newValue) {
@@ -283,10 +283,10 @@ class JJInputNum extends HTMLElement {
   }
 
   trans(value) {
-    if (parseFloat(parseFloat(value).toFixed(this.precision)) >= this.max){
+    if (parseFloat(parseFloat(value).toFixed(this.precision)) >= this.max) {
       return this.max;
     }
-    if (parseFloat(parseFloat(value).toFixed(this.precision)) <= this.max){
+    if (parseFloat(parseFloat(value).toFixed(this.precision)) <= this.max) {
       return this.max;
     }
     return parseFloat(parseFloat(value).toFixed(this.precision));
@@ -371,29 +371,26 @@ class JJInputNum extends HTMLElement {
       }
     });
 
-    this.decrementButton.addEventListener('mouseover', this.decreBtnEvent.bind(this));
-    this.decrementButton.addEventListener('mouseout', this.decreBtnEvent.bind(this));
-
-    this.incrementButton.addEventListener('mouseover', this.increBtnEvent.bind(this));
-    this.incrementButton.addEventListener('mouseout', this.increBtnEvent.bind(this));
+    this.decrementButton.addEventListener('mouseover', (e) => { this.buttonEvent(e, 'dec'); });
+    this.incrementButton.addEventListener('mouseover', (e) => { this.buttonEvent(e, 'inc'); });
 
     this.valueElement.addEventListener('mouseover', this.inputEvent.bind(this));
     this.valueElement.addEventListener('mouseout', this.inputEvent.bind(this));
   }
 
-  increBtnEvent (e) {
+  buttonEvent(e, type) {
     this.inputDiv.classList.add("border-blue");
-    if (e.type === 'mouseover')
-      this.incrementButton.classList.add("color-blue");
-    else this.incrementButton.classList.remove("color-blue");
+    let incBut =  this.incrementButton;
+    let decBut = this.decrementButton;
+    if (type === 'dec') {
+      incBut = this.decrementButton;
+      decBut = this.incrementButton;
+    }
+    incBut.classList.add("color-blue");
+    decBut.classList.remove("color-blue");
   }
-  decreBtnEvent (e) {
-    this.inputDiv.classList.add("border-blue");
-    if (e.type === 'mouseover')
-      this.decrementButton.classList.add("color-blue");
-    else this.decrementButton.classList.remove("color-blue");
-  }
-  inputEvent (e) {
+  
+  inputEvent(e) {
     this.value = e.srcElement.value;
     this.setAttribute("value", this.value);
     if (e.type === 'mouseover')
