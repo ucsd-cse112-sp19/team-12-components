@@ -93,6 +93,7 @@ const styles = `
         border-radius: 5px;
         text-align: center;
         padding: 0px;
+        background-color: var(--increment-color);
     }
 
     .decrement-btn-2{
@@ -104,6 +105,7 @@ const styles = `
         border-radius: 5px;
         text-align: center;
         padding: 0px;
+        background-color: var(--increment-color);
     }
     
     .input-field {
@@ -397,6 +399,5 @@ class JJInputNum extends HTMLElement {
       this.inputDiv.classList.add("border-blue");
     else this.inputDiv.classList.remove("border-blue");
   }
-
 }
 customElements.define('jj-input-number', JJInputNum);
