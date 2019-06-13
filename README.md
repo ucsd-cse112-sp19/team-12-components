@@ -22,10 +22,6 @@ Once you have installed all the dependencies, you may want to transpile our
 webcomponents into es5 so that these component can be supported in older
 browsers. To do so run
 
-`npm run build`
-
-
-## Contribute
 We use clang-format for linting. If you are going to contribute please install clang-format. Below are some steps you can follow to install.
 
 MacOS (install Homebrew):  
@@ -33,6 +29,19 @@ MacOS (install Homebrew):
 `$brew install clang-format`
 
 Windows please follow this [guide](https://github.com/google/closure-library/wiki/Formatting-.js-with-clang-format)
+
+`npm run build`
+
+
+## Contribute
+In order to contribute follow these steps:
+1. Create a branch with a descriptive name.
+2. On clubhouse mark the ticket you are working on.
+3. Once finished with the ticket, push the commits to the branch.
+4. Once all checks pass, create a pull request on github.
+5. Once at least 2 people review and approve, squash and merge.
+
+for a more information please read this [guide](https://docs.google.com/document/d/11Kemah4oEdHVMSQywa47FK737wfIK8SfjOFM9jGRG4k/edit?usp=sharing)
 
 ## Unit Testing <a name="unit_test"></a>
 **To run all tests:**  
