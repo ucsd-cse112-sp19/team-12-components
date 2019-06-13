@@ -70,7 +70,6 @@ function compileComponents(done) {
             try {
                 //if tutorial exists, use that template
                 if (fs.existsSync(path)) {
-                    console.log("comp:", components[0]);
                     gulp.src(path)
                         .pipe(handlebars(components[0]))
                         .pipe(rename(fileName + ".html"))
