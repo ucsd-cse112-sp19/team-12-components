@@ -80,16 +80,14 @@ class JJProgress extends HTMLElement {
     this._min = this.DEFAULT_MIN;
     this._max = this.DEFAULT_MAX;
 
-    this.root = this.attachShadow({ mode: 'open' });
+    this.root = this.attachShadow({mode : 'open'});
     this.root.appendChild(jjProgressTemplate.content.cloneNode(true));
 
     // Target elements with querySelector
     this.progressContainer = this.root.querySelector('.el-progress');
     this.progressBar = this.root.querySelector('.el-progress-bar');
-    this.progressBarOuter =
-      this.root.querySelector('.el-progress-bar__outer');
-    this.progressBarInner =
-      this.root.querySelector('.el-progress-bar__inner');
+    this.progressBarOuter = this.root.querySelector('.el-progress-bar__outer');
+    this.progressBarInner = this.root.querySelector('.el-progress-bar__inner');
     this.progressBarText = this.root.querySelector('.el-progress__text');
   }
 
@@ -102,20 +100,17 @@ class JJProgress extends HTMLElement {
     // Assigns default values for attributes.
 
     if (!this.hasAttribute('percentage')) {
-      console.debug("setting default percentage:",
-        this.DEFAULT_PERCENTAGE);
+      console.debug("setting default percentage:", this.DEFAULT_PERCENTAGE);
       this.percentage = this.DEFAULT_PERCENTAGE;
     }
 
     if (!this.hasAttribute('color')) {
-      console.debug("setting default color:",
-        this.DEFAULT_PROGRESS_COLOR);
+      console.debug("setting default color:", this.DEFAULT_PROGRESS_COLOR);
       this.color = this.DEFAULT_PROGRESS_COLOR;
     }
 
     if (!this.hasAttribute('stroke-width')) {
-      console.debug("setting defualt stroke-width:",
-        this.DEFAULT_STROKE_WIDTH);
+      console.debug("setting defualt stroke-width:", this.DEFAULT_STROKE_WIDTH);
       this.strokeWidth = this.DEFAULT_STROKE_WIDTH;
     }
 
@@ -134,7 +129,7 @@ class JJProgress extends HTMLElement {
   updateProgressBar() {
     console.debug("in updateProgressBar");
     const percent =
-      (this.percentage - this._min) / (this._max - this._min) * 100;
+        (this.percentage - this._min) / (this._max - this._min) * 100;
     this.progressBarInner.style.width = percent + "%";
 
     let text = "" + this.percentage + "%";
@@ -145,7 +140,7 @@ class JJProgress extends HTMLElement {
    * Holds the list of attributes the component can have.
    */
   static get observedAttributes() {
-    return ['percentage', 'stroke-width', 'type', 'color'];
+    return [ 'percentage', 'stroke-width', 'type', 'color' ];
   }
 
   /*
@@ -155,25 +150,25 @@ class JJProgress extends HTMLElement {
   attributeChangedCallback(name, oldValue, newValue) {
     console.debug("in attributeChangedCallback for", name);
     switch (name) {
-      case 'percentage':
-        // When the percentage change update the progress bar and the text.
-        if (this.percentage < 0) {
-          this.percentage = this._min;
-        } else if (this.percentage > 100) {
-          this.percentage = this._max;
-        }
-        this.updateProgressBar();
-        break;
-      case 'type':
-        break;
-      case 'stroke-width':
-        // this.strokeWidth = this.getAttribute('stroke-width');
-        this.updateWidthOfProgressBars();
-        break;
-      case 'color':
-        this.progressBarInner.style.backgroundColor = this.color;
-        this.progressBarInner.style.borderColor = this.color;
-        break;
+    case 'percentage':
+      // When the percentage change update the progress bar and the text.
+      if (this.percentage < 0) {
+        this.percentage = this._min;
+      } else if (this.percentage > 100) {
+        this.percentage = this._max;
+      }
+      this.updateProgressBar();
+      break;
+    case 'type':
+      break;
+    case 'stroke-width':
+      // this.strokeWidth = this.getAttribute('stroke-width');
+      this.updateWidthOfProgressBars();
+      break;
+    case 'color':
+      this.progressBarInner.style.backgroundColor = this.color;
+      this.progressBarInner.style.borderColor = this.color;
+      break;
     }
   }
 
