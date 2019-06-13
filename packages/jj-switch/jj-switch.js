@@ -4,7 +4,7 @@
  * @attribute value / v-model, binding value	number,	boolean/ string/ number,
  * /, /
  * @attribute disabled,	whether switch is disabled,	boolean, /, false
- * @attribute width, width of Switch number, /, 40
+ * @attribute width, width of Switch number, /, /, 40
  * @attribute active-icon-class, class name of the icon displayed when in on
  * state overrides active-text, string, /, /
  * @attribute inactive-icon-class, class name of the icon displayed when in off
