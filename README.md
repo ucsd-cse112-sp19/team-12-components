@@ -47,27 +47,36 @@ In order to contribute follow these steps:
 for a more information please read this [guide](https://docs.google.com/document/d/11Kemah4oEdHVMSQywa47FK737wfIK8SfjOFM9jGRG4k/edit?usp=sharing)
 
 ## File Structure
-The main code for all the components are in the 'packages' folder. 
+The main code for all the components are in the `packages` folder. 
 All components contain:
-1. demo folder, which holds the html that demos the component.
-2. test folder, which holds a testcafe and unit tests.
-3. a js file, which contains the core of the component.
+1. `demo` folder, which holds the html that demos the component.
+2. `test` folder, which holds a testcafe (`*_testcafe.js`_ and unit tests (`*_test.js`).
+3. a `.js` file, which contains the core of the component. The are the files which our CDN points to.
 
 The docs folder contains all of the documentation websites resources which includes the html, images, logos, js, css, etc.
 
-The src folder contains minified version of our js files which the CDN points to.
-
 The templates folder contains files that generate the website html files.
 
-## Unit Testing <a name="unit_test"></a>
-**To run all tests:**  
-npm run test
+## Testing <a name="unit_test"></a>
+**To run all tests (unit, functional):**  
+
+`npm run test`
 
 ## Doc Generation <a name="doc"></a>
-**To generate docs:**  
-npm run doc
+**To generate docs using JSDocs:**  
+
+`npm run doc`
+
+## External Doc (Website) Generation:
+You will need to run two commands to create our documentation:
+
+1. `node createDocs.js ./packages .js`
+
+Once you run this command you can then run our generation script.
+
+2.a `gulp compileComponents --option production` -- for production and hosting to our github sites.
+
+2.b `gulp compileComponents --option dev` -- to test the documentation locally
 
 ## Acknowledgement <a name="ack"></a>
 We would like to thank [SauceLabs](https://saucelabs.com) for their support of open source projects like ours.
-
-
