@@ -1,8 +1,8 @@
 /**
  * @component_name jj link
- * @attribute href, string, the address of our link to, /, /
+ * @attribute href, the address of our link to, string, /, /
  * @attribute type, link type, string, default/primary/success/warning/danger, /
- * @attribute underline, underline the link text, /, /, false
+ * @attribute underline, underline the link text, string, /, false
  * @attribute disabled, disable the link, boolean, /, false
  * @attribute icon, icon class name, string, /, /
  *

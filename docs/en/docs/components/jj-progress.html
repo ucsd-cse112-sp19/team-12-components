@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="A web component that is a highly customizable to show progress.">
+  <meta name="description" content="A web component that is a highly customizable link.">
   <meta name="author" content="Jay Jay Web Components">
   <meta name="theme-color" content="#7da3ef">
   <title>JJ Progress | Web Component Documentation</title>
@@ -13,6 +13,7 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="../../../resources/css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
   <base href="https://ucsd-cse112.github.io/team-12-components/">
   <base href="https://ucsd-cse112.github.io/team-12-components/">
   <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
@@ -85,11 +86,11 @@
         <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
           <button class="navbar-toggler sidebarButton" type="button" data-toggle="collapse" data-target="#left-nav-sidebar"
             aria-controls="left-nav-sidebar" aria-expanded="false" aria-label="Toggle navigation">
-            jj progress <span class="carrot-down">&#9660;</span>
+            jj link <span class="carrot-down">&#9660;</span>
           </button>
           <ul class="sidebar-left collapse navbar-collapse" id="left-nav-sidebar">
             <li class="sideL nav-item">
-              <a class="nav-link " href="en/docs/overview.html">
+              <a class="nav-link" href="en/docs/overview.html">
                 <span>
                   Overview
                   
@@ -99,12 +100,28 @@
               </a>
             </li>
             <li class="sideL nav-item">
-              <a class="nav-link " href="en/docs/tutorials.html">
+              <a class="nav-link " >
                 <span>
                   Tutorials
                   
                   
                   
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
+                href="en/docs/guides/tut_getting_started.html">
+                <span>
+                  Getting-started
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
+                href="en/docs/guides/tut_vue.html">
+                <span>
+                  For Vue/React Developers
                 </span>
               </a>
             </li>
@@ -168,18 +185,10 @@
               </a>
             </li>
             <li class="sideL nav-item">
-              <a class="nav-link sidebar-subHeading "
+              <a class="nav-link sidebar-subHeading active"
                 href="en/docs/components/jj-link.html">
                 <span>
                   jj link
-                </span>
-              </a>
-            </li>
-            <li class="sideL nav-item">
-              <a class="nav-link sidebar-subHeading active"
-                href="en/docs/components/jj-progress.html">
-                <span>
-                  jj progress
                 </span>
               </a>
             </li>
@@ -208,16 +217,21 @@
             JJ Progress
           </h1>
           <p>
-            Highly customizable progress bar.
+            Highly customizable link component.
           </p>
           <div class="anchor" id="usage"></div>
           <h2>Basic usage</h2>
           <div class="demo-section">
             <div class="demo-entry">
-              <p>Default Settings</p>
-              <jj-progress></jj-progress>
-              <br/>
-              <pre class="prettyprint"><code class="language-html">&lt;jj-progress>&lt;/jj-progress></code></pre>
+              <p>Default</p>
+              <jj-link id = 'link' href="https://element.eleme.io" type = "default" >default</jj-link>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-link href="https://element.eleme.io" type = "default">&lt;/jj-link></code></pre>
+            </div>
+            <div class="demo-entry">
+              <p>Success</p>
+              <jj-link href="https://element.eleme.io" type = "success" >success</jj-link>
+              <pre
+                class="prettyprint"><code class="language-html">&lt;jj-link href="https://element.eleme.io" type = "success">&lt;/jj-link></code></pre>
             </div>
             <div class="demo-entry">
               <p>Customized Percentage, Stroke-width, and Colors</p>
@@ -309,39 +323,32 @@
           "Default": " 6"
           },
           {
-          "Attribute Name": "text-inside",
-          "Description": " whether to place the percentage inside progress bar",
-          "Type": "string",
-          "Accepted Values": " /",
-          "Default": " false"
-          },
-          {
-          "Attribute Name": "status",
-          "Description": " the current status of progress bar",
+          "Attribute Name": "type",
+          "Description": " link type",
           "Type": " string",
           "Accepted Values": "success/exception/warning",
           "Default": " /"
           },
           {
-          "Attribute Name": "color",
-          "Description": " background color of progress bar",
+          "Attribute Name": "underline",
+          "Description": " underline the link text",
           "Type": " string",
           "Accepted Values": " /",
-          "Default": " &#x27;&#x27;"
-          },
-          {
-          "Attribute Name": "width",
-          "Description": " the canvas width of circle progress bar",
-          "Type": " number",
-          "Accepted Values": " /",
-          "Default": " 126"
+          "Default": " false"
           },
           {
           "Attribute Name": "show-text",
           "Description": " whether to show percentage",
           "Type": " boolean",
           "Accepted Values": " /",
-          "Default": " true"
+          "Default": " false"
+          },
+          {
+          "Attribute Name": "icon",
+          "Description": " icon class name",
+          "Type": " string",
+          "Accepted Values": " /",
+          "Default": " /"
           },
           {
           "Attribute Name": "",
@@ -487,6 +494,7 @@
     <script
       src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-input-number/jj-input-number.js"></script>
     <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-slider/jj-slider.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-link/jj-link.js"></script>
     
     <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
     
