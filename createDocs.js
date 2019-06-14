@@ -9,7 +9,7 @@ const lineByLine = require('n-readlines');
 //name and the filename
 const guides = [
     ['Getting-started', 'tut_getting_started'],
-    ['For Vue Developers', 'tut_vue']
+    ['For Vue/React Developers', 'tut_vue']
 ]
 
 

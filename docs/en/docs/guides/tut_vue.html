@@ -10,8 +10,8 @@
   <meta name="theme-color" content="#7da3ef">
   <title>Jay Jay Docs | Web Component Documentation</title>
   <!-- Core CSS -->
-  <base href="https://ucsd-cse112.github.io/team-12-components/">
-  <base href="https://ucsd-cse112.github.io/team-12-components/">
+  <base href="/docs/">
+  <base href="/docs/">
   <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
   <link rel="icon" href="resources/images/JJ_favicon_16.png" type="png" sizes="16x16">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -86,7 +86,7 @@
         <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
           <button class="navbar-toggler sidebarButton" type="button" data-toggle="collapse" data-target="#left-nav-sidebar"
             aria-controls="left-nav-sidebar" aria-expanded="false" aria-label="Toggle navigation">
-            For Vue Developers <span class="carrot-down">&#9660;</span>
+            For Vue/React Developers <span class="carrot-down">&#9660;</span>
           </button>
           <ul class="sidebar-left collapse navbar-collapse" id="left-nav-sidebar">
             <li class="sideL nav-item">
@@ -121,7 +121,7 @@
               <a class="nav-link sidebar-subHeading active"
                 href="en/docs/guides/tut_vue.html">
                 <span>
-                  For Vue Developers
+                  For Vue/React Developers
                 </span>
               </a>
             </li>
@@ -205,7 +205,7 @@
         <!-- Middle Content -->
         <div class="col-md-8 col-sm-12 content">
           <div class="anchor" id="getting-started"></div>
-          <h1>Getting Started for Vue developers</h1>
+          <h1>Getting Started for Vue or React Developers</h1>
           <p>
             Using our components in your existing Vue application is very
             easy. All you need to do is to enable our components either
@@ -216,17 +216,28 @@
             application we have created a demo Vue project which uses
             JJ-components below.
           </p>
-          <a href="https://github.com/yiy142/jayjay-vue">https://github.com/yiy142/jayjay-vue</a>.
-          <div class="anchor" id="demo"></div>
-          <h2>
-            Demo
+          <h2 id="vue-demo">
+            Vue Demo
           </h2>
+          <a href="https://github.com/yiy142/jayjay-vue">https://github.com/yiy142/jayjay-vue</a>.
           <p>
             The main points to recognize is that in out demo Vue project we
             use our CDN. In <code>jayjay-vue/public/index.html</code> we
             include the CDN to the JJ-components we wanted to import. This
             enables the entire application to use our components which can be
-            seen in <code> jayjay-vue/src/components/HelloWorld.vue </code>
+            seen in <code>jayjay-vue/src/components/HelloWorld.vue</code>.
+          </p>
+
+          <h2 id="react-demo">
+            React Demo
+          </h2>
+          <a href="https://github.com/rkeng/jj-react-demo">https://github.com/rkeng/jj-react-demo</a>.
+          <p>
+            The main points to recognize is that in out demo Vue project we
+            use our CDN. In <code>jj-react-demo/public/index.html</code> we
+            include the CDN to the JJ-components we wanted to import. This
+            enables the entire application to use our components which can be
+            seen in <code>jj-react-demo/src/App.js</code>.
           </p>
       </div>
 
@@ -235,15 +246,20 @@
         <nav id="contentHeadings" class="sidebar-right">
           <ul class="nav nav-pills flex-column">
               <li class="sideR nav-item">
-                <a class="nav-link" href="#jj-slider" data-target="#getting-started">
+                <a class="nav-link" href="#getting-started" data-target="#getting-started">
                   Getting Started
                 </a>
               </li>
               <li class="sideR nav-item">
-                <a class="nav-link" href="#first-component" data-target="#demo">
-                  Demo
+                <a class="nav-link" href="#vue-demo" data-target="#vue-demo">
+                  Vue Demo
                 </a>
-            </li>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#react-demo" data-target="#react-demo">
+                  React Demo
+                </a>
+              </li>
             </ul>
           </nav>
           <!-- End Right Sidebar -->

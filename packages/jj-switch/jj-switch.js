@@ -4,7 +4,7 @@
  * @attribute value / v-model, binding value	number,	boolean/ string/ number,
  * /, /
  * @attribute disabled,	whether switch is disabled,	boolean, /, false
- * @attribute width, width of Switch number, /, 40
+ * @attribute width, width of Switch number, /, /, 40
  * @attribute active-icon-class, class name of the icon displayed when in on
  * state overrides active-text, string, /, /
  * @attribute inactive-icon-class, class name of the icon displayed when in off
@@ -26,11 +26,15 @@
  */
 
 // define the css for this component.
-const jjSwitch = () => {
-  const template = document.createElement('template');
-  template.innerHTML = `
+const jjSwitchTemplate = document.createElement('template');
+jjSwitchTemplate.innerHTML = `
   <style>
   @import url("https://unpkg.com/element-ui/lib/theme-chalk/switch.css");
+
+    .el-switch {
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
 
     .switch {
       position: relative;
@@ -136,244 +140,256 @@ const jjSwitch = () => {
       transform: translateX(38px);
     }
   </style>
-  <div role="switch" id="container" class="el-switch">
+  <div role="switch" aria-checked="true" class="el-switch">
     <span id="inactiveText" class='text'></span>
       <label class="switch">
-      <input type="checkbox">
+      <input id="myinput" type="checkbox" checked>
       <span id="slider" class="slider round"></span>
       </label>
     <span id="activeText" class='text'></span>
   </div>
   `;
 
-  class JJSwitch extends HTMLElement {
-    static get observedAttributes() {
-      return [
-        'value', 'disabled', 'active-value', 'inactive-value', 'active-color',
-        'inactive-color', 'active-text', 'inactive-text', 'size', 'round'
-      ];
-    }
-
-    constructor() {
-      super();
-      this.root = this.attachShadow({mode : 'open'});
-      this.root.appendChild(template.content.cloneNode(true));
-
-      // define the elements.
-      this.label = this.root.querySelector('label');
-      this.input = this.root.querySelector('input');
-      this.slider = this.root.querySelector('#slider');
-      this.sliderBall = this.root.querySelector('#slider', ':before');
-      this.activeText = this.root.querySelector('#activeText');
-      this.inactiveText = this.root.querySelector('#inactiveText');
-      this.container = this.root.querySelector('#container');
-
-      // Bind "this" to functions to reserve context
-      this.onSwitchClick = this.onSwitchClick.bind(this);
-    }
-
-    connectedCallback() {
-      if (this.hasAttribute('active-color')) {
-        this.activeColor = this.getAttribute('active-color');
-        if (this.input.checked) {
-          this.slider.style.background = this.activeColor;
-          this.activeText.classList.add('text-active');
-        }
-      } else {
-        this.activeColor = '#409eff';
-      }
-
-      if (this.hasAttribute('inactive-color')) {
-        this.inactiveColor = this.getAttribute('inactive-color');
-        if (!this.input.checked) {
-          this.slider.style.background = this.inactiveColor;
-          this.inactiveText.classList.add('text-active');
-        }
-      } else {
-        this.inactiveColor = '#dcdfe6';
-      }
-
-      if (this.hasAttribute('active-text')) {
-        this.activeText.innerHTML = this.getAttribute('active-text');
-      }
-
-      if (this.hasAttribute('inactive-text')) {
-        this.inactiveText.innerHTML = this.getAttribute('inactive-text');
-      }
-
-      if (this.hasAttribute('disabled')) {
-        if (this.getAttribute('disabled') == 'true') {
-          this.container.classList.add('disabled');
-        } else {
-          this.container.classList.remove('disabled');
-        }
-      }
-
-      if (this.hasAttribute('active-value')) {
-        this.activeValue = this.getAttribute('active-value');
-      } else {
-        this.activeValue = true;
-      }
-
-      if (this.hasAttribute('inactive-value')) {
-        this.inactiveValue = this.getAttribute('inactive-value');
-      } else {
-        this.inactiveValue = false;
-      }
-
-      if (this.hasAttribute('name')) {
-        this.name = this.getAttribute('name');
-      } else {
-        this.name = 'jj-switch';
-      }
-
-      if (this.hasAttribute('round')) {
-        if (this.getAttribute('round') == 'false') {
-          console.log(this.getAttribute('round'));
-          this.slider.classList.remove('round');
-        } else {
-          console.log("else " + this.getAttribute('round'));
-          this.slider.classList.add('round');
-        }
-      }
-
-      if (this.hasAttribute('value')) {
-        this.value = this.getAttribute('value');
-        if (this.getAttribute('value') == 'true') {
-          this.input.checked = true;
-          this.onSwitchClick();
-        }
-      } else {
-        if (this.input.checked) {
-          this.value = this.activeValue;
-        } else {
-          this.value = this.inactiveValue;
-        }
-      }
-
-      if (this.hasAttribute('size')) {
-        var size = this.getAttribute('size');
-        if (size == 'small') {
-          this.slider.classList.add('small');
-          this.label.style.width = '40px';
-          this.label.style.height = '18px';
-        } else if (size == 'large') {
-          this.slider.classList.add('large');
-          this.label.style.width = '70px';
-          this.label.style.height = '32px';
-        }
-      }
-
-      // add event listeners
-      this.input.addEventListener('click', this.onSwitchClick);
-    }
-
-    attributeChangedCallback(attrName, oldValue, newValue) {
-      switch (attrName) {
-
-      case 'round':
-        if (this.slider.classList.contains('round')) {
-          this.slider.classList.remove('round');
-        } else {
-          this.slider.classList.add('round');
-        }
-        break;
-
-      case 'disabled':
-        if (this.container.classList.contains('disabled')) {
-          this.container.classList.remove('disabled');
-        } else {
-          this.container.classList.add('disabled');
-        }
-        break;
-
-      case 'inactive-text':
-        this.inactiveText.innerHTML = newValue;
-        break;
-
-      case 'inactive-color':
-        this.inactiveColor = newValue;
-        if (!this.input.checked) {
-          this.slider.style.background = newValue;
-        }
-        break;
-
-      case 'inactive-value':
-        this.inactiveValue = newValue;
-        break;
-
-      case 'active-text':
-        this.activeText.innerHTML = newValue;
-        break;
-
-      case 'active-color':
-        this.activeColor = newValue;
-        if (this.input.checked) {
-          this.slider.style.background = newValue;
-        }
-        break;
-
-      case 'active-value':
-        this.activeValue = newValue;
-        break;
-
-      default:
-        break;
-      }
-    }
-
-    onSwitchClick() {
-      if (this.input.checked) {
-        // change the slider color
-        this.slider.style.background = this.activeColor;
-
-        // highlight the text if there is any
-        this.activeText.classList.add('text-active');
-        this.inactiveText.classList.remove('text-active');
-
-        // change the value
-        this.value = this.activeValue;
-        console.log("switch click checked " + this.value);
-      } else {
-        // change the slider color
-        this.slider.style.background = this.inactiveColor;
-
-        // highlight the text if there is any
-        this.activeText.classList.remove('text-active');
-        this.inactiveText.classList.add('text-active');
-
-        // change the value
-        this.value = this.inactiveValue;
-        console.log("switch click not checked " + this.value);
-      }
-    }
-
-    // Getters
-    get value() { return (this.getAttribute('value') == 'true'); }
-    get active_value() { return this.getAttribute('active-value'); }
-    get inactive_value() { return this.getAttribute('inactive-value'); }
-    get active_text() { return this.getAttribute('active-text'); }
-    get inactive_text() { return this.getAttribute('inactive-text'); }
-    get active_color() { return this.getAttribute('active-color'); }
-    get inactive_color() { return this.getAttribute('inactive-color'); }
-    get size() { return this.getAttribute('size'); }
-
-    // Setters
-    set value(newValue) { this.setAttribute('value', newValue); }
-    set active_value(newValue) { this.setAttribute('active-value', newValue); }
-    set inactive_value(newValue) {
-      this.setAttribute('inactive-value', newValue);
-    }
-    set active_text(newValue) { this.setAttribute('active-text', newValue); }
-    set inactive_text(newValue) {
-      this.setAttribute('inactive-text', newValue);
-    }
-    set active_color(newValue) { this.setAttribute('active-color', newValue); }
-    set inactive_color(newValue) {
-      this.setAttribute('inactive-color', newValue);
-    }
-    set size(newValue) { this.setAttribute('size', newValue); }
-    set name(newValue) { this.setAttribute('name', newValue); }
+class JJSwitch extends HTMLElement {
+  static get observedAttributes() {
+    return [
+      'value', 'disabled', 'active-value', 'inactive-value', 'active-color',
+      'inactive-color', 'active-text', 'inactive-text', 'size', 'round'
+    ];
   }
-  customElements.define('jj-switch', JJSwitch);
-} jjSwitch();
+
+  constructor() {
+    super();
+
+    this.root = this.attachShadow({mode : 'open'});
+    this.root.appendChild(jjSwitchTemplate.content.cloneNode(true));
+
+    // define the elements.
+    this.switchContainer = this.root.querySelector('.el-switch');
+    this.label = this.root.querySelector('label');
+    this.input = this.root.querySelector('input');
+    this.slider = this.root.querySelector('#slider');
+    this.sliderBall = this.root.querySelector('#slider', ':before');
+    this.activeText = this.root.querySelector('#activeText');
+    this.inactiveText = this.root.querySelector('#inactiveText');
+
+    // Bind "this" to functions to reserve context
+    this.onSwitchClick = this.onSwitchClick.bind(this);
+  }
+
+  // Helper function for updating background- and text colors
+  updateColors() {
+    if (this.value == 'true') {
+      this.slider.style.background = this.active_color;
+      this.activeText.classList.add('text-active');
+      this.inactiveText.classList.remove('text-active');
+    } else {
+      this.slider.style.background = this.inactive_color;
+      this.activeText.classList.remove('text-active');
+      this.inactiveText.classList.add('text-active');
+    }
+  }
+
+  updateSwitch() {
+    if (this.value == 'true') {
+    } else {
+    }
+  }
+
+  connectedCallback() {
+
+    // add event listeners
+    this.switchContainer.addEventListener('click', this.onSwitchClick);
+
+    if (!this.hasAttribute('active-color')) {
+      this.active_color = "#409eff";
+    }
+
+    if (!this.hasAttribute('inactive-color')) {
+      this.inactive_color = "#dcdfe6";
+    }
+
+    if (!this.hasAttribute('active-text')) {
+      this.active_text = "Active Text";
+    }
+
+    if (!this.hasAttribute('inactive-text')) {
+      this.inactive_text = "Inactive Text";
+    }
+
+    if (!this.hasAttribute('active-value')) {
+      this.activeValue = true;
+    }
+
+    if (!this.hasAttribute('inactive-value')) {
+      this.inactiveValue = false;
+    }
+
+    if (!this.hasAttribute('name')) {
+      this.name = 'jj-switch';
+    }
+
+    if (!this.hasAttribute('round')) {
+      this.slider.classList.add('round');
+    }
+
+    if (!this.hasAttribute('value')) {
+      this.value = true;
+    } else {
+      if (this.getAttribute('value') == 'true') {
+        this.switchContainer.classList.add('is-checked');
+        this.switchContainer.setAttribute("aria-checked", true)
+      } else {
+        this.input.removeAttribute('checked');
+        this.switchContainer.classList.remove('is-checked');
+        this.switchContainer.setAttribute("aria-checked", false)
+      }
+    }
+
+    if (!this.hasAttribute('size')) {
+      this.size = 'large';
+    }
+
+    // Call the default slider color
+    this.updateColors();
+  }
+
+  // Listen for changed attributes
+  attributeChangedCallback(attrName, oldValue, newValue) {
+    switch (attrName) {
+
+    case 'active-color':
+      if (this.value == 'true') {
+        this.slider.style.background = newValue;
+      }
+      break;
+
+    case 'inactive-color':
+      if (this.value == 'false') {
+        this.slider.style.background = newValue;
+      }
+      break;
+
+    case 'active-text':
+      this.activeText.innerHTML = newValue;
+      break;
+
+    case 'inactive-text':
+      this.inactiveText.innerHTML = newValue;
+      break;
+
+    case 'disabled':
+      if (this.switchContainer.classList.contains('disabled')) {
+        this.switchContainer.classList.remove('disabled');
+      } else {
+        this.switchContainer.classList.add('disabled');
+      }
+      break;
+
+    case 'active-value':
+      break;
+
+    case 'inactive-value':
+      break;
+
+    case 'name':
+      break;
+
+    case 'round':
+      if (this.slider.classList.contains('round')) {
+        this.slider.classList.remove('round');
+      } else {
+        this.slider.classList.add('round');
+      }
+      break;
+
+    case 'value':
+      this.updateColors();
+      this.updateSwitch();
+      break;
+
+    case 'size':
+      if (this.size == 'small') {
+        this.slider.classList.remove('large');
+        this.slider.classList.add('small');
+        this.label.style.width = '40px';
+        this.label.style.height = '18px';
+      } else if (this.size == 'large') {
+        this.slider.classList.remove('small');
+        this.slider.classList.add('large');
+        this.label.style.width = '70px';
+        this.label.style.height = '32px';
+      }
+      break;
+
+    default:
+      break;
+    }
+  }
+
+  onSwitchClick() {
+    if (this.input.checked) {
+      // change the slider color
+      this.slider.style.background = this.activeColor;
+
+      // highlight the text if there is any
+      this.activeText.classList.add('text-active');
+      this.inactiveText.classList.remove('text-active');
+
+      // change the value
+      this.value = this.activeValue;
+
+      // Add is-checked to the class name and set aria-checked to true
+      this.switchContainer.classList.add('is-checked');
+      this.switchContainer.setAttribute("aria-checked", true);
+
+      this.input.setAttribute('checked', "");
+
+    } else {
+
+      // change the slider color
+      this.slider.style.background = this.inactiveColor;
+
+      // highlight the text if there is any
+      this.activeText.classList.remove('text-active');
+      this.inactiveText.classList.add('text-active');
+
+      // change the value
+      this.value = this.inactiveValue;
+
+      // Remove is-checked from the class name and set aria-checked to false
+      this.switchContainer.classList.remove('is-checked');
+      this.switchContainer.setAttribute("aria-checked", false);
+
+      this.input.removeAttribute('checked');
+    }
+  }
+
+  // Getters
+  get value() { return this.getAttribute('value'); }
+  get active_value() { return this.getAttribute('active-value'); }
+  get inactive_value() { return this.getAttribute('inactive-value'); }
+  get active_text() { return this.getAttribute('active-text'); }
+  get inactive_text() { return this.getAttribute('inactive-text'); }
+  get active_color() { return this.getAttribute('active-color'); }
+  get inactive_color() { return this.getAttribute('inactive-color'); }
+  get size() { return this.getAttribute('size'); }
+  get disabled() { return this.getAttribute('disabled'); }
+
+  // Setters
+  set value(newValue) { this.setAttribute('value', newValue); }
+  set active_value(newValue) { this.setAttribute('active-value', newValue); }
+  set inactive_value(newValue) {
+    this.setAttribute('inactive-value', newValue);
+  }
+  set active_text(newValue) { this.setAttribute('active-text', newValue); }
+  set inactive_text(newValue) { this.setAttribute('inactive-text', newValue); }
+  set active_color(newValue) { this.setAttribute('active-color', newValue); }
+  set inactive_color(newValue) {
+    this.setAttribute('inactive-color', newValue);
+  }
+  set size(newValue) { this.setAttribute('size', newValue); }
+  set name(newValue) { this.setAttribute('name', newValue); }
+  set disabled(newValue) { this.setAttribute('disabled', newValue); }
+}
+customElements.define('jj-switch', JJSwitch);
