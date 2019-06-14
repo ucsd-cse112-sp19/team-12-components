@@ -1,5 +1,5 @@
 /**
- * @attribute_name jj link
+ * @component_name jj link
  * @attribute href, string, the address of our link to, /
  * @attribute type, link type, string, default/primary/success/warning/danger, /
  * @attribute underline, underline the link text, /, false
