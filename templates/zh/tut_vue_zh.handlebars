@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description"
+    content="A web component with a Customizable number input field with increse and decrease buttons.">
+  <meta name="author" content="Jay Jay Web Components">
+  <meta name="theme-color" content="#7da3ef">
+  <title>Jay Jay Docs | Web Component Documentation</title>
+  <!-- Core CSS -->
+  <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
+  <link rel="icon" href="resources/images/JJ_favicon_16.png" type="png" sizes="16x16">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="resources/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+</head>
+
+<body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
+  <div class="container">
+    <!-- Navbar Partial-->
+    {{> navbar lang='zh' PageName='Get Started'}}
+
+    <div class="container page">
+      <div class="row">
+        <!-- Left sidebar: -->
+        <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
+          {{> left_sidebar lang='zh' PageName='tut_vue' }}
+        </div>
+
+        <!-- Middle Content -->
+        <div class="col-md-8 col-sm-12 content">
+          <div class="anchor" id="getting-started"></div>
+          <h1>Vue 或者 React 开发者</h1>
+          <p>
+            在现有的Vue应用程序中使用我们的组件非常方便简单。您需要做的就是启用我们的组件，通过我们的npm包或只是使用我们的CDN链接。
+          </p>
+          <p> 
+            如果您想在现有的Vue中使用我们的组件，我们创建了一个演示Vue项目，如下。
+          </p>
+          <h2 id="vue-demo">
+            Vue Demo
+          </h2>
+          <a href="https://github.com/yiy142/jayjay-vue">https://github.com/yiy142/jayjay-vue</a>.
+          <p>
+            在Vue演示中我们使用了CDN。 <code>jayjay-vue/public/index.html</code> 我们
+            将CDN包含在我们想要导入的JJ组件中。这个
+            使整个应用程序能够使用我们的组件。
+            <code>jayjay-vue/src/components/HelloWorld.vue</code>.
+          </p>
+
+          <h2 id="react-demo">
+            React Demo
+          </h2>
+          <a href="https://github.com/rkeng/jj-react-demo">https://github.com/rkeng/jj-react-demo</a>.
+          <p>
+            在React演示中我们使用了CDN。<code>jj-react-demo/public/index.html</code> 我们
+            将CDN包含在我们想要导入的JJ组件中。这个
+            使整个应用程序能够使用我们的组件。<code>jj-react-demo/src/App.js</code>.
+          </p>
+      </div>
+
+      <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
+        <!-- Right Sidebar -->
+        <nav id="contentHeadings" class="sidebar-right">
+          <ul class="nav nav-pills flex-column">
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#getting-started" data-target="#getting-started">
+                  Getting Started
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#vue-demo" data-target="#vue-demo">
+                  Vue Demo
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#react-demo" data-target="#react-demo">
+                  React Demo
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Right Sidebar -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    {{> footer lang='zh'}}
+
+    <!-- JS files at bottom of page -->
+    {{> scripts}}
+
+  </div>
+</body>
+
+</html>

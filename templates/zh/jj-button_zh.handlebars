@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description"
+    content="A web component with a Customizable number input field with increse and decrease buttons.">
+  <meta name="author" content="Jay Jay Web Components">
+  <meta name="theme-color" content="#7da3ef">
+  <title>JJ Button | Web Component Documentation</title>
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../../resources/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
+  <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-button/jj-button.js"></script>
+
+  <style>
+    jj-checkbox {
+      --box-color: var(--white);
+      --box-color-checked: var(--primary);
+      --box-border-color: var(--secondary);
+      --box-border-color-checked: var(--primary);
+      --box-border-color-hover: var(--primary);
+      --label-color: var(--secondary);
+      --label-color-checked: var(--primary);
+      --label-font: var(--font-family-sans-serif);
+    }
+  </style>
+</head>
+
+<body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
+  <div class="container">
+    <!-- Navbar Partial-->
+    {{> navbar lang='zh' PageName='Docs'}}
+
+    <div class="container page">
+      <div class="row">
+        <!-- Left sidebar: -->
+        <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
+          {{> left_sidebar lang='zh' PageName='jj button' }}
+        </div>
+
+        <!-- Middle Content -->
+        <div class="col-md-8 col-sm-12 content">
+          <h1 id="description">
+            JJ 按钮
+          </h1>
+          <p>
+            简易可定制按钮
+          </p>
+          <h2 id="usage">基础使用</h2>
+          <div class="demo-section">
+
+            <p>
+              <h3>默认</h3>
+              <jj-button>Default</jj-button>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-button>Default&lt;/jj-button></code></pre>
+            </p>
+
+            <p>
+              <h3>纯按钮</h3>
+              <jj-button plain='true'>Plain</jj-button>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-button plain='true'>Default&lt;/jj-button></code></pre>
+            </p>
+
+            <p>
+              <h3>圆形按钮</h3>
+              <jj-button round='true'>Default</jj-button>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-button round='true'>Round&lt;/jj-button></code></pre>
+            </p>
+
+            <p>
+              <h3>按钮类型</h3>
+              <jj-button type='primary'>Primary</jj-button>
+               <jj-button type='success'>Success</jj-button>
+               <jj-button type='warning'>Warning</jj-button>
+               <jj-button type='danger'>Danger</jj-button>
+               <jj-button type='info'>Info</jj-button>
+               <jj-button type='Text'>Text</jj-button>
+              <pre class="prettyprint">
+                <code class="language-html">
+                  &lt;jj-button type='Primary'>Default&lt;/jj-button>
+                  &lt;jj-button type='Success'>Default&lt;/jj-button>
+                  &lt;jj-button type='Warning'>Default&lt;/jj-button>
+                  &lt;jj-button type='Danger'>Default&lt;/jj-button>
+                  &lt;jj-button type='Info'>Default&lt;/jj-button>
+                  &lt;jj-button type='Text'>Default&lt;/jj-button>
+                </code>
+              </pre>
+            </p>
+
+
+            <p>
+              <h3>按钮类型</h3>
+              <jj-button size='mini'>Mini</jj-button>
+              <jj-button size='small'>Small</jj-button>
+              <jj-button size='medium'>Medium</jj-button>
+              <pre class="prettyprint">
+                <code class="language-html">
+                  &lt;jj-button size='mini'>Mini&lt;/jj-button>
+                  &lt;jj-button size='small'>Small&lt;/jj-button>
+                  &lt;jj-button size='medium'>Medium&lt;/jj-button>
+                </code>
+              </pre>
+            </p>
+
+
+            <p>
+              <h3>圆形按钮</h3>
+              <jj-button circle='true'>Circle</jj-button>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-button circle='true'>Circle&lt;/jj-button></code></pre>
+            </p>
+
+
+            <p>
+              <h3>关闭按钮</h3>
+              <jj-button disabled='true'>Disabled</jj-button>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-button disabled='true'>Disabled&lt;/jj-button></code></pre>
+            </p>
+            
+
+            <p>
+              <h3>Autofocus 按钮</h3>
+              <jj-button autofocus='true'>Autofocus</jj-button>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-button autofocus='true'>Autofocus&lt;/jj-button></code></pre>
+            </p>
+
+             <p>
+              <h3>Native-Type 按钮</h3>
+              <jj-button native-type='button'>Button</jj-button>
+              <jj-button native-type='submit'>Submit</jj-button>
+              <jj-button native-type='reset'>Reset</jj-button>
+              <pre class="prettyprint">
+                <code class="language-html">
+                  &lt;jj-button native-type='button'>Button&lt;/jj-button>
+                  &lt;jj-button native-type='submit'>Submit&lt;/jj-button>
+                  &lt;jj-button native-type='reset'>Reset&lt;/jj-button>
+                </code>
+              </pre>
+            </p>
+
+
+
+           
+           
+            
+          </div>
+
+          <h2 id='attributes'>Attributes</h2>
+          <!-- Attribute Table -->
+          <zing-grid caption="JJ Checkbox Attributes" layout="row" viewport-stop data='[
+            {{#each Attributes}} 
+          {
+          "Attribute Name": "{{this.AttributeName}}",
+          "Description": "{{this.AttributeDescription}}",
+          "Type": "{{this.AttributeType}}",
+          "Accepted Values": "{{this.AttributeAcceptedValues}}",
+          "Default": "{{this.AttributeDefault}}"
+          },
+            {{/each}}
+          {
+          "Attribute Name": "",
+          "Description": "",
+          "Type": "",
+          "Accepted Values": "",
+          "Default": ""
+          }
+          ]'>
+          </zing-grid>
+        </div>
+
+        <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
+          <!-- Right Sidebar -->
+          <nav id="contentHeadings" class="sidebar-right">
+            <ul class="nav nav-pills flex-column">
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#description" data-target="#description">
+                  Description
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#usage" data-target="#usage">
+                  Usage
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#attributes" data-target="#attributes">
+                  Attributes
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Right Sidebar -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    {{> footer lang='zh'}}
+
+    <!-- JS files at bottom of page -->
+    {{> scripts}}
+
+    <script>
+      let cb0 = document.querySelector("#cb0");
+      let cb1 = document.querySelector("#cb1");
+      let cb2 = document.querySelector("#cb2");
+      let cb3 = document.querySelector("#cb3");
+      let cb4 = document.querySelector("#cb4");
+
+      cb0.checked = false;
+      cb1.disabled = true;
+      cb2.disabled = true;
+      cb3.disabled = true;
+      cb4.disabled = true;
+
+      cb0.addEventListener("mousedown", () => {
+        if (!cb0.checked) {
+          cb1.disabled = true;
+          cb2.disabled = true;
+          cb3.disabled = true;
+          cb4.disabled = true;
+          // rename checkbox label
+          cb0.label = 'Do I like fruit?';
+        } else {
+          cb1.disabled = false;
+          cb2.disabled = false;
+          cb3.disabled = false;
+          cb4.disabled = false;
+          // rename checkbox label
+          cb0.label = 'Yes! I like fruit!';
+        }
+      });
+    </script>
+  </div>
+</body>
+
+</html>

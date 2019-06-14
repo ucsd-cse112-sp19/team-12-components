@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description"
+    content="A web component with a Customizable number input field with increse and decrease buttons.">
+  <meta name="author" content="Jay Jay Web Components">
+  <meta name="theme-color" content="#7da3ef">
+  <title>JJ Input Number | Web Component Documentation</title>
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../../resources/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
+  <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-checkbox/jj-checkbox.js"></script>
+
+  <style>
+    jj-checkbox {
+      --box-color: var(--white);
+      --box-color-checked: var(--primary);
+      --box-border-color: var(--secondary);
+      --box-border-color-checked: var(--primary);
+      --box-border-color-hover: var(--primary);
+      --label-color: var(--secondary);
+      --label-color-checked: var(--primary);
+      --label-font: var(--font-family-sans-serif);
+    }
+  </style>
+</head>
+
+<body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
+  <div class="container">
+    <!-- Navbar Partial-->
+    {{> navbar lang='zh' PageName='Docs'}}
+
+    <div class="container page">
+      <div class="row">
+        <!-- Left sidebar: -->
+        <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
+          {{> left_sidebar lang='zh' PageName='jj checkbox' }}
+        </div>
+
+        <!-- Middle Content -->
+        <div class="col-md-8 col-sm-12 content">
+          <h1 id="description">
+            JJ 单选框
+          </h1>
+          <p>
+            可定制单选框和单选裤组
+          </p>
+          <h2 id="usage">基础试用</h2>
+          <div class="demo-section">
+            <div class="demo-entry">
+              <p>默认</p>
+              <jj-checkbox></jj-checkbox>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-checkbox>&lt;/jj-checkbox></code></pre>
+            </div>
+            <div class="demo-entry">
+              <p>值和标签</p>
+              <jj-checkbox value="JayJay" label="This is JayJay"></jj-checkbox>
+              <pre
+                class="prettyprint"><code class="language-html">&lt;jj-checkbox value="JayJay" label="This is JayJay">&lt;/jj-checkbox></code></pre>
+            </div>
+            <div class="demo-entry">
+              <p>关闭单选框</p>
+              <jj-checkbox disabled></jj-checkbox>
+              <pre
+                class="prettyprint"><code class="language-html">&lt;jj-checkbox disabled>&lt;/jj-checkbox></code></pre>
+            </div>
+            <div class="demo-entry">
+              <p>选中单选框</p>
+              <jj-checkbox checked></jj-checkbox>
+              <pre
+                class="prettyprint"><code class="language-html">&lt;jj-checkbox checked>&lt;/jj-checkbox></code></pre>
+            </div>
+            <div class="demo-entry">
+              <p>单选框组</p>
+              <div class="container">
+                <jj-checkbox id="cb0" value="fruit" label="I like fruit!"></jj-checkbox>
+                <hr>
+                <jj-checkbox id="cb1" value="apple" label="Apple"></jj-checkbox>
+                <jj-checkbox id="cb2" value="banana" label="Banana"></jj-checkbox>
+                <jj-checkbox id="cb3" value="lemon" label="Lemon"></jj-checkbox>
+                <jj-checkbox id="cb4" value="grapefruit" label="Grapefruit"></jj-checkbox>
+              </div>
+              <pre class="prettyprint"><code class="language-html">
+   &lt;div class="container" style="margin-top: 100px;">
+      &lt;jj-checkbox id="cb0" value="fruit" label="I like fruit!">&lt;/jj-checkbox>
+      &lt;hr>
+      &lt;jj-checkbox id="cb1" value="apple" label="Apple">&lt;/jj-checkbox>
+      &lt;jj-checkbox id="cb2" value="banana" label="Banana">&lt;/jj-checkbox>
+      &lt;jj-checkbox id="cb3" value="lemon" label="Lemon">&lt;/jj-checkbox>
+      &lt;jj-checkbox id="cb4" value="grapefruit" label="Grapefruit">&lt;/jj-checkbox>
+   &lt;/div>
+
+   &lt;script>
+      let cb0 = document.querySelector("#cb0");
+      let cb1 = document.querySelector("#cb1");
+      let cb2 = document.querySelector("#cb2");
+      let cb3 = document.querySelector("#cb3");
+      let cb4 = document.querySelector("#cb4");
+
+      cb0.checked = false;
+      cb1.disabled = true;
+      cb2.disabled = true;
+      cb3.disabled = true;
+      cb4.disabled = true;
+
+      cb0.addEventListener("mousedown", () => {
+         if (!cb0.checked) {
+            cb1.disabled = true;
+            cb2.disabled = true;
+            cb3.disabled = true;
+            cb4.disabled = true;
+            // rename checkbox label
+            cb0.label = 'Do I like fruit?';
+         } else {
+            cb1.disabled = false;
+            cb2.disabled = false;
+            cb3.disabled = false;
+            cb4.disabled = false;
+            // rename checkbox label
+            cb0.label = 'Yes! I like fruit!';
+         }
+      });
+   &lt;/script>
+              </code></pre>
+            </div>
+          </div>
+
+          <h2 id='attributes'>属性</h2>
+          <!-- Attribute Table -->
+          <zing-grid caption="JJ Checkbox Attributes" layout="row" viewport-stop data='[
+            {{#each Attributes}} 
+          {
+          "Attribute Name": "{{this.AttributeName}}",
+          "Description": "{{this.AttributeDescription}}",
+          "Type": "{{this.AttributeType}}",
+          "Accepted Values": "{{this.AttributeAcceptedValues}}",
+          "Default": "{{this.AttributeDefault}}"
+          },
+            {{/each}}
+          {
+          "Attribute Name": "",
+          "Description": "",
+          "Type": "",
+          "Accepted Values": "",
+          "Default": ""
+          }
+          ]'>
+          </zing-grid>
+        </div>
+
+        <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
+          <!-- Right Sidebar -->
+          <nav id="contentHeadings" class="sidebar-right">
+            <ul class="nav nav-pills flex-column">
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#description" data-target="#description">
+                  描述
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#usage" data-target="#usage">
+                  使用
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#attributes" data-target="#attributes">
+                  属性
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Right Sidebar -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    {{> footer lang='zh'}}
+
+    <!-- JS files at bottom of page -->
+    {{> scripts}}
+
+    <script>
+      let cb0 = document.querySelector("#cb0");
+      let cb1 = document.querySelector("#cb1");
+      let cb2 = document.querySelector("#cb2");
+      let cb3 = document.querySelector("#cb3");
+      let cb4 = document.querySelector("#cb4");
+
+      cb0.checked = false;
+      cb1.disabled = true;
+      cb2.disabled = true;
+      cb3.disabled = true;
+      cb4.disabled = true;
+
+      cb0.addEventListener("mousedown", () => {
+        if (!cb0.checked) {
+          cb1.disabled = true;
+          cb2.disabled = true;
+          cb3.disabled = true;
+          cb4.disabled = true;
+          // rename checkbox label
+          cb0.label = 'Do I like fruit?';
+        } else {
+          cb1.disabled = false;
+          cb2.disabled = false;
+          cb3.disabled = false;
+          cb4.disabled = false;
+          // rename checkbox label
+          cb0.label = 'Yes! I like fruit!';
+        }
+      });
+    </script>
+  </div>
+</body>
+
+</html>

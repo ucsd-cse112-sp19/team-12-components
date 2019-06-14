@@ -1,34 +1,23 @@
 <!doctype html>
-<html lang="en">
+<html lang="zh">
 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description"
-    content="A web component with a Customizable number input field with increse and decrease buttons.">
+  <meta name="description" content="A web component that is a highly customizable link.">
   <meta name="author" content="Jay Jay Web Components">
   <meta name="theme-color" content="#7da3ef">
-  <title>JJ Button | Web Component Documentation</title>
+  <title>JJ Link | Web Component Documentation</title>
   <!-- Core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="../../../resources/css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
   <base href="https://ucsd-cse112.github.io/team-12-components/">
-  <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-button/jj-button.js"></script>
-
-  <style>
-    jj-checkbox {
-      --box-color: var(--white);
-      --box-color-checked: var(--primary);
-      --box-border-color: var(--secondary);
-      --box-border-color-checked: var(--primary);
-      --box-border-color-hover: var(--primary);
-      --label-color: var(--secondary);
-      --label-color-checked: var(--primary);
-      --label-font: var(--font-family-sans-serif);
-    }
-  </style>
+  <base href="https://ucsd-cse112.github.io/team-12-components/">
+  <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
+  <link rel="icon" href="resources/images/JJ_favicon_16.png" type="png" sizes="16x16">
 </head>
 
 <body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
@@ -36,7 +25,7 @@
     <!-- Navbar Partial-->
     <nav class="navbar navbar-dark fixed-top navbar-expand-lg">
       <div class="container">
-        <a class="navbar-brand" href="en/index.html"><img class="site-logo" src="resources/images/JayJay_logo.png"></a>
+        <a class="navbar-brand" href="zh/index.html"><img class="site-logo" src="resources/images/JayJay_logo.png"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#top-nav-menu" aria-controls="top-nav-menu" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -45,23 +34,23 @@
           <ul class="navbar-nav mr-auto">
             <li class="nav-item">
               <a class="topNav nav-link "
-                href="en/docs/guides/tut_getting_started.html">Get Started
+                href="zh/docs/guides/tut_getting_started.html">入门
               </a>
             </li>
             <li class="nav-item">
-              <a class="topNav nav-link active" href="en/docs/overview.html">
-                Docs
+              <a class="topNav nav-link active" href="zh/docs/overview.html">
                 
                 
                 
+                文件
               </a>
             </li>
             <li class="nav-item">
-              <a class="topNav nav-link " href="en/team.html">
-                Team
+              <a class="topNav nav-link " href="zh/team.html">
                 
                 
                 
+                团队
               </a>
             </li>
           </ul>
@@ -70,14 +59,14 @@
             <li class="nav-item dropdown">
               <a class="topNav nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
-                Language
                 
                 
                 
+                语言
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item active" href="en/index.html">English</a>
-                <a class="dropdown-item " href="zh/index.html">中文</a>
+                <a class="dropdown-item " href="en/index.html">English</a>
+                <a class="dropdown-item active" href="zh/index.html">中文</a>
               </div>
             </li>
             <li class="nav-item">
@@ -94,16 +83,16 @@
         <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
           <button class="navbar-toggler sidebarButton" type="button" data-toggle="collapse" data-target="#left-nav-sidebar"
             aria-controls="left-nav-sidebar" aria-expanded="false" aria-label="Toggle navigation">
-            jj button <span class="carrot-down">&#9660;</span>
+            jj link <span class="carrot-down">&#9660;</span>
           </button>
           <ul class="sidebar-left collapse navbar-collapse" id="left-nav-sidebar">
             <li class="sideL nav-item">
-              <a class="nav-link " href="en/docs/overview.html">
+              <a class="nav-link " href="zh/docs/overview.html">
                 <span>
-                  Overview
                   
                   
                   
+                  概观
                 </span>
               </a>
             </li>
@@ -111,17 +100,17 @@
             <li class="sideL nav-item">
               <a class="nav-link " href="#">
                 <span>
-                  Tutorials
                   
                   
                   
+                  教程
                 </span>
               </a>
             </li>
           
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading  "
-                href="en/docs/guides/tut_getting_started.html">
+                href="zh/docs/guides/tut_getting_started.html">
                 <span>
                   Getting-started
                 </span>
@@ -129,7 +118,7 @@
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading  "
-                href="en/docs/guides/tut_vue.html">
+                href="zh/docs/guides/tut_vue.html">
                 <span>
                   For Vue/React Developers
                 </span>
@@ -139,14 +128,14 @@
             <li class="sideL nav-item dropdown">
               <a class="nav-link " data-toggle="collapse"
                 href="#collapseVersions" data-target="#collapseVersions" aria-expanded="false" aria-controls="collapseVersions">
-                Releases
                 
                 
                 
+                发布
               </a>
               <div class="collapse" id="collapseVersions">
                 <a class="nav-link sidebar-subHeading "
-                  href="en/docs/releases.html#1.0.0">
+                  href="zh/docs/releases.html#1.0.0">
                   <span>
                     1.0.0
                   </span>
@@ -156,24 +145,24 @@
             <li class="sideL nav-item">
               <a class="nav-link " href="#">
                 <span>
-                  Components
                   
                   
                   
+                  组件
                 </span>
               </a>
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
-                href="en/docs/components/core-hello.html">
+                href="zh/docs/components/core-hello.html">
                 <span>
                   Core Hello
                 </span>
               </a>
             </li>
             <li class="sideL nav-item">
-              <a class="nav-link sidebar-subHeading active"
-                href="en/docs/components/jj-button.html">
+              <a class="nav-link sidebar-subHeading "
+                href="zh/docs/components/jj-button.html">
                 <span>
                   jj button
                 </span>
@@ -181,7 +170,7 @@
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
-                href="en/docs/components/jj-checkbox.html">
+                href="zh/docs/components/jj-checkbox.html">
                 <span>
                   jj checkbox
                 </span>
@@ -189,15 +178,15 @@
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
-                href="en/docs/components/jj-input-number.html">
+                href="zh/docs/components/jj-input-number.html">
                 <span>
                   jj input number
                 </span>
               </a>
             </li>
             <li class="sideL nav-item">
-              <a class="nav-link sidebar-subHeading "
-                href="en/docs/components/jj-link.html">
+              <a class="nav-link sidebar-subHeading active"
+                href="zh/docs/components/jj-link.html">
                 <span>
                   jj link
                 </span>
@@ -205,7 +194,7 @@
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
-                href="en/docs/components/jj-slider.html">
+                href="zh/docs/components/jj-slider.html">
                 <span>
                   jj slider
                 </span>
@@ -213,7 +202,7 @@
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
-                href="en/docs/components/jj-switch.html">
+                href="zh/docs/components/jj-switch.html">
                 <span>
                   jj switch
                 </span>
@@ -223,158 +212,80 @@
 
         <!-- Middle Content -->
         <div class="col-md-8 col-sm-12 content">
-          <h1 id="description">
-            JJ Button
+          <div class="anchor" id="description"></div>
+          <h1>
+            JJ 链接
           </h1>
           <p>
-            A simple customizable button.
+            可定制链接组件.
           </p>
-          <h2 id="usage">Basic usage</h2>
+          <div class="anchor" id="usage"></div>
+          <h2>基础使用</h2>
           <div class="demo-section">
-
-            <p>
-              <h3>Default Button</h3>
-              <jj-button>Default</jj-button>
-              <pre class="prettyprint"><code class="language-html">&lt;jj-button>Default&lt;/jj-button></code></pre>
-            </p>
-
-            <p>
-              <h3>Plain Button</h3>
-              <jj-button plain='true'>Plain</jj-button>
-              <pre class="prettyprint"><code class="language-html">&lt;jj-button plain='true'>Default&lt;/jj-button></code></pre>
-            </p>
-
-            <p>
-              <h3>Round Button</h3>
-              <jj-button round='true'>Default</jj-button>
-              <pre class="prettyprint"><code class="language-html">&lt;jj-button round='true'>Round&lt;/jj-button></code></pre>
-            </p>
-
-            <p>
-              <h3>Type Button</h3>
-              <jj-button type='primary'>Primary</jj-button>
-               <jj-button type='success'>Success</jj-button>
-               <jj-button type='warning'>Warning</jj-button>
-               <jj-button type='danger'>Danger</jj-button>
-               <jj-button type='info'>Info</jj-button>
-               <jj-button type='Text'>Text</jj-button>
-              <pre class="prettyprint">
-                <code class="language-html">
-                  &lt;jj-button type='Primary'>Default&lt;/jj-button>
-                  &lt;jj-button type='Success'>Default&lt;/jj-button>
-                  &lt;jj-button type='Warning'>Default&lt;/jj-button>
-                  &lt;jj-button type='Danger'>Default&lt;/jj-button>
-                  &lt;jj-button type='Info'>Default&lt;/jj-button>
-                  &lt;jj-button type='Text'>Default&lt;/jj-button>
-                </code>
-              </pre>
-            </p>
-
-
-            <p>
-              <h3>Type Button</h3>
-              <jj-button size='mini'>Mini</jj-button>
-              <jj-button size='small'>Small</jj-button>
-              <jj-button size='medium'>Medium</jj-button>
-              <pre class="prettyprint">
-                <code class="language-html">
-                  &lt;jj-button size='mini'>Mini&lt;/jj-button>
-                  &lt;jj-button size='small'>Small&lt;/jj-button>
-                  &lt;jj-button size='medium'>Medium&lt;/jj-button>
-                </code>
-              </pre>
-            </p>
-
-
-            <p>
-              <h3>Circle Button</h3>
-              <jj-button circle='true'>Circle</jj-button>
-              <pre class="prettyprint"><code class="language-html">&lt;jj-button circle='true'>Circle&lt;/jj-button></code></pre>
-            </p>
-
-
-            <p>
-              <h3>Disabled Button</h3>
-              <jj-button disabled='true'>Disabled</jj-button>
-              <pre class="prettyprint"><code class="language-html">&lt;jj-button disabled='true'>Disabled&lt;/jj-button></code></pre>
-            </p>
-            
-
-            <p>
-              <h3>Autofocus Button</h3>
-              <jj-button autofocus='true'>Autofocus</jj-button>
-              <pre class="prettyprint"><code class="language-html">&lt;jj-button autofocus='true'>Autofocus&lt;/jj-button></code></pre>
-            </p>
-
-             <p>
-              <h3>Native-Type Button</h3>
-              <jj-button native-type='button'>Button</jj-button>
-              <jj-button native-type='submit'>Submit</jj-button>
-              <jj-button native-type='reset'>Reset</jj-button>
-              <pre class="prettyprint">
-                <code class="language-html">
-                  &lt;jj-button native-type='button'>Button&lt;/jj-button>
-                  &lt;jj-button native-type='submit'>Submit&lt;/jj-button>
-                  &lt;jj-button native-type='reset'>Reset&lt;/jj-button>
-                </code>
-              </pre>
-            </p>
-
-
-
-           
-           
-            
+            <div class="demo-entry">
+              <p>默认</p>
+              <jj-link id = 'link' href="https://element.eleme.io" type = "default" >default</jj-link>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-link href="https://element.eleme.io" type = "default">&lt;/jj-link></code></pre>
+            </div>
+            <div class="demo-entry">
+              <p>Success</p>
+              <jj-link href="https://element.eleme.io" type = "success" >success</jj-link>
+              <pre
+                class="prettyprint"><code class="language-html">&lt;jj-link href="https://element.eleme.io" type = "success">&lt;/jj-link></code></pre>
+            </div>
+            <div class="demo-entry">
+              <p>Danger</p>
+              <jj-link href="https://element.eleme.io" type = "danger">danger</jj-link>
+              <pre
+                class="prettyprint"><code class="language-html">&lt;jj-link href="https://element.eleme.io" type = "danger">&lt;/jj-link></code></pre>
+            </div>
+            <div class="demo-entry">
+              <p>Disabled</p>
+              <jj-link id = 'link' href="https://element.eleme.io" type = "default" disabled = 'true'>disabled</jj-link>
+              <pre
+                class="prettyprint"><code class="language-html">&lt;jj-link href="https://element.eleme.io" type = "default" disabled = 'true'>&lt;/jj-link></code></pre>
+            </div>
+            <div class="demo-entry">
+              <p>Underline</p>
+              <jj-link id = 'link' href="https://element.eleme.io" type = "default" underline = 'true'>underline</jj-link>
+              <pre
+                class="prettyprint"><code class="language-html">&lt;jj-link 'link' href="https://element.eleme.io" type = "default" underline = 'true'>&lt;/jj-link></code></pre>
+            </div>
+            <div class="demo-entry">
+              <p>info</p>
+              <jj-link id = 'link' href="https://element.eleme.io" type = "info">info</jj-link>
+              <pre
+                class="prettyprint"><code class="language-html">&lt;jj-link 'link' href="https://element.eleme.io" type = "default" underline = 'true'>&lt;/jj-link></code></pre>
+            </div>
           </div>
-
-          <h2 id='attributes'>Attributes</h2>
+          <div class="anchor" id="attributes"></div>
+          <h2>属性</h2>
           <!-- Attribute Table -->
-          <zing-grid caption="JJ Checkbox Attributes" layout="row" viewport-stop data='[
+          <zing-grid caption="JJ Link Attributes" layout="row" viewport-stop data='[
           {
-          "Attribute Name": "size",
-          "Description": " button size",
+          "Attribute Name": "href",
+          "Description": " the address of our link to",
           "Type": " string",
-          "Accepted Values": " medium/small/mini",
+          "Accepted Values": " /",
           "Default": " /"
           },
           {
           "Attribute Name": "type",
-          "Description": " button type",
+          "Description": " link type",
           "Type": " string",
-          "Accepted Values": " primary/success/warning/danger/info/ text",
+          "Accepted Values": " default/primary/success/warning/danger",
           "Default": " /"
           },
           {
-          "Attribute Name": "plain",
-          "Description": " determine whether it&#x27;s a plain button",
-          "Type": " boolean",
-          "Accepted Values": " /",
-          "Default": " false"
-          },
-          {
-          "Attribute Name": "round",
-          "Description": " determine whether it&#x27;s a round button",
-          "Type": " boolean",
-          "Accepted Values": " /",
-          "Default": " false"
-          },
-          {
-          "Attribute Name": "circle",
-          "Description": " determine whether it&#x27;s a circle button",
-          "Type": " boolean",
-          "Accepted Values": " /",
-          "Default": " false"
-          },
-          {
-          "Attribute Name": "loading",
-          "Description": " determine whether it&#x27;s loading",
-          "Type": " boolean",
+          "Attribute Name": "underline",
+          "Description": " underline the link text",
+          "Type": " string",
           "Accepted Values": " /",
           "Default": " false"
           },
           {
           "Attribute Name": "disabled",
-          "Description": " disable the button",
+          "Description": " disable the link",
           "Type": " boolean",
           "Accepted Values": " /",
           "Default": " false"
@@ -387,20 +298,6 @@
           "Default": " /"
           },
           {
-          "Attribute Name": "autofocus",
-          "Description": " same as native button&#x27;s autofocus",
-          "Type": " boolean",
-          "Accepted Values": " /",
-          "Default": " false"
-          },
-          {
-          "Attribute Name": "native-type",
-          "Description": " same as native button&#x27;s type",
-          "Type": " string",
-          "Accepted Values": "button/submit/reset",
-          "Default": " button"
-          },
-          {
           "Attribute Name": "",
           "Description": "",
           "Type": "",
@@ -409,6 +306,7 @@
           }
           ]'>
           </zing-grid>
+
         </div>
 
         <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
@@ -444,7 +342,7 @@
     
           <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-pull-9 col-lg-pull-9">
             <div class="footer-section-content phone-email-footer">
-              <a href='en/index.html'>
+              <a href='zh/index.html'>
                 <img src="resources/images/JayJay_logo.png" class="img-responsive">
               </a>
             </div>
@@ -453,23 +351,23 @@
           <div class="col-xs-12 col-sm-12 col-md-2 col-lg-3 col-md-push-3 col-lg-push-3">
             <ul class="footer-section-content">
               <h3>Quick Links</h3>
-              <li><a href="en/index.html">
+              <li><a href="zh/index.html">
+                  
+                  
+                  
                   Home
-                  
-                  
-                  
                 </a></li>
-              <li><a href="en/docs/tutorials.html">
-                  Get Started
+              <li><a href="zh/docs/tutorials.html">
                   
                   
                   
+                  入门
                 </a></li>
-              <li><a href="en/team.html">
-                  Team
+              <li><a href="zh/team.html">
                   
                   
                   
+                  团队
                 </a></li>
             </ul>
           </div>
@@ -477,23 +375,23 @@
           <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-push-3 col-lg-push-3">
             <ul class="footer-section-content mid-footer-col">
               <h3>Docs</h3>
-              <li><a href="en/docs/tutorials.html">
-                  Get Started
+              <li><a href="zh/docs/tutorials.html">
                   
                   
                   
+                  入门
                 </a></li>
-              <li><a href="en/docs/guides/tut_vue.html">
+              <li><a href="zh/docs/guides/tut_vue.html">
+                  
+                  
+                  
                   For React and Vue Devs
-                  
-                  
-                  
                 </a></li>
-              <li><a href="en/docs/releases.html">
-                  Releases
+              <li><a href="zh/docs/releases.html">
                   
                   
                   
+                  Get Started
                 </a></li>
             </ul>
           </div>
@@ -501,29 +399,29 @@
           <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 col-md-push-3 col-lg-push-3 fmcol">
             <ul class="footer-section-content">
               <h3>Components</h3>
-              <li><a href="en/docs/components/jj-input-number.html">
+              <li><a href="zh/docs/components/jj-input-number.html">
+                  
+                  
+                  
                   JJ Input Number
-                  
-                  
-                  
                 </a></li>
-              <li><a href="en/docs/components/jj-slider.html">
+              <li><a href="zh/docs/components/jj-slider.html">
+                  
+                  
+                  
                   JJ Slider
-                  
-                  
-                  
                 </a></li>
-              <li><a href="en/docs/components/jj-switch.html">
+              <li><a href="zh/docs/components/jj-switch.html">
+                  
+                  
+                  
                   JJ Switch
-                  
-                  
-                  
                 </a></li>
-              <li><a href="en/docs/overview.html">
+              <li><a href="zh/docs/overview.html">
+                  
+                  
+                  
                   View All
-                  
-                  
-                  
                 </a></li>
             </ul>
           </div>
@@ -571,37 +469,6 @@
           });
         });
         
-      });
-    </script>
-    <script>
-      let cb0 = document.querySelector("#cb0");
-      let cb1 = document.querySelector("#cb1");
-      let cb2 = document.querySelector("#cb2");
-      let cb3 = document.querySelector("#cb3");
-      let cb4 = document.querySelector("#cb4");
-
-      cb0.checked = false;
-      cb1.disabled = true;
-      cb2.disabled = true;
-      cb3.disabled = true;
-      cb4.disabled = true;
-
-      cb0.addEventListener("mousedown", () => {
-        if (!cb0.checked) {
-          cb1.disabled = true;
-          cb2.disabled = true;
-          cb3.disabled = true;
-          cb4.disabled = true;
-          // rename checkbox label
-          cb0.label = 'Do I like fruit?';
-        } else {
-          cb1.disabled = false;
-          cb2.disabled = false;
-          cb3.disabled = false;
-          cb4.disabled = false;
-          // rename checkbox label
-          cb0.label = 'Yes! I like fruit!';
-        }
       });
     </script>
   </div>
