@@ -8,14 +8,14 @@
     content="A web component with a Customizable number input field with increse and decrease buttons.">
   <meta name="author" content="Jay Jay Web Components">
   <meta name="theme-color" content="#7da3ef">
-  <title>JJ Input Number | Web Component Documentation</title>
+  <title>JJ Button | Web Component Documentation</title>
   <!-- Core CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="../../../resources/css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
   <base href="{{#getUrlBase}}{{/getUrlBase}}">
-  <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-checkbox/jj-checkbox.js"></script>
+  <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-button/jj-button.js"></script>
 
   <style>
     jj-checkbox {
@@ -40,95 +40,113 @@
       <div class="row">
         <!-- Left sidebar: -->
         <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
-          {{> left_sidebar lang='en' PageName='jj checkbox' }}
+          {{> left_sidebar lang='en' PageName='jj button' }}
         </div>
 
         <!-- Middle Content -->
         <div class="col-md-8 col-sm-12 content">
           <h1 id="description">
-            JJ Checkbox
+            JJ Button
           </h1>
           <p>
-            Customizable checkbox with checkbox group functionalities.
+            A simple customizable button.
           </p>
           <h2 id="usage">Basic usage</h2>
           <div class="demo-section">
-            <div class="demo-entry">
-              <p>Default Checkbox</p>
-              <jj-checkbox></jj-checkbox>
-              <pre class="prettyprint"><code class="language-html">&lt;jj-checkbox>&lt;/jj-checkbox></code></pre>
-            </div>
-            <div class="demo-entry">
-              <p>Value and Label</p>
-              <jj-checkbox value="JayJay" label="This is JayJay"></jj-checkbox>
-              <pre
-                class="prettyprint"><code class="language-html">&lt;jj-checkbox value="JayJay" label="This is JayJay">&lt;/jj-checkbox></code></pre>
-            </div>
-            <div class="demo-entry">
-              <p>Disabled Checkbox</p>
-              <jj-checkbox disabled></jj-checkbox>
-              <pre
-                class="prettyprint"><code class="language-html">&lt;jj-checkbox disabled>&lt;/jj-checkbox></code></pre>
-            </div>
-            <div class="demo-entry">
-              <p>Checked Checkbox</p>
-              <jj-checkbox checked></jj-checkbox>
-              <pre
-                class="prettyprint"><code class="language-html">&lt;jj-checkbox checked>&lt;/jj-checkbox></code></pre>
-            </div>
-            <div class="demo-entry">
-              <p>Checkbox Group</p>
-              <div class="container">
-                <jj-checkbox id="cb0" value="fruit" label="I like fruit!"></jj-checkbox>
-                <hr>
-                <jj-checkbox id="cb1" value="apple" label="Apple"></jj-checkbox>
-                <jj-checkbox id="cb2" value="banana" label="Banana"></jj-checkbox>
-                <jj-checkbox id="cb3" value="lemon" label="Lemon"></jj-checkbox>
-                <jj-checkbox id="cb4" value="grapefruit" label="Grapefruit"></jj-checkbox>
-              </div>
-              <pre class="prettyprint"><code class="language-html">
-   &lt;div class="container" style="margin-top: 100px;">
-      &lt;jj-checkbox id="cb0" value="fruit" label="I like fruit!">&lt;/jj-checkbox>
-      &lt;hr>
-      &lt;jj-checkbox id="cb1" value="apple" label="Apple">&lt;/jj-checkbox>
-      &lt;jj-checkbox id="cb2" value="banana" label="Banana">&lt;/jj-checkbox>
-      &lt;jj-checkbox id="cb3" value="lemon" label="Lemon">&lt;/jj-checkbox>
-      &lt;jj-checkbox id="cb4" value="grapefruit" label="Grapefruit">&lt;/jj-checkbox>
-   &lt;/div>
 
-   &lt;script>
-      let cb0 = document.querySelector("#cb0");
-      let cb1 = document.querySelector("#cb1");
-      let cb2 = document.querySelector("#cb2");
-      let cb3 = document.querySelector("#cb3");
-      let cb4 = document.querySelector("#cb4");
+            <p>
+              <h3>Default Button</h3>
+              <jj-button>Default</jj-button>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-button>Default&lt;/jj-button></code></pre>
+            </p>
 
-      cb0.checked = false;
-      cb1.disabled = true;
-      cb2.disabled = true;
-      cb3.disabled = true;
-      cb4.disabled = true;
+            <p>
+              <h3>Plain Button</h3>
+              <jj-button plain='true'>Plain</jj-button>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-button plain='true'>Default&lt;/jj-button></code></pre>
+            </p>
 
-      cb0.addEventListener("mousedown", () => {
-         if (!cb0.checked) {
-            cb1.disabled = true;
-            cb2.disabled = true;
-            cb3.disabled = true;
-            cb4.disabled = true;
-            // rename checkbox label
-            cb0.label = 'Do I like fruit?';
-         } else {
-            cb1.disabled = false;
-            cb2.disabled = false;
-            cb3.disabled = false;
-            cb4.disabled = false;
-            // rename checkbox label
-            cb0.label = 'Yes! I like fruit!';
-         }
-      });
-   &lt;/script>
-              </code></pre>
-            </div>
+            <p>
+              <h3>Round Button</h3>
+              <jj-button round='true'>Default</jj-button>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-button round='true'>Round&lt;/jj-button></code></pre>
+            </p>
+
+            <p>
+              <h3>Type Button</h3>
+              <jj-button type='primary'>Primary</jj-button>
+               <jj-button type='success'>Success</jj-button>
+               <jj-button type='warning'>Warning</jj-button>
+               <jj-button type='danger'>Danger</jj-button>
+               <jj-button type='info'>Info</jj-button>
+               <jj-button type='Text'>Text</jj-button>
+              <pre class="prettyprint">
+                <code class="language-html">
+                  &lt;jj-button type='Primary'>Default&lt;/jj-button>
+                  &lt;jj-button type='Success'>Default&lt;/jj-button>
+                  &lt;jj-button type='Warning'>Default&lt;/jj-button>
+                  &lt;jj-button type='Danger'>Default&lt;/jj-button>
+                  &lt;jj-button type='Info'>Default&lt;/jj-button>
+                  &lt;jj-button type='Text'>Default&lt;/jj-button>
+                </code>
+              </pre>
+            </p>
+
+
+            <p>
+              <h3>Type Button</h3>
+              <jj-button size='mini'>Mini</jj-button>
+              <jj-button size='small'>Small</jj-button>
+              <jj-button size='medium'>Medium</jj-button>
+              <pre class="prettyprint">
+                <code class="language-html">
+                  &lt;jj-button size='mini'>Mini&lt;/jj-button>
+                  &lt;jj-button size='small'>Small&lt;/jj-button>
+                  &lt;jj-button size='medium'>Medium&lt;/jj-button>
+                </code>
+              </pre>
+            </p>
+
+
+            <p>
+              <h3>Circle Button</h3>
+              <jj-button circle='true'>Circle</jj-button>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-button circle='true'>Circle&lt;/jj-button></code></pre>
+            </p>
+
+
+            <p>
+              <h3>Disabled Button</h3>
+              <jj-button disabled='true'>Disabled</jj-button>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-button disabled='true'>Disabled&lt;/jj-button></code></pre>
+            </p>
+            
+
+            <p>
+              <h3>Autofocus Button</h3>
+              <jj-button autofocus='true'>Autofocus</jj-button>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-button autofocus='true'>Autofocus&lt;/jj-button></code></pre>
+            </p>
+
+             <p>
+              <h3>Native-Type Button</h3>
+              <jj-button native-type='button'>Button</jj-button>
+              <jj-button native-type='submit'>Submit</jj-button>
+              <jj-button native-type='reset'>Reset</jj-button>
+              <pre class="prettyprint">
+                <code class="language-html">
+                  &lt;jj-button native-type='button'>Button&lt;/jj-button>
+                  &lt;jj-button native-type='submit'>Submit&lt;/jj-button>
+                  &lt;jj-button native-type='reset'>Reset&lt;/jj-button>
+                </code>
+              </pre>
+            </p>
+
+
+
+           
+           
+            
           </div>
 
           <h2 id='attributes'>Attributes</h2>
