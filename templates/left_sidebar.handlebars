@@ -4,7 +4,7 @@
 </button>
 <ul class="sidebar-left collapse navbar-collapse" id="left-nav-sidebar">
   <li class="sideL nav-item">
-    <a class="nav-link" href="{{lang}}/docs/overview.html">
+    <a class="nav-link {{#ifEquals 'Overview' PageName}}active{{/ifEquals}}" href="{{lang}}/docs/overview.html">
       <span>
         {{#ifEquals 'en' lang}}Overview{{/ifEquals}}
         {{#ifEquals 'es' lang}}Visión general{{/ifEquals}}
@@ -13,19 +13,21 @@
       </span>
     </a>
   </li>
+  
   <li class="sideL nav-item">
-    <a class="nav-link {{#ifEquals 'Tutorials' PageName}}active{{/ifEquals}}" >
+    <a class="nav-link {{#ifEquals 'Components' PageName}}active{{/ifEquals}}" href="#">
       <span>
         {{#ifEquals 'en' lang}}Tutorials{{/ifEquals}}
-        {{#ifEquals 'es' lang}}Tutoriales{{/ifEquals}}
-        {{#ifEquals 'fr' lang}}Tutoriels{{/ifEquals}}
+        {{#ifEquals 'es' lang}}Tutorials{{/ifEquals}}
+        {{#ifEquals 'fr' lang}}Tutorials{{/ifEquals}}
         {{#ifEquals 'zh' lang}}教程{{/ifEquals}}
       </span>
     </a>
   </li>
+
   {{#each AllGuides}}
   <li class="sideL nav-item">
-    <a class="nav-link sidebar-subHeading {{#ifEquals this.[0] ../PageName}}active{{/ifEquals}}"
+    <a class="nav-link sidebar-subHeading {{#ifEquals this.[1] ../PageName}}active{{/ifEquals}} "
       href="{{../lang}}/docs/guides/{{this.[1]}}.html">
       <span>
         {{this.[0]}}
@@ -33,6 +35,7 @@
     </a>
   </li>
   {{/each}}
+
   <li class="sideL nav-item dropdown">
     <a class="nav-link {{#ifEquals 'Releases' PageName}}active{{/ifEquals}}" data-toggle="collapse"
       href="#collapseVersions" data-target="#collapseVersions" aria-expanded="false" aria-controls="collapseVersions">
