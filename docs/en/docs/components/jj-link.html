@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="A web component that provides a customizable text hyperlink.">
+  <meta name="description" content="A web component that is a highly customizable link.">
   <meta name="author" content="Jay Jay Web Components">
   <meta name="theme-color" content="#7da3ef">
   <title>JJ Link | Web Component Documentation</title>
@@ -13,8 +13,9 @@
     integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="../../../resources/css/main.css">
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
-  <base href="https://ucsd-cse112.github.io/team-12-components/">
-  <base href="https://ucsd-cse112.github.io/team-12-components/">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+  <base href="/docs/">
+  <base href="/docs/">
   <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
   <link rel="icon" href="resources/images/JJ_favicon_16.png" type="png" sizes="16x16">
 </head>
@@ -88,7 +89,7 @@
           </button>
           <ul class="sidebar-left collapse navbar-collapse" id="left-nav-sidebar">
             <li class="sideL nav-item">
-              <a class="nav-link " href="en/docs/overview.html">
+              <a class="nav-link" href="en/docs/overview.html">
                 <span>
                   Overview
                   
@@ -98,12 +99,28 @@
               </a>
             </li>
             <li class="sideL nav-item">
-              <a class="nav-link " href="en/docs/tutorials.html">
+              <a class="nav-link " >
                 <span>
                   Tutorials
                   
                   
                   
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
+                href="en/docs/guides/tut_getting_started.html">
+                <span>
+                  Getting-started
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
+                href="en/docs/guides/tut_vue.html">
+                <span>
+                  For Vue/React Developers
                 </span>
               </a>
             </li>
@@ -144,6 +161,14 @@
             </li>
             <li class="sideL nav-item">
               <a class="nav-link sidebar-subHeading "
+                href="en/docs/components/jj-button.html">
+                <span>
+                  jj button
+                </span>
+              </a>
+            </li>
+            <li class="sideL nav-item">
+              <a class="nav-link sidebar-subHeading "
                 href="en/docs/components/jj-checkbox.html">
                 <span>
                   jj checkbox
@@ -159,15 +184,15 @@
               </a>
             </li>
             <li class="sideL nav-item">
-              <a class="nav-link sidebar-subHeading "
-                href="en/docs/components/jj-progress.html">
+              <a class="nav-link sidebar-subHeading active"
+                href="en/docs/components/jj-link.html">
                 <span>
-                  jj progress
+                  jj link
                 </span>
               </a>
             </li>
             <li class="sideL nav-item">
-              <a class="nav-link sidebar-subHeading"
+              <a class="nav-link sidebar-subHeading "
                 href="en/docs/components/jj-slider.html">
                 <span>
                   jj slider
@@ -182,14 +207,6 @@
                 </span>
               </a>
             </li>
-            <li class="sideL nav-item">
-              <a class="nav-link sidebar-subHeading active"
-                href="en/docs/components/jj-link.html">
-                <span>
-                  jj link
-                </span>
-              </a>
-            </li>
           </ul>        </div>
 
         <!-- Middle Content -->
@@ -199,7 +216,7 @@
             JJ Link
           </h1>
           <p>
-            Customizable text hyperlink.
+            Highly customizable link component.
           </p>
           <div class="anchor" id="usage"></div>
           <h2>Basic usage</h2>
@@ -207,7 +224,7 @@
             <div class="demo-entry">
               <p>Default</p>
               <jj-link id = 'link' href="https://element.eleme.io" type = "default" >default</jj-link>
-              <pre class="prettyprint"><code class="language-html">&lt;jj-link href="https://element.eleme.io" type = "default"/jj-link></code></pre>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-link href="https://element.eleme.io" type = "default">&lt;/jj-link></code></pre>
             </div>
             <div class="demo-entry">
               <p>Success</p>
@@ -253,7 +270,7 @@
           },
           {
           "Attribute Name": "type",
-          "Description": " the link type",
+          "Description": " link type",
           "Type": " string",
           "Accepted Values": " default/primary/success/warning/danger",
           "Default": " /"
@@ -261,16 +278,23 @@
           {
           "Attribute Name": "underline",
           "Description": " underline the link text",
-          "Type": " boolean",
-          "Accepted Values": " false/true",
+          "Type": " string",
+          "Accepted Values": " /",
           "Default": " false"
           },
           {
           "Attribute Name": "disabled",
           "Description": " disable the link",
           "Type": " boolean",
-          "Accepted Values": " false/true",
+          "Accepted Values": " /",
           "Default": " false"
+          },
+          {
+          "Attribute Name": "icon",
+          "Description": " icon class name",
+          "Type": " string",
+          "Accepted Values": " /",
+          "Default": " /"
           },
           {
           "Attribute Name": "",
@@ -414,7 +438,10 @@
     <!-- JS files at bottom of page -->
     <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
     <script
-      src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-link/jj-link.js"></script>    
+      src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-input-number/jj-input-number.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-slider/jj-slider.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-link/jj-link.js"></script>
+    
     <script src="https://cdn.zinggrid.com/zinggrid.min.js" defer></script>
     
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -424,8 +451,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
       integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     
-    <script src="../../../packages/jj-link/jj-link.js" crossorigin="anonymous"></script>
-
     <script>
       jQuery(window).scroll(function () {
         //hide left fixed sidebar if current screen reached footer
