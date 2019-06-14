@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="A web component that is a highly customizable to show progress.">
+  <meta name="author" content="Jay Jay Web Components">
+  <meta name="theme-color" content="#7da3ef">
+  <title>JJ Progress | Web Component Documentation</title>
+  <!-- Core CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="../../../resources/css/main.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,300,400&display=swap" rel="stylesheet">
+  <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <base href="{{#getUrlBase}}{{/getUrlBase}}">
+  <link rel="icon" href="resources/images/JJ_favicon_32.png" type="png" sizes="32x32">
+  <link rel="icon" href="resources/images/JJ_favicon_16.png" type="png" sizes="16x16">
+  <script src="https://cdn.jsdelivr.net/gh/ucsd-cse112/team-12-components@latest/packages/jj-progress/jj-progress.js"></script>
+</head>
+
+<body data-spy="scroll" data-target="#contentHeadings" data-offset="140">
+  <div class="container">
+    <!-- Navbar Partial-->
+    {{> navbar lang='en' PageName='Docs'}}
+
+    <div class="container page">
+      <div class="row">
+        <!-- Left sidebar: -->
+        <div class="col-md-2 col-sm-12 side-bar-show sidebar-left-wrapper">
+          {{> left_sidebar lang='en' PageName='jj progress' }}
+        </div>
+
+        <!-- Middle Content -->
+        <div class="col-md-8 col-sm-12 content">
+          <div class="anchor" id="description"></div>
+          <h1>
+            JJ Progress
+          </h1>
+          <p>
+            Highly customizable progress bar.
+          </p>
+          <div class="anchor" id="usage"></div>
+          <h2>Basic usage</h2>
+          <div class="demo-section">
+            <div class="demo-entry">
+              <p>Default Settings</p>
+              <jj-progress></jj-progress>
+              <br/>
+              <pre class="prettyprint"><code class="language-html">&lt;jj-progress>&lt;/jj-progress></code></pre>
+            </div>
+            <div class="demo-entry">
+              <p>Customized Percentage, Stroke-width, and Colors</p>
+              <jj-progress percentage=20 color="#909398"></jj-progress>
+              <br/>
+              <jj-progress percentage=40 stroke-width=12 color="#7ebe50"	></jj-progress>
+              <br/>
+              <jj-progress percentage=60 stroke-width=18 color="#dda450"></jj-progress>
+              <br/>
+              <jj-progress percentage=80 stroke-width=24 color="#e57470"></jj-progress>
+              <br/>
+              <jj-progress percentage=100 stroke-width=30></jj-progress>
+              <br/>
+              <pre class="prettyprint"><code class="language-html">
+&lt;jj-progress percentage=20  stroke-width=6  color="#909398">&lt;/jj-progress>
+&lt;jj-progress percentage=40  stroke-width=12 color="#7ebe50">&lt;/jj-progress>
+&lt;jj-progress percentage=60  stroke-width=18 color="#dda450">&lt;/jj-progress>
+&lt;jj-progress percentage=80  stroke-width=24 color="#e57470">&lt;/jj-progress>
+&lt;jj-progress percentage=100 stroke-width=30>&lt;/jj-progress>
+                </code></pre>
+                <br/>
+            </div>
+            <div class="demo-entry">
+              <p>Update Percentage</p>
+              <jj-progress id="jj1"></jj-progress>
+              <button id="decBtn" class="btn btn-outline-primary">-</button>
+              <button id="incBtn" class="btn btn-outline-primary">+</button>
+              <br/>
+              <br/>
+              <script>
+                document.getElementById("decBtn").addEventListener("click", function(){
+                  console.log("in dec button");
+                  let el = document.getElementById('jj1');
+                  console.log(el.getAttribute('percentage'));
+                  el.setAttribute('percentage', el.getAttribute('percentage') - 10);
+                });
+
+                document.getElementById("incBtn").addEventListener("click", function(){
+                  console.log("in inc button");
+                  let el = document.getElementById('jj1');
+                  console.log(el.getAttribute('percentage'));
+                  el.setAttribute('percentage', Number(el.getAttribute('percentage')) + 10);
+                });
+              </script>
+              <pre class="prettyprint"><code class="language-html">
+&lt;jj-progress id="jj1">&lt;jj-progress>
+&lt;button id="decBtn" class="btn btn-light">-&lt;button>
+&lt;button id="incBtn" class="btn btn-light">+&lt;button>
+&lt;script>
+    document.getElementById("decBtn").addEventListener("click", function(){
+        console.log("in dec button");
+        let el = document.getElementById('jj1');
+        console.log(el.getAttribute('percentage'));
+        el.setAttribute('percentage', el.getAttribute('percentage') - 10);
+    });
+    document.getElementById("incBtn").addEventListener("click", function(){
+        console.log("in inc button");
+        let el = document.getElementById('jj1');
+        console.log(el.getAttribute('percentage'));
+        el.setAttribute('percentage', Number(el.getAttribute('percentage')) + 10);
+    });
+&lt;/script>
+              </code></pre>
+            </div>
+          </div>
+          <div class="anchor" id="attributes"></div>
+          <h2>Attributes</h2>
+          <!-- Attribute Table -->
+          <zing-grid caption="JJ Progress Attributes" layout="row" viewport-stop data='[
+           {{#each Attributes}} 
+          {
+          "Attribute Name": "{{this.AttributeName}}",
+          "Description": "{{this.AttributeDescription}}",
+          "Type": "{{this.AttributeType}}",
+          "Accepted Values": "{{this.AttributeAcceptedValues}}",
+          "Default": "{{this.AttributeDefault}}"
+          },
+           {{/each}}
+          {
+          "Attribute Name": "",
+          "Description": "",
+          "Type": "",
+          "Accepted Values": "",
+          "Default": ""
+          }
+          ]'>
+          </zing-grid>
+
+        </div>
+
+        <div class="col-md-2 col-sm-12 sidebar-right-wrapper">
+          <!-- Right Sidebar -->
+          <nav id="contentHeadings" class="sidebar-right">
+            <ul class="nav nav-pills flex-column">
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#description" data-target="#description">
+                  Description
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#usage" data-target="#usage">
+                  Usage
+                </a>
+              </li>
+              <li class="sideR nav-item">
+                <a class="nav-link" href="#attributes" data-target="#attributes">
+                  Attributes
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <!-- End Right Sidebar -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    {{> footer lang='en'}}
+
+    <!-- JS files at bottom of page -->
+    {{> scripts}}
+
+  </div>
+</body>
+
+</html>
