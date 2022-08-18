@@ -30,7 +30,7 @@ describe('jj-input-number with defined [min, max, value, precision, step]', func
   before(function() {
     // runs before all tests in this block
     //place component into DOM, get the element by id
-    compHTML = `<jj-input-number id="jj1" min=0 max=8 value=1 precision=2 step=0.5></jj-input-number>`;
+    compHTML = `<jj-input-number id="jj1" min=0 max=8 value=1 precision=2 step=0.5 size="large" placeholder="test"></jj-input-number>`;
     document.body.insertAdjacentHTML('afterbegin',compHTML);
     compEl = document.getElementById('jj1');
   });
@@ -184,6 +184,28 @@ describe('jj-input-number with defined [min, max, value, precision, step]', func
    } else {
        compEl.setAttribute('disabled', savedDisabledValue);
    }
+ });
+
+ it("Test size attribute", async () => {
+   let value = compEl.getAttribute("size");
+   assert.equal(value, "large");
+ });
+
+ it("Test placeholder", async () =>{
+   let value = compEl.getAttribute("placeholder");
+   assert.equal(value, "test"); 
+ });
+
+ it("Test on hover for increment button", async () => {
+  let incButton = document.getElementById('jj1').shadowRoot.getElementById("incrementBtn");
+  triggerMouseEvent(incButton, 'mouseover');
+  assert.equal(incButton.classList.contains("color-blue"), true);
+ });
+
+ it("Test on hover for decrement button", async () => {
+  let decButton = document.getElementById('jj1').shadowRoot.getElementById("decrementBtn");
+  triggerMouseEvent(decButton, 'mouseover');
+  assert.equal(decButton.classList.contains("color-blue"), true);
  });
     //etc..
 });
